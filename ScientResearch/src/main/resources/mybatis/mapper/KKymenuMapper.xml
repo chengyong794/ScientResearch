@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chengyong.mapper.KKymenuMapper">
+  <resultMap id="BaseResultMap" type="com.chengyong.entity.KKymenu">
+    <id column="M_ID" jdbcType="DECIMAL" property="mId" />
+    <result column="M_NAME" jdbcType="VARCHAR" property="mName" />
+    <result column="M_DESC" jdbcType="VARCHAR" property="mDesc" />
+    <result column="M_URL" jdbcType="VARCHAR" property="mUrl" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    M_ID, M_NAME, M_DESC, M_URL
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from K_KYMENU
+    where M_ID = #{mId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from K_KYMENU
+    where M_ID = #{mId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.chengyong.entity.KKymenu">
+    insert into K_KYMENU (M_ID, M_NAME, M_DESC, 
+      M_URL)
+    values (#{mId,jdbcType=DECIMAL}, #{mName,jdbcType=VARCHAR}, #{mDesc,jdbcType=VARCHAR}, 
+      #{mUrl,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chengyong.entity.KKymenu">
+    insert into K_KYMENU
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="mId != null">
+        M_ID,
+      </if>
+      <if test="mName != null">
+        M_NAME,
+      </if>
+      <if test="mDesc != null">
+        M_DESC,
+      </if>
+      <if test="mUrl != null">
+        M_URL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="mId != null">
+        #{mId,jdbcType=DECIMAL},
+      </if>
+      <if test="mName != null">
+        #{mName,jdbcType=VARCHAR},
+      </if>
+      <if test="mDesc != null">
+        #{mDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="mUrl != null">
+        #{mUrl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chengyong.entity.KKymenu">
+    update K_KYMENU
+    <set>
+      <if test="mName != null">
+        M_NAME = #{mName,jdbcType=VARCHAR},
+      </if>
+      <if test="mDesc != null">
+        M_DESC = #{mDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="mUrl != null">
+        M_URL = #{mUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where M_ID = #{mId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chengyong.entity.KKymenu">
+    update K_KYMENU
+    set M_NAME = #{mName,jdbcType=VARCHAR},
+      M_DESC = #{mDesc,jdbcType=VARCHAR},
+      M_URL = #{mUrl,jdbcType=VARCHAR}
+    where M_ID = #{mId,jdbcType=DECIMAL}
+  </update>
+</mapper>

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chengyong.mapper.KPatentMapper">
+  <resultMap id="BaseResultMap" type="com.chengyong.entity.KPatent">
+    <id column="ZID" jdbcType="DECIMAL" property="zid" />
+    <result column="ZNAME" jdbcType="VARCHAR" property="zname" />
+    <result column="PJOB" jdbcType="VARCHAR" property="pjob" />
+    <result column="ZDEPT" jdbcType="VARCHAR" property="zdept" />
+    <result column="PATENTNAME" jdbcType="VARCHAR" property="patentname" />
+    <result column="ZTYPE" jdbcType="VARCHAR" property="ztype" />
+    <result column="ZRANID" jdbcType="VARCHAR" property="zranid" />
+    <result column="ZSTATE" jdbcType="VARCHAR" property="zstate" />
+    <result column="ZNUM" jdbcType="VARCHAR" property="znum" />
+    <result column="ZDATE" jdbcType="TIMESTAMP" property="zdate" />
+    <result column="ZAWARD" jdbcType="VARCHAR" property="zaward" />
+    <result column="ZOTHERS" jdbcType="VARCHAR" property="zothers" />
+    <result column="ZSCORE" jdbcType="VARCHAR" property="zscore" />
+    <result column="ZREMARKS" jdbcType="VARCHAR" property="zremarks" />
+    <result column="ZSECOND" jdbcType="VARCHAR" property="zsecond" />
+    <result column="ZTHIRD" jdbcType="VARCHAR" property="zthird" />
+    <result column="ZACHNUM" jdbcType="VARCHAR" property="zachnum" />
+    <result column="ZMEMBERS" jdbcType="VARCHAR" property="zmembers" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ZID, ZNAME, PJOB, ZDEPT, PATENTNAME, ZTYPE, ZRANID, ZSTATE, ZNUM, ZDATE, ZAWARD, 
+    ZOTHERS, ZSCORE, ZREMARKS, ZSECOND, ZTHIRD, ZACHNUM, ZMEMBERS
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from K_PATENT
+    where ZID = #{zid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from K_PATENT
+    where ZID = #{zid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.chengyong.entity.KPatent">
+    insert into K_PATENT (ZID, ZNAME, PJOB, 
+      ZDEPT, PATENTNAME, ZTYPE, 
+      ZRANID, ZSTATE, ZNUM, 
+      ZDATE, ZAWARD, ZOTHERS, 
+      ZSCORE, ZREMARKS, ZSECOND, 
+      ZTHIRD, ZACHNUM, ZMEMBERS
+      )
+    values (#{zid,jdbcType=DECIMAL}, #{zname,jdbcType=VARCHAR}, #{pjob,jdbcType=VARCHAR}, 
+      #{zdept,jdbcType=VARCHAR}, #{patentname,jdbcType=VARCHAR}, #{ztype,jdbcType=VARCHAR}, 
+      #{zranid,jdbcType=VARCHAR}, #{zstate,jdbcType=VARCHAR}, #{znum,jdbcType=VARCHAR}, 
+      #{zdate,jdbcType=TIMESTAMP}, #{zaward,jdbcType=VARCHAR}, #{zothers,jdbcType=VARCHAR}, 
+      #{zscore,jdbcType=VARCHAR}, #{zremarks,jdbcType=VARCHAR}, #{zsecond,jdbcType=VARCHAR}, 
+      #{zthird,jdbcType=VARCHAR}, #{zachnum,jdbcType=VARCHAR}, #{zmembers,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.chengyong.entity.KPatent">
+    insert into K_PATENT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="zid != null">
+        ZID,
+      </if>
+      <if test="zname != null">
+        ZNAME,
+      </if>
+      <if test="pjob != null">
+        PJOB,
+      </if>
+      <if test="zdept != null">
+        ZDEPT,
+      </if>
+      <if test="patentname != null">
+        PATENTNAME,
+      </if>
+      <if test="ztype != null">
+        ZTYPE,
+      </if>
+      <if test="zranid != null">
+        ZRANID,
+      </if>
+      <if test="zstate != null">
+        ZSTATE,
+      </if>
+      <if test="znum != null">
+        ZNUM,
+      </if>
+      <if test="zdate != null">
+        ZDATE,
+      </if>
+      <if test="zaward != null">
+        ZAWARD,
+      </if>
+      <if test="zothers != null">
+        ZOTHERS,
+      </if>
+      <if test="zscore != null">
+        ZSCORE,
+      </if>
+      <if test="zremarks != null">
+        ZREMARKS,
+      </if>
+      <if test="zsecond != null">
+        ZSECOND,
+      </if>
+      <if test="zthird != null">
+        ZTHIRD,
+      </if>
+      <if test="zachnum != null">
+        ZACHNUM,
+      </if>
+      <if test="zmembers != null">
+        ZMEMBERS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="zid != null">
+        #{zid,jdbcType=DECIMAL},
+      </if>
+      <if test="zname != null">
+        #{zname,jdbcType=VARCHAR},
+      </if>
+      <if test="pjob != null">
+        #{pjob,jdbcType=VARCHAR},
+      </if>
+      <if test="zdept != null">
+        #{zdept,jdbcType=VARCHAR},
+      </if>
+      <if test="patentname != null">
+        #{patentname,jdbcType=VARCHAR},
+      </if>
+      <if test="ztype != null">
+        #{ztype,jdbcType=VARCHAR},
+      </if>
+      <if test="zranid != null">
+        #{zranid,jdbcType=VARCHAR},
+      </if>
+      <if test="zstate != null">
+        #{zstate,jdbcType=VARCHAR},
+      </if>
+      <if test="znum != null">
+        #{znum,jdbcType=VARCHAR},
+      </if>
+      <if test="zdate != null">
+        #{zdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zaward != null">
+        #{zaward,jdbcType=VARCHAR},
+      </if>
+      <if test="zothers != null">
+        #{zothers,jdbcType=VARCHAR},
+      </if>
+      <if test="zscore != null">
+        #{zscore,jdbcType=VARCHAR},
+      </if>
+      <if test="zremarks != null">
+        #{zremarks,jdbcType=VARCHAR},
+      </if>
+      <if test="zsecond != null">
+        #{zsecond,jdbcType=VARCHAR},
+      </if>
+      <if test="zthird != null">
+        #{zthird,jdbcType=VARCHAR},
+      </if>
+      <if test="zachnum != null">
+        #{zachnum,jdbcType=VARCHAR},
+      </if>
+      <if test="zmembers != null">
+        #{zmembers,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chengyong.entity.KPatent">
+    update K_PATENT
+    <set>
+      <if test="zname != null">
+        ZNAME = #{zname,jdbcType=VARCHAR},
+      </if>
+      <if test="pjob != null">
+        PJOB = #{pjob,jdbcType=VARCHAR},
+      </if>
+      <if test="zdept != null">
+        ZDEPT = #{zdept,jdbcType=VARCHAR},
+      </if>
+      <if test="patentname != null">
+        PATENTNAME = #{patentname,jdbcType=VARCHAR},
+      </if>
+      <if test="ztype != null">
+        ZTYPE = #{ztype,jdbcType=VARCHAR},
+      </if>
+      <if test="zranid != null">
+        ZRANID = #{zranid,jdbcType=VARCHAR},
+      </if>
+      <if test="zstate != null">
+        ZSTATE = #{zstate,jdbcType=VARCHAR},
+      </if>
+      <if test="znum != null">
+        ZNUM = #{znum,jdbcType=VARCHAR},
+      </if>
+      <if test="zdate != null">
+        ZDATE = #{zdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zaward != null">
+        ZAWARD = #{zaward,jdbcType=VARCHAR},
+      </if>
+      <if test="zothers != null">
+        ZOTHERS = #{zothers,jdbcType=VARCHAR},
+      </if>
+      <if test="zscore != null">
+        ZSCORE = #{zscore,jdbcType=VARCHAR},
+      </if>
+      <if test="zremarks != null">
+        ZREMARKS = #{zremarks,jdbcType=VARCHAR},
+      </if>
+      <if test="zsecond != null">
+        ZSECOND = #{zsecond,jdbcType=VARCHAR},
+      </if>
+      <if test="zthird != null">
+        ZTHIRD = #{zthird,jdbcType=VARCHAR},
+      </if>
+      <if test="zachnum != null">
+        ZACHNUM = #{zachnum,jdbcType=VARCHAR},
+      </if>
+      <if test="zmembers != null">
+        ZMEMBERS = #{zmembers,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ZID = #{zid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chengyong.entity.KPatent">
+    update K_PATENT
+    set ZNAME = #{zname,jdbcType=VARCHAR},
+      PJOB = #{pjob,jdbcType=VARCHAR},
+      ZDEPT = #{zdept,jdbcType=VARCHAR},
+      PATENTNAME = #{patentname,jdbcType=VARCHAR},
+      ZTYPE = #{ztype,jdbcType=VARCHAR},
+      ZRANID = #{zranid,jdbcType=VARCHAR},
+      ZSTATE = #{zstate,jdbcType=VARCHAR},
+      ZNUM = #{znum,jdbcType=VARCHAR},
+      ZDATE = #{zdate,jdbcType=TIMESTAMP},
+      ZAWARD = #{zaward,jdbcType=VARCHAR},
+      ZOTHERS = #{zothers,jdbcType=VARCHAR},
+      ZSCORE = #{zscore,jdbcType=VARCHAR},
+      ZREMARKS = #{zremarks,jdbcType=VARCHAR},
+      ZSECOND = #{zsecond,jdbcType=VARCHAR},
+      ZTHIRD = #{zthird,jdbcType=VARCHAR},
+      ZACHNUM = #{zachnum,jdbcType=VARCHAR},
+      ZMEMBERS = #{zmembers,jdbcType=VARCHAR}
+    where ZID = #{zid,jdbcType=DECIMAL}
+  </update>
+</mapper>

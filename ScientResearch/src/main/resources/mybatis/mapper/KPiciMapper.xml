@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chengyong.mapper.KPiciMapper">
+  <resultMap id="BaseResultMap" type="com.chengyong.entity.KPici">
+    <id column="PCID" jdbcType="DECIMAL" property="pcid" />
+    <result column="PCNAME" jdbcType="VARCHAR" property="pcname" />
+    <result column="PCSTATE" jdbcType="VARCHAR" property="pcstate" />
+    <result column="PCCOME" jdbcType="VARCHAR" property="pccome" />
+    <result column="PCCLASIFY" jdbcType="VARCHAR" property="pcclasify" />
+    <result column="PCSTARTTIME" jdbcType="TIMESTAMP" property="pcstarttime" />
+    <result column="PCENDTIME" jdbcType="TIMESTAMP" property="pcendtime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PCID, PCNAME, PCSTATE, PCCOME, PCCLASIFY, PCSTARTTIME, PCENDTIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from K_PICI
+    where PCID = #{pcid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from K_PICI
+    where PCID = #{pcid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.chengyong.entity.KPici">
+    insert into K_PICI (PCID, PCNAME, PCSTATE, 
+      PCCOME, PCCLASIFY, PCSTARTTIME, 
+      PCENDTIME)
+    values (#{pcid,jdbcType=DECIMAL}, #{pcname,jdbcType=VARCHAR}, #{pcstate,jdbcType=VARCHAR}, 
+      #{pccome,jdbcType=VARCHAR}, #{pcclasify,jdbcType=VARCHAR}, #{pcstarttime,jdbcType=TIMESTAMP}, 
+      #{pcendtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chengyong.entity.KPici">
+    insert into K_PICI
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pcid != null">
+        PCID,
+      </if>
+      <if test="pcname != null">
+        PCNAME,
+      </if>
+      <if test="pcstate != null">
+        PCSTATE,
+      </if>
+      <if test="pccome != null">
+        PCCOME,
+      </if>
+      <if test="pcclasify != null">
+        PCCLASIFY,
+      </if>
+      <if test="pcstarttime != null">
+        PCSTARTTIME,
+      </if>
+      <if test="pcendtime != null">
+        PCENDTIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pcid != null">
+        #{pcid,jdbcType=DECIMAL},
+      </if>
+      <if test="pcname != null">
+        #{pcname,jdbcType=VARCHAR},
+      </if>
+      <if test="pcstate != null">
+        #{pcstate,jdbcType=VARCHAR},
+      </if>
+      <if test="pccome != null">
+        #{pccome,jdbcType=VARCHAR},
+      </if>
+      <if test="pcclasify != null">
+        #{pcclasify,jdbcType=VARCHAR},
+      </if>
+      <if test="pcstarttime != null">
+        #{pcstarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pcendtime != null">
+        #{pcendtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chengyong.entity.KPici">
+    update K_PICI
+    <set>
+      <if test="pcname != null">
+        PCNAME = #{pcname,jdbcType=VARCHAR},
+      </if>
+      <if test="pcstate != null">
+        PCSTATE = #{pcstate,jdbcType=VARCHAR},
+      </if>
+      <if test="pccome != null">
+        PCCOME = #{pccome,jdbcType=VARCHAR},
+      </if>
+      <if test="pcclasify != null">
+        PCCLASIFY = #{pcclasify,jdbcType=VARCHAR},
+      </if>
+      <if test="pcstarttime != null">
+        PCSTARTTIME = #{pcstarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pcendtime != null">
+        PCENDTIME = #{pcendtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where PCID = #{pcid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chengyong.entity.KPici">
+    update K_PICI
+    set PCNAME = #{pcname,jdbcType=VARCHAR},
+      PCSTATE = #{pcstate,jdbcType=VARCHAR},
+      PCCOME = #{pccome,jdbcType=VARCHAR},
+      PCCLASIFY = #{pcclasify,jdbcType=VARCHAR},
+      PCSTARTTIME = #{pcstarttime,jdbcType=TIMESTAMP},
+      PCENDTIME = #{pcendtime,jdbcType=TIMESTAMP}
+    where PCID = #{pcid,jdbcType=DECIMAL}
+  </update>
+</mapper>

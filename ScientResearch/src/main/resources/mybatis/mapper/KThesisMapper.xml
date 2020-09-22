@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chengyong.mapper.KThesisMapper">
+  <resultMap id="BaseResultMap" type="com.chengyong.entity.KThesis">
+    <id column="TID" jdbcType="DECIMAL" property="tid" />
+    <result column="TNAME" jdbcType="VARCHAR" property="tname" />
+    <result column="TJOB" jdbcType="VARCHAR" property="tjob" />
+    <result column="TUNIT" jdbcType="VARCHAR" property="tunit" />
+    <result column="TTITLE" jdbcType="VARCHAR" property="ttitle" />
+    <result column="TPERIODICAL" jdbcType="VARCHAR" property="tperiodical" />
+    <result column="TCNID" jdbcType="VARCHAR" property="tcnid" />
+    <result column="TISSNID" jdbcType="VARCHAR" property="tissnid" />
+    <result column="TSTARTTIME" jdbcType="TIMESTAMP" property="tstarttime" />
+    <result column="TOTHERS" jdbcType="VARCHAR" property="tothers" />
+    <result column="TSCORE" jdbcType="VARCHAR" property="tscore" />
+    <result column="TREMAKS" jdbcType="VARCHAR" property="tremaks" />
+    <result column="TSECOND" jdbcType="VARCHAR" property="tsecond" />
+    <result column="TTHIRD" jdbcType="VARCHAR" property="tthird" />
+    <result column="TACHNUM" jdbcType="VARCHAR" property="tachnum" />
+    <result column="TMEMBERS" jdbcType="VARCHAR" property="tmembers" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    TID, TNAME, TJOB, TUNIT, TTITLE, TPERIODICAL, TCNID, TISSNID, TSTARTTIME, TOTHERS, 
+    TSCORE, TREMAKS, TSECOND, TTHIRD, TACHNUM, TMEMBERS
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from K_THESIS
+    where TID = #{tid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from K_THESIS
+    where TID = #{tid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.chengyong.entity.KThesis">
+    insert into K_THESIS (TID, TNAME, TJOB, 
+      TUNIT, TTITLE, TPERIODICAL, 
+      TCNID, TISSNID, TSTARTTIME, 
+      TOTHERS, TSCORE, TREMAKS, 
+      TSECOND, TTHIRD, TACHNUM, 
+      TMEMBERS)
+    values (#{tid,jdbcType=DECIMAL}, #{tname,jdbcType=VARCHAR}, #{tjob,jdbcType=VARCHAR}, 
+      #{tunit,jdbcType=VARCHAR}, #{ttitle,jdbcType=VARCHAR}, #{tperiodical,jdbcType=VARCHAR}, 
+      #{tcnid,jdbcType=VARCHAR}, #{tissnid,jdbcType=VARCHAR}, #{tstarttime,jdbcType=TIMESTAMP}, 
+      #{tothers,jdbcType=VARCHAR}, #{tscore,jdbcType=VARCHAR}, #{tremaks,jdbcType=VARCHAR}, 
+      #{tsecond,jdbcType=VARCHAR}, #{tthird,jdbcType=VARCHAR}, #{tachnum,jdbcType=VARCHAR}, 
+      #{tmembers,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chengyong.entity.KThesis">
+    insert into K_THESIS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tid != null">
+        TID,
+      </if>
+      <if test="tname != null">
+        TNAME,
+      </if>
+      <if test="tjob != null">
+        TJOB,
+      </if>
+      <if test="tunit != null">
+        TUNIT,
+      </if>
+      <if test="ttitle != null">
+        TTITLE,
+      </if>
+      <if test="tperiodical != null">
+        TPERIODICAL,
+      </if>
+      <if test="tcnid != null">
+        TCNID,
+      </if>
+      <if test="tissnid != null">
+        TISSNID,
+      </if>
+      <if test="tstarttime != null">
+        TSTARTTIME,
+      </if>
+      <if test="tothers != null">
+        TOTHERS,
+      </if>
+      <if test="tscore != null">
+        TSCORE,
+      </if>
+      <if test="tremaks != null">
+        TREMAKS,
+      </if>
+      <if test="tsecond != null">
+        TSECOND,
+      </if>
+      <if test="tthird != null">
+        TTHIRD,
+      </if>
+      <if test="tachnum != null">
+        TACHNUM,
+      </if>
+      <if test="tmembers != null">
+        TMEMBERS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tid != null">
+        #{tid,jdbcType=DECIMAL},
+      </if>
+      <if test="tname != null">
+        #{tname,jdbcType=VARCHAR},
+      </if>
+      <if test="tjob != null">
+        #{tjob,jdbcType=VARCHAR},
+      </if>
+      <if test="tunit != null">
+        #{tunit,jdbcType=VARCHAR},
+      </if>
+      <if test="ttitle != null">
+        #{ttitle,jdbcType=VARCHAR},
+      </if>
+      <if test="tperiodical != null">
+        #{tperiodical,jdbcType=VARCHAR},
+      </if>
+      <if test="tcnid != null">
+        #{tcnid,jdbcType=VARCHAR},
+      </if>
+      <if test="tissnid != null">
+        #{tissnid,jdbcType=VARCHAR},
+      </if>
+      <if test="tstarttime != null">
+        #{tstarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tothers != null">
+        #{tothers,jdbcType=VARCHAR},
+      </if>
+      <if test="tscore != null">
+        #{tscore,jdbcType=VARCHAR},
+      </if>
+      <if test="tremaks != null">
+        #{tremaks,jdbcType=VARCHAR},
+      </if>
+      <if test="tsecond != null">
+        #{tsecond,jdbcType=VARCHAR},
+      </if>
+      <if test="tthird != null">
+        #{tthird,jdbcType=VARCHAR},
+      </if>
+      <if test="tachnum != null">
+        #{tachnum,jdbcType=VARCHAR},
+      </if>
+      <if test="tmembers != null">
+        #{tmembers,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chengyong.entity.KThesis">
+    update K_THESIS
+    <set>
+      <if test="tname != null">
+        TNAME = #{tname,jdbcType=VARCHAR},
+      </if>
+      <if test="tjob != null">
+        TJOB = #{tjob,jdbcType=VARCHAR},
+      </if>
+      <if test="tunit != null">
+        TUNIT = #{tunit,jdbcType=VARCHAR},
+      </if>
+      <if test="ttitle != null">
+        TTITLE = #{ttitle,jdbcType=VARCHAR},
+      </if>
+      <if test="tperiodical != null">
+        TPERIODICAL = #{tperiodical,jdbcType=VARCHAR},
+      </if>
+      <if test="tcnid != null">
+        TCNID = #{tcnid,jdbcType=VARCHAR},
+      </if>
+      <if test="tissnid != null">
+        TISSNID = #{tissnid,jdbcType=VARCHAR},
+      </if>
+      <if test="tstarttime != null">
+        TSTARTTIME = #{tstarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tothers != null">
+        TOTHERS = #{tothers,jdbcType=VARCHAR},
+      </if>
+      <if test="tscore != null">
+        TSCORE = #{tscore,jdbcType=VARCHAR},
+      </if>
+      <if test="tremaks != null">
+        TREMAKS = #{tremaks,jdbcType=VARCHAR},
+      </if>
+      <if test="tsecond != null">
+        TSECOND = #{tsecond,jdbcType=VARCHAR},
+      </if>
+      <if test="tthird != null">
+        TTHIRD = #{tthird,jdbcType=VARCHAR},
+      </if>
+      <if test="tachnum != null">
+        TACHNUM = #{tachnum,jdbcType=VARCHAR},
+      </if>
+      <if test="tmembers != null">
+        TMEMBERS = #{tmembers,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where TID = #{tid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chengyong.entity.KThesis">
+    update K_THESIS
+    set TNAME = #{tname,jdbcType=VARCHAR},
+      TJOB = #{tjob,jdbcType=VARCHAR},
+      TUNIT = #{tunit,jdbcType=VARCHAR},
+      TTITLE = #{ttitle,jdbcType=VARCHAR},
+      TPERIODICAL = #{tperiodical,jdbcType=VARCHAR},
+      TCNID = #{tcnid,jdbcType=VARCHAR},
+      TISSNID = #{tissnid,jdbcType=VARCHAR},
+      TSTARTTIME = #{tstarttime,jdbcType=TIMESTAMP},
+      TOTHERS = #{tothers,jdbcType=VARCHAR},
+      TSCORE = #{tscore,jdbcType=VARCHAR},
+      TREMAKS = #{tremaks,jdbcType=VARCHAR},
+      TSECOND = #{tsecond,jdbcType=VARCHAR},
+      TTHIRD = #{tthird,jdbcType=VARCHAR},
+      TACHNUM = #{tachnum,jdbcType=VARCHAR},
+      TMEMBERS = #{tmembers,jdbcType=VARCHAR}
+    where TID = #{tid,jdbcType=DECIMAL}
+  </update>
+</mapper>

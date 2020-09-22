@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chengyong.mapper.KWorkMapper">
+  <resultMap id="BaseResultMap" type="com.chengyong.entity.KWork">
+    <id column="WID" jdbcType="DECIMAL" property="wid" />
+    <result column="WNAME" jdbcType="VARCHAR" property="wname" />
+    <result column="WJOB" jdbcType="VARCHAR" property="wjob" />
+    <result column="WUNIT" jdbcType="VARCHAR" property="wunit" />
+    <result column="WTITLE" jdbcType="VARCHAR" property="wtitle" />
+    <result column="WPUBLISH" jdbcType="VARCHAR" property="wpublish" />
+    <result column="WISBNID" jdbcType="VARCHAR" property="wisbnid" />
+    <result column="WSTARTTIME" jdbcType="TIMESTAMP" property="wstarttime" />
+    <result column="WOTHERS" jdbcType="VARCHAR" property="wothers" />
+    <result column="WSCORE" jdbcType="VARCHAR" property="wscore" />
+    <result column="WREMARKS" jdbcType="VARCHAR" property="wremarks" />
+    <result column="WSECOND" jdbcType="VARCHAR" property="wsecond" />
+    <result column="WTHIRD" jdbcType="VARCHAR" property="wthird" />
+    <result column="WACHNUM" jdbcType="VARCHAR" property="wachnum" />
+    <result column="WMEMBERS" jdbcType="VARCHAR" property="wmembers" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    WID, WNAME, WJOB, WUNIT, WTITLE, WPUBLISH, WISBNID, WSTARTTIME, WOTHERS, WSCORE, 
+    WREMARKS, WSECOND, WTHIRD, WACHNUM, WMEMBERS
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from K_WORK
+    where WID = #{wid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from K_WORK
+    where WID = #{wid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.chengyong.entity.KWork">
+    insert into K_WORK (WID, WNAME, WJOB, 
+      WUNIT, WTITLE, WPUBLISH, 
+      WISBNID, WSTARTTIME, WOTHERS, 
+      WSCORE, WREMARKS, WSECOND, 
+      WTHIRD, WACHNUM, WMEMBERS
+      )
+    values (#{wid,jdbcType=DECIMAL}, #{wname,jdbcType=VARCHAR}, #{wjob,jdbcType=VARCHAR}, 
+      #{wunit,jdbcType=VARCHAR}, #{wtitle,jdbcType=VARCHAR}, #{wpublish,jdbcType=VARCHAR}, 
+      #{wisbnid,jdbcType=VARCHAR}, #{wstarttime,jdbcType=TIMESTAMP}, #{wothers,jdbcType=VARCHAR}, 
+      #{wscore,jdbcType=VARCHAR}, #{wremarks,jdbcType=VARCHAR}, #{wsecond,jdbcType=VARCHAR}, 
+      #{wthird,jdbcType=VARCHAR}, #{wachnum,jdbcType=VARCHAR}, #{wmembers,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.chengyong.entity.KWork">
+    insert into K_WORK
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="wid != null">
+        WID,
+      </if>
+      <if test="wname != null">
+        WNAME,
+      </if>
+      <if test="wjob != null">
+        WJOB,
+      </if>
+      <if test="wunit != null">
+        WUNIT,
+      </if>
+      <if test="wtitle != null">
+        WTITLE,
+      </if>
+      <if test="wpublish != null">
+        WPUBLISH,
+      </if>
+      <if test="wisbnid != null">
+        WISBNID,
+      </if>
+      <if test="wstarttime != null">
+        WSTARTTIME,
+      </if>
+      <if test="wothers != null">
+        WOTHERS,
+      </if>
+      <if test="wscore != null">
+        WSCORE,
+      </if>
+      <if test="wremarks != null">
+        WREMARKS,
+      </if>
+      <if test="wsecond != null">
+        WSECOND,
+      </if>
+      <if test="wthird != null">
+        WTHIRD,
+      </if>
+      <if test="wachnum != null">
+        WACHNUM,
+      </if>
+      <if test="wmembers != null">
+        WMEMBERS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="wid != null">
+        #{wid,jdbcType=DECIMAL},
+      </if>
+      <if test="wname != null">
+        #{wname,jdbcType=VARCHAR},
+      </if>
+      <if test="wjob != null">
+        #{wjob,jdbcType=VARCHAR},
+      </if>
+      <if test="wunit != null">
+        #{wunit,jdbcType=VARCHAR},
+      </if>
+      <if test="wtitle != null">
+        #{wtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="wpublish != null">
+        #{wpublish,jdbcType=VARCHAR},
+      </if>
+      <if test="wisbnid != null">
+        #{wisbnid,jdbcType=VARCHAR},
+      </if>
+      <if test="wstarttime != null">
+        #{wstarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wothers != null">
+        #{wothers,jdbcType=VARCHAR},
+      </if>
+      <if test="wscore != null">
+        #{wscore,jdbcType=VARCHAR},
+      </if>
+      <if test="wremarks != null">
+        #{wremarks,jdbcType=VARCHAR},
+      </if>
+      <if test="wsecond != null">
+        #{wsecond,jdbcType=VARCHAR},
+      </if>
+      <if test="wthird != null">
+        #{wthird,jdbcType=VARCHAR},
+      </if>
+      <if test="wachnum != null">
+        #{wachnum,jdbcType=VARCHAR},
+      </if>
+      <if test="wmembers != null">
+        #{wmembers,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chengyong.entity.KWork">
+    update K_WORK
+    <set>
+      <if test="wname != null">
+        WNAME = #{wname,jdbcType=VARCHAR},
+      </if>
+      <if test="wjob != null">
+        WJOB = #{wjob,jdbcType=VARCHAR},
+      </if>
+      <if test="wunit != null">
+        WUNIT = #{wunit,jdbcType=VARCHAR},
+      </if>
+      <if test="wtitle != null">
+        WTITLE = #{wtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="wpublish != null">
+        WPUBLISH = #{wpublish,jdbcType=VARCHAR},
+      </if>
+      <if test="wisbnid != null">
+        WISBNID = #{wisbnid,jdbcType=VARCHAR},
+      </if>
+      <if test="wstarttime != null">
+        WSTARTTIME = #{wstarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wothers != null">
+        WOTHERS = #{wothers,jdbcType=VARCHAR},
+      </if>
+      <if test="wscore != null">
+        WSCORE = #{wscore,jdbcType=VARCHAR},
+      </if>
+      <if test="wremarks != null">
+        WREMARKS = #{wremarks,jdbcType=VARCHAR},
+      </if>
+      <if test="wsecond != null">
+        WSECOND = #{wsecond,jdbcType=VARCHAR},
+      </if>
+      <if test="wthird != null">
+        WTHIRD = #{wthird,jdbcType=VARCHAR},
+      </if>
+      <if test="wachnum != null">
+        WACHNUM = #{wachnum,jdbcType=VARCHAR},
+      </if>
+      <if test="wmembers != null">
+        WMEMBERS = #{wmembers,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where WID = #{wid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chengyong.entity.KWork">
+    update K_WORK
+    set WNAME = #{wname,jdbcType=VARCHAR},
+      WJOB = #{wjob,jdbcType=VARCHAR},
+      WUNIT = #{wunit,jdbcType=VARCHAR},
+      WTITLE = #{wtitle,jdbcType=VARCHAR},
+      WPUBLISH = #{wpublish,jdbcType=VARCHAR},
+      WISBNID = #{wisbnid,jdbcType=VARCHAR},
+      WSTARTTIME = #{wstarttime,jdbcType=TIMESTAMP},
+      WOTHERS = #{wothers,jdbcType=VARCHAR},
+      WSCORE = #{wscore,jdbcType=VARCHAR},
+      WREMARKS = #{wremarks,jdbcType=VARCHAR},
+      WSECOND = #{wsecond,jdbcType=VARCHAR},
+      WTHIRD = #{wthird,jdbcType=VARCHAR},
+      WACHNUM = #{wachnum,jdbcType=VARCHAR},
+      WMEMBERS = #{wmembers,jdbcType=VARCHAR}
+    where WID = #{wid,jdbcType=DECIMAL}
+  </update>
+</mapper>

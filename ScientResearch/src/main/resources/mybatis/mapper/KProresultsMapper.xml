@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chengyong.mapper.KProresultsMapper">
+  <resultMap id="BaseResultMap" type="com.chengyong.entity.KProresults">
+    <id column="PRID" jdbcType="DECIMAL" property="prid" />
+    <result column="PRNAME" jdbcType="VARCHAR" property="prname" />
+    <result column="PRJOB" jdbcType="VARCHAR" property="prjob" />
+    <result column="PRDEPT" jdbcType="VARCHAR" property="prdept" />
+    <result column="PRTITLE" jdbcType="VARCHAR" property="prtitle" />
+    <result column="PRUNIT" jdbcType="VARCHAR" property="prunit" />
+    <result column="PRENDID" jdbcType="VARCHAR" property="prendid" />
+    <result column="PRSTARTTIME" jdbcType="TIMESTAMP" property="prstarttime" />
+    <result column="PROTHERS" jdbcType="VARCHAR" property="prothers" />
+    <result column="PRSCORE" jdbcType="VARCHAR" property="prscore" />
+    <result column="PRREMARKS" jdbcType="VARCHAR" property="prremarks" />
+    <result column="PRSECOND" jdbcType="VARCHAR" property="prsecond" />
+    <result column="PRTHIRD" jdbcType="VARCHAR" property="prthird" />
+    <result column="PRACHNUM" jdbcType="VARCHAR" property="prachnum" />
+    <result column="PRMEMBERS" jdbcType="VARCHAR" property="prmembers" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PRID, PRNAME, PRJOB, PRDEPT, PRTITLE, PRUNIT, PRENDID, PRSTARTTIME, PROTHERS, PRSCORE, 
+    PRREMARKS, PRSECOND, PRTHIRD, PRACHNUM, PRMEMBERS
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from K_PRORESULTS
+    where PRID = #{prid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from K_PRORESULTS
+    where PRID = #{prid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.chengyong.entity.KProresults">
+    insert into K_PRORESULTS (PRID, PRNAME, PRJOB, 
+      PRDEPT, PRTITLE, PRUNIT, 
+      PRENDID, PRSTARTTIME, PROTHERS, 
+      PRSCORE, PRREMARKS, PRSECOND, 
+      PRTHIRD, PRACHNUM, PRMEMBERS
+      )
+    values (#{prid,jdbcType=DECIMAL}, #{prname,jdbcType=VARCHAR}, #{prjob,jdbcType=VARCHAR}, 
+      #{prdept,jdbcType=VARCHAR}, #{prtitle,jdbcType=VARCHAR}, #{prunit,jdbcType=VARCHAR}, 
+      #{prendid,jdbcType=VARCHAR}, #{prstarttime,jdbcType=TIMESTAMP}, #{prothers,jdbcType=VARCHAR}, 
+      #{prscore,jdbcType=VARCHAR}, #{prremarks,jdbcType=VARCHAR}, #{prsecond,jdbcType=VARCHAR}, 
+      #{prthird,jdbcType=VARCHAR}, #{prachnum,jdbcType=VARCHAR}, #{prmembers,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.chengyong.entity.KProresults">
+    insert into K_PRORESULTS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="prid != null">
+        PRID,
+      </if>
+      <if test="prname != null">
+        PRNAME,
+      </if>
+      <if test="prjob != null">
+        PRJOB,
+      </if>
+      <if test="prdept != null">
+        PRDEPT,
+      </if>
+      <if test="prtitle != null">
+        PRTITLE,
+      </if>
+      <if test="prunit != null">
+        PRUNIT,
+      </if>
+      <if test="prendid != null">
+        PRENDID,
+      </if>
+      <if test="prstarttime != null">
+        PRSTARTTIME,
+      </if>
+      <if test="prothers != null">
+        PROTHERS,
+      </if>
+      <if test="prscore != null">
+        PRSCORE,
+      </if>
+      <if test="prremarks != null">
+        PRREMARKS,
+      </if>
+      <if test="prsecond != null">
+        PRSECOND,
+      </if>
+      <if test="prthird != null">
+        PRTHIRD,
+      </if>
+      <if test="prachnum != null">
+        PRACHNUM,
+      </if>
+      <if test="prmembers != null">
+        PRMEMBERS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="prid != null">
+        #{prid,jdbcType=DECIMAL},
+      </if>
+      <if test="prname != null">
+        #{prname,jdbcType=VARCHAR},
+      </if>
+      <if test="prjob != null">
+        #{prjob,jdbcType=VARCHAR},
+      </if>
+      <if test="prdept != null">
+        #{prdept,jdbcType=VARCHAR},
+      </if>
+      <if test="prtitle != null">
+        #{prtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="prunit != null">
+        #{prunit,jdbcType=VARCHAR},
+      </if>
+      <if test="prendid != null">
+        #{prendid,jdbcType=VARCHAR},
+      </if>
+      <if test="prstarttime != null">
+        #{prstarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="prothers != null">
+        #{prothers,jdbcType=VARCHAR},
+      </if>
+      <if test="prscore != null">
+        #{prscore,jdbcType=VARCHAR},
+      </if>
+      <if test="prremarks != null">
+        #{prremarks,jdbcType=VARCHAR},
+      </if>
+      <if test="prsecond != null">
+        #{prsecond,jdbcType=VARCHAR},
+      </if>
+      <if test="prthird != null">
+        #{prthird,jdbcType=VARCHAR},
+      </if>
+      <if test="prachnum != null">
+        #{prachnum,jdbcType=VARCHAR},
+      </if>
+      <if test="prmembers != null">
+        #{prmembers,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chengyong.entity.KProresults">
+    update K_PRORESULTS
+    <set>
+      <if test="prname != null">
+        PRNAME = #{prname,jdbcType=VARCHAR},
+      </if>
+      <if test="prjob != null">
+        PRJOB = #{prjob,jdbcType=VARCHAR},
+      </if>
+      <if test="prdept != null">
+        PRDEPT = #{prdept,jdbcType=VARCHAR},
+      </if>
+      <if test="prtitle != null">
+        PRTITLE = #{prtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="prunit != null">
+        PRUNIT = #{prunit,jdbcType=VARCHAR},
+      </if>
+      <if test="prendid != null">
+        PRENDID = #{prendid,jdbcType=VARCHAR},
+      </if>
+      <if test="prstarttime != null">
+        PRSTARTTIME = #{prstarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="prothers != null">
+        PROTHERS = #{prothers,jdbcType=VARCHAR},
+      </if>
+      <if test="prscore != null">
+        PRSCORE = #{prscore,jdbcType=VARCHAR},
+      </if>
+      <if test="prremarks != null">
+        PRREMARKS = #{prremarks,jdbcType=VARCHAR},
+      </if>
+      <if test="prsecond != null">
+        PRSECOND = #{prsecond,jdbcType=VARCHAR},
+      </if>
+      <if test="prthird != null">
+        PRTHIRD = #{prthird,jdbcType=VARCHAR},
+      </if>
+      <if test="prachnum != null">
+        PRACHNUM = #{prachnum,jdbcType=VARCHAR},
+      </if>
+      <if test="prmembers != null">
+        PRMEMBERS = #{prmembers,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PRID = #{prid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chengyong.entity.KProresults">
+    update K_PRORESULTS
+    set PRNAME = #{prname,jdbcType=VARCHAR},
+      PRJOB = #{prjob,jdbcType=VARCHAR},
+      PRDEPT = #{prdept,jdbcType=VARCHAR},
+      PRTITLE = #{prtitle,jdbcType=VARCHAR},
+      PRUNIT = #{prunit,jdbcType=VARCHAR},
+      PRENDID = #{prendid,jdbcType=VARCHAR},
+      PRSTARTTIME = #{prstarttime,jdbcType=TIMESTAMP},
+      PROTHERS = #{prothers,jdbcType=VARCHAR},
+      PRSCORE = #{prscore,jdbcType=VARCHAR},
+      PRREMARKS = #{prremarks,jdbcType=VARCHAR},
+      PRSECOND = #{prsecond,jdbcType=VARCHAR},
+      PRTHIRD = #{prthird,jdbcType=VARCHAR},
+      PRACHNUM = #{prachnum,jdbcType=VARCHAR},
+      PRMEMBERS = #{prmembers,jdbcType=VARCHAR}
+    where PRID = #{prid,jdbcType=DECIMAL}
+  </update>
+</mapper>

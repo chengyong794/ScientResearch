@@ -2,7 +2,350 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82602a60-2070-4f2f-af9b-f9a97fc674ca" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KAuthorMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KInfoMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KKymenuMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KKyroleMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KKyuserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KMeetingMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KNoticeMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KPatentMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KPiciMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KPostprojectMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KProjectMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KProjectperMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KProresultsMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KSetaskMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KThesisMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KUnitMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KWorkMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KAuthorService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KDeptService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KInfoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KKymenuService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KKyroleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KKyuserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KMeetingService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KNoticeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KPatentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KPiciService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KPostprojectService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KProjectService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KProjectperService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KProresultsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KSetaskService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KTestService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KThesisService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KUnitService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KWorkService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/KAuthorMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/KInfoMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/KKymenuMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/KKyroleMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/KKyuserMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/KMeetingMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/KNoticeMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/KPatentMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/KPiciMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/KPostprojectMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/KProjectMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/KProjectperMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/KProresultsMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/KSetaskMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/KThesisMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/KUnitMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/KWorkMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mybatis.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/META-INF/ScientResearch.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/ChengyongApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/Controller/IndexController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/MyConfig/SecurityConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/entity/KAuthor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/entity/KDept.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/entity/KInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/entity/KKymenu.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/entity/KKyrole.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/entity/KKyuser.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/entity/KMeeting.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/entity/KNotice.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/entity/KPatent.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/entity/KPici.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/entity/KPostproject.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/entity/KProject.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/entity/KProjectper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/entity/KProresults.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/entity/KSetask.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/entity/KTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/entity/KThesis.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/entity/KUnit.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/entity/KWork.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KAuthorMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KDeptMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KInfoMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KKymenuMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KKyroleMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KKyuserMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KMeetingMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KNoticeMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KPatentMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KPiciMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KPostprojectMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KProjectMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KProjectperMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KProresultsMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KSetaskMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KTestMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KThesisMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KUnitMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KWorkMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/KAuthorService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/KDeptService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/KInfoService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/KKymenuService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/KKyroleService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/KKyuserService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/KMeetingService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/KNoticeService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/KPatentService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/KPiciService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/KPostprojectService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/KProjectService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/KProjectperService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/KProresultsService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/KSetaskService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/KTestService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/KThesisService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/KUnitService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/KWorkService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/KAuthorMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/KDeptMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/KInfoMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/KKymenuMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/KKyroleMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/KKyuserMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/KMeetingMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/KNoticeMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/KPatentMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/KPiciMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/KPostprojectMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/KProjectMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/KProjectperMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/KProresultsMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/KSetaskMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/KTestMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/KThesisMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/KUnitMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/KWorkMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mybatis.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/api/clear.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/api/init.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/api/menus.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/api/table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/api/tableSelect.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/api/upload.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/css/layuimini.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/css/public.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/css/themes/default.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/images/bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/images/captcha.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/images/donate_qrcode.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/images/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/images/home.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/images/icon-login.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/images/loginbg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/images/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/js/lay-config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/js/lay-module/echarts/echarts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/js/lay-module/echarts/echartsTheme.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/js/lay-module/iconPicker/iconPickerFa.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/js/lay-module/layarea/layarea.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/js/lay-module/layuimini/miniAdmin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/js/lay-module/layuimini/miniMenu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/js/lay-module/layuimini/miniTab.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/js/lay-module/layuimini/miniTheme.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/js/lay-module/layuimini/miniTongji.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/js/lay-module/step-lay/step.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/js/lay-module/step-lay/step.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/js/lay-module/tableSelect/tableSelect.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/js/lay-module/treetable-lay/treetable.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/js/lay-module/treetable-lay/treetable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/js/lay-module/wangEditor/fonts/w-e-icon.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/js/lay-module/wangEditor/wangEditor.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/js/lay-module/wangEditor/wangEditor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/js/lay-module/wangEditor/wangEditor.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/js/lay-module/wangEditor/wangEditor.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/js/lay-module/wangEditor/wangEditor.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/HELP-US-OUT.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/css/font-awesome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/css/font-awesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/fonts/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/less/animated.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/less/bordered-pulled.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/less/core.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/less/fixed-width.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/less/font-awesome.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/less/icons.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/less/larger.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/less/list.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/less/mixins.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/less/path.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/less/rotated-flipped.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/less/screen-reader.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/less/stacked.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/less/variables.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/scss/_animated.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/scss/_bordered-pulled.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/scss/_core.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/scss/_fixed-width.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/scss/_icons.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/scss/_larger.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/scss/_list.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/scss/_mixins.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/scss/_path.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/scss/_rotated-flipped.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/scss/_screen-reader.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/scss/_stacked.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/scss/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/font-awesome-4.7.0/scss/font-awesome.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/jq-module/jquery.particleground.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/jq-module/paigusu.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/jq-module/zyupload/zyupload-1.0.0.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/jq-module/zyupload/zyupload-1.0.0.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/jquery-3.4.1/jquery-3.4.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/css/layui.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/css/layui.mobile.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/css/modules/code.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/css/modules/laydate/default/laydate.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/css/modules/layer/default/icon-ext.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/css/modules/layer/default/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/css/modules/layer/default/layer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/css/modules/layer/default/loading-0.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/css/modules/layer/default/loading-1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/css/modules/layer/default/loading-2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/font/iconfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/font/iconfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/font/iconfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/font/iconfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/font/iconfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/0.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/10.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/11.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/12.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/13.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/14.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/15.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/16.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/17.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/18.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/19.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/20.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/21.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/22.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/23.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/24.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/25.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/26.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/27.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/28.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/29.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/3.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/30.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/31.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/32.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/33.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/34.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/35.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/36.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/37.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/38.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/39.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/4.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/40.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/41.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/42.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/43.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/44.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/45.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/46.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/47.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/48.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/49.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/5.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/50.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/51.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/52.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/53.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/54.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/55.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/56.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/57.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/58.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/59.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/6.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/60.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/61.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/62.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/63.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/64.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/65.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/66.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/67.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/68.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/69.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/7.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/70.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/71.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/8.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/images/face/9.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/lay/modules/carousel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/lay/modules/code.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/lay/modules/colorpicker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/lay/modules/element.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/lay/modules/flow.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/lay/modules/form.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/lay/modules/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/lay/modules/laydate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/lay/modules/layedit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/lay/modules/layer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/lay/modules/laypage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/lay/modules/laytpl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/lay/modules/mobile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/lay/modules/rate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/lay/modules/slider.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/lay/modules/table.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/lay/modules/transfer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/lay/modules/tree.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/lay/modules/upload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/lay/modules/util.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/layui.all.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/layui-v2.5.5/layui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/page/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/page/menu.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/page/table/add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/page/table/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/page/welcome-1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/page/welcome-2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/page/welcome-3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/chengyong/ChengyongApplicationTests.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/ChengyongApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/ChengyongApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/Controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/Controller/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/MyConfig/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/MyConfig/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/entity/KKyuser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/entity/KKyuser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mbatisMapper/KDeptMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/KDeptMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mbatisMapper/KTestMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/KTestMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/chengyong/ChengyongApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/chengyong/ChengyongApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +398,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/mybatis" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -64,21 +407,52 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\PC\Desktop\毕业设计\ScientResearch\src\main\resources\mybatis" />
+      <recent name="C:\Users\PC\Desktop\毕业设计\ScientResearch\src\main\resources\mbatisMapper" />
+      <recent name="C:\Users\PC\Desktop\毕业设计\ScientResearch\src\main\java\com\chengyong\mapper" />
       <recent name="C:\ScientResearch\src\main\java\com\chengyong\entity" />
       <recent name="C:\ScientResearch\src\main\resources\mbatisMapper" />
-      <recent name="C:\ScientResearch\src\main\java\com\chengyong\mapper" />
-      <recent name="C:\ScientResearch\src\main\resources\templates\page" />
-      <recent name="C:\ScientResearch\src\main\resources\templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\PC\Desktop\毕业设计\ScientResearch\src\main\resources\mybatis\mapper" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="ChengyongApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+  <component name="RunManager" selected="Spring Boot.ChengyongApplication">
+    <configuration name="ChengyongApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ScientResearch" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.chengyong.ChengyongApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.chengyong.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.chengyong" />
+      <option name="MAIN_CLASS_NAME" value="com.chengyong.ChengyongApplicationTests" />
+      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ChengyongApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="ScientResearch" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.chengyong.ChengyongApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.ChengyongApplication" />
+      <item itemvalue="JUnit.ChengyongApplicationTests.contextLoads" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.ChengyongApplicationTests.contextLoads" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -111,26 +485,58 @@
       <workItem from="1600604843265" duration="537000" />
       <workItem from="1600610285506" duration="69000" />
       <workItem from="1600611810452" duration="1666000" />
-      <workItem from="1600613742281" duration="67000" />
+      <workItem from="1600613742281" duration="206000" />
+      <workItem from="1600665115824" duration="905000" />
+      <workItem from="1600697511712" duration="4377000" />
+      <workItem from="1600750924345" duration="12000" />
+      <workItem from="1600756440677" duration="7898000" />
     </task>
+    <task id="LOCAL-00001" summary="2020-9-20 22:57 第一次提交">
+      <created>1600613874401</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1600613874401</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="2020-9-20 22:57 第一次提交" />
+    <option name="LAST_COMMIT_MESSAGE" value="2020-9-20 22:57 第一次提交" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="275" y="22" key="#Notifications" timestamp="1600665130746">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="22" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1600665130746" />
+    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600758741211">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1600758741211" />
     <state x="218" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600604295628">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="218" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1600604295628" />
-    <state x="488" y="73" key="#com.intellij.ide.util.MemberChooser" timestamp="1599569388610">
+    <state x="488" y="73" key="#com.intellij.ide.util.MemberChooser" timestamp="1600701781905">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="73" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1599569388610" />
+    <state x="488" y="73" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1600701781905" />
+    <state x="462" y="222" width="441" height="293" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1600761310974">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="462" y="222" width="441" height="293" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1600761310974" />
     <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1600593914553">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1600593914553" />
+    <state x="254" y="0" key="CommitChangelistDialog2" timestamp="1600613873071">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="254" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1600613873071" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1600593933743">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -147,46 +553,66 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="537" y="254" key="Github.ShareDialog/0.0.1366.728@0.0.1366.728" timestamp="1600613437871" />
-    <state width="1323" height="2" key="GridCell.Tab.0.bottom" timestamp="1600613489114">
+    <state width="1323" height="110" key="GridCell.Tab.0.bottom" timestamp="1600764366348">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="2" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1600613489114" />
-    <state width="1323" height="2" key="GridCell.Tab.0.center" timestamp="1600613489114">
+    <state width="1323" height="110" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1600764366348" />
+    <state width="1323" height="110" key="GridCell.Tab.0.center" timestamp="1600764366348">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="2" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1600613489114" />
-    <state width="1323" height="2" key="GridCell.Tab.0.left" timestamp="1600613489113">
+    <state width="1323" height="110" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1600764366348" />
+    <state width="1323" height="110" key="GridCell.Tab.0.left" timestamp="1600764366347">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="2" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1600613489113" />
-    <state width="1323" height="2" key="GridCell.Tab.0.right" timestamp="1600613489114">
+    <state width="1323" height="110" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1600764366347" />
+    <state width="1323" height="110" key="GridCell.Tab.0.right" timestamp="1600764366348">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="2" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1600613489114" />
-    <state width="1323" height="2" key="GridCell.Tab.1.bottom" timestamp="1600613489114">
+    <state width="1323" height="110" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1600764366348" />
+    <state width="1323" height="110" key="GridCell.Tab.1.bottom" timestamp="1600764366348">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="2" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1600613489114" />
-    <state width="1323" height="2" key="GridCell.Tab.1.center" timestamp="1600613489114">
+    <state width="1323" height="110" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1600764366348" />
+    <state width="1323" height="110" key="GridCell.Tab.1.center" timestamp="1600764366348">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="2" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1600613489114" />
-    <state width="1323" height="2" key="GridCell.Tab.1.left" timestamp="1600613489114">
+    <state width="1323" height="110" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1600764366348" />
+    <state width="1323" height="110" key="GridCell.Tab.1.left" timestamp="1600764366348">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="2" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1600613489114" />
-    <state width="1323" height="2" key="GridCell.Tab.1.right" timestamp="1600613489114">
+    <state width="1323" height="110" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1600764366348" />
+    <state width="1323" height="110" key="GridCell.Tab.1.right" timestamp="1600764366348">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="2" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1600613489114" />
+    <state width="1323" height="110" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1600764366348" />
+    <state width="1323" height="99" key="GridCell.Tab.2.bottom" timestamp="1600762908673">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="99" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1600762908673" />
+    <state width="1323" height="99" key="GridCell.Tab.2.center" timestamp="1600762908673">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="99" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1600762908673" />
+    <state width="1323" height="99" key="GridCell.Tab.2.left" timestamp="1600762908673">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="99" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1600762908673" />
+    <state width="1323" height="99" key="GridCell.Tab.2.right" timestamp="1600762908673">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="99" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1600762908673" />
     <state x="184" y="6" key="SettingsEditor" timestamp="1600613812738">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1600613812738" />
-    <state x="363" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1600611809501">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1600613899208">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="363" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1600611809501" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1600613899208" />
+    <state x="363" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1600750923096">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="363" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1600750923096" />
     <state x="57" y="65" key="new project wizard" timestamp="1599617390234">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -195,9 +621,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1600602354917" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1600593487418">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1600699296950">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1600593487418" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1600699296950" />
   </component>
 </project>

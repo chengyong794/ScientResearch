@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chengyong.mapper.KProjectMapper">
+  <resultMap id="BaseResultMap" type="com.chengyong.entity.KProject">
+    <id column="PID" jdbcType="DECIMAL" property="pid" />
+    <result column="PNAME" jdbcType="VARCHAR" property="pname" />
+    <result column="PCOMS" jdbcType="VARCHAR" property="pcoms" />
+    <result column="PPEOPLE" jdbcType="VARCHAR" property="ppeople" />
+    <result column="PTYPE" jdbcType="VARCHAR" property="ptype" />
+    <result column="PDEPT" jdbcType="VARCHAR" property="pdept" />
+    <result column="PSOURCE" jdbcType="VARCHAR" property="psource" />
+    <result column="POTHERS" jdbcType="VARCHAR" property="pothers" />
+    <result column="PDATE" jdbcType="TIMESTAMP" property="pdate" />
+    <result column="PSTARTTIME" jdbcType="TIMESTAMP" property="pstarttime" />
+    <result column="PENDTIME" jdbcType="TIMESTAMP" property="pendtime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PID, PNAME, PCOMS, PPEOPLE, PTYPE, PDEPT, PSOURCE, POTHERS, PDATE, PSTARTTIME, PENDTIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from K_PROJECT
+    where PID = #{pid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from K_PROJECT
+    where PID = #{pid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.chengyong.entity.KProject">
+    insert into K_PROJECT (PID, PNAME, PCOMS, 
+      PPEOPLE, PTYPE, PDEPT, 
+      PSOURCE, POTHERS, PDATE, 
+      PSTARTTIME, PENDTIME)
+    values (#{pid,jdbcType=DECIMAL}, #{pname,jdbcType=VARCHAR}, #{pcoms,jdbcType=VARCHAR}, 
+      #{ppeople,jdbcType=VARCHAR}, #{ptype,jdbcType=VARCHAR}, #{pdept,jdbcType=VARCHAR}, 
+      #{psource,jdbcType=VARCHAR}, #{pothers,jdbcType=VARCHAR}, #{pdate,jdbcType=TIMESTAMP}, 
+      #{pstarttime,jdbcType=TIMESTAMP}, #{pendtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chengyong.entity.KProject">
+    insert into K_PROJECT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pid != null">
+        PID,
+      </if>
+      <if test="pname != null">
+        PNAME,
+      </if>
+      <if test="pcoms != null">
+        PCOMS,
+      </if>
+      <if test="ppeople != null">
+        PPEOPLE,
+      </if>
+      <if test="ptype != null">
+        PTYPE,
+      </if>
+      <if test="pdept != null">
+        PDEPT,
+      </if>
+      <if test="psource != null">
+        PSOURCE,
+      </if>
+      <if test="pothers != null">
+        POTHERS,
+      </if>
+      <if test="pdate != null">
+        PDATE,
+      </if>
+      <if test="pstarttime != null">
+        PSTARTTIME,
+      </if>
+      <if test="pendtime != null">
+        PENDTIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pid != null">
+        #{pid,jdbcType=DECIMAL},
+      </if>
+      <if test="pname != null">
+        #{pname,jdbcType=VARCHAR},
+      </if>
+      <if test="pcoms != null">
+        #{pcoms,jdbcType=VARCHAR},
+      </if>
+      <if test="ppeople != null">
+        #{ppeople,jdbcType=VARCHAR},
+      </if>
+      <if test="ptype != null">
+        #{ptype,jdbcType=VARCHAR},
+      </if>
+      <if test="pdept != null">
+        #{pdept,jdbcType=VARCHAR},
+      </if>
+      <if test="psource != null">
+        #{psource,jdbcType=VARCHAR},
+      </if>
+      <if test="pothers != null">
+        #{pothers,jdbcType=VARCHAR},
+      </if>
+      <if test="pdate != null">
+        #{pdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pstarttime != null">
+        #{pstarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pendtime != null">
+        #{pendtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chengyong.entity.KProject">
+    update K_PROJECT
+    <set>
+      <if test="pname != null">
+        PNAME = #{pname,jdbcType=VARCHAR},
+      </if>
+      <if test="pcoms != null">
+        PCOMS = #{pcoms,jdbcType=VARCHAR},
+      </if>
+      <if test="ppeople != null">
+        PPEOPLE = #{ppeople,jdbcType=VARCHAR},
+      </if>
+      <if test="ptype != null">
+        PTYPE = #{ptype,jdbcType=VARCHAR},
+      </if>
+      <if test="pdept != null">
+        PDEPT = #{pdept,jdbcType=VARCHAR},
+      </if>
+      <if test="psource != null">
+        PSOURCE = #{psource,jdbcType=VARCHAR},
+      </if>
+      <if test="pothers != null">
+        POTHERS = #{pothers,jdbcType=VARCHAR},
+      </if>
+      <if test="pdate != null">
+        PDATE = #{pdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pstarttime != null">
+        PSTARTTIME = #{pstarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pendtime != null">
+        PENDTIME = #{pendtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where PID = #{pid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chengyong.entity.KProject">
+    update K_PROJECT
+    set PNAME = #{pname,jdbcType=VARCHAR},
+      PCOMS = #{pcoms,jdbcType=VARCHAR},
+      PPEOPLE = #{ppeople,jdbcType=VARCHAR},
+      PTYPE = #{ptype,jdbcType=VARCHAR},
+      PDEPT = #{pdept,jdbcType=VARCHAR},
+      PSOURCE = #{psource,jdbcType=VARCHAR},
+      POTHERS = #{pothers,jdbcType=VARCHAR},
+      PDATE = #{pdate,jdbcType=TIMESTAMP},
+      PSTARTTIME = #{pstarttime,jdbcType=TIMESTAMP},
+      PENDTIME = #{pendtime,jdbcType=TIMESTAMP}
+    where PID = #{pid,jdbcType=DECIMAL}
+  </update>
+</mapper>

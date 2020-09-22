@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chengyong.mapper.KInfoMapper">
+  <resultMap id="BaseResultMap" type="com.chengyong.entity.KInfo">
+    <id column="IID" jdbcType="DECIMAL" property="iid" />
+    <result column="OUTPERSON" jdbcType="VARCHAR" property="outperson" />
+    <result column="INFOPERSON" jdbcType="VARCHAR" property="infoperson" />
+    <result column="ICONTEXT" jdbcType="VARCHAR" property="icontext" />
+    <result column="IATTA" jdbcType="VARCHAR" property="iatta" />
+    <result column="INFOTIME" jdbcType="TIMESTAMP" property="infotime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    IID, OUTPERSON, INFOPERSON, ICONTEXT, IATTA, INFOTIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from K_INFO
+    where IID = #{iid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from K_INFO
+    where IID = #{iid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.chengyong.entity.KInfo">
+    insert into K_INFO (IID, OUTPERSON, INFOPERSON, 
+      ICONTEXT, IATTA, INFOTIME
+      )
+    values (#{iid,jdbcType=DECIMAL}, #{outperson,jdbcType=VARCHAR}, #{infoperson,jdbcType=VARCHAR}, 
+      #{icontext,jdbcType=VARCHAR}, #{iatta,jdbcType=VARCHAR}, #{infotime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.chengyong.entity.KInfo">
+    insert into K_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="iid != null">
+        IID,
+      </if>
+      <if test="outperson != null">
+        OUTPERSON,
+      </if>
+      <if test="infoperson != null">
+        INFOPERSON,
+      </if>
+      <if test="icontext != null">
+        ICONTEXT,
+      </if>
+      <if test="iatta != null">
+        IATTA,
+      </if>
+      <if test="infotime != null">
+        INFOTIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="iid != null">
+        #{iid,jdbcType=DECIMAL},
+      </if>
+      <if test="outperson != null">
+        #{outperson,jdbcType=VARCHAR},
+      </if>
+      <if test="infoperson != null">
+        #{infoperson,jdbcType=VARCHAR},
+      </if>
+      <if test="icontext != null">
+        #{icontext,jdbcType=VARCHAR},
+      </if>
+      <if test="iatta != null">
+        #{iatta,jdbcType=VARCHAR},
+      </if>
+      <if test="infotime != null">
+        #{infotime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chengyong.entity.KInfo">
+    update K_INFO
+    <set>
+      <if test="outperson != null">
+        OUTPERSON = #{outperson,jdbcType=VARCHAR},
+      </if>
+      <if test="infoperson != null">
+        INFOPERSON = #{infoperson,jdbcType=VARCHAR},
+      </if>
+      <if test="icontext != null">
+        ICONTEXT = #{icontext,jdbcType=VARCHAR},
+      </if>
+      <if test="iatta != null">
+        IATTA = #{iatta,jdbcType=VARCHAR},
+      </if>
+      <if test="infotime != null">
+        INFOTIME = #{infotime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where IID = #{iid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chengyong.entity.KInfo">
+    update K_INFO
+    set OUTPERSON = #{outperson,jdbcType=VARCHAR},
+      INFOPERSON = #{infoperson,jdbcType=VARCHAR},
+      ICONTEXT = #{icontext,jdbcType=VARCHAR},
+      IATTA = #{iatta,jdbcType=VARCHAR},
+      INFOTIME = #{infotime,jdbcType=TIMESTAMP}
+    where IID = #{iid,jdbcType=DECIMAL}
+  </update>
+</mapper>

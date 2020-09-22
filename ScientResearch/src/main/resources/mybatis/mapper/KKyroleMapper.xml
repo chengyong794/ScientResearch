@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chengyong.mapper.KKyroleMapper">
+  <resultMap id="BaseResultMap" type="com.chengyong.entity.KKyrole">
+    <id column="R_ID" jdbcType="DECIMAL" property="rId" />
+    <result column="R_NAME" jdbcType="VARCHAR" property="rName" />
+    <result column="R_DESC" jdbcType="VARCHAR" property="rDesc" />
+    <result column="R_CODE" jdbcType="VARCHAR" property="rCode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    R_ID, R_NAME, R_DESC, R_CODE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from K_KYROLE
+    where R_ID = #{rId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from K_KYROLE
+    where R_ID = #{rId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.chengyong.entity.KKyrole">
+    insert into K_KYROLE (R_ID, R_NAME, R_DESC, 
+      R_CODE)
+    values (#{rId,jdbcType=DECIMAL}, #{rName,jdbcType=VARCHAR}, #{rDesc,jdbcType=VARCHAR}, 
+      #{rCode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chengyong.entity.KKyrole">
+    insert into K_KYROLE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="rId != null">
+        R_ID,
+      </if>
+      <if test="rName != null">
+        R_NAME,
+      </if>
+      <if test="rDesc != null">
+        R_DESC,
+      </if>
+      <if test="rCode != null">
+        R_CODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="rId != null">
+        #{rId,jdbcType=DECIMAL},
+      </if>
+      <if test="rName != null">
+        #{rName,jdbcType=VARCHAR},
+      </if>
+      <if test="rDesc != null">
+        #{rDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="rCode != null">
+        #{rCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chengyong.entity.KKyrole">
+    update K_KYROLE
+    <set>
+      <if test="rName != null">
+        R_NAME = #{rName,jdbcType=VARCHAR},
+      </if>
+      <if test="rDesc != null">
+        R_DESC = #{rDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="rCode != null">
+        R_CODE = #{rCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where R_ID = #{rId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chengyong.entity.KKyrole">
+    update K_KYROLE
+    set R_NAME = #{rName,jdbcType=VARCHAR},
+      R_DESC = #{rDesc,jdbcType=VARCHAR},
+      R_CODE = #{rCode,jdbcType=VARCHAR}
+    where R_ID = #{rId,jdbcType=DECIMAL}
+  </update>
+</mapper>

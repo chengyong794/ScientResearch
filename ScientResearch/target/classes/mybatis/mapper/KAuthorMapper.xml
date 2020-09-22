@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chengyong.mapper.KAuthorMapper">
+  <resultMap id="BaseResultMap" type="com.chengyong.entity.KAuthor">
+    <id column="AID" jdbcType="DECIMAL" property="aid" />
+    <result column="ANAME" jdbcType="VARCHAR" property="aname" />
+    <result column="AJOB" jdbcType="VARCHAR" property="ajob" />
+    <result column="ADEPT" jdbcType="VARCHAR" property="adept" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    AID, ANAME, AJOB, ADEPT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from K_AUTHOR
+    where AID = #{aid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from K_AUTHOR
+    where AID = #{aid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.chengyong.entity.KAuthor">
+    insert into K_AUTHOR (AID, ANAME, AJOB, 
+      ADEPT)
+    values (#{aid,jdbcType=DECIMAL}, #{aname,jdbcType=VARCHAR}, #{ajob,jdbcType=VARCHAR}, 
+      #{adept,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chengyong.entity.KAuthor">
+    insert into K_AUTHOR
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="aid != null">
+        AID,
+      </if>
+      <if test="aname != null">
+        ANAME,
+      </if>
+      <if test="ajob != null">
+        AJOB,
+      </if>
+      <if test="adept != null">
+        ADEPT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="aid != null">
+        #{aid,jdbcType=DECIMAL},
+      </if>
+      <if test="aname != null">
+        #{aname,jdbcType=VARCHAR},
+      </if>
+      <if test="ajob != null">
+        #{ajob,jdbcType=VARCHAR},
+      </if>
+      <if test="adept != null">
+        #{adept,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chengyong.entity.KAuthor">
+    update K_AUTHOR
+    <set>
+      <if test="aname != null">
+        ANAME = #{aname,jdbcType=VARCHAR},
+      </if>
+      <if test="ajob != null">
+        AJOB = #{ajob,jdbcType=VARCHAR},
+      </if>
+      <if test="adept != null">
+        ADEPT = #{adept,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where AID = #{aid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chengyong.entity.KAuthor">
+    update K_AUTHOR
+    set ANAME = #{aname,jdbcType=VARCHAR},
+      AJOB = #{ajob,jdbcType=VARCHAR},
+      ADEPT = #{adept,jdbcType=VARCHAR}
+    where AID = #{aid,jdbcType=DECIMAL}
+  </update>
+</mapper>

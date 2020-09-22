@@ -1,6 +1,7 @@
 package com.chengyong.Controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -20,7 +21,7 @@ public class IndexController {
         return "index";
     }
 
-    @RequestMapping("menu")
+    @RequestMapping("/menu")
     public String menu(){
         //templates 默认前缀就是templates
         return "page/menu";

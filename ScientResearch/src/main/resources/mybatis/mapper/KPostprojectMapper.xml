@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chengyong.mapper.KPostprojectMapper">
+  <resultMap id="BaseResultMap" type="com.chengyong.entity.KPostproject">
+    <id column="PPID" jdbcType="DECIMAL" property="ppid" />
+    <result column="PPNAME" jdbcType="VARCHAR" property="ppname" />
+    <result column="PPNUM" jdbcType="VARCHAR" property="ppnum" />
+    <result column="PPPEOPLE" jdbcType="VARCHAR" property="pppeople" />
+    <result column="PPCONTROL" jdbcType="VARCHAR" property="ppcontrol" />
+    <result column="PPSTATE1" jdbcType="VARCHAR" property="ppstate1" />
+    <result column="PPSTATE2" jdbcType="VARCHAR" property="ppstate2" />
+    <result column="PPSTATE3" jdbcType="VARCHAR" property="ppstate3" />
+    <result column="PPCOME" jdbcType="VARCHAR" property="ppcome" />
+    <result column="PPTYPE" jdbcType="VARCHAR" property="pptype" />
+    <result column="PPDEPT" jdbcType="VARCHAR" property="ppdept" />
+    <result column="PPSTARTTIME" jdbcType="TIMESTAMP" property="ppstarttime" />
+    <result column="PPENDTIME" jdbcType="TIMESTAMP" property="ppendtime" />
+    <result column="PPADJUCT" jdbcType="VARCHAR" property="ppadjuct" />
+    <result column="PPFORM" jdbcType="VARCHAR" property="ppform" />
+    <result column="PPSTATUS" jdbcType="VARCHAR" property="ppstatus" />
+    <result column="PPREMAK" jdbcType="VARCHAR" property="ppremak" />
+    <result column="SUBTIME" jdbcType="TIMESTAMP" property="subtime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PPID, PPNAME, PPNUM, PPPEOPLE, PPCONTROL, PPSTATE1, PPSTATE2, PPSTATE3, PPCOME, PPTYPE, 
+    PPDEPT, PPSTARTTIME, PPENDTIME, PPADJUCT, PPFORM, PPSTATUS, PPREMAK, SUBTIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from K_POSTPROJECT
+    where PPID = #{ppid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from K_POSTPROJECT
+    where PPID = #{ppid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.chengyong.entity.KPostproject">
+    insert into K_POSTPROJECT (PPID, PPNAME, PPNUM, 
+      PPPEOPLE, PPCONTROL, PPSTATE1, 
+      PPSTATE2, PPSTATE3, PPCOME, 
+      PPTYPE, PPDEPT, PPSTARTTIME, 
+      PPENDTIME, PPADJUCT, PPFORM, 
+      PPSTATUS, PPREMAK, SUBTIME
+      )
+    values (#{ppid,jdbcType=DECIMAL}, #{ppname,jdbcType=VARCHAR}, #{ppnum,jdbcType=VARCHAR}, 
+      #{pppeople,jdbcType=VARCHAR}, #{ppcontrol,jdbcType=VARCHAR}, #{ppstate1,jdbcType=VARCHAR}, 
+      #{ppstate2,jdbcType=VARCHAR}, #{ppstate3,jdbcType=VARCHAR}, #{ppcome,jdbcType=VARCHAR}, 
+      #{pptype,jdbcType=VARCHAR}, #{ppdept,jdbcType=VARCHAR}, #{ppstarttime,jdbcType=TIMESTAMP}, 
+      #{ppendtime,jdbcType=TIMESTAMP}, #{ppadjuct,jdbcType=VARCHAR}, #{ppform,jdbcType=VARCHAR}, 
+      #{ppstatus,jdbcType=VARCHAR}, #{ppremak,jdbcType=VARCHAR}, #{subtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.chengyong.entity.KPostproject">
+    insert into K_POSTPROJECT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ppid != null">
+        PPID,
+      </if>
+      <if test="ppname != null">
+        PPNAME,
+      </if>
+      <if test="ppnum != null">
+        PPNUM,
+      </if>
+      <if test="pppeople != null">
+        PPPEOPLE,
+      </if>
+      <if test="ppcontrol != null">
+        PPCONTROL,
+      </if>
+      <if test="ppstate1 != null">
+        PPSTATE1,
+      </if>
+      <if test="ppstate2 != null">
+        PPSTATE2,
+      </if>
+      <if test="ppstate3 != null">
+        PPSTATE3,
+      </if>
+      <if test="ppcome != null">
+        PPCOME,
+      </if>
+      <if test="pptype != null">
+        PPTYPE,
+      </if>
+      <if test="ppdept != null">
+        PPDEPT,
+      </if>
+      <if test="ppstarttime != null">
+        PPSTARTTIME,
+      </if>
+      <if test="ppendtime != null">
+        PPENDTIME,
+      </if>
+      <if test="ppadjuct != null">
+        PPADJUCT,
+      </if>
+      <if test="ppform != null">
+        PPFORM,
+      </if>
+      <if test="ppstatus != null">
+        PPSTATUS,
+      </if>
+      <if test="ppremak != null">
+        PPREMAK,
+      </if>
+      <if test="subtime != null">
+        SUBTIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ppid != null">
+        #{ppid,jdbcType=DECIMAL},
+      </if>
+      <if test="ppname != null">
+        #{ppname,jdbcType=VARCHAR},
+      </if>
+      <if test="ppnum != null">
+        #{ppnum,jdbcType=VARCHAR},
+      </if>
+      <if test="pppeople != null">
+        #{pppeople,jdbcType=VARCHAR},
+      </if>
+      <if test="ppcontrol != null">
+        #{ppcontrol,jdbcType=VARCHAR},
+      </if>
+      <if test="ppstate1 != null">
+        #{ppstate1,jdbcType=VARCHAR},
+      </if>
+      <if test="ppstate2 != null">
+        #{ppstate2,jdbcType=VARCHAR},
+      </if>
+      <if test="ppstate3 != null">
+        #{ppstate3,jdbcType=VARCHAR},
+      </if>
+      <if test="ppcome != null">
+        #{ppcome,jdbcType=VARCHAR},
+      </if>
+      <if test="pptype != null">
+        #{pptype,jdbcType=VARCHAR},
+      </if>
+      <if test="ppdept != null">
+        #{ppdept,jdbcType=VARCHAR},
+      </if>
+      <if test="ppstarttime != null">
+        #{ppstarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ppendtime != null">
+        #{ppendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ppadjuct != null">
+        #{ppadjuct,jdbcType=VARCHAR},
+      </if>
+      <if test="ppform != null">
+        #{ppform,jdbcType=VARCHAR},
+      </if>
+      <if test="ppstatus != null">
+        #{ppstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="ppremak != null">
+        #{ppremak,jdbcType=VARCHAR},
+      </if>
+      <if test="subtime != null">
+        #{subtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chengyong.entity.KPostproject">
+    update K_POSTPROJECT
+    <set>
+      <if test="ppname != null">
+        PPNAME = #{ppname,jdbcType=VARCHAR},
+      </if>
+      <if test="ppnum != null">
+        PPNUM = #{ppnum,jdbcType=VARCHAR},
+      </if>
+      <if test="pppeople != null">
+        PPPEOPLE = #{pppeople,jdbcType=VARCHAR},
+      </if>
+      <if test="ppcontrol != null">
+        PPCONTROL = #{ppcontrol,jdbcType=VARCHAR},
+      </if>
+      <if test="ppstate1 != null">
+        PPSTATE1 = #{ppstate1,jdbcType=VARCHAR},
+      </if>
+      <if test="ppstate2 != null">
+        PPSTATE2 = #{ppstate2,jdbcType=VARCHAR},
+      </if>
+      <if test="ppstate3 != null">
+        PPSTATE3 = #{ppstate3,jdbcType=VARCHAR},
+      </if>
+      <if test="ppcome != null">
+        PPCOME = #{ppcome,jdbcType=VARCHAR},
+      </if>
+      <if test="pptype != null">
+        PPTYPE = #{pptype,jdbcType=VARCHAR},
+      </if>
+      <if test="ppdept != null">
+        PPDEPT = #{ppdept,jdbcType=VARCHAR},
+      </if>
+      <if test="ppstarttime != null">
+        PPSTARTTIME = #{ppstarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ppendtime != null">
+        PPENDTIME = #{ppendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ppadjuct != null">
+        PPADJUCT = #{ppadjuct,jdbcType=VARCHAR},
+      </if>
+      <if test="ppform != null">
+        PPFORM = #{ppform,jdbcType=VARCHAR},
+      </if>
+      <if test="ppstatus != null">
+        PPSTATUS = #{ppstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="ppremak != null">
+        PPREMAK = #{ppremak,jdbcType=VARCHAR},
+      </if>
+      <if test="subtime != null">
+        SUBTIME = #{subtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where PPID = #{ppid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chengyong.entity.KPostproject">
+    update K_POSTPROJECT
+    set PPNAME = #{ppname,jdbcType=VARCHAR},
+      PPNUM = #{ppnum,jdbcType=VARCHAR},
+      PPPEOPLE = #{pppeople,jdbcType=VARCHAR},
+      PPCONTROL = #{ppcontrol,jdbcType=VARCHAR},
+      PPSTATE1 = #{ppstate1,jdbcType=VARCHAR},
+      PPSTATE2 = #{ppstate2,jdbcType=VARCHAR},
+      PPSTATE3 = #{ppstate3,jdbcType=VARCHAR},
+      PPCOME = #{ppcome,jdbcType=VARCHAR},
+      PPTYPE = #{pptype,jdbcType=VARCHAR},
+      PPDEPT = #{ppdept,jdbcType=VARCHAR},
+      PPSTARTTIME = #{ppstarttime,jdbcType=TIMESTAMP},
+      PPENDTIME = #{ppendtime,jdbcType=TIMESTAMP},
+      PPADJUCT = #{ppadjuct,jdbcType=VARCHAR},
+      PPFORM = #{ppform,jdbcType=VARCHAR},
+      PPSTATUS = #{ppstatus,jdbcType=VARCHAR},
+      PPREMAK = #{ppremak,jdbcType=VARCHAR},
+      SUBTIME = #{subtime,jdbcType=TIMESTAMP}
+    where PPID = #{ppid,jdbcType=DECIMAL}
+  </update>
+</mapper>

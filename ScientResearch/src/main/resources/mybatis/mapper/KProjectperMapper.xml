@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chengyong.mapper.KProjectperMapper">
+  <resultMap id="BaseResultMap" type="com.chengyong.entity.KProjectper">
+    <id column="PPERID" jdbcType="DECIMAL" property="pperid" />
+    <result column="PPERNAME" jdbcType="VARCHAR" property="ppername" />
+    <result column="PID" jdbcType="DECIMAL" property="pid" />
+    <result column="PPERNUM" jdbcType="DECIMAL" property="ppernum" />
+    <result column="UNITNAME" jdbcType="VARCHAR" property="unitname" />
+    <result column="PPERWORK" jdbcType="DECIMAL" property="pperwork" />
+    <result column="PPERTYPE" jdbcType="VARCHAR" property="ppertype" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PPERID, PPERNAME, PID, PPERNUM, UNITNAME, PPERWORK, PPERTYPE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from K_PROJECTPER
+    where PPERID = #{pperid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from K_PROJECTPER
+    where PPERID = #{pperid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.chengyong.entity.KProjectper">
+    insert into K_PROJECTPER (PPERID, PPERNAME, PID, 
+      PPERNUM, UNITNAME, PPERWORK, 
+      PPERTYPE)
+    values (#{pperid,jdbcType=DECIMAL}, #{ppername,jdbcType=VARCHAR}, #{pid,jdbcType=DECIMAL}, 
+      #{ppernum,jdbcType=DECIMAL}, #{unitname,jdbcType=VARCHAR}, #{pperwork,jdbcType=DECIMAL}, 
+      #{ppertype,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chengyong.entity.KProjectper">
+    insert into K_PROJECTPER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pperid != null">
+        PPERID,
+      </if>
+      <if test="ppername != null">
+        PPERNAME,
+      </if>
+      <if test="pid != null">
+        PID,
+      </if>
+      <if test="ppernum != null">
+        PPERNUM,
+      </if>
+      <if test="unitname != null">
+        UNITNAME,
+      </if>
+      <if test="pperwork != null">
+        PPERWORK,
+      </if>
+      <if test="ppertype != null">
+        PPERTYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pperid != null">
+        #{pperid,jdbcType=DECIMAL},
+      </if>
+      <if test="ppername != null">
+        #{ppername,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null">
+        #{pid,jdbcType=DECIMAL},
+      </if>
+      <if test="ppernum != null">
+        #{ppernum,jdbcType=DECIMAL},
+      </if>
+      <if test="unitname != null">
+        #{unitname,jdbcType=VARCHAR},
+      </if>
+      <if test="pperwork != null">
+        #{pperwork,jdbcType=DECIMAL},
+      </if>
+      <if test="ppertype != null">
+        #{ppertype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chengyong.entity.KProjectper">
+    update K_PROJECTPER
+    <set>
+      <if test="ppername != null">
+        PPERNAME = #{ppername,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null">
+        PID = #{pid,jdbcType=DECIMAL},
+      </if>
+      <if test="ppernum != null">
+        PPERNUM = #{ppernum,jdbcType=DECIMAL},
+      </if>
+      <if test="unitname != null">
+        UNITNAME = #{unitname,jdbcType=VARCHAR},
+      </if>
+      <if test="pperwork != null">
+        PPERWORK = #{pperwork,jdbcType=DECIMAL},
+      </if>
+      <if test="ppertype != null">
+        PPERTYPE = #{ppertype,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PPERID = #{pperid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chengyong.entity.KProjectper">
+    update K_PROJECTPER
+    set PPERNAME = #{ppername,jdbcType=VARCHAR},
+      PID = #{pid,jdbcType=DECIMAL},
+      PPERNUM = #{ppernum,jdbcType=DECIMAL},
+      UNITNAME = #{unitname,jdbcType=VARCHAR},
+      PPERWORK = #{pperwork,jdbcType=DECIMAL},
+      PPERTYPE = #{ppertype,jdbcType=VARCHAR}
+    where PPERID = #{pperid,jdbcType=DECIMAL}
+  </update>
+</mapper>

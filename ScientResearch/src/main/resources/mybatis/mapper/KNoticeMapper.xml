@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chengyong.mapper.KNoticeMapper">
+  <resultMap id="BaseResultMap" type="com.chengyong.entity.KNotice">
+    <id column="NID" jdbcType="DECIMAL" property="nid" />
+    <result column="NCONTEXT" jdbcType="VARCHAR" property="ncontext" />
+    <result column="NPERSON" jdbcType="VARCHAR" property="nperson" />
+    <result column="NSTARTTIME" jdbcType="TIMESTAMP" property="nstarttime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    NID, NCONTEXT, NPERSON, NSTARTTIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from K_NOTICE
+    where NID = #{nid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from K_NOTICE
+    where NID = #{nid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.chengyong.entity.KNotice">
+    insert into K_NOTICE (NID, NCONTEXT, NPERSON, 
+      NSTARTTIME)
+    values (#{nid,jdbcType=DECIMAL}, #{ncontext,jdbcType=VARCHAR}, #{nperson,jdbcType=VARCHAR}, 
+      #{nstarttime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chengyong.entity.KNotice">
+    insert into K_NOTICE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="nid != null">
+        NID,
+      </if>
+      <if test="ncontext != null">
+        NCONTEXT,
+      </if>
+      <if test="nperson != null">
+        NPERSON,
+      </if>
+      <if test="nstarttime != null">
+        NSTARTTIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="nid != null">
+        #{nid,jdbcType=DECIMAL},
+      </if>
+      <if test="ncontext != null">
+        #{ncontext,jdbcType=VARCHAR},
+      </if>
+      <if test="nperson != null">
+        #{nperson,jdbcType=VARCHAR},
+      </if>
+      <if test="nstarttime != null">
+        #{nstarttime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chengyong.entity.KNotice">
+    update K_NOTICE
+    <set>
+      <if test="ncontext != null">
+        NCONTEXT = #{ncontext,jdbcType=VARCHAR},
+      </if>
+      <if test="nperson != null">
+        NPERSON = #{nperson,jdbcType=VARCHAR},
+      </if>
+      <if test="nstarttime != null">
+        NSTARTTIME = #{nstarttime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where NID = #{nid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chengyong.entity.KNotice">
+    update K_NOTICE
+    set NCONTEXT = #{ncontext,jdbcType=VARCHAR},
+      NPERSON = #{nperson,jdbcType=VARCHAR},
+      NSTARTTIME = #{nstarttime,jdbcType=TIMESTAMP}
+    where NID = #{nid,jdbcType=DECIMAL}
+  </update>
+</mapper>

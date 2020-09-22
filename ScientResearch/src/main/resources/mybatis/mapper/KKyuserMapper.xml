@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chengyong.mapper.KKyuserMapper">
+  <resultMap id="BaseResultMap" type="com.chengyong.entity.KKyuser">
+    <id column="KYID" jdbcType="DECIMAL" property="kyid" />
+    <result column="KYNAME" jdbcType="VARCHAR" property="USERNAME" />
+    <result column="KYPWD" jdbcType="VARCHAR" property="PASSWORD" />
+    <result column="USERTYPE" jdbcType="DECIMAL" property="usertype" />
+    <result column="LEVEL" jdbcType="VARCHAR" property="level" />
+    <result column="USERDEPT" jdbcType="VARCHAR" property="userdept" />
+    <result column="RENAME" jdbcType="VARCHAR" property="rename" />
+    <result column="DEPTNUM" jdbcType="VARCHAR" property="deptnum" />
+    <result column="TEL" jdbcType="VARCHAR" property="tel" />
+    <result column="ADDR" jdbcType="VARCHAR" property="addr" />
+    <result column="NUITNUM" jdbcType="VARCHAR" property="nuitnum" />
+    <result column="KJOB" jdbcType="VARCHAR" property="kjob" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    KYID, USERNAME, PASSWORD, USERTYPE, LEVEL, USERDEPT, RENAME, DEPTNUM, TEL, ADDR, NUITNUM,
+    KJOB
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from K_KYUSER
+    where KYID = #{kyid,jdbcType=DECIMAL}
+  </select>
+
+  <select id="loginUsername" parameterType="java.lang.String" resultMap="BaseResultMap">
+     select KYNAME as username,KYPWD as password,KYID from K_KYUSER where KYNAME = #{username,jdbcType=VARCHAR}
+  </select>
+
+  <select id="findUserRole" parameterType="java.lang.Short" resultType="java.lang.String">
+     select r.R_CODE as rCode from K_KYUSER u join KYROLE_USER ru
+     on u.KYID = ru.R_ID join K_KYROLE r
+     on ru.R_ID = r.R_ID
+     where u.KYID = #{kyid,jdbcType=DECIMAL}
+  </select>
+
+  <select id="findRoleMenu" parameterType="java.lang.Short" resultType="java.lang.String">
+     select m.M_URL as mUrl from
+     K_KYUSER u join KYROLE_USER ru
+     on u.KYID = ru.R_ID join K_KYROLE r
+     on ru.R_ID = r.R_ID join KYMENU_ROLE mr
+     on r.R_ID = mr.R_ID join K_KYMENU m
+     on mr.M_ID = m.M_ID
+     where u.KYID = #{kyid,jdbcType=DECIMAL}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from K_KYUSER
+    where KYID = #{kyid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.chengyong.entity.KKyuser">
+    insert into K_KYUSER (KYID, KYNAME, KYPWD, 
+      USERTYPE, LEVEL, USERDEPT, 
+      RENAME, DEPTNUM, TEL, 
+      ADDR, NUITNUM, KJOB
+      )
+    values (#{kyid,jdbcType=DECIMAL}, #{kyname,jdbcType=VARCHAR}, #{kypwd,jdbcType=VARCHAR}, 
+      #{usertype,jdbcType=DECIMAL}, #{level,jdbcType=VARCHAR}, #{userdept,jdbcType=VARCHAR}, 
+      #{rename,jdbcType=VARCHAR}, #{deptnum,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{addr,jdbcType=VARCHAR}, #{nuitnum,jdbcType=VARCHAR}, #{kjob,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.chengyong.entity.KKyuser">
+    insert into K_KYUSER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="kyid != null">
+        KYID,
+      </if>
+      <if test="kyname != null">
+        KYNAME,
+      </if>
+      <if test="kypwd != null">
+        KYPWD,
+      </if>
+      <if test="usertype != null">
+        USERTYPE,
+      </if>
+      <if test="level != null">
+        LEVEL,
+      </if>
+      <if test="userdept != null">
+        USERDEPT,
+      </if>
+      <if test="rename != null">
+        RENAME,
+      </if>
+      <if test="deptnum != null">
+        DEPTNUM,
+      </if>
+      <if test="tel != null">
+        TEL,
+      </if>
+      <if test="addr != null">
+        ADDR,
+      </if>
+      <if test="nuitnum != null">
+        NUITNUM,
+      </if>
+      <if test="kjob != null">
+        KJOB,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="kyid != null">
+        #{kyid,jdbcType=DECIMAL},
+      </if>
+      <if test="kyname != null">
+        #{kyname,jdbcType=VARCHAR},
+      </if>
+      <if test="kypwd != null">
+        #{kypwd,jdbcType=VARCHAR},
+      </if>
+      <if test="usertype != null">
+        #{usertype,jdbcType=DECIMAL},
+      </if>
+      <if test="level != null">
+        #{level,jdbcType=VARCHAR},
+      </if>
+      <if test="userdept != null">
+        #{userdept,jdbcType=VARCHAR},
+      </if>
+      <if test="rename != null">
+        #{rename,jdbcType=VARCHAR},
+      </if>
+      <if test="deptnum != null">
+        #{deptnum,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null">
+        #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="nuitnum != null">
+        #{nuitnum,jdbcType=VARCHAR},
+      </if>
+      <if test="kjob != null">
+        #{kjob,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chengyong.entity.KKyuser">
+    update K_KYUSER
+    <set>
+      <if test="kyname != null">
+        KYNAME = #{kyname,jdbcType=VARCHAR},
+      </if>
+      <if test="kypwd != null">
+        KYPWD = #{kypwd,jdbcType=VARCHAR},
+      </if>
+      <if test="usertype != null">
+        USERTYPE = #{usertype,jdbcType=DECIMAL},
+      </if>
+      <if test="level != null">
+        LEVEL = #{level,jdbcType=VARCHAR},
+      </if>
+      <if test="userdept != null">
+        USERDEPT = #{userdept,jdbcType=VARCHAR},
+      </if>
+      <if test="rename != null">
+        RENAME = #{rename,jdbcType=VARCHAR},
+      </if>
+      <if test="deptnum != null">
+        DEPTNUM = #{deptnum,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        TEL = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null">
+        ADDR = #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="nuitnum != null">
+        NUITNUM = #{nuitnum,jdbcType=VARCHAR},
+      </if>
+      <if test="kjob != null">
+        KJOB = #{kjob,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where KYID = #{kyid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chengyong.entity.KKyuser">
+    update K_KYUSER
+    set KYNAME = #{kyname,jdbcType=VARCHAR},
+      KYPWD = #{kypwd,jdbcType=VARCHAR},
+      USERTYPE = #{usertype,jdbcType=DECIMAL},
+      LEVEL = #{level,jdbcType=VARCHAR},
+      USERDEPT = #{userdept,jdbcType=VARCHAR},
+      RENAME = #{rename,jdbcType=VARCHAR},
+      DEPTNUM = #{deptnum,jdbcType=VARCHAR},
+      TEL = #{tel,jdbcType=VARCHAR},
+      ADDR = #{addr,jdbcType=VARCHAR},
+      NUITNUM = #{nuitnum,jdbcType=VARCHAR},
+      KJOB = #{kjob,jdbcType=VARCHAR}
+    where KYID = #{kyid,jdbcType=DECIMAL}
+  </update>
+</mapper>
