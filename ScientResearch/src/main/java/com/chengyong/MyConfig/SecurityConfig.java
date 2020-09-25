@@ -18,6 +18,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
+                .logout()
+                .and()
                 .formLogin().loginPage("/")
                 .loginProcessingUrl("/login")
                 .successForwardUrl("/index")

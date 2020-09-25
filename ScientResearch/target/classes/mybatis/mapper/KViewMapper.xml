@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chengyong.mapper.KViewMapper">
+  <resultMap id="BaseResultMap" type="com.chengyong.entity.KView">
+    <id column="viewId" jdbcType="DECIMAL" property="viewid" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="href" jdbcType="VARCHAR" property="href" />
+    <result column="image" jdbcType="VARCHAR" property="image" />
+    <result column="icon" jdbcType="VARCHAR" property="icon" />
+    <result column="target" jdbcType="VARCHAR" property="target" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    viewId, title, href, image, icon, target
+  </sql>
+
+  <select id="findById" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_VIEW
+    where viewId = #{viewid,jdbcType=DECIMAL}
+  </select>
+
+  <select id="findByIdList" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_VIEW
+    where viewId = #{viewid,jdbcType=DECIMAL}
+  </select>
+
+  <select id="selectKview" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_VIEW
+  </select>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from K_VIEW
+    where viewId = #{viewid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from K_VIEW
+    where viewId = #{viewid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.chengyong.entity.KView">
+    insert into K_VIEW (viewId, title, href, 
+      image, icon, target
+      )
+    values (#{viewid,jdbcType=DECIMAL}, #{title,jdbcType=VARCHAR}, #{href,jdbcType=VARCHAR}, 
+      #{image,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR}, #{target,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.chengyong.entity.KView">
+    insert into K_VIEW
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="viewid != null">
+        viewId,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="href != null">
+        href,
+      </if>
+      <if test="image != null">
+        image,
+      </if>
+      <if test="icon != null">
+        icon,
+      </if>
+      <if test="target != null">
+        target,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="viewid != null">
+        #{viewid,jdbcType=DECIMAL},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="href != null">
+        #{href,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null">
+        #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="icon != null">
+        #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="target != null">
+        #{target,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chengyong.entity.KView">
+    update K_VIEW
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="href != null">
+        href = #{href,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null">
+        image = #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="icon != null">
+        icon = #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="target != null">
+        target = #{target,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where viewId = #{viewid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chengyong.entity.KView">
+    update K_VIEW
+    set title = #{title,jdbcType=VARCHAR},
+      href = #{href,jdbcType=VARCHAR},
+      image = #{image,jdbcType=VARCHAR},
+      icon = #{icon,jdbcType=VARCHAR},
+      target = #{target,jdbcType=VARCHAR}
+    where viewId = #{viewid,jdbcType=DECIMAL}
+  </update>
+</mapper>

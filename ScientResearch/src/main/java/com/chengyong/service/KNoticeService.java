@@ -1,4 +1,4 @@
 package com.chengyong.service;
 
-public class KNoticeService {
+public interface KNoticeService {
 }

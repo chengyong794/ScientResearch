@@ -1,4 +1,4 @@
 package com.chengyong.service;
 
-public class KInfoService {
+public interface KInfoService {
 }

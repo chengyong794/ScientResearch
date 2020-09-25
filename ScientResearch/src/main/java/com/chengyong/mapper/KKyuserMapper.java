@@ -1,13 +1,11 @@
 package com.chengyong.mapper;
 
-import com.chengyong.entity.KKymenu;
-import com.chengyong.entity.KKyrole;
 import com.chengyong.entity.KKyuser;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
-@Mapper
+//@Mapper
 public interface KKyuserMapper {
     int deleteByPrimaryKey(Short kyid);
 

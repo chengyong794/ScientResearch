@@ -9,6 +9,7 @@ public class KKymenu {
 
     private String mUrl;
 
+
     public Short getmId() {
         return mId;
     }

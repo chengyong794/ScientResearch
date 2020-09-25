@@ -1,4 +1,4 @@
 package com.chengyong.service;
 
-public class KProresultsService {
+public interface KProresultsService {
 }
