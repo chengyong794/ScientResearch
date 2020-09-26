@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>menu</title>
+    <link rel="stylesheet" th:href="@{lib/layui-v2.5.5/css/layui.css}" href="../../../static/lib/layui-v2.5.5/css/layui.css" media="all">
+    <link rel="stylesheet" th:href="@{css/public.css}" href="../../../static/css/public.css" media="all">
+    <style>
+        .layui-btn:not(.layui-btn-lg ):not(.layui-btn-sm):not(.layui-btn-xs) {
+            height: 34px;
+            line-height: 34px;
+            padding: 0 8px;
+        }
+    </style>
+</head>
+<body>
+<div class="layuimini-container">
+    <div class="layuimini-main">
+        <div>
+            <div class="layui-btn-group">
+                <button class="layui-btn" id="btn-expand">全部展开</button>
+                <button class="layui-btn layui-btn-normal" id="btn-fold">全部折叠</button>
+            </div>
+            <table id="munu-table" class="layui-table" lay-filter="munu-table"></table>
+        </div>
+    </div>
+</div>
+
+<!--修改页面开始-->
+<div style="display: none;margin: auto;" class="layui-form layuimini-form" id="edit">
+    <form class="layui-form" lay-filter="dataFrom" id="dataFrm">
+    <div class="layui-form-item" style="width: 500px;margin-top: 50px;">
+        <label class="layui-form-label required">菜单名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" lay-verify="required" lay-reqtext="菜单名不能为空" placeholder="请输入菜单名" value="" class="layui-input">
+            <input type="hidden" name="treenodeid"/>
+        </div>
+    </div>
+    <div class="layui-form-item" style="width: 500px;">
+        <label class="layui-form-label required">菜单图标</label>
+        <div class="layui-input-block">
+            <input type="text" name="icon" lay-verify="required" lay-reqtext="菜单图标不能为空" placeholder="请输入菜单图标" value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item" style="width: 500px;">
+        <label class="layui-form-label">地址</label>
+        <div class="layui-input-block">
+            <input type="text" name="href" placeholder="请输入地址" value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item" style="width: 500px;">
+        <label class="layui-form-label">类型</label>
+        <div class="layui-input-block">
+            <input type="radio" name="type" value="1" placeholder="请输入类型" class="layui-input" title="目录">
+            <input type="radio" name="type" value="0" placeholder="请输入类型" class="layui-input" title="菜单">
+        </div>
+    </div>
+
+    <div class="layui-form-item" style="width: 500px;">
+        <div class="layui-input-block" style="text-align: center;">
+            <input type="button" class="layui-btn  layui-btn-sm layui-btn-normal" lay-submit lay-filter="saveBtn" value="确认保存">
+            <span id="Editclose" class="layui-btn  layui-btn-sm layui-btn-normal">取  消</span>
+        </div>
+    </div>
+    </form>
+</div>
+<!--修改页面结束-->
+
+<!-- 操作列 -->
+<script type="text/html" id="auth-state">
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">修改</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+
+<script th:src="@{lib/layui-v2.5.5/layui.js}" src="../../../static/lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+<script th:src="@{js/lay-config.js}" src="../../../static/js/lay-config.js?v=1.0.4" charset="utf-8"></script>
+<script>
+    layui.use(['table', 'treetable','layer','jquery','form'], function () {
+        var $ = layui.jquery;
+        var table = layui.table;
+        var treetable = layui.treetable;
+        var layer = layui.layer;
+        var form = layui.form;
+
+        var tabledata;
+
+        // 渲染表格
+        layer.load(2);
+        tabledata = treetable.render({
+            treeColIndex: 1,
+            treeSpid: -1,
+            treeIdName: 'treenodeid',
+            treePidName: 'parentid',
+            elem: '#munu-table',
+            url: '/menu/menudata',
+            page: false,
+            cols: [
+                [
+                {type: 'numbers'},
+                {field: 'title', minWidth: 200, title: '菜单名称'},
+                {field: 'icon', title: '菜单图标'},
+                {field: 'href', title: '菜单url'},
+                {field: 'treenodeid', width: 80, align: 'center', title: '排序号'},
+                {
+                    field: 'type', width: 80, align: 'center', templet: function (d) {
+                        // if (d.isMenu == 1) {
+                        //     return '<span class="layui-badge layui-bg-gray">按钮</span>';
+                        // }
+                        if (d.type == 1) {
+                            return '<span class="layui-badge layui-bg-blue">目录</span>';
+                        } else {
+                            return '<span class="layui-badge-rim">菜单</span>';
+                        }
+                    }, title: '类型'
+                },
+                {templet: '#auth-state', width: 120, align: 'center', title: '操作'}
+              ]
+            ],
+            done: function () {
+                layer.closeAll('loading');
+            }
+        });
+
+        $('#btn-expand').click(function () {
+            treetable.expandAll('#munu-table');
+        });
+
+        $('#btn-fold').click(function () {
+            treetable.foldAll('#munu-table');
+        });
+
+        //监听工具条
+      table.on('tool(munu-table)', function (obj) {
+            var data = obj.data;
+            var layEvent = obj.event;
+            if (layEvent === 'del') {
+                layer.msg('删除' + data.id);
+            } else if (layEvent === 'edit') {
+                openedit(data);
+            }
+        });
+
+        var url;
+        var editclose;
+
+        function openedit(data){
+            editclose = layer.open({
+                type:1,
+                title:'修改页面',
+                content:$('#edit'),
+                skin: 'layui-layer-lan',
+                area: ['600px', '400px'],
+                success:function(index){
+                    form.val("dataFrom",data);
+                    url = "menu/menuedit";
+                }
+            });
+        }
+        form.on('submit(saveBtn)',function(data){
+            var menudata = data.field;
+            $.ajax({
+                type: "post",
+                url: url,
+                data: menudata,
+                dataType:'json',
+                success: function(data){
+                        layer.msg(data.msg)
+                        layer.close(editclose);
+                        tabledata.reload();
+                }
+            });
+            return false;
+        });
+
+
+        $("#Editclose").click(
+            function Editclose(){
+            layer.close(editclose);
+        });
+
+
+    });
+</script>
+</body>
+</html>

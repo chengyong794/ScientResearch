@@ -34,10 +34,10 @@ public class IndexController {
     }
 
     /**
-     * 显示分级菜单
+     * 左侧分级菜单
      * @return
      */
-    @RequestMapping("/menu")
+    @RequestMapping("/leftmenu")
     @ResponseBody
     public Map<String,Object> menu(){
         Map<String,Object> map = new HashMap<>();
@@ -48,6 +48,15 @@ public class IndexController {
         map.put("logoInfo",logoInfo);
         map.put("menuInfo",menuInfo);
         return map;
+    }
+
+    /**
+     * 菜单页面显示
+     * @return
+     */
+    @RequestMapping("/rightmenu")
+    public String rightmenu(){
+        return "page/system/menu";
     }
 
     @RequestMapping("/welcome")

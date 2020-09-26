@@ -1,7 +1,5 @@
 package com.chengyong.service;
 
-import com.chengyong.entity.KKymenu;
-import com.chengyong.entity.KKyrole;
 import com.chengyong.entity.KKyuser;
 import com.chengyong.mapper.KKyuserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +8,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 

@@ -30,8 +30,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         ,"/lib/**","/webjars/html5shiv/3.3.7/**"
                         ,"/webjars/respond/1.4.2/**","/api/**","/favicon.ico")
                 .permitAll()
-                .antMatchers("/menu")
-                .hasAnyAuthority("ROLE_SUPER")
                 .anyRequest()
                 .authenticated()
                 .and()

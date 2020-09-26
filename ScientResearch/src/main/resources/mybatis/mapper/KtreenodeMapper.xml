@@ -2,16 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.chengyong.mapper.KtreenodeMapper">
   <resultMap id="BaseResultMap" type="com.chengyong.entity.Ktreenode">
-    <id column="treeNodeId" jdbcType="DECIMAL" property="treenodeid" />
-    <result column="title" jdbcType="VARCHAR" property="title" />
-    <result column="href" jdbcType="VARCHAR" property="href" />
-    <result column="icon" jdbcType="VARCHAR" property="icon" />
-    <result column="target" jdbcType="VARCHAR" property="target" />
-    <result column="parentId" jdbcType="DECIMAL" property="parentid" />
-    <result column="type" jdbcType="DECIMAL" property="type" />
+    <id column="TREENODEId" jdbcType="DECIMAL" property="treenodeid" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="HREF" jdbcType="VARCHAR" property="href" />
+    <result column="ICON" jdbcType="VARCHAR" property="icon" />
+    <result column="TARGET" jdbcType="VARCHAR" property="target" />
+    <result column="PARENTID" jdbcType="DECIMAL" property="parentid" />
+    <result column="TYPE" jdbcType="DECIMAL" property="type" />
   </resultMap>
   <sql id="Base_Column_List">
-    treeNodeId, title, href, icon, target, parentId,type
+    TREENODEId, TITLE, HREF, ICON, TARGET, PARENTID,TYPE
   </sql>
 
   <select id="listTreeNode" resultMap="BaseResultMap">
@@ -79,6 +79,9 @@
       <if test="parentid != null">
         #{parentid,jdbcType=DECIMAL},
       </if>
+      <if test="type != null">
+        #{type,jdbcType=DECIMAL},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.chengyong.entity.Ktreenode">
@@ -98,6 +101,9 @@
       </if>
       <if test="parentid != null">
         parentId = #{parentid,jdbcType=DECIMAL},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=DECIMAL},
       </if>
     </set>
     where treeNodeId = #{treenodeid,jdbcType=DECIMAL}

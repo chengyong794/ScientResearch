@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="utf-8">
     <title>科研管理首页</title>
@@ -12,14 +12,15 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
-    <link rel="icon" href="images/favicon.ico">
-    <link rel="stylesheet" href="lib/layui-v2.5.5/css/layui.css" media="all">
-    <link rel="stylesheet" href="css/layuimini.css?v=2.0.4.2" media="all">
-    <link rel="stylesheet" href="css/themes/default.css" media="all">
-    <link rel="stylesheet" href="lib/font-awesome-4.7.0/css/font-awesome.min.css" media="all">
+    <link rel="icon" th:href="@{images/favicon.ico}" href="images/favicon.ico">
+    <link rel="stylesheet" th:href="@{lib/layui-v2.5.5/css/layui.css}" href="lib/layui-v2.5.5/css/layui.css" media="all">
+    <link rel="stylesheet" th:href="@{css/layuimini.css}" href="css/layuimini.css?v=2.0.4.2" media="all">
+    <link rel="stylesheet" th:href="@{css/themes/default.css}" href="css/themes/default.css" media="all">
+    <link rel="stylesheet" th:href="@{lib/font-awesome-4.7.0/css/font-awesome.min.css}" href="lib/font-awesome-4.7.0/css/font-awesome.min.css" media="all">
+
     <!--[if lt IE 9]>
-    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
-    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <script th:src="@{/webjars/html5shiv/3.7.3/html5shiv.js}" src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script th:src="@{/webjars/respond/1.4.2/dest/respond.min.js}" src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style id="layuimini-bg-color">
     </style>
@@ -127,8 +128,8 @@
 
     </div>
 </div>
-<script src="lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
-<script src="js/lay-config.js?v=2.0.0" charset="utf-8"></script>
+<script th:src="@{lib/layui-v2.5.5/layui.js}" src="lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+<script th:src="@{js/lay-config.js}" src="js/lay-config.js?v=2.0.0" charset="utf-8"></script>
 <script>
     layui.use(['jquery', 'layer', 'miniAdmin','miniTongji'], function () {
         var $ = layui.jquery,
@@ -137,7 +138,7 @@
             miniTongji = layui.miniTongji;
 
          var options = {
-            iniUrl: "/menu",    // 初始化接口
+            iniUrl: "/leftmenu",    // 初始化接口
             clearUrl: "api/clear.json", // 缓存清理接口
             urlHashLocation: true,      // 是否打开hash定位
             bgColorDefault: false,      // 主题默认配置
@@ -148,16 +149,6 @@
             maxTabNum: 20,              // 最大的tab打开数量
         };
         miniAdmin.render(options);
-
-        // 百度统计代码，只统计指定域名
-        miniTongji.render({
-            specific: true,
-            domains: [
-                '99php.cn',
-                'layuimini.99php.cn',
-                'layuimini-onepage.99php.cn',
-            ],
-        });
 
         $('.login-out').on("click", function () {
             layer.msg('退出登录成功', function () {

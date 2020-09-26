@@ -38,12 +38,12 @@
   </select>
 
   <select id="findRoleMenu" parameterType="java.lang.Short" resultType="java.lang.String">
-     select m.M_URL as mUrl from
+     select m.HREF as HREF from
      K_KYUSER u join KYROLE_USER ru
      on u.KYID = ru.R_ID join K_KYROLE r
-     on ru.R_ID = r.R_ID join KYMENU_ROLE mr
-     on r.R_ID = mr.R_ID join K_KYMENU m
-     on mr.M_ID = m.M_ID
+     on ru.R_ID = r.R_ID join KTREE_ROLE mr
+     on r.R_ID = mr.R_ID join KTREENODE m
+     on mr.TREEID = m.TREENODEID
      where u.KYID = #{kyid,jdbcType=DECIMAL}
   </select>
 
