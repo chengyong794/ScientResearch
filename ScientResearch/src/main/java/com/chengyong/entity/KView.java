@@ -1,9 +1,10 @@
 package com.chengyong.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class KView {
+public class KView implements Serializable {
     private Short viewid;
 
     private String title;

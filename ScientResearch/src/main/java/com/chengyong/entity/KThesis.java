@@ -1,8 +1,9 @@
 package com.chengyong.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class KThesis {
+public class KThesis implements Serializable {
     private Short tid;
 
     private String tname;

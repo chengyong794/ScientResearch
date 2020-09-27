@@ -6,6 +6,7 @@ import com.chengyong.service.KtreenodeService;
 import com.chengyong.util.DataTree;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -45,6 +46,7 @@ public class KtreenodeServiceImpl implements KtreenodeService {
         return ktreenodeMapper.updateByPrimaryKey(record);
     }
 
+    @Cacheable("listTreeNode")
     @Override
     public DataTree listTreeNode() {
         List<Ktreenode> list = ktreenodeMapper.listTreeNode();

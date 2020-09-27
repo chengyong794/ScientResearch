@@ -1,6 +1,8 @@
 package com.chengyong.entity;
 
-public class KDept {
+import java.io.Serializable;
+
+public class KDept implements Serializable {
     private Short did;
 
     private String dname;

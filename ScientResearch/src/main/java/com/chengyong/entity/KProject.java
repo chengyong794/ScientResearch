@@ -1,8 +1,9 @@
 package com.chengyong.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class KProject {
+public class KProject implements Serializable {
     private Short pid;
 
     private String pname;

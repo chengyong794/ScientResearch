@@ -1,8 +1,9 @@
 package com.chengyong.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class KPatent {
+public class KPatent implements Serializable {
     private Short zid;
 
     private String zname;

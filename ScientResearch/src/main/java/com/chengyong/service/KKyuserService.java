@@ -3,6 +3,7 @@ package com.chengyong.service;
 import com.chengyong.entity.KKyuser;
 import com.chengyong.mapper.KKyuserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -19,6 +20,7 @@ public class KKyuserService implements UserDetailsService {
     @Autowired
     private KKyuserMapper kkyuserMapper;
 
+    @Cacheable("loadUserByUsername")  //开启注解
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         //获取用户信息

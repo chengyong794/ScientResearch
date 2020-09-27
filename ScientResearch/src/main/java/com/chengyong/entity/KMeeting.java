@@ -1,8 +1,9 @@
 package com.chengyong.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class KMeeting {
+public class KMeeting implements Serializable {
     private Short mid;
 
     private String mname;

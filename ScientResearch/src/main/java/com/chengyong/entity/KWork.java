@@ -1,8 +1,9 @@
 package com.chengyong.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class KWork {
+public class KWork implements Serializable {
     private Short wid;
 
     private String wname;

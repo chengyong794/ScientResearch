@@ -1,6 +1,8 @@
 package com.chengyong.entity;
 
-public class KTest {
+import java.io.Serializable;
+
+public class KTest implements Serializable {
     private Short tid;
 
     private String tname;

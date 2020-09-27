@@ -1,6 +1,8 @@
 package com.chengyong.entity;
 
-public class KProjectper {
+import java.io.Serializable;
+
+public class KProjectper implements Serializable {
     private Short pperid;
 
     private String ppername;

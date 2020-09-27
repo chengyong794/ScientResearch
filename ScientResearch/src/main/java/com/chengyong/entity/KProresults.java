@@ -1,8 +1,9 @@
 package com.chengyong.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class KProresults {
+public class KProresults implements Serializable {
     private Short prid;
 
     private String prname;

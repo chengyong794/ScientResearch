@@ -1,9 +1,10 @@
 package com.chengyong.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Ktreenode {
+public class Ktreenode implements Serializable {
     private Short treenodeid;
 
     private String title;

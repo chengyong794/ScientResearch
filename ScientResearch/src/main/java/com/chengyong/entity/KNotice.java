@@ -1,8 +1,9 @@
 package com.chengyong.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class KNotice {
+public class KNotice implements Serializable {
     private Short nid;
 
     private String ncontext;

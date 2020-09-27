@@ -1,6 +1,8 @@
 package com.chengyong.entity;
 
-public class KKyrole {
+import java.io.Serializable;
+
+public class KKyrole implements Serializable {
     private Short rId;
 
     private String rName;

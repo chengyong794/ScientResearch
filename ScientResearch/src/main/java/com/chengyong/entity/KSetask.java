@@ -1,6 +1,8 @@
 package com.chengyong.entity;
 
-public class KSetask {
+import java.io.Serializable;
+
+public class KSetask implements Serializable {
     private Short tid;
 
     private String taskjob;

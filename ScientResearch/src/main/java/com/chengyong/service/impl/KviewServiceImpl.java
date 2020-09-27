@@ -6,6 +6,7 @@ import com.chengyong.mapper.KViewMapper;
 import com.chengyong.mapper.KtreenodeMapper;
 import com.chengyong.service.KviewService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -54,6 +55,7 @@ public class KviewServiceImpl implements KviewService {
         return kviewMapper.findById(viewId);
     }
 
+    @Cacheable("selectKview")
     @Override
     public List<KView> selectKview() {
         //查询 menuInfo

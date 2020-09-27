@@ -1,8 +1,9 @@
 package com.chengyong.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class KInfo {
+public class KInfo implements Serializable {
     private Short iid;
 
     private String outperson;

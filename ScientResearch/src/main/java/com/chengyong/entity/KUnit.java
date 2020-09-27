@@ -1,6 +1,8 @@
 package com.chengyong.entity;
 
-public class KUnit {
+import java.io.Serializable;
+
+public class KUnit implements Serializable {
     private Short uid;
 
     private Short unitnum;

@@ -48,13 +48,13 @@
             <input type="text" name="href" placeholder="请输入地址" value="" class="layui-input">
         </div>
     </div>
-    <div class="layui-form-item" style="width: 500px;">
-        <label class="layui-form-label">类型</label>
-        <div class="layui-input-block">
-            <input type="radio" name="type" value="1" placeholder="请输入类型" class="layui-input" title="目录">
-            <input type="radio" name="type" value="0" placeholder="请输入类型" class="layui-input" title="菜单">
-        </div>
-    </div>
+<!--    <div class="layui-form-item" style="width: 500px;">-->
+<!--        <label class="layui-form-label">类型</label>-->
+<!--        <div class="layui-input-block">-->
+<!--            <input type="radio" name="type" value="1" placeholder="请输入类型" class="layui-input" title="目录">-->
+<!--            <input type="radio" name="type" value="0" placeholder="请输入类型" class="layui-input" title="菜单">-->
+<!--        </div>-->
+<!--    </div>-->
 
     <div class="layui-form-item" style="width: 500px;">
         <div class="layui-input-block" style="text-align: center;">
@@ -149,7 +149,7 @@
                 title:'修改页面',
                 content:$('#edit'),
                 skin: 'layui-layer-lan',
-                area: ['600px', '400px'],
+                area: ['600px', '350px'],
                 success:function(index){
                     form.val("dataFrom",data);
                     url = "menu/menuedit";

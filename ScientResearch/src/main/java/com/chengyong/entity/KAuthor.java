@@ -1,6 +1,8 @@
 package com.chengyong.entity;
 
-public class KAuthor {
+import java.io.Serializable;
+
+public class KAuthor implements Serializable {
     private Short aid;
 
     private String aname;

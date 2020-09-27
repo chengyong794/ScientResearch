@@ -4,6 +4,7 @@ import com.chengyong.entity.Ktreenode;
 import com.chengyong.entity.KView;
 import com.chengyong.service.KviewService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -37,6 +38,7 @@ public class IndexController {
      * 左侧分级菜单
      * @return
      */
+    @Cacheable("menu")
     @RequestMapping("/leftmenu")
     @ResponseBody
     public Map<String,Object> menu(){

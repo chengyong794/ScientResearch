@@ -1,8 +1,9 @@
 package com.chengyong.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class KPici {
+public class KPici implements Serializable {
     private Short pcid;
 
     private String pcname;
