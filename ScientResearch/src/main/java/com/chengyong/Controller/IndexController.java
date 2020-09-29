@@ -38,7 +38,6 @@ public class IndexController {
      * 左侧分级菜单
      * @return
      */
-    @Cacheable("menu")
     @RequestMapping("/leftmenu")
     @ResponseBody
     public Map<String,Object> menu(){

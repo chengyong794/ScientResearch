@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface KtreenodeService {
-    int deleteByPrimaryKey(Short treenodeid);
+    String deleteByPrimaryKey(Short treenodeid);
 
     int insert(Ktreenode record);
 

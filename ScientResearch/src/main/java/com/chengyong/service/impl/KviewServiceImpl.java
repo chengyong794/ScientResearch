@@ -51,6 +51,7 @@ public class KviewServiceImpl implements KviewService {
     }
 
     @Override
+    @Cacheable("findById")
     public KView findById(Short viewId) {
         return kviewMapper.findById(viewId);
     }

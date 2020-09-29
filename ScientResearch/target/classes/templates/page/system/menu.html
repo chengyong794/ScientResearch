@@ -21,7 +21,7 @@
                 <button class="layui-btn" id="btn-expand">全部展开</button>
                 <button class="layui-btn layui-btn-normal" id="btn-fold">全部折叠</button>
             </div>
-            <table id="munu-table" class="layui-table" lay-filter="munu-table"></table>
+            <table id="munu-table" class="layui-table" lay-filter="munu-table" lay-data="{id: 'munu-table'}"></table>
         </div>
     </div>
 </div>
@@ -75,6 +75,7 @@
 <script th:src="@{lib/layui-v2.5.5/layui.js}" src="../../../static/lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
 <script th:src="@{js/lay-config.js}" src="../../../static/js/lay-config.js?v=1.0.4" charset="utf-8"></script>
 <script>
+    var tableIns;
     layui.use(['table', 'treetable','layer','jquery','form'], function () {
         var $ = layui.jquery;
         var table = layui.table;
@@ -82,11 +83,10 @@
         var layer = layui.layer;
         var form = layui.form;
 
-        var tabledata;
-
+        var renderTable = function(){
         // 渲染表格
         layer.load(2);
-        tabledata = treetable.render({
+        treetable.render({
             treeColIndex: 1,
             treeSpid: -1,
             treeIdName: 'treenodeid',
@@ -96,30 +96,30 @@
             page: false,
             cols: [
                 [
-                {type: 'numbers'},
-                {field: 'title', minWidth: 200, title: '菜单名称'},
-                {field: 'icon', title: '菜单图标'},
-                {field: 'href', title: '菜单url'},
-                {field: 'treenodeid', width: 80, align: 'center', title: '排序号'},
-                {
-                    field: 'type', width: 80, align: 'center', templet: function (d) {
-                        // if (d.isMenu == 1) {
-                        //     return '<span class="layui-badge layui-bg-gray">按钮</span>';
-                        // }
-                        if (d.type == 1) {
-                            return '<span class="layui-badge layui-bg-blue">目录</span>';
-                        } else {
-                            return '<span class="layui-badge-rim">菜单</span>';
-                        }
-                    }, title: '类型'
-                },
-                {templet: '#auth-state', width: 120, align: 'center', title: '操作'}
-              ]
+                    {type: 'numbers'},
+                    {field: 'title', minWidth: 200, title: '菜单名称'},
+                    {field: 'icon', title: '菜单图标'},
+                    {field: 'href', title: '菜单url'},
+                    {field: 'treenodeid', width: 80, align: 'center', title: '排序号'},
+                    {
+                        field: 'type', width: 80, align: 'center', templet: function (d) {
+                            if (d.type == 1) {
+                                return '<span class="layui-badge layui-bg-blue">目录</span>';
+                            } else {
+                                return '<span class="layui-badge-rim">菜单</span>';
+                            }
+                        }, title: '类型'
+                    },
+                    {templet: '#auth-state', width: 120, align: 'center', title: '操作'}
+                ]
             ],
             done: function () {
                 layer.closeAll('loading');
             }
         });
+    }
+
+   renderTable();
 
         $('#btn-expand').click(function () {
             treetable.expandAll('#munu-table');
@@ -134,7 +134,9 @@
             var data = obj.data;
             var layEvent = obj.event;
             if (layEvent === 'del') {
-                layer.msg('删除' + data.id);
+                layer.confirm("是否删除该数据？",function(index){
+                    del(data);
+                });
             } else if (layEvent === 'edit') {
                 openedit(data);
             }
@@ -164,12 +166,11 @@
                 data: menudata,
                 dataType:'json',
                 success: function(data){
-                        layer.msg(data.msg)
+                        layer.msg(data.msg);
                         layer.close(editclose);
-                        tabledata.reload();
+                        renderTable();
                 }
-            });
-            return false;
+            })
         });
 
 
@@ -177,6 +178,18 @@
             function Editclose(){
             layer.close(editclose);
         });
+
+        function del(data){
+            $.ajax({
+                url:"menu/menudel",
+                data:{treenodeid:data.treenodeid},
+                dataType: 'json',
+                success:function(data){
+                    layer.msg(data.msg);
+                    renderTable();
+                }
+            });
+        }
 
 
     });
