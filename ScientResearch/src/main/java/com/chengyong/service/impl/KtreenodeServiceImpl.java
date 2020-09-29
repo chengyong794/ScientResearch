@@ -5,6 +5,7 @@ import com.chengyong.mapper.KtreenodeMapper;
 import com.chengyong.service.KtreenodeService;
 import com.chengyong.util.DataTree;
 import com.chengyong.util.PUBLIC_ATTRIBUTE;
+import com.chengyong.util.RedisUtil;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
@@ -19,6 +20,9 @@ public class KtreenodeServiceImpl implements KtreenodeService {
     @Autowired
     private KtreenodeMapper ktreenodeMapper;
 
+    @Autowired
+    private RedisUtil redisUtil;
+
     /**
      * 删除节点
      * allEntries 清除所有缓存
@@ -27,7 +31,6 @@ public class KtreenodeServiceImpl implements KtreenodeService {
      * @return
      */
     @Override
-    @CacheEvict(value = "listTreeNode",allEntries = true,beforeInvocation=true)
     public String deleteByPrimaryKey(Short treenodeid) {
         boolean flag = true;
         List<Ktreenode> list = ktreenodeMapper.listTreeNode();
@@ -44,6 +47,9 @@ public class KtreenodeServiceImpl implements KtreenodeService {
         if(flag){
             try {
                 ktreenodeMapper.deleteByPrimaryKey(treenodeid);
+                //删除数据记住要删除 该redis中的缓存
+                redisUtil.del("listTreeNode");
+
                 return PUBLIC_ATTRIBUTE.DELETE;
             }catch (Exception e){
                 return PUBLIC_ATTRIBUTE.DELETE_ERROR;
@@ -70,20 +76,31 @@ public class KtreenodeServiceImpl implements KtreenodeService {
 
     @Override
     public int updateByPrimaryKeySelective(Ktreenode record) {
+        //删除数据记住要删除 该redis中的缓存
+        redisUtil.del("listTreeNode");
         return ktreenodeMapper.updateByPrimaryKeySelective(record);
     }
 
     @Override
-    @CacheEvict(value = "listTreeNode",allEntries = true)
     public int updateByPrimaryKey(Ktreenode record) {
-        return ktreenodeMapper.updateByPrimaryKey(record);
+        return 0;
     }
 
     @Override
-    @Cacheable(value = "listTreeNode")
     public DataTree listTreeNode() {
-        List<Ktreenode> list = ktreenodeMapper.listTreeNode();
+
+        //进行redis key查询
+        List<Ktreenode> list = (List<Ktreenode>)redisUtil.get("listTreeNode");
+        //如果不为空就将redis中的值返回
+        if(null != list){
+            PageInfo<Ktreenode> listInfo = new PageInfo<>();
+            return new DataTree(listInfo.getTotal(),list);
+        }
+
+        list = ktreenodeMapper.listTreeNode();
         PageInfo<Ktreenode> listInfo = new PageInfo<>();
+        //为空就插入到redis
+        redisUtil.set("listTreeNode",list);
         return new DataTree(listInfo.getTotal(),list);
     }
 }

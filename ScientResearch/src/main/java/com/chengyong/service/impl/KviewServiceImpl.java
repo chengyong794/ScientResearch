@@ -5,6 +5,7 @@ import com.chengyong.entity.KView;
 import com.chengyong.mapper.KViewMapper;
 import com.chengyong.mapper.KtreenodeMapper;
 import com.chengyong.service.KviewService;
+import com.chengyong.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,9 @@ public class KviewServiceImpl implements KviewService {
 
     @Autowired
     private KtreenodeMapper ktreenodeMapper;
+
+    @Autowired
+    private RedisUtil redisUtil;
 
     @Override
     public int deleteByPrimaryKey(Short viewid) {
@@ -51,18 +55,28 @@ public class KviewServiceImpl implements KviewService {
     }
 
     @Override
-    @Cacheable("findById")
     public KView findById(Short viewId) {
-        return kviewMapper.findById(viewId);
+
+        KView kView = (KView) redisUtil.get("KViewfindById"+viewId);
+        if(null != kView){
+            return  kView;
+        }
+        kView = kviewMapper.findById(viewId);
+        redisUtil.set("KViewfindById"+viewId,kView);
+
+        return kView;
     }
 
-    @Cacheable("selectKview")
     @Override
     public List<KView> selectKview() {
         //查询 menuInfo
         KView kview = kviewMapper.findById((short)3);
-        //查询
-        List<Ktreenode> ktreenodeList = ktreenodeMapper.listTreeNode();
+        List<Ktreenode> ktreenodeList = (List<Ktreenode>)redisUtil.get("selectKview");
+        if(null == ktreenodeList){
+            //查询
+            ktreenodeList = ktreenodeMapper.listTreeNode();
+            redisUtil.set("selectKview",ktreenodeList);
+        }
 
         List<Ktreenode> ktreenodeList1 = new ArrayList<>();
         for (Ktreenode k1:

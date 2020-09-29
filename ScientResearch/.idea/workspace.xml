@@ -2,20 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82602a60-2070-4f2f-af9b-f9a97fc674ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/util/PUBLIC_ATTRIBUTE.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/MyConfig/RedisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/util/RedisUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/Controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/Controller/IndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/Controller/system/menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/Controller/system/menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KtreenodeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KtreenodeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScientResearch.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ScientResearch.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KKyuserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KKyuserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/service/impl/KtreenodeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/impl/KtreenodeServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/service/impl/KviewServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/impl/KviewServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/system/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/system/menu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/Controller/IndexController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chengyong/Controller/IndexController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/Controller/system/menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chengyong/Controller/system/menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/service/KtreenodeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/KtreenodeService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/service/KKyuserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/KKyuserService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/service/impl/KtreenodeServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/impl/KtreenodeServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/service/impl/KviewServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/impl/KviewServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/page/system/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/page/system/menu.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +79,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/mybatis/mapper" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/chengyong/util" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -88,21 +87,21 @@
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/src/main/resources/templates/page/login-2.html" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\PC\Desktop\毕业设计\ScientResearch\src\main\resources\templates\page\system" />
       <recent name="C:\Users\PC\Desktop\毕业设计\ScientResearch\src\main\resources\mybatis\mapper" />
-      <recent name="C:\Users\PC\Desktop\毕业设计\ScientResearch\src\main\resources\templates\page" />
-      <recent name="C:\Users\PC\Desktop\毕业设计\ScientResearch\src\main\resources\mybatis" />
-      <recent name="C:\Users\PC\Desktop\毕业设计\ScientResearch\src\main\resources\mbatisMapper" />
-      <recent name="C:\Users\PC\Desktop\毕业设计\ScientResearch\src\main\java\com\chengyong\mapper" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.chengyong.mapper" />
       <recent name="com.chengyong.service" />
       <recent name="com.chengyong.entity" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\PC\Desktop\毕业设计\ScientResearch\src\main\resources\templates\page\system" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\PC\Desktop\毕业设计\ScientResearch\src\main\java\com\chengyong\util" />
+      <recent name="C:\Users\PC\Desktop\毕业设计\ScientResearch\src\main\java\com\chengyong\MyConfig" />
       <recent name="C:\Users\PC\Desktop\毕业设计\ScientResearch\src\main\resources\mybatis\mapper" />
+      <recent name="C:\Users\PC\Desktop\毕业设计\ScientResearch\src\main\resources\templates\page" />
+      <recent name="C:\Users\PC\Desktop\毕业设计\ScientResearch\src\main\resources\mybatis" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.ChengyongApplication">
@@ -191,7 +190,8 @@
       <workItem from="1601204087075" duration="812000" />
       <workItem from="1601204933338" duration="4120000" />
       <workItem from="1601209560671" duration="146000" />
-      <workItem from="1601360311201" duration="13400000" />
+      <workItem from="1601360311201" duration="13700000" />
+      <workItem from="1601379483166" duration="4985000" />
     </task>
     <task id="LOCAL-00001" summary="2020-9-20 22:57 第一次提交">
       <created>1600613874401</created>
@@ -235,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601209471514</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="2020 9 29 18:10 缓存的处理">
+      <created>1601374257314</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1601374257314</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,7 +267,8 @@
     <MESSAGE value="2020 9 25 20:28 左侧菜单json显示" />
     <MESSAGE value="2020 9 26 20:17 菜单显示 修改" />
     <MESSAGE value="2020 9 27 20:23 使用 @Cachable 缓存" />
-    <option name="LAST_COMMIT_MESSAGE" value="2020 9 27 20:23 使用 @Cachable 缓存" />
+    <MESSAGE value="2020 9 29 18:10 缓存的处理" />
+    <option name="LAST_COMMIT_MESSAGE" value="2020 9 29 18:10 缓存的处理" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Notifications" timestamp="1600765310048">
@@ -287,10 +295,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1601209061085" />
-    <state x="31" y="0" key="CommitChangelistDialog2" timestamp="1601209468378">
+    <state x="31" y="0" key="CommitChangelistDialog2" timestamp="1601374254466">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="31" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1601209468378" />
+    <state x="31" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1601374254466" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1600593933743">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -307,66 +315,70 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="537" y="254" key="Github.ShareDialog/0.0.1366.728@0.0.1366.728" timestamp="1600613437871" />
-    <state width="1323" height="169" key="GridCell.Tab.0.bottom" timestamp="1601374027560">
+    <state width="1323" height="113" key="GridCell.Tab.0.bottom" timestamp="1601386517066">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="169" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1601374027560" />
-    <state width="1323" height="169" key="GridCell.Tab.0.center" timestamp="1601374027559">
+    <state width="1323" height="113" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1601386517066" />
+    <state width="1323" height="113" key="GridCell.Tab.0.center" timestamp="1601386517066">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="169" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1601374027559" />
-    <state width="1323" height="169" key="GridCell.Tab.0.left" timestamp="1601374027559">
+    <state width="1323" height="113" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1601386517066" />
+    <state width="1323" height="113" key="GridCell.Tab.0.left" timestamp="1601386517065">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="169" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1601374027559" />
-    <state width="1323" height="169" key="GridCell.Tab.0.right" timestamp="1601374027560">
+    <state width="1323" height="113" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1601386517065" />
+    <state width="1323" height="113" key="GridCell.Tab.0.right" timestamp="1601386517066">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="169" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1601374027560" />
-    <state width="1323" height="169" key="GridCell.Tab.1.bottom" timestamp="1601374027560">
+    <state width="1323" height="113" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1601386517066" />
+    <state width="1323" height="199" key="GridCell.Tab.1.bottom" timestamp="1601386559783">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="169" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1601374027560" />
-    <state width="1323" height="169" key="GridCell.Tab.1.center" timestamp="1601374027560">
+    <state width="1323" height="199" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1601386559783" />
+    <state width="1323" height="199" key="GridCell.Tab.1.center" timestamp="1601386559783">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="169" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1601374027560" />
-    <state width="1323" height="169" key="GridCell.Tab.1.left" timestamp="1601374027560">
+    <state width="1323" height="199" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1601386559783" />
+    <state width="1323" height="199" key="GridCell.Tab.1.left" timestamp="1601386559781">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="169" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1601374027560" />
-    <state width="1323" height="169" key="GridCell.Tab.1.right" timestamp="1601374027560">
+    <state width="1323" height="199" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1601386559781" />
+    <state width="1323" height="199" key="GridCell.Tab.1.right" timestamp="1601386559783">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="169" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1601374027560" />
-    <state width="1323" height="211" key="GridCell.Tab.2.bottom" timestamp="1601373792151">
+    <state width="1323" height="199" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1601386559783" />
+    <state width="1323" height="113" key="GridCell.Tab.2.bottom" timestamp="1601386516926">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="211" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1601373792151" />
-    <state width="1323" height="211" key="GridCell.Tab.2.center" timestamp="1601373792150">
+    <state width="1323" height="113" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1601386516926" />
+    <state width="1323" height="113" key="GridCell.Tab.2.center" timestamp="1601386516926">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="211" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1601373792150" />
-    <state width="1323" height="211" key="GridCell.Tab.2.left" timestamp="1601373792150">
+    <state width="1323" height="113" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1601386516926" />
+    <state width="1323" height="113" key="GridCell.Tab.2.left" timestamp="1601386516926">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="211" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1601373792150" />
-    <state width="1323" height="211" key="GridCell.Tab.2.right" timestamp="1601373792150">
+    <state width="1323" height="113" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1601386516926" />
+    <state width="1323" height="113" key="GridCell.Tab.2.right" timestamp="1601386516926">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="211" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1601373792150" />
+    <state width="1323" height="113" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1601386516926" />
     <state x="184" y="6" key="SettingsEditor" timestamp="1601209515681">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1601209515681" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1601209657306">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1601374270613">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1601209657306" />
-    <state x="363" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1601360312230">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1601374270613" />
+    <state x="363" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1601379482475">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="363" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1601360312230" />
+    <state x="363" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1601379482475" />
+    <state x="357" y="155" key="git4idea.merge.GitPullDialog" timestamp="1601374263496">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="357" y="155" key="git4idea.merge.GitPullDialog/0.0.1366.728@0.0.1366.728" timestamp="1601374263496" />
     <state x="57" y="65" key="new project wizard" timestamp="1599617390234">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -385,8 +397,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/chengyong/service/impl/KtreenodeServiceImpl.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="8" />
+          <line>84</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
