@@ -15,9 +15,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 菜单信息的处理
+ */
 @Controller
 @RequestMapping("/menu")
-public class menu {
+public class MenuController {
     @Autowired
     private KtreenodeService ktreenodeService;
 

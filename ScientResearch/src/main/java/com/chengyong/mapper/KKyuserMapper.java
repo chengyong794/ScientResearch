@@ -24,4 +24,6 @@ public interface KKyuserMapper {
     List<String> findUserRole(Short kyUserid);
 
     List<String> findRoleMenu(Short kyUserid);
+
+    List<KKyuser> listUser(KKyuser kKyuser);
 }

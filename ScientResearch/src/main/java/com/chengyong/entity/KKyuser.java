@@ -15,25 +15,42 @@ public class KKyuser implements UserDetails, Serializable {
     String credentialsNonExpired;
     String enabled;
 
+    public KKyuser() {
+    }
+
     private Short kyid;
-
-    private Short usertype;
-
-    private String level;
 
     private String userdept;
 
     private String rename;
 
-    private String deptnum;
-
     private String tel;
 
     private String addr;
 
-    private String nuitnum;
+    private String nuitname;
 
     private String kjob;
+
+    private Integer page;
+
+    private Integer limit;
+
+    public Integer getPage() {
+        return page;
+    }
+
+    public void setPage(Integer page) {
+        this.page = page;
+    }
+
+    public Integer getLimit() {
+        return limit;
+    }
+
+    public void setLimit(Integer limit) {
+        this.limit = limit;
+    }
 
     public Short getKyid() {
         return kyid;
@@ -41,22 +58,6 @@ public class KKyuser implements UserDetails, Serializable {
 
     public void setKyid(Short kyid) {
         this.kyid = kyid;
-    }
-
-    public Short getUsertype() {
-        return usertype;
-    }
-
-    public void setUsertype(Short usertype) {
-        this.usertype = usertype;
-    }
-
-    public String getLevel() {
-        return level;
-    }
-
-    public void setLevel(String level) {
-        this.level = level;
     }
 
     public String getUserdept() {
@@ -75,14 +76,6 @@ public class KKyuser implements UserDetails, Serializable {
         this.rename = rename;
     }
 
-    public String getDeptnum() {
-        return deptnum;
-    }
-
-    public void setDeptnum(String deptnum) {
-        this.deptnum = deptnum;
-    }
-
     public String getTel() {
         return tel;
     }
@@ -99,14 +92,6 @@ public class KKyuser implements UserDetails, Serializable {
         this.addr = addr;
     }
 
-    public String getNuitnum() {
-        return nuitnum;
-    }
-
-    public void setNuitnum(String nuitnum) {
-        this.nuitnum = nuitnum;
-    }
-
     public String getKjob() {
         return kjob;
     }
@@ -115,6 +100,13 @@ public class KKyuser implements UserDetails, Serializable {
         this.kjob = kjob;
     }
 
+    public String getNuitname() {
+        return nuitname;
+    }
+
+    public void setNuitname(String nuitname) {
+        this.nuitname = nuitname;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

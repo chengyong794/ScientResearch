@@ -5,9 +5,14 @@
     <title>公共代码片段</title>
 </head>
 <body>
-<th:block th:fragment="html5_respond">
-<script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
-<script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+<th:block th:fragment="layui_public_css">
+    <link rel="stylesheet" th:href="@{lib/layui-v2.5.5/css/layui.css}" href="../../../static/lib/layui-v2.5.5/css/layui.css" media="all">
+    <link rel="stylesheet" th:href="@{css/public.css}" href="../../../static/css/public.css" media="all">
+</th:block>
+
+<th:block th:fragment="layui_lay-config_js">
+    <script th:src="@{lib/layui-v2.5.5/layui.js}" src="../../../static/lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+    <script th:src="@{js/lay-config.js}" src="../../../static/js/lay-config.js?v=1.0.4" charset="utf-8"></script>
 </th:block>
 </body>
 </html>

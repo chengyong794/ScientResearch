@@ -48,7 +48,8 @@ public class KtreenodeServiceImpl implements KtreenodeService {
             try {
                 ktreenodeMapper.deleteByPrimaryKey(treenodeid);
                 //删除数据记住要删除 该redis中的缓存
-                redisUtil.del("listTreeNode");
+                //selectKview 代表左侧菜单的缓存
+                redisUtil.del("listTreeNode","selectKview");
 
                 return PUBLIC_ATTRIBUTE.DELETE;
             }catch (Exception e){
@@ -77,7 +78,9 @@ public class KtreenodeServiceImpl implements KtreenodeService {
     @Override
     public int updateByPrimaryKeySelective(Ktreenode record) {
         //删除数据记住要删除 该redis中的缓存
-        redisUtil.del("listTreeNode");
+        // listTreeNode代表修改的该菜单的缓存
+        //selectKview 代表左侧菜单的缓存
+        redisUtil.del("listTreeNode","selectKview");
         return ktreenodeMapper.updateByPrimaryKeySelective(record);
     }
 

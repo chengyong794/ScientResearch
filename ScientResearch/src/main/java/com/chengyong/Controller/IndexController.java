@@ -1,10 +1,8 @@
 package com.chengyong.Controller;
 
-import com.chengyong.entity.Ktreenode;
 import com.chengyong.entity.KView;
 import com.chengyong.service.KviewService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,12 +20,20 @@ public class IndexController {
     @Autowired
     private KviewService kviewService;
 
+    /**
+     * 登录页跳转
+     * @return
+     */
     @RequestMapping("/")
     public String loginpage(){
         //templates 默认前缀就是templates
         return "page/login";
     }
 
+    /**
+     * 首页跳转
+     * @return
+     */
     @RequestMapping("/index")
     public String index(){
         //templates 默认前缀就是templates
@@ -52,7 +58,7 @@ public class IndexController {
     }
 
     /**
-     * 菜单页面显示
+     * 菜单页面跳转
      * @return
      */
     @RequestMapping("/rightmenu")
@@ -60,9 +66,22 @@ public class IndexController {
         return "page/system/menu";
     }
 
+    /**
+     * 首页欢迎页跳转
+     * @return
+     */
     @RequestMapping("/welcome")
     public String welcome(){
         //templates 默认前缀就是templates
         return "page/welcome-1";
+    }
+
+    /**
+     * 用户页跳转
+     * @return
+     */
+    @RequestMapping("/userpage")
+    public String userpage(){
+        return "page/system/user";
     }
 }

@@ -15,6 +15,22 @@ public class RedisUtil {
     @Autowired
     private RedisTemplate redisTemplate;
 
+
+
+    /**
+     * 查询redis下以文件夹形式存储listUser开头的多个 key
+     */
+    public Set<String> keys(String keyname){
+        return keyname==null?null:redisTemplate.keys(keyname);
+    }
+
+    /**
+     * 删除批量的redis 的key主要是文件夹形式存储
+     */
+    public void delkeys(Set<String> keys){
+        redisTemplate.delete(keys);
+    }
+
     /**
      * 指定缓存失效时间
      * @param key 键

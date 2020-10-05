@@ -2,22 +2,22 @@ package com.chengyong.util;
 
 import java.io.Serializable;
 
-public class DataTree implements Serializable {
-    private int code=0;
+public class DataJson implements Serializable {
+    private Short code=0;
     private String msg="";
     private long count;
     private Object data;
 
-    public DataTree(long count, Object data) {
-        this.count = count;
-        this.data = data;
+    public DataJson(long count,Object data){
+      this.count = count;
+      this.data = data;
     }
 
-    public int getCode() {
+    public Short getCode() {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(Short code) {
         this.code = code;
     }
 
