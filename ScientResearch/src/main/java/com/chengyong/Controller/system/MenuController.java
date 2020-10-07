@@ -39,10 +39,34 @@ public class MenuController {
      * 菜单数据修改
      * @return
      */
+    @RequestMapping("/addmenu")
+    @ResponseBody
+    public Map<String,Object> addmenu(Ktreenode ktreenode){
+        Map<String,Object> map = new HashMap<>();
+
+        try{
+            ktreenodeService.insert(ktreenode);
+            map.put("msg", PUBLIC_ATTRIBUTE.ADD);
+            return map;
+        }catch (Exception e){
+            e.printStackTrace();
+            map.put("msg", PUBLIC_ATTRIBUTE.ADD_ERROR);
+            return map;
+        }
+    }
+
+    /**
+     * 菜单数据修改
+     * @return
+     */
     @RequestMapping("/menuedit")
     @ResponseBody
     public Map<String,Object> menuedit(Ktreenode ktreenode){
         Map<String,Object> map = new HashMap<>();
+        if (ktreenode.getType()!=null && ktreenode.getType()==1){
+            ktreenode.setHref("");
+            ktreenode.setParentid((short)-1);
+        }
         try{
             ktreenodeService.updateByPrimaryKeySelective(ktreenode);
             map.put("msg", PUBLIC_ATTRIBUTE.UPDATE);

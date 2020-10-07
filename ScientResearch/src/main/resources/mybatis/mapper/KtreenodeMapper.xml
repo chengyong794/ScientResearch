@@ -31,11 +31,11 @@
     where treeNodeId = #{treenodeid,jdbcType=DECIMAL}
   </delete>
   <insert id="insert" parameterType="com.chengyong.entity.Ktreenode">
-    insert into KTREENODE (treeNodeId, title, href, 
-      icon, target, parentId
+    insert into KTREENODE ( title, href,
+      icon, target, parentId,type
       )
-    values (#{treenodeid,jdbcType=DECIMAL}, #{title,jdbcType=VARCHAR}, #{href,jdbcType=VARCHAR}, 
-      #{icon,jdbcType=VARCHAR}, #{target,jdbcType=VARCHAR}, #{parentid,jdbcType=DECIMAL}
+    values (#{title,jdbcType=VARCHAR}, #{href,jdbcType=VARCHAR},
+      #{icon,jdbcType=VARCHAR}, #{target,jdbcType=VARCHAR}, #{parentid,jdbcType=DECIMAL},#{type,jdbcType=DECIMAL}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.chengyong.entity.Ktreenode">

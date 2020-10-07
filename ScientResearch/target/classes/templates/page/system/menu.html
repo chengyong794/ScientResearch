@@ -20,6 +20,7 @@
                 <button class="layui-btn" id="btn-expand">全部展开</button>
                 <button class="layui-btn layui-btn-normal" id="btn-fold">全部折叠</button>
             </div>
+                <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="add" style="margin-left: 80%;" id="lay-event-add"> 添加 </button>
             <table id="munu-table" class="layui-table" lay-filter="munu-table" lay-data="{id: 'munu-table'}"></table>
         </div>
     </div>
@@ -28,13 +29,30 @@
 <!--修改页面开始-->
 <div style="display: none;margin: auto;" class="layui-form layuimini-form" id="edit">
     <form class="layui-form" lay-filter="dataFrom" id="dataFrm">
-    <div class="layui-form-item" style="width: 500px;margin-top: 50px;">
+
+        <div class="layui-form-item" style="width: 500px;margin-top: 50px;"  id="select_parentid">
+            <label class="layui-form-label required">父级目录</label>
+            <div class="layui-input-block">
+                <select name="parentid" >
+                    <option value="1">系统设置</option>
+                    <option value="7">项目管理</option>
+                    <option value="14">系统帮助</option>
+                    <option value="17">成果管理</option>
+                    <option value="22">科研业绩考核</option>
+                    <option value="26">综合管理</option>
+                </select>
+            </div>
+        </div>
+
+    <div class="layui-form-item" style="width: 500px;" id="select_parentid2">
         <label class="layui-form-label required">菜单名称</label>
         <div class="layui-input-block">
             <input type="text" name="title" lay-verify="required" lay-reqtext="菜单名不能为空" placeholder="请输入菜单名" value="" class="layui-input">
             <input type="hidden" name="treenodeid"/>
+            <input type="hidden" name="type"/>
         </div>
     </div>
+
     <div class="layui-form-item" style="width: 500px;">
         <label class="layui-form-label required">菜单图标</label>
         <div class="layui-input-block">
@@ -127,6 +145,7 @@
             treetable.foldAll('#munu-table');
         });
 
+
         //监听工具条
       table.on('tool(munu-table)', function (obj) {
             var data = obj.data;
@@ -137,19 +156,37 @@
                 });
             } else if (layEvent === 'edit') {
                 openedit(data);
+            }else if (layEvent === 'add') {
+               layer.alert(123);
             }
         });
 
         var url;
         var editclose;
 
-        function openedit(data){
+        $("#lay-event-add").click(function(){
             editclose = layer.open({
+                title: '添加菜单',
                 type:1,
-                title:'修改页面',
                 content:$('#edit'),
                 skin: 'layui-layer-lan',
                 area: ['600px', '350px'],
+                success:function(index){
+                    //清除表单数据
+                    $("#dataFrm")[0].reset();
+                    url = "/menu/addmenu";
+                }
+            });
+        });
+
+
+        function openedit(data){
+            editclose = layer.open({
+                type:1,
+                title:'修改菜单',
+                content:$('#edit'),
+                skin: 'layui-layer-lan',
+                area: ['600px', '400px'],
                 success:function(index){
                     form.val("dataFrom",data);
                     url = "menu/menuedit";

@@ -62,7 +62,9 @@ public class KtreenodeServiceImpl implements KtreenodeService {
 
     @Override
     public int insert(Ktreenode record) {
-        return 0;
+        record.setType((short)0);
+        redisUtil.del("listTreeNode","selectKview");
+        return ktreenodeMapper.insert(record);
     }
 
     @Override

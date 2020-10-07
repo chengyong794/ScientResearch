@@ -6,10 +6,18 @@
     <result column="R_NAME" jdbcType="VARCHAR" property="rName" />
     <result column="R_DESC" jdbcType="VARCHAR" property="rDesc" />
     <result column="R_CODE" jdbcType="VARCHAR" property="rCode" />
+    <result column="R_TYPE" jdbcType="DECIMAL" property="rType" />
   </resultMap>
   <sql id="Base_Column_List">
-    R_ID, R_NAME, R_DESC, R_CODE
+    R_ID, R_NAME, R_DESC, R_CODE,R_TYPE
   </sql>
+
+  <select id="listRole" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_KYROLE
+  </select>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
@@ -21,10 +29,10 @@
     where R_ID = #{rId,jdbcType=DECIMAL}
   </delete>
   <insert id="insert" parameterType="com.chengyong.entity.KKyrole">
-    insert into K_KYROLE (R_ID, R_NAME, R_DESC, 
-      R_CODE)
-    values (#{rId,jdbcType=DECIMAL}, #{rName,jdbcType=VARCHAR}, #{rDesc,jdbcType=VARCHAR}, 
-      #{rCode,jdbcType=VARCHAR})
+    insert into K_KYROLE ( R_NAME, R_DESC,
+      R_CODE,R_TYPE)
+    values ( #{rName,jdbcType=VARCHAR}, #{rDesc,jdbcType=VARCHAR},
+      #{rCode,jdbcType=VARCHAR}, #{rType,jdbcType=DECIMAL})
   </insert>
   <insert id="insertSelective" parameterType="com.chengyong.entity.KKyrole">
     insert into K_KYROLE
@@ -76,7 +84,8 @@
     update K_KYROLE
     set R_NAME = #{rName,jdbcType=VARCHAR},
       R_DESC = #{rDesc,jdbcType=VARCHAR},
-      R_CODE = #{rCode,jdbcType=VARCHAR}
+      R_CODE = #{rCode,jdbcType=VARCHAR},
+      R_TYPE = #{rType,jdbcType=DECIMAL}
     where R_ID = #{rId,jdbcType=DECIMAL}
   </update>
 </mapper>

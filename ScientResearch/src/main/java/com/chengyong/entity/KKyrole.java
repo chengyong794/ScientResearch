@@ -11,6 +11,16 @@ public class KKyrole implements Serializable {
 
     private String rCode;
 
+    private Short rType;
+
+    public Short getrType() {
+        return rType;
+    }
+
+    public void setrType(Short rType) {
+        this.rType = rType;
+    }
+
     public Short getrId() {
         return rId;
     }

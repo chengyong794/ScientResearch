@@ -2,6 +2,8 @@ package com.chengyong.mapper;
 
 import com.chengyong.entity.KKyrole;
 
+import java.util.List;
+
 public interface KKyroleMapper {
     int deleteByPrimaryKey(Short rId);
 
@@ -14,4 +16,6 @@ public interface KKyroleMapper {
     int updateByPrimaryKeySelective(KKyrole record);
 
     int updateByPrimaryKey(KKyrole record);
+
+    List<KKyrole> listRole();
 }

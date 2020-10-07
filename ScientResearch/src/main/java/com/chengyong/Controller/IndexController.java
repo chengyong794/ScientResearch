@@ -84,4 +84,12 @@ public class IndexController {
     public String userpage(){
         return "page/system/user";
     }
+
+    /**
+     * 角色页跳转
+     */
+    @RequestMapping("/rolepage")
+    public String rolepage(){
+        return "page/system/role";
+    }
 }
