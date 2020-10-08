@@ -1,5 +1,7 @@
 package com.chengyong.entity;
 
+import com.chengyong.util.Role_Menu_TreeNode;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +22,16 @@ public class Ktreenode implements Serializable {
     private Short type;
 
     private List<Ktreenode> child = new ArrayList<Ktreenode>();
+
+    private List<Role_Menu_TreeNode> children = new ArrayList<Role_Menu_TreeNode>();
+
+    public List<Role_Menu_TreeNode> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<Role_Menu_TreeNode> children) {
+        this.children = children;
+    }
 
     public List<Ktreenode> getChild() {
         return child;

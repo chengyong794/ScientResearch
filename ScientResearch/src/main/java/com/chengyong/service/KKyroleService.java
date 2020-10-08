@@ -1,7 +1,9 @@
 package com.chengyong.service;
 
 import com.chengyong.entity.KKyrole;
+import com.chengyong.entity.Ktreenode;
 import com.chengyong.util.DataJson;
+import com.chengyong.util.Role_Menu_TreeNode;
 
 import java.util.List;
 
@@ -19,4 +21,7 @@ public interface KKyroleService {
     int updateByPrimaryKey(KKyrole record);
 
     DataJson listRole();
+
+    List<Role_Menu_TreeNode> Role_Menu_Tree(Short rid);
+
 }

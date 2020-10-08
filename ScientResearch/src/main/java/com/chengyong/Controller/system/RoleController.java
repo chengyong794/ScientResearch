@@ -4,12 +4,14 @@ import com.chengyong.entity.KKyrole;
 import com.chengyong.service.KKyroleService;
 import com.chengyong.util.DataJson;
 import com.chengyong.util.PUBLIC_ATTRIBUTE;
+import com.chengyong.util.Role_Menu_TreeNode;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -58,5 +60,10 @@ public class RoleController {
             map.put("info", PUBLIC_ATTRIBUTE.DELETE_ERROR);
             return map;
         }
+    }
+
+    @RequestMapping("/RoleMenuTree")
+    public List<Role_Menu_TreeNode> Role_Menu_Tree(@Param("rId") Short rId){
+         return  kKyroleService.Role_Menu_Tree(rId);
     }
 }

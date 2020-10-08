@@ -94,6 +94,11 @@
             </form>
         </div>
         <!--修改增加页面结束-->
+        <!--菜单树开始-->
+        <div id="dtree-id" style="display: none;">
+            <div id="layui-tree" class="demo-tree demo-tree-box"></div>
+        </div>
+        <!--菜单树结束-->
 
 
         <script type="text/html" id="toolbarDemo">
@@ -108,18 +113,21 @@
         <script type="text/html" id="currentTableBar">
             <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit">编辑</a>
             <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete">删除</a>
+            <a class="layui-btn layui-btn-xs layui-btn-warm" lay-event="distribution-menu">分配菜单</a>
         </script>
 
     </div>
 </div>
 <div th:replace="~{public :: layui_lay-config_js}"></div>
+<script src="js/dtree.js"></script>
 
 <script>
-    layui.use(['form', 'table','jquery','layer'], function () {
+    layui.use(['form', 'table','jquery','layer','tree'], function () {
         var $ = layui.jquery,
             form = layui.form,
             table = layui.table,
-            layer = layui.layer;
+            layer = layui.layer,
+            dtree = layui.tree;
         var tablereh;
         tablereh = table.render({
             elem: '#currentTableId',
@@ -175,33 +183,54 @@
                         url = "/role/addRole";
                     }
                 });
-            // } else if (obj.event === 'deletelow') {  // 监听删除操作
-            //     var checkStatus = table.checkStatus('currentTableId')
-            //         , data = checkStatus.data;
-            //     var kyid = new Array();
-            //     for (let i = 0; i <data.length ; i++) {
-            //         kyid[i] = data[i].kyid;
-            //     }
-            //
-            //     layer.confirm('真的删除选中的么', function (index) {
-            //         $.ajax({
-            //             type:'GET',
-            //             url:'/user/dellowUser?kyids='+kyid,
-            //             success:function(msg){
-            //                 layer.msg(msg.info);
-            //                 tablereh.reload();
-            //             }
-            //         });
-            //         layer.close(index);
-            //     });
-
             }
         });
+
+        var data1 ;
+        // = [{
+       //      title: '江西'
+       //      ,id: 1
+       //     ,checked: true
+       //      ,children: [{
+       //          title: '南昌'
+       //          ,id: 1000
+       //         ,checked: false
+       //      },{
+       //          title: '九江'
+       //          ,id: 1001
+       //      },{
+       //          title: '赣州'
+       //          ,id: 1002
+       //      }]
+       //  },{
+       //      title: '广西'
+       //      ,id: 2
+       //      ,children: [{
+       //          title: '南宁'
+       //          ,id: 2000
+       //      },{
+       //          title: '桂林'
+       //          ,id: 2001
+       //      }]
+       //  },{
+       //      title: '陕西'
+       //      ,id: 3
+       //      ,children: [{
+       //          title: '西安'
+       //          ,id: 3000
+       //      },{
+       //          title: '延安'
+       //          ,id: 3001
+       //      }]
+       //  }];
+
 
         //监听表格复选框选择
         table.on('checkbox(currentTableFilter)', function (obj) {
             console.log(obj)
         });
+
+        var inst1;
 
         table.on('tool(currentTableFilter)', function (obj) {
             var data = obj.data;
@@ -230,6 +259,39 @@
                         }
                     });
                     layer.close(index);
+                });
+            }else if (obj.event === 'distribution-menu') {  // 监听删除操作
+
+                add_edit_open = layer.open({
+                    title: '分配菜单',
+                    type:1,
+                    content:$('#dtree-id'),
+                    skin: 'layui-layer-lan',
+                    area: ['400px', '500px']
+                    ,btnAlign:'c'
+                    ,btn: ['确认分配'
+                        , '取消分配']
+                    ,yes: function(index, layero){
+                    layer.msg("111");
+                  }
+                ,btn2: function(index, layero){
+                },
+                    success:function(index){
+                        $.ajax({
+                            type:'GET',
+                            url:'role/RoleMenuTree?rId='+data.rId,
+                            success:function(datas){
+                                inst1 = dtree.render({
+                                    elem: '#layui-tree'
+                                    ,showCheckbox: true
+                                    ,checkbarType:"all"
+                                    ,checkbarData:"choose"
+                                    ,data:datas
+                                });
+                            }
+                        });
+
+                    }
                 });
             }
         });

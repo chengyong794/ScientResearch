@@ -12,6 +12,15 @@
     R_ID, R_NAME, R_DESC, R_CODE,R_TYPE
   </sql>
 
+  <select id="Menu_Tree" resultType="com.chengyong.entity.Ktreenode">
+    select kte.TREENODEID,kte.TITLE,kte.PARENTID,kte.TYPE from KTREENODE kte
+  </select>
+
+  <select id="Role_Menu_Tree" parameterType="java.lang.Short" resultType="com.chengyong.entity.Ktreenode">
+    select kte.TREENODEID,kte.TITLE,kte.PARENTID,kte.TYPE from K_KYROLE r join KTREE_ROLE kter on r.R_ID = kter.R_ID
+JOIN KTREENODE kte on kte.TREENODEID = kter.TREEID where r.R_ID = #{rId,jdbcType=DECIMAL}
+  </select>
+
   <select id="listRole" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
