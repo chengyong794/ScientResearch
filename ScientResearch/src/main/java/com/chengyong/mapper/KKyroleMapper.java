@@ -23,4 +23,8 @@ public interface KKyroleMapper {
     List<Ktreenode> Role_Menu_Tree(Short rid);
 
     List<Ktreenode> Menu_Tree();
+
+    int insertNode(Short rid,Short nodeid);
+
+    int delNode(Short rid);
 }

@@ -24,4 +24,6 @@ public interface KKyroleService {
 
     List<Role_Menu_TreeNode> Role_Menu_Tree(Short rid);
 
+    int insertNode(Short rid,Short[] nodeid);
+
 }

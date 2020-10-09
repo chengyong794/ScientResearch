@@ -66,4 +66,21 @@ public class RoleController {
     public List<Role_Menu_TreeNode> Role_Menu_Tree(@Param("rId") Short rId){
          return  kKyroleService.Role_Menu_Tree(rId);
     }
+
+    /**
+     * 添加菜单树节点
+     * @param rid,nodeid
+     * @return
+     */
+    @RequestMapping("/addNode")
+    public Map<String,Object> addNode(@Param("rid") Short rid,@Param("nodeid") Short[] nodeid){
+        Map<String,Object> map = new HashMap<>();
+        if(kKyroleService.insertNode(rid,nodeid)>0){
+            map.put("info", PUBLIC_ATTRIBUTE.ADD);
+            return map;
+        }else{
+            map.put("info", PUBLIC_ATTRIBUTE.ADD_ERROR);
+            return map;
+        }
+    }
 }

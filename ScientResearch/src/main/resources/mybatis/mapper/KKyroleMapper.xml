@@ -21,6 +21,16 @@
 JOIN KTREENODE kte on kte.TREENODEID = kter.TREEID where r.R_ID = #{rId,jdbcType=DECIMAL}
   </select>
 
+  <insert id="insertNode" parameterType="java.lang.Short">
+    insert into KTREE_ROLE ( R_ID, TREEID)
+    values ( #{rid,jdbcType=DECIMAL} , #{nodeid,jdbcType=DECIMAL})
+  </insert>
+
+  <delete id="delNode" parameterType="java.lang.Short">
+    delete from KTREE_ROLE
+    where R_ID = #{rid,jdbcType=DECIMAL}
+  </delete>
+
   <select id="listRole" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />

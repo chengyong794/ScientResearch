@@ -7,7 +7,16 @@ public class Role_Menu_TreeNode {
     private String title;
     private Integer id;
     private boolean checked;
+    private Integer type;
     private Object children;
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
 
     public Object getChildren() {
         return children;

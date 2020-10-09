@@ -186,44 +186,6 @@
             }
         });
 
-        var data1 ;
-        // = [{
-       //      title: '江西'
-       //      ,id: 1
-       //     ,checked: true
-       //      ,children: [{
-       //          title: '南昌'
-       //          ,id: 1000
-       //         ,checked: false
-       //      },{
-       //          title: '九江'
-       //          ,id: 1001
-       //      },{
-       //          title: '赣州'
-       //          ,id: 1002
-       //      }]
-       //  },{
-       //      title: '广西'
-       //      ,id: 2
-       //      ,children: [{
-       //          title: '南宁'
-       //          ,id: 2000
-       //      },{
-       //          title: '桂林'
-       //          ,id: 2001
-       //      }]
-       //  },{
-       //      title: '陕西'
-       //      ,id: 3
-       //      ,children: [{
-       //          title: '西安'
-       //          ,id: 3000
-       //      },{
-       //          title: '延安'
-       //          ,id: 3001
-       //      }]
-       //  }];
-
 
         //监听表格复选框选择
         table.on('checkbox(currentTableFilter)', function (obj) {
@@ -272,7 +234,24 @@
                     ,btn: ['确认分配'
                         , '取消分配']
                     ,yes: function(index, layero){
-                    layer.msg("111");
+                        var nodeid = new Array();
+                        var checkData = dtree.getChecked('NodeId');
+                        var k=0;
+                        for (let i = 0; i < checkData.length; i++) {
+                            for (let j = 0; j < checkData[i].children.length; j++) {
+                                nodeid[k++] = checkData[i].children[j].id;
+                            }
+                        }
+
+                        $.ajax({
+                            type:'GET',
+                            url:'role/addNode?rid='+data.rId+'&nodeid='+nodeid,
+                            success:function(msg){
+                                layer.msg(msg.info);
+                                layer.close(add_edit_open);
+                                tablereh.reload();
+                            }
+                        });
                   }
                 ,btn2: function(index, layero){
                 },
@@ -286,6 +265,7 @@
                                     ,showCheckbox: true
                                     ,checkbarType:"all"
                                     ,checkbarData:"choose"
+                                    ,id:'NodeId'
                                     ,data:datas
                                 });
                             }

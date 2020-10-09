@@ -69,11 +69,11 @@ public class KKyroleServiceImpl implements KKyroleService {
 
     @Override
     public List<Role_Menu_TreeNode> Role_Menu_Tree(Short rid) {
+
         List<Ktreenode> role_menu_tree = kKyroleMapper.Role_Menu_Tree(rid);
         List<Ktreenode> menu_tree = kKyroleMapper.Menu_Tree();
 
         List<Role_Menu_TreeNode> roleMenuTreeNodeList1 = new ArrayList<>();
-
 
         for (Ktreenode m_t:
                 menu_tree) {
@@ -88,6 +88,7 @@ public class KKyroleServiceImpl implements KKyroleService {
                 }
                 role_menu_treeNode.setId((int)m_t.getTreenodeid());
                 role_menu_treeNode.setTitle(m_t.getTitle());
+                role_menu_treeNode.setType(1);
                 List<Role_Menu_TreeNode> roleMenuTreeNodeList = new ArrayList<>();
                 for (Ktreenode m_t1 :
                         menu_tree) {
@@ -102,6 +103,7 @@ public class KKyroleServiceImpl implements KKyroleService {
                         }
                         role_menu_treeNode1.setId((int)m_t1.getTreenodeid());
                         role_menu_treeNode1.setTitle(m_t1.getTitle());
+                        role_menu_treeNode1.setType(0);
                         roleMenuTreeNodeList.add(role_menu_treeNode1);
                     }
                 }
@@ -112,5 +114,19 @@ public class KKyroleServiceImpl implements KKyroleService {
         }
 
         return roleMenuTreeNodeList1;
+    }
+
+
+    @Override
+    public int insertNode(Short rid, Short[] nodeid) {
+        //删除原来旧的节点
+        kKyroleMapper.delNode(rid);
+        //插入菜单树新节点
+        for (int i = 0; i < nodeid.length; i++) {
+            if(kKyroleMapper.insertNode(rid,nodeid[i])<0){
+                return -1;
+            }
+        }
+        return 1;
     }
 }
