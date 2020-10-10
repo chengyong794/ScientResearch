@@ -32,7 +32,7 @@ public class UserController {
     @RequestMapping("/searchUser")
     @ResponseBody
     public DataJson searchUser(KKyuser kKyuser){
-        DataJson dataJson = kKyuserService.listUser(kKyuser);
+        DataJson dataJson = kKyuserService.listBy(kKyuser);
         return dataJson;
     }
 

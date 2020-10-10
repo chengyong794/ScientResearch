@@ -92,4 +92,12 @@ public class IndexController {
     public String rolepage(){
         return "page/system/role";
     }
+
+    /**
+     * 权限页跳转
+     */
+    @RequestMapping("/permisspage")
+    public String permisspage(){
+        return "page/system/permiss";
+    }
 }

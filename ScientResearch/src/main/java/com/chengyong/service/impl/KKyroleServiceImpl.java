@@ -27,6 +27,7 @@ public class KKyroleServiceImpl implements KKyroleService {
     @Override
     public int deleteByPrimaryKey(Short rId) {
         redisUtil.del("listRole");
+        kKyroleMapper.delNode(rId);
         return kKyroleMapper.deleteByPrimaryKey(rId);
     }
 
@@ -128,5 +129,48 @@ public class KKyroleServiceImpl implements KKyroleService {
             }
         }
         return 1;
+    }
+
+    @Override
+    public int insert_user_role(Short[] ids,Short kyid) {
+        try{
+            kKyroleMapper.del_user_role(kyid);
+            redisUtil.del("listRoleByID"+kyid);
+            redisUtil.del("listRole");
+            for (int i = 0; i < ids.length; i++) {
+                kKyroleMapper.insert_user_role(kyid,ids[i]);
+            }
+            return 1;
+        }catch (Exception e){
+            e.printStackTrace();
+            return -1;
+        }
+
+    }
+
+    @Override
+    public DataJson listRoleByID(Short kyid) {
+        List<Short> uids = (List<Short>)redisUtil.get("listRoleByID"+kyid);
+        if(uids==null){
+            uids =  kKyroleMapper.listRoleByID(kyid);
+            redisUtil.set("listRoleByID"+kyid,uids);
+        }
+        List<KKyrole> list = (List<KKyrole>)redisUtil.get("listRole");
+        if(list == null){
+            list = kKyroleMapper.listRole();
+            redisUtil.set("listRole",list);
+        }
+
+        for (KKyrole kKyrole:
+             list) {
+            for (Short uid:
+                 uids) {
+                if(uid==kKyrole.getrId()){
+                   kKyrole.setLAY_CHECKED(true);
+                   break;
+                }
+            }
+        }
+        return new DataJson(10,list);
     }
 }

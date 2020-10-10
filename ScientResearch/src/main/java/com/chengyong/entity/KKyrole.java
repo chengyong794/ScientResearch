@@ -1,5 +1,7 @@
 package com.chengyong.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.io.Serializable;
 
 public class KKyrole implements Serializable {
@@ -12,6 +14,18 @@ public class KKyrole implements Serializable {
     private String rCode;
 
     private Short rType;
+
+    //解决 springmvc 后台大写字段名称 返回前台变成小写
+    @JsonProperty
+    private Boolean  LAY_CHECKED;
+
+    public Boolean getLAY_CHECKED() {
+        return LAY_CHECKED;
+    }
+
+    public void setLAY_CHECKED(Boolean LAY_CHECKED) {
+        this.LAY_CHECKED = LAY_CHECKED;
+    }
 
     public Short getrType() {
         return rType;

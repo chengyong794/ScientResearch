@@ -37,6 +37,22 @@ JOIN KTREENODE kte on kte.TREENODEID = kter.TREEID where r.R_ID = #{rId,jdbcType
     from K_KYROLE
   </select>
 
+  <select id="listRoleByID" resultType="java.lang.Short">
+    select
+    R_ID
+    from KYROLE_USER  where  U_ID = #{kyid ,jdbcType=DECIMAL}
+  </select>
+
+  <insert id="insert_user_role" parameterType="java.lang.Short">
+    insert into KYROLE_USER (U_ID, R_ID)
+    values (  #{kyid ,jdbcType=DECIMAL},#{rid ,jdbcType=DECIMAL})
+  </insert>
+
+  <delete id="del_user_role" parameterType="java.lang.Short">
+    delete from KYROLE_USER
+    where U_ID = #{kyid,jdbcType=DECIMAL}
+  </delete>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

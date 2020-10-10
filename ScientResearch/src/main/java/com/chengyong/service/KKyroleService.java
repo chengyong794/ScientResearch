@@ -26,4 +26,8 @@ public interface KKyroleService {
 
     int insertNode(Short rid,Short[] nodeid);
 
+    int insert_user_role(Short[] ids,Short kyid);
+
+    DataJson listRoleByID(Short kyid);
+
 }

@@ -1,6 +1,7 @@
 package com.chengyong.service;
 
 import com.chengyong.entity.KKyuser;
+import com.chengyong.mapper.KKyroleMapper;
 import com.chengyong.mapper.KKyuserMapper;
 import com.chengyong.util.DataJson;
 import com.chengyong.util.RedisUtil;
@@ -16,6 +17,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 import java.util.Map;
@@ -38,7 +40,7 @@ public class KKyuserService implements UserDetailsService {
     private PasswordEncoder passwordEncoder;
 
     @Autowired
-    private RedisTemplate redisTemplate;
+    private KKyroleMapper kKyroleMapper;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -102,6 +104,24 @@ public class KKyuserService implements UserDetailsService {
 
     }
 
+    /**
+     * 查询单个
+     * @param kKyuser
+     * @return
+     */
+    public DataJson listBy(KKyuser kKyuser){
+        try{
+                PageHelper.startPage(kKyuser.getPage(),kKyuser.getLimit());
+            List<KKyuser> list = kkyuserMapper.listUser(kKyuser);
+                PageInfo info = new PageInfo(list);
+            return new DataJson(info.getTotal(),list);
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+
     public int addUser(KKyuser kKyuser){
         try {
             String pwd = passwordEncoder.encode(kKyuser.getPassword());
@@ -132,6 +152,7 @@ public class KKyuserService implements UserDetailsService {
         try {
             Set<String> keys = redisUtil.keys("listUser*");
             redisUtil.delkeys(keys);
+            kKyroleMapper.del_user_role(kyid);
             return kkyuserMapper.deleteByPrimaryKey(kyid);
         }catch (Exception e){
             e.printStackTrace();

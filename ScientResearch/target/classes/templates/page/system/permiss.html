@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <div th:replace="~{public :: layui_public_css}"></div>
+    <!--    <link rel="stylesheet" href="../lib/layui-v2.5.5/css/layui.css" media="all">-->
+<!--    <link rel="stylesheet" href="../css/public.css" media="all">-->
+</head>
+<body>
+<div class="layuimini-container">
+    <div class="layuimini-main">
+
+        <fieldset class="table-search-fieldset">
+            <legend>搜索信息</legend>
+            <div style="margin: 10px 10px 10px 10px">
+                <form class="layui-form layui-form-pane" id="searchFrom" action="">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">用户名</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="username" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">用户部门</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="userdept" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">用户地址</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="addr" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">用户工作</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="kjob" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <button type="button" class="layui-btn layui-btn-primary"  lay-submit lay-filter="data-search-btn" id="data-search"><i class="layui-icon"></i> 搜 索</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </fieldset>
+
+        <!--权限分配页面开始-->
+        <div style="display: none;margin: auto;" class="layui-form layuimini-form" id="distribution-div">
+            <table class="layui-hide" id="distributionTableId" lay-filter="distributionTableFilter"></table>
+        </div>
+        <!--权限分配页面结束-->
+
+
+<!--        <script type="text/html" id="toolbarDemo">-->
+<!--            <div class="layui-btn-container">-->
+<!--                <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="add"> 添加 </button>-->
+<!--                <button class="layui-btn layui-btn-sm layui-btn-danger data-delete-btn" lay-event="deletelow"> 批量删除 </button>-->
+<!--            </div>-->
+<!--        </script>-->
+
+        <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
+
+        <script type="text/html" id="currentTableBar">
+            <a class="layui-btn layui-btn-normal layui-btn-xs layui-btn-warm" lay-event="distribution-premiss">分配权限</a>
+        </script>
+
+    </div>
+</div>
+<div th:replace="~{public :: layui_lay-config_js}"></div>
+
+<script>
+    layui.use(['form', 'table','jquery','layer'], function () {
+        var $ = layui.jquery,
+            form = layui.form,
+            table = layui.table,
+            layer = layui.layer;
+        var tablereh;
+        tablereh = table.render({
+            elem: '#currentTableId',
+            url: '/user/listUser',
+            toolbar: '#toolbarDemo',
+            limits: [10, 15, 20, 25, 50, 100],
+            limit: 10,
+            page: true,
+            skin: 'line',
+            cols: [
+                [
+                {type: "checkbox", width: 50},
+                {field: 'kyid', width: 60, title: 'ID', sort: true},
+                {field: 'username', width: 100, title: '用户名'},
+                    {field: 'password', width: 150, title: '密码'},
+                {field: 'userdept', width: 100, title: '部门'},
+                {field: 'rename', title: '名字',width:100},
+                {field: 'tel', width: 150, title: '电话', sort: true},
+                {field: 'addr', width: 150, title: '地址', sort: true},
+                {field: 'nuitname', width: 150, title: '单位名称'},
+                {field: 'kjob', width: 135, title: '工作', sort: true},
+                {title: '操作', minWidth: 150, toolbar: '#currentTableBar', align: "center"}
+            ]
+            ]
+        });
+
+        // 监听搜索操作
+        form.on('submit(data-search-btn)', function (data) {
+            var datas = $("#searchFrom").serialize();
+                    //执行搜索重载
+                    tablereh.reload({
+                        url:'/user/searchUser?'+datas,
+                        // page: {
+                        //     curr: 1
+                        // }
+                    });
+
+            // return false;
+        });
+
+        var url;
+        var add_edit_open;
+
+        //监听表格复选框选择
+        table.on('checkbox(currentTableFilter)', function (obj) {
+            console.log(obj)
+        });
+
+        table.on('tool(currentTableFilter)', function (obj) {
+            var data = obj.data;
+            if (obj.event === 'distribution-premiss') {
+
+                add_edit_open = layer.open({
+                    title: '用户权限分配',
+                    type:1,
+                    content:$('#distribution-div'),
+                    skin: 'layui-layer-lan',
+                    area: ['600px', '500px']
+                    ,btnAlign: 'c'
+                    ,btn: ['确认分配'
+                    , '取消分配']
+                    ,yes: function(index, layero){
+                        var ids = new Array();
+                        var checkStatus = table.checkStatus('iddistributionTable');
+                        var checkdata = checkStatus.data;
+                        for (let i = 0; i <checkdata.length ; i++) {
+                            ids[i] = checkdata[i].rId;
+                        }
+
+                        $.ajax({
+                            type:'GET',
+                            url:"/permiss/addPermiss?ids="+ids+"&kyid="+data.kyid,
+                            success:function(msg){
+                                layer.msg(msg.info);
+                                layer.close(add_edit_open);
+                                tablereh.reload();
+                            }
+                        });
+
+                }
+                    ,btn2: function(index, layero){
+                },
+                    success:function(index){
+                        table.render({
+                            elem: '#distributionTableId'
+                            ,url: '/permiss/listRole?kyid='+data.kyid //数据接口
+                            ,id: 'iddistributionTable'
+                            ,cols: [
+                                [ //表头
+                                {type: "checkbox", width: 50},
+                                    {field: 'rId',align:"center", width: '20%', title: 'ID', sort: true},
+                                    {field: 'rName',align:"center", width: '20%', title: '角色名称'},
+                                    {field: 'rDesc',align:"center", width: '30%', title: '角色描述'},
+                                    {field: 'rCode',align:"center", width: '30%', title: '角色校验码'},
+                                     {field: 'rType',align:"center", title: '类型',width:'10%',hide:true},
+                            ]
+                            ]
+                        });
+                    }
+                });
+                return false;
+            }
+        });
+
+        //添加修改 表单提交
+        form.on('submit(edit-add-Btn)', function(data){
+            var datafield = data.field;
+            $.ajax({
+                type:'POST',
+                url:url,
+                data:datafield,
+                success:function(msg){
+                    layer.msg(msg.info);
+                    layer.close(add_edit_open);
+                    tablereh.reload();
+                }
+            });
+        });
+
+        //关闭添加对话框
+        $("#Editclose").click(function(){
+           layer.close(add_edit_open);
+        });
+
+    });
+</script>
+
+</body>
+</html>
