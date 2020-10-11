@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chengyong.mapper.KlogMapper">
+  <resultMap id="BaseResultMap" type="com.chengyong.entity.Klog">
+    <id column="LOGID" jdbcType="DECIMAL" property="logId" />
+    <result column="USERNAME" jdbcType="VARCHAR" property="username" />
+    <result column="USERIP" jdbcType="VARCHAR" property="userip" />
+    <result column="LOGINTIME" jdbcType="DATE" property="logintime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    LOGID, USERNAME, USERIP, LOGINTIME
+  </sql>
+  <select id="listLog" parameterType="com.chengyong.entity.Klog" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from K_LOG
+    <where>
+      <if test="username != null and username != ''">
+        USERNAME like concat(concat('%',#{username,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="userip != null and userip != ''">
+       and USERIP like concat(concat('%',#{userip,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="startTime != null and startTime != ''">
+       and LOGINTIME <![CDATA[>]]> to_date(#{startTime},'yyyy-MM-dd hh24:mi:ss')
+      </if>
+      <if test="endTime != null and endTime != ''">
+       and LOGINTIME <![CDATA[<]]> to_date(#{endTime},'yyyy-MM-dd hh24:mi:ss')
+      </if>
+    </where>
+  </select>
+
+  <insert id="insert" parameterType="com.chengyong.entity.Klog">
+    insert into K_LOG (USERNAME, USERIP, LOGINTIME)
+    values ( #{username,jdbcType=VARCHAR}, #{userip,jdbcType=VARCHAR},
+      TO_DATE(#{logintime,jdbcType=VARCHAR},'yyyy-MM-dd HH24:MI:SS'))
+  </insert>
+</mapper>

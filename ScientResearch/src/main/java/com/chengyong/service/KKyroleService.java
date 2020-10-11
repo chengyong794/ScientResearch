@@ -1,12 +1,13 @@
 package com.chengyong.service;
 
 import com.chengyong.entity.KKyrole;
-import com.chengyong.entity.Ktreenode;
 import com.chengyong.util.DataJson;
 import com.chengyong.util.Role_Menu_TreeNode;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public interface KKyroleService {
     int deleteByPrimaryKey(Short rId);
 

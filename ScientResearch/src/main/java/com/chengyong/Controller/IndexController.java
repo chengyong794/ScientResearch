@@ -100,4 +100,12 @@ public class IndexController {
     public String permisspage(){
         return "page/system/permiss";
     }
+
+    /**
+     * 日志页跳转
+     */
+    @RequestMapping("/logpage")
+    public String logpage(){
+        return "page/system/log";
+    }
 }

@@ -1,6 +1,5 @@
 package com.chengyong.service;
 
-import com.chengyong.entity.Ktreenode;
 import com.chengyong.entity.KView;
 import org.springframework.stereotype.Service;
 

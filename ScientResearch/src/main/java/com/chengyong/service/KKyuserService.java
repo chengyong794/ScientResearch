@@ -1,8 +1,10 @@
 package com.chengyong.service;
 
 import com.chengyong.entity.KKyuser;
+import com.chengyong.entity.Klog;
 import com.chengyong.mapper.KKyroleMapper;
 import com.chengyong.mapper.KKyuserMapper;
+import com.chengyong.mapper.KlogMapper;
 import com.chengyong.util.DataJson;
 import com.chengyong.util.RedisUtil;
 import com.github.pagehelper.Page;
@@ -19,6 +21,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
+import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -41,6 +46,12 @@ public class KKyuserService implements UserDetailsService {
 
     @Autowired
     private KKyroleMapper kKyroleMapper;
+
+    @Autowired
+    private KlogService klogService;
+
+    @Autowired
+    private HttpServletRequest request;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -76,6 +87,18 @@ public class KKyuserService implements UserDetailsService {
                                 String.join(",",kKymenu)
                         )
         );
+
+        /*登录进行日志的录入*/
+        Klog klog = new Klog();
+        klog.setLogintime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        klog.setUserip(request.getRemoteAddr());
+        klog.setUsername(kKyuser.getUsername());
+        try{
+            klogService.insert(klog);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
         return kKyuser;
     }
 
