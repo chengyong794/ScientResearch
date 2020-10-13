@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -30,13 +31,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         ,"/lib/**","/webjars/html5shiv/3.3.7/**"
                         ,"/webjars/respond/1.4.2/**","/api/**","/favicon.ico")
                 .permitAll()
-                .anyRequest()
+                .antMatchers("/index")
                 .authenticated()
+                .anyRequest()
+                .access("@myRbacService.hasPermission(request,authentication)")//进行权限配置,这里必须要按照这样写 request，authentication
                 .and()
                 .headers()
-                .frameOptions()
-                .disable();
-        // frameOptions 开启ifram支持
+                .frameOptions() // frameOptions 开启ifram支持
+                .disable()
+                .and()
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED) //在需要session的时候创建
+                .invalidSessionUrl("/") //sessioin失效后回到的地址
+                .sessionFixation().migrateSession() //每次重新复制生成session
+                .maximumSessions(1) //最多允许一个账号同时登录
+                .maxSessionsPreventsLogin(false); //如果有另外一个账号登录就 把另一个挤下去
+
     }
 
     /**

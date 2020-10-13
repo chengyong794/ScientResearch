@@ -74,7 +74,7 @@ public class KKyuserService implements UserDetailsService {
         List<String> kKymenu = (List<String>)redisUtil.get("findRoleMenu"+kKyuser.getKyid());
         if(null == kKymenu){
             //根据权限id  查询用户的菜单
-            kKymenu = kkyuserMapper.findRoleMenu(kKyuser.getKyid());
+            kKymenu = kkyuserMapper.findRoleMenu(kKyuser.getUsername());
             redisUtil.set("findRoleMenu"+kKyuser.getKyid(),kKymenu);
         }
 

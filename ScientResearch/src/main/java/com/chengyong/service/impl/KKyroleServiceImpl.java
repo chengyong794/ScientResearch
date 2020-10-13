@@ -122,9 +122,13 @@ public class KKyroleServiceImpl implements KKyroleService {
     public int insertNode(Short rid, Short[] nodeid) {
         //删除原来旧的节点
         kKyroleMapper.delNode(rid);
+        kKyroleMapper.delinsertKR_URL(rid);
         //插入菜单树新节点
         for (int i = 0; i < nodeid.length; i++) {
             if(kKyroleMapper.insertNode(rid,nodeid[i])<0){
+                return -1;
+            }
+            if(kKyroleMapper.insertKR_URL(rid,nodeid[i])<0){
                 return -1;
             }
         }

@@ -26,9 +26,13 @@ public interface KKyroleMapper {
 
     int insertNode(Short rid,Short nodeid);
 
+    int insertKR_URL(Short rid,Short nodeid);
+
     int insert_user_role(Short kyid,Short rid);
 
     int delNode(Short rid);
+
+    int delinsertKR_URL(Short rid);
 
     int del_user_role(Short kyid);
 

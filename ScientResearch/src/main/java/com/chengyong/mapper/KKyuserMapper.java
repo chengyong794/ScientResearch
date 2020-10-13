@@ -23,7 +23,9 @@ public interface KKyuserMapper {
 
     List<String> findUserRole(Short kyUserid);
 
-    List<String> findRoleMenu(Short kyUserid);
+    List<String> findRoleMenu(String username);
+
+    List<String> findRoleKNODEURL(String username);
 
     List<KKyuser> listUser(KKyuser kKyuser);
 }
