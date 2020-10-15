@@ -44,8 +44,9 @@
     where KYID = #{kyid,jdbcType=DECIMAL}
   </select>
 
-  <select id="loginUsername" parameterType="java.lang.String" resultMap="BaseResultMap">
-     select KYNAME as username,KYPWD as password,KYID from K_KYUSER where KYNAME = #{username,jdbcType=VARCHAR}
+  <select id="loginUsername" parameterType="java.lang.String" resultType="com.chengyong.entity.KKyuser">
+     select KYNAME as username,KYPWD as password,KYID
+     from K_KYUSER where KYNAME = #{username,jdbcType=VARCHAR}
   </select>
 
   <select id="findUserRole" parameterType="java.lang.Short" resultType="java.lang.String">
@@ -62,7 +63,7 @@
      on ru.R_ID = r.R_ID join KTREE_ROLE mr
      on r.R_ID = mr.R_ID join KTREENODE m
      on mr.TREEID = m.TREENODEID
-     where u.KYNAME = #{username,jdbcType=DECIMAL}
+     where u.KYNAME = #{username,jdbcType=VARCHAR}
   </select>
 
   <select id="findRoleKNODEURL" parameterType="java.lang.String" resultType="java.lang.String">
@@ -71,7 +72,7 @@ join KYROLE_USER ru on u.KYID = ru.U_ID
 JOIN K_KYROLE R on r.R_ID = RU.R_ID
 join KR_URL kru on r.R_ID = kru.RID
 join KNODEURL nodeurl on kru.URLID = nodeurl.NODEID
-where u.KYNAME = #{username,jdbcType=DECIMAL}
+where u.KYNAME = #{username,jdbcType=VARCHAR}
   </select>
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">

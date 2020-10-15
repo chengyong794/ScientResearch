@@ -2,30 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82602a60-2070-4f2f-af9b-f9a97fc674ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/Auth/MyRbacService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/MyConfig/AopConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/logback-spring.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScientResearch.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ScientResearch.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/Controller/system/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/Controller/system/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/MyConfig/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/MyConfig/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KKyroleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KKyroleMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KKyuserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KKyuserMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KKyuserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KKyuserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/service/impl/KKyroleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/impl/KKyroleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/KKyroleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/KKyroleMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/KKyuserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/KKyuserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/Controller/system/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chengyong/Controller/system/MenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/MyConfig/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chengyong/MyConfig/SecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KKyroleMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KKyroleMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KKyuserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KKyuserMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/service/KKyuserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/KKyuserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/service/impl/KKyroleServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/impl/KKyroleServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/KKyroleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/KKyroleMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/KKyuserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/KKyuserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/page/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/page/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +204,8 @@
       <workItem from="1602309630019" duration="10824000" />
       <workItem from="1602399336549" duration="10926000" />
       <workItem from="1602416326647" duration="750000" />
-      <workItem from="1602569540030" duration="12258000" />
+      <workItem from="1602569540030" duration="12585000" />
+      <workItem from="1602749193402" duration="3422000" />
     </task>
     <task id="LOCAL-00001" summary="2020-9-20 22:57 第一次提交">
       <created>1600613874401</created>
@@ -321,7 +305,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602417042405</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="2020 10 13 17:43 完成AOP日志录入，springSecurity安全框架初步整合。">
+      <created>1602582254654</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1602582254655</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -354,7 +345,8 @@
     <MESSAGE value="2020 10 9 16:50 菜单树的重新选择分配完成" />
     <MESSAGE value="2020 10 10 17:04 已完成权限管理" />
     <MESSAGE value="2020 10 11 19:50 完成日志 和 数据源监控" />
-    <option name="LAST_COMMIT_MESSAGE" value="2020 10 11 19:50 完成日志 和 数据源监控" />
+    <MESSAGE value="2020 10 13 17:43 完成AOP日志录入，springSecurity安全框架初步整合。" />
+    <option name="LAST_COMMIT_MESSAGE" value="2020 10 13 17:43 完成AOP日志录入，springSecurity安全框架初步整合。" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Notifications" timestamp="1600765310048">
@@ -385,10 +377,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1601209061085" />
-    <state x="31" y="0" key="CommitChangelistDialog2" timestamp="1602417038723">
+    <state x="31" y="0" key="CommitChangelistDialog2" timestamp="1602582252361">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="31" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1602417038723" />
+    <state x="31" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1602582252361" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1601899479194">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -405,66 +397,66 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="537" y="254" key="Github.ShareDialog/0.0.1366.728@0.0.1366.728" timestamp="1600613437871" />
-    <state width="1323" height="40" key="GridCell.Tab.0.bottom" timestamp="1602582087361">
+    <state width="1323" height="53" key="GridCell.Tab.0.bottom" timestamp="1602751800829">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="40" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602582087361" />
-    <state width="1323" height="40" key="GridCell.Tab.0.center" timestamp="1602582087361">
+    <state width="1323" height="53" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602751800829" />
+    <state width="1323" height="53" key="GridCell.Tab.0.center" timestamp="1602751800829">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="40" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1602582087361" />
-    <state width="1323" height="40" key="GridCell.Tab.0.left" timestamp="1602582087360">
+    <state width="1323" height="53" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1602751800829" />
+    <state width="1323" height="53" key="GridCell.Tab.0.left" timestamp="1602751800829">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="40" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1602582087360" />
-    <state width="1323" height="40" key="GridCell.Tab.0.right" timestamp="1602582087361">
+    <state width="1323" height="53" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1602751800829" />
+    <state width="1323" height="53" key="GridCell.Tab.0.right" timestamp="1602751800829">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="40" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1602582087361" />
-    <state width="1323" height="40" key="GridCell.Tab.1.bottom" timestamp="1602582087361">
+    <state width="1323" height="53" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1602751800829" />
+    <state width="1323" height="53" key="GridCell.Tab.1.bottom" timestamp="1602751800829">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="40" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602582087361" />
-    <state width="1323" height="40" key="GridCell.Tab.1.center" timestamp="1602582087361">
+    <state width="1323" height="53" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602751800829" />
+    <state width="1323" height="53" key="GridCell.Tab.1.center" timestamp="1602751800829">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="40" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1602582087361" />
-    <state width="1323" height="40" key="GridCell.Tab.1.left" timestamp="1602582087361">
+    <state width="1323" height="53" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1602751800829" />
+    <state width="1323" height="53" key="GridCell.Tab.1.left" timestamp="1602751800829">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="40" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1602582087361" />
-    <state width="1323" height="40" key="GridCell.Tab.1.right" timestamp="1602582087361">
+    <state width="1323" height="53" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1602751800829" />
+    <state width="1323" height="53" key="GridCell.Tab.1.right" timestamp="1602751800829">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="40" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1602582087361" />
-    <state width="1323" height="66" key="GridCell.Tab.2.bottom" timestamp="1602578797957">
+    <state width="1323" height="53" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1602751800829" />
+    <state width="1323" height="53" key="GridCell.Tab.2.bottom" timestamp="1602751800829">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="66" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602578797957" />
-    <state width="1323" height="66" key="GridCell.Tab.2.center" timestamp="1602578797957">
+    <state width="1323" height="53" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602751800829" />
+    <state width="1323" height="53" key="GridCell.Tab.2.center" timestamp="1602751800829">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="66" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1602578797957" />
-    <state width="1323" height="66" key="GridCell.Tab.2.left" timestamp="1602578797957">
+    <state width="1323" height="53" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1602751800829" />
+    <state width="1323" height="53" key="GridCell.Tab.2.left" timestamp="1602751800829">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="66" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1602578797957" />
-    <state width="1323" height="66" key="GridCell.Tab.2.right" timestamp="1602578797957">
+    <state width="1323" height="53" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1602751800829" />
+    <state width="1323" height="53" key="GridCell.Tab.2.right" timestamp="1602751800829">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="66" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1602578797957" />
+    <state width="1323" height="53" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1602751800829" />
     <state x="184" y="6" key="SettingsEditor" timestamp="1602160721896">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1602160721896" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1602417046323">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1602582259910">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1602417046323" />
-    <state x="363" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1602569538876">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1602582259910" />
+    <state x="363" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1602749323403">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="363" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1602569538876" />
+    <state x="363" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1602749323403" />
     <state x="357" y="155" key="git4idea.merge.GitPullDialog" timestamp="1601374263496">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

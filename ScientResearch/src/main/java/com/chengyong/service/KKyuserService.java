@@ -56,12 +56,12 @@ public class KKyuserService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        KKyuser kKyuser = (KKyuser) redisUtil.get("loadUserByUsername");
+        KKyuser kKyuser = (KKyuser) redisUtil.get("loadUserByUsername"+username);
 
         if(null == kKyuser){
             //获取用户信息
             kKyuser = kkyuserMapper.loginUsername(username);
-            redisUtil.set("loadUserByUsername",kKyuser);
+            redisUtil.set("loadUserByUsername"+username,kKyuser);
         }
 
         List<String> kKyrole = (List<String>)redisUtil.get("findUserRole"+kKyuser.getKyid());
