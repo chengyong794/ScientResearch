@@ -2,6 +2,8 @@ package com.chengyong.mapper;
 
 import com.chengyong.entity.KPici;
 
+import java.util.List;
+
 public interface KPiciMapper {
     int deleteByPrimaryKey(Short pcid);
 
@@ -14,4 +16,6 @@ public interface KPiciMapper {
     int updateByPrimaryKeySelective(KPici record);
 
     int updateByPrimaryKey(KPici record);
+
+    List<KPici> listdeclare(KPici record);
 }

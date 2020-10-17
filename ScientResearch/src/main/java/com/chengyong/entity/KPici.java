@@ -14,9 +14,13 @@ public class KPici implements Serializable {
 
     private String pcclasify;
 
-    private Date pcstarttime;
+    private String pcstarttime;
 
-    private Date pcendtime;
+    private String pcendtime;
+
+    private Integer page;
+
+    private Integer limit;
 
     public Short getPcid() {
         return pcid;
@@ -58,19 +62,35 @@ public class KPici implements Serializable {
         this.pcclasify = pcclasify;
     }
 
-    public Date getPcstarttime() {
+    public String getPcstarttime() {
         return pcstarttime;
     }
 
-    public void setPcstarttime(Date pcstarttime) {
+    public void setPcstarttime(String pcstarttime) {
         this.pcstarttime = pcstarttime;
     }
 
-    public Date getPcendtime() {
+    public String getPcendtime() {
         return pcendtime;
     }
 
-    public void setPcendtime(Date pcendtime) {
+    public void setPcendtime(String pcendtime) {
         this.pcendtime = pcendtime;
+    }
+
+    public Integer getPage() {
+        return page;
+    }
+
+    public void setPage(Integer page) {
+        this.page = page;
+    }
+
+    public Integer getLimit() {
+        return limit;
+    }
+
+    public void setLimit(Integer limit) {
+        this.limit = limit;
     }
 }

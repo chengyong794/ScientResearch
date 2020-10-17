@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <div th:replace="~{public :: layui_public_css}"></div>
+    <!--    <link rel="stylesheet" href="../lib/layui-v2.5.5/css/layui.css" media="all">-->
+<!--    <link rel="stylesheet" href="../css/public.css" media="all">-->
+</head>
+<body>
+<div class="layuimini-container">
+    <div class="layuimini-main">
+
+        <fieldset class="table-search-fieldset">
+            <legend>搜索申报批次信息</legend>
+            <div style="margin: 10px 10px 10px 10px">
+                <form class="layui-form layui-form-pane" id="searchFrom" action="">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">批次名称</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="pcname" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-inline">
+                            <label class="layui-form-label">开始日期</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="pcstarttime" class="layui-input" id="pcstarttime" placeholder="请选择时间">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">结束日期</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="pcendtime" class="layui-input" id="pcendtime" placeholder="请选择时间">
+                            </div>
+                        </div>
+
+                        <div class="layui-inline">
+                            <button type="button" class="layui-btn layui-btn-primary"  lay-submit lay-filter="data-search-btn" id="data-search"><i class="layui-icon"></i> 搜 索</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </fieldset>
+
+        <!--修改增加页面开始-->
+        <div style="display: none;margin: auto;" class="layui-form layuimini-form" id="EditandAdd">
+            <form class="layui-form" lay-filter="dataFrom" id="dataFrm">
+                <div class="layui-form-item" style="width: 500px;margin-top: 50px;">
+                    <label class="layui-form-label required">批次名称</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="pcname" lay-verify="required" lay-reqtext="批次名称不能为空" placeholder="请输入批次名称" value="" class="layui-input">
+                        <input type="hidden" name="pcid" value=""/>
+                    </div>
+                </div>
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label required">批次状态</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="pcstate" lay-verify="required" lay-reqtext="批次状态不能为空" placeholder="请输入批次状态" value="" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label required">项目来源</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="pccome" lay-verify="required" lay-reqtext="项目来源不能为空" placeholder="请输入项目来源" value="" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label required">项目分类</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="pcclasify" lay-verify="required" lay-reqtext="项目分类不能为空" placeholder="请输入项目分类" value="" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-inline">
+                    <label class="layui-form-label">开始日期</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="pcstarttime" class="layui-input" id="test1" placeholder="请选择时间">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">结束日期</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="pcendtime" class="layui-input" id="test2" placeholder="请选择时间">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <!--修改增加页面结束-->
+
+
+        <script type="text/html" id="toolbarDemo">
+            <div class="layui-btn-container">
+                <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="add"> 申报添加 </button>
+                <button class="layui-btn layui-btn-sm layui-btn-danger data-delete-btn" lay-event="deletelow"> 批量删除 </button>
+            </div>
+        </script>
+
+        <script type="text/html" id="toolbarDemo2">
+            <div class="layui-btn-container">
+                <button class="layui-btn layui-btn-sm layui-btn-danger data-delete-btn" lay-event="deletelow"> 批量删除 </button>
+            </div>
+        </script>
+
+        <!--申报批次表-->
+        <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
+
+
+        <fieldset class="table-search-fieldset">
+            <legend>搜索申报信息</legend>
+            <div style="margin: 10px 10px 10px 10px">
+                <form class="layui-form layui-form-pane" id="searchFrom2" action="">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">用户名</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="username" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <button type="button" class="layui-btn layui-btn-primary"  lay-submit lay-filter="data-search-btn" id="data-search"><i class="layui-icon"></i> 搜 索</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </fieldset>
+
+
+
+        <!--申报信息表-->
+        <table class="layui-hide" id="currentTableId2" lay-filter="currentTableFilter2"></table>
+
+        <script type="text/html" id="currentTableBar">
+            <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit">编辑</a>
+            <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete">删除</a>
+        </script>
+
+        <script type="text/html" id="currentTableBar2">
+            <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit">编辑</a>
+            <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete">删除</a>
+        </script>
+
+        <!--修改页面开始-->
+        <div style="display: none;margin: auto;" class="layui-form layuimini-form" id="Edit2">
+            <form class="layui-form" lay-filter="dataFrom2" id="dataFrm2">
+                <div class="layui-form-item" style="width: 500px;margin-top: 50px;">
+                    <label class="layui-form-label required">批次名称</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="pcname" lay-verify="required" lay-reqtext="批次名称不能为空" placeholder="请输入批次名称" value="" class="layui-input">
+                        <input type="hidden" name="pcid" value=""/>
+                    </div>
+                </div>
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label required">批次状态</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="pcstate" lay-verify="required" lay-reqtext="批次状态不能为空" placeholder="请输入批次状态" value="" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label required">项目来源</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="pccome" lay-verify="required" lay-reqtext="项目来源不能为空" placeholder="请输入项目来源" value="" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label required">项目分类</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="pcclasify" lay-verify="required" lay-reqtext="项目分类不能为空" placeholder="请输入项目分类" value="" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-inline">
+                    <label class="layui-form-label">开始日期</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="pcstarttime" class="layui-input" placeholder="请选择时间">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">结束日期</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="pcendtime" class="layui-input"  placeholder="请选择时间">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <!--修改页面结束-->
+
+    </div>
+</div>
+<div th:replace="~{public :: layui_lay-config_js}"></div>
+
+<script>
+    layui.use(['form', 'table','jquery','layer','laydate'], function () {
+        var $ = layui.jquery,
+            form = layui.form,
+            table = layui.table,
+            layer = layui.layer,
+        laydate = layui.laydate;
+        var tablereh;
+        tablereh = table.render({
+            elem: '#currentTableId',
+            url: '/declare/listdeclare',
+            toolbar: '#toolbarDemo',
+            limits: [5,10, 15, 20, 25, 50, 100],
+            limit: 5,
+            page: true,
+            skin: 'line',
+            cols: [
+                [
+                {type: "checkbox", width: 50},
+                {field: 'pcid', width: 60, title: 'ID', sort: true},
+                {field: 'pcname', width: 100, title: '批次名称'},
+                {field: 'pcstate', width: 150, title: '批次状态'},
+                {field: 'pccome', width: 100, title: '项目来源'},
+                {field: 'pcclasify', title: '项目分类',width:100},
+                {field: 'pcstarttime', width: 150, title: '开始时间', sort: true},
+                {field: 'pcendtime', width: 150, title: '结束时间', sort: true},
+                {title: '操作', minWidth: 150, toolbar: '#currentTableBar', align: "center"}
+            ]
+            ]
+        });
+
+        laydate.render({
+            elem: '#test1',
+            type: 'datetime'
+
+        });
+
+        laydate.render({
+            elem: '#test2'
+            ,type: 'datetime'
+        });
+
+        laydate.render({
+            elem: '#pcstarttime',
+            type: 'datetime'
+
+        });
+
+        laydate.render({
+            elem: '#pcendtime'
+            ,type: 'datetime'
+        });
+
+        var tablereh1;
+        tablereh1 = table.render({
+            elem: '#currentTableId2',
+            url: '',
+            toolbar: '#toolbarDemo2',
+            limits: [5,10, 15, 20, 25, 50, 100],
+            limit: 5,
+            page: true,
+            skin: 'line',
+            cols: [
+                [
+                    {type: "checkbox", width: 50},
+                    {field: 'pid', width: 60, title: 'ID', sort: true},
+                    {field: 'pname', width: 100, title: '项目名称'},
+                    {field: 'pcoms', width: 150, title: '项目来源'},
+                    {field: 'ppeople', width: 100, title: '参与成员'},
+                    {field: 'ptype', title: '项目分类',width:100},
+                    {field: 'pdept', width: 150, title: '所在部门', sort: true},
+                    {field: 'psource', width: 150, title: '项目资源', sort: true},
+                    {field: 'pothers', width: 150, title: '其他说明'},
+                    {field: 'pdate', width: 135, title: '申报时间', sort: true},
+                    {field: 'pstarttime', width: 135, title: '开始时间', sort: true},
+                    {field: 'pendtime', width: 135, title: '结束时间', sort: true},
+                    {title: '操作', minWidth: 150, toolbar: '#currentTableBar2', align: "center"}
+                ]
+            ]
+        });
+
+        // 监听搜索操作
+        form.on('submit(data-search-btn)', function (data) {
+            var datas = $("#searchFrom").serialize();
+                    //执行搜索重载
+                    tablereh.reload({
+                        url:'/declare/searchdeclare?'+datas,
+
+                    });
+        });
+
+        var add_edit_open;
+        /**
+         * toolbar监听事件
+         */
+        table.on('toolbar(currentTableFilter)', function (obj) {
+
+            if (obj.event === 'add') {  // 监听添加操作
+                add_edit_open = layer.open({
+                    title: '添加批次',
+                    type:1,
+                    content:$('#EditandAdd'),
+                    skin: 'layui-layer-lan',
+                    area: ['600px', '450px']
+                    ,btnAlign:'c'
+                    ,btn: ['添加批次'
+                    , '取消添加']
+                    ,yes: function(index, layero){
+                        var data1 = form.val("dataFrom");
+                        $.ajax({
+                            type:'POST',
+                            url:'/declare/adddeclare',
+                            data:data1,
+                            success:function(msg){
+                                layer.msg(msg.info);
+                                layer.close(add_edit_open);
+                                tablereh.reload();
+                            }
+                        });
+
+                        }
+                    ,btn2: function(index, layero){
+                     },
+                    success:function(index){
+                        //清除表单数据
+                        $("#dataFrm")[0].reset();
+                    }
+                });
+            } else if (obj.event === 'deletelow') {  // 监听删除操作
+                var checkStatus = table.checkStatus('currentTableId')
+                    , data = checkStatus.data;
+                var kyid = new Array();
+                for (let i = 0; i <data.length ; i++) {
+                    kyid[i] = data[i].pcid;
+                }
+
+                layer.confirm('真的删除选中的么', function (index) {
+                    $.ajax({
+                        type:'GET',
+                        url:'/declare/deldeclarelot?pcid='+kyid,
+                        success:function(msg){
+                            layer.msg(msg.info);
+                            tablereh.reload();
+                        }
+                    });
+                    layer.close(index);
+                });
+
+            }
+        });
+
+        //监听表格复选框选择
+        table.on('checkbox(currentTableFilter)', function (obj) {
+            console.log(obj)
+        });
+
+        table.on('tool(currentTableFilter)', function (obj) {
+            var data = obj.data;
+            if (obj.event === 'edit') {
+
+                add_edit_open = layer.open({
+                    title: '编辑批次',
+                    type:1,
+                    content:$('#EditandAdd'),
+                    skin: 'layui-layer-lan',
+                    area: ['600px', '500px']
+                    ,btnAlign:'c'
+                    ,btn: ['修改批次'
+                    , '取消修改']
+                    ,yes: function(index, layero){
+                        var data1 = form.val("dataFrom");
+                    $.ajax({
+                        type:'POST',
+                        url:'/declare/editdeclare',
+                        data:data1,
+                        success:function(msg){
+                            layer.msg(msg.info);
+                            layer.close(add_edit_open);
+                            tablereh.reload();
+                        }
+                    });
+
+                }
+            ,btn2: function(index, layero){
+                },
+                    success:function(index){
+                        form.val('dataFrom',data);
+                    }
+                });
+                return false;
+            } else if (obj.event === 'delete') {
+                layer.confirm('真的删除行么', function (index) {
+                    $.ajax({
+                        type:'GET',
+                        url:'/declare/deldeclare?pcid='+data.pcid,
+                        success:function(msg){
+                            layer.msg(msg.info);
+                            tablereh.reload();
+                        }
+                    });
+                    layer.close(index);
+                });
+            }
+        });
+
+        // //添加修改 表单提交
+        // form.on('submit(edit-add-Btn)', function(data){
+        //     var datafield = data.field;
+        //     $.ajax({
+        //         type:'POST',
+        //         url:url,
+        //         data:datafield,
+        //         success:function(msg){
+        //             layer.msg(msg.info);
+        //             layer.close(add_edit_open);
+        //             tablereh.reload();
+        //         }
+        //     });
+        // });
+        //
+        // //关闭添加对话框
+        // $("#Editclose").click(function(){
+        //    layer.close(add_edit_open);
+        // });
+
+    });
+</script>
+
+</body>
+</html>

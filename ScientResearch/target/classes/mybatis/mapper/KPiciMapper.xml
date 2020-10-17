@@ -13,6 +13,24 @@
   <sql id="Base_Column_List">
     PCID, PCNAME, PCSTATE, PCCOME, PCCLASIFY, PCSTARTTIME, PCENDTIME
   </sql>
+
+  <select id="listdeclare" parameterType="com.chengyong.entity.KPici" resultMap="BaseResultMap">
+    select
+    *
+    from K_PICI
+    <where>
+      <if test="pcname != null and pcname!=''">
+        PCNAME like concat(concat('%',#{pcname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pcstarttime != null and pcstarttime!=''">
+       and  PCSTARTTIME <![CDATA[>]]> to_date(#{pcstarttime},'yyyy-MM-dd HH24:mi:ss')
+      </if>
+      <if test="pcendtime != null and pcendtime!=''">
+       and  PCENDTIME <![CDATA[<]]> to_date(#{pcendtime},'yyyy-MM-dd HH24:mi:ss')
+      </if>
+    </where>
+  </select>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
@@ -24,12 +42,13 @@
     where PCID = #{pcid,jdbcType=DECIMAL}
   </delete>
   <insert id="insert" parameterType="com.chengyong.entity.KPici">
-    insert into K_PICI (PCID, PCNAME, PCSTATE, 
+    insert into K_PICI (PCNAME, PCSTATE,
       PCCOME, PCCLASIFY, PCSTARTTIME, 
       PCENDTIME)
-    values (#{pcid,jdbcType=DECIMAL}, #{pcname,jdbcType=VARCHAR}, #{pcstate,jdbcType=VARCHAR}, 
-      #{pccome,jdbcType=VARCHAR}, #{pcclasify,jdbcType=VARCHAR}, #{pcstarttime,jdbcType=TIMESTAMP}, 
-      #{pcendtime,jdbcType=TIMESTAMP})
+    values ( #{pcname,jdbcType=VARCHAR}, #{pcstate,jdbcType=VARCHAR},
+      #{pccome,jdbcType=VARCHAR}, #{pcclasify,jdbcType=VARCHAR}
+      , to_date(#{pcstarttime},'yyyy-MM-dd HH24:mi:ss'),
+      to_date(#{pcendtime},'yyyy-MM-dd HH24:mi:ss'))
   </insert>
   <insert id="insertSelective" parameterType="com.chengyong.entity.KPici">
     insert into K_PICI
@@ -110,8 +129,8 @@
       PCSTATE = #{pcstate,jdbcType=VARCHAR},
       PCCOME = #{pccome,jdbcType=VARCHAR},
       PCCLASIFY = #{pcclasify,jdbcType=VARCHAR},
-      PCSTARTTIME = #{pcstarttime,jdbcType=TIMESTAMP},
-      PCENDTIME = #{pcendtime,jdbcType=TIMESTAMP}
+      PCSTARTTIME = to_date(#{pcstarttime},'yyyy-MM-dd HH24:mi:ss'),
+      PCENDTIME = to_date(#{pcendtime},'yyyy-MM-dd HH24:mi:ss')
     where PCID = #{pcid,jdbcType=DECIMAL}
   </update>
 </mapper>

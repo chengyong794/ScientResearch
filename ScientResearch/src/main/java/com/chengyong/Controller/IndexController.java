@@ -108,4 +108,12 @@ public class IndexController {
     public String logpage(){
         return "page/system/log";
     }
+
+    /**
+     * 项目申报跳转
+     */
+    @RequestMapping("/declarepage")
+    public String declarepage(){
+        return "page/promanage/declare";
+    }
 }

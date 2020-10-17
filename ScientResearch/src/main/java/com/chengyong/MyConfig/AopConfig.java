@@ -19,6 +19,75 @@ public class AopConfig {
     private String time = format.format(new Date());
 
     /**
+     * 添加项目批次申报
+     * @param proceedingJoinPoint
+     * @return
+     */
+    @Around("execution(* com.chengyong.service.impl.KPiciServiceImpl.updateByPrimaryKey(..))")
+    public Object KPiciupdate(ProceedingJoinPoint proceedingJoinPoint){
+        try{
+            logger.info(time+"########----------进行了修改项目批次申报的操作---------########");
+            Object object = proceedingJoinPoint.proceed();
+            logger.info(time+"########----------修改项目批次申报成功返回---------########"+object);
+            return object;
+        }catch (Exception e){
+            logger.info(time+"########----------修改项目批次申报发生异常---------########");
+            e.printStackTrace();
+            return null;
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+            return null;
+        }
+
+    }
+
+    /**
+     * 添加项目批次申报
+     * @param proceedingJoinPoint
+     * @return
+     */
+    @Around("execution(* com.chengyong.service.impl.KPiciServiceImpl.insert(..))")
+    public Object KPiciinsert(ProceedingJoinPoint proceedingJoinPoint){
+        try{
+            logger.info(time+"########----------进行了添加项目批次申报的操作---------########");
+            Object object = proceedingJoinPoint.proceed();
+            logger.info(time+"########----------添加项目批次申报成功返回---------########"+object);
+            return object;
+        }catch (Exception e){
+            logger.info(time+"########----------添加项目批次申报发生异常---------########");
+            e.printStackTrace();
+            return null;
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+            return null;
+        }
+
+    }
+
+    /**
+     * 删除删除项目批次申报
+     * @param proceedingJoinPoint
+     * @return
+     */
+    @Around("execution(* com.chengyong.service.impl.KPiciServiceImpl.deleteByPrimaryKey(..))")
+    public Object KPicidelete(ProceedingJoinPoint proceedingJoinPoint){
+        try{
+            logger.info(time+"########----------进行了删除项目批次申报的操作---------########");
+            Object object = proceedingJoinPoint.proceed();
+            logger.info(time+"########----------删除项目批次申报成功返回---------########"+object);
+            return object;
+        }catch (Exception e){
+            logger.info(time+"########----------删除项目批次申报发生异常---------########");
+            e.printStackTrace();
+            return null;
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+            return null;
+        }
+
+    }
+
+    /**
      * 删除菜单节点
      * @param proceedingJoinPoint
      * @return
