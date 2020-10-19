@@ -58,6 +58,8 @@ public class KKyuserService implements UserDetailsService {
 
         KKyuser kKyuser = (KKyuser) redisUtil.get("loadUserByUsername"+username);
 
+        request.getSession().setAttribute("user",kKyuser.getUsername());
+
         if(null == kKyuser){
             //获取用户信息
             kKyuser = kkyuserMapper.loginUsername(username);
@@ -181,5 +183,9 @@ public class KKyuserService implements UserDetailsService {
             e.printStackTrace();
             return -1;
         }
+    }
+
+    public Short findUserRoleType(String username){
+        return  kkyuserMapper.findUserRoleType(username);
     }
 }

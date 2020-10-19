@@ -28,4 +28,6 @@ public interface KKyuserMapper {
     List<String> findRoleKNODEURL(String username);
 
     List<KKyuser> listUser(KKyuser kKyuser);
+
+    Short findUserRoleType(String username);
 }

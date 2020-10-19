@@ -14,6 +14,8 @@ public class KPici implements Serializable {
 
     private String pcclasify;
 
+    private String pcdescribe;
+
     private String pcstarttime;
 
     private String pcendtime;
@@ -21,6 +23,14 @@ public class KPici implements Serializable {
     private Integer page;
 
     private Integer limit;
+
+    public String getPcdescribe() {
+        return pcdescribe;
+    }
+
+    public void setPcdescribe(String pcdescribe) {
+        this.pcdescribe = pcdescribe;
+    }
 
     public Short getPcid() {
         return pcid;

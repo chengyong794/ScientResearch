@@ -1,12 +1,15 @@
 package com.chengyong.Controller;
 
 import com.chengyong.entity.KView;
+import com.chengyong.service.KKyuserService;
 import com.chengyong.service.KviewService;
+import com.chengyong.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,6 +22,12 @@ public class IndexController {
 
     @Autowired
     private KviewService kviewService;
+
+    @Autowired
+    private KKyuserService kKyuserService;
+
+    @Autowired
+    private RedisUtil redisUtil;
 
     /**
      * 登录页跳转
@@ -113,7 +122,33 @@ public class IndexController {
      * 项目申报跳转
      */
     @RequestMapping("/declarepage")
-    public String declarepage(){
-        return "page/promanage/declare";
+    public String declarepage(HttpServletRequest request){
+        String url = null;
+        String un = (String) request.getSession().getAttribute("user");
+        Integer KyType = (Integer) redisUtil.get(un);
+
+        if(KyType==null){
+            Short tp = kKyuserService.findUserRoleType(un);
+            if(tp==1||tp==0){
+                redisUtil.set("KyType",tp);
+                url = "page/promanage/declare";
+            }else if(tp==2){
+                redisUtil.set("KyType",tp);
+                url = "page/promanage/declare-2";
+            }else if(tp==3){
+                redisUtil.set("KyType",tp);
+                url = "page/promanage/declare-1";
+            }
+        }else{
+            if(KyType==1){
+                url = "page/promanage/declare";
+            }else if(KyType==2){
+                url = "page/promanage/declare-2";
+            }else if(KyType==3){
+                url = "page/promanage/declare-1";
+            }
+        }
+
+        return url;
     }
 }

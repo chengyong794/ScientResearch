@@ -20,11 +20,21 @@ public class KProject implements Serializable {
 
     private String pothers;
 
+     private String presfrom;
+
     private Date pdate;
 
     private Date pstarttime;
 
     private Date pendtime;
+
+    public String getPresfrom() {
+        return presfrom;
+    }
+
+    public void setPresfrom(String presfrom) {
+        this.presfrom = presfrom;
+    }
 
     public Short getPid() {
         return pid;

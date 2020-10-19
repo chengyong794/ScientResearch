@@ -7,11 +7,12 @@
     <result column="PCSTATE" jdbcType="VARCHAR" property="pcstate" />
     <result column="PCCOME" jdbcType="VARCHAR" property="pccome" />
     <result column="PCCLASIFY" jdbcType="VARCHAR" property="pcclasify" />
+    <result column="PCDESCRIBE" jdbcType="VARCHAR" property="pcdescribe" />
     <result column="PCSTARTTIME" jdbcType="TIMESTAMP" property="pcstarttime" />
     <result column="PCENDTIME" jdbcType="TIMESTAMP" property="pcendtime" />
   </resultMap>
   <sql id="Base_Column_List">
-    PCID, PCNAME, PCSTATE, PCCOME, PCCLASIFY, PCSTARTTIME, PCENDTIME
+    PCID, PCNAME, PCSTATE, PCCOME, PCCLASIFY, PCSTARTTIME, PCENDTIME,PCDESCRIBE
   </sql>
 
   <select id="listdeclare" parameterType="com.chengyong.entity.KPici" resultMap="BaseResultMap">
@@ -44,11 +45,11 @@
   <insert id="insert" parameterType="com.chengyong.entity.KPici">
     insert into K_PICI (PCNAME, PCSTATE,
       PCCOME, PCCLASIFY, PCSTARTTIME, 
-      PCENDTIME)
+      PCENDTIME,PCDESCRIBE)
     values ( #{pcname,jdbcType=VARCHAR}, #{pcstate,jdbcType=VARCHAR},
       #{pccome,jdbcType=VARCHAR}, #{pcclasify,jdbcType=VARCHAR}
       , to_date(#{pcstarttime},'yyyy-MM-dd HH24:mi:ss'),
-      to_date(#{pcendtime},'yyyy-MM-dd HH24:mi:ss'))
+      to_date(#{pcendtime},'yyyy-MM-dd HH24:mi:ss'),#{pcdescribe,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.chengyong.entity.KPici">
     insert into K_PICI
@@ -130,7 +131,8 @@
       PCCOME = #{pccome,jdbcType=VARCHAR},
       PCCLASIFY = #{pcclasify,jdbcType=VARCHAR},
       PCSTARTTIME = to_date(#{pcstarttime},'yyyy-MM-dd HH24:mi:ss'),
-      PCENDTIME = to_date(#{pcendtime},'yyyy-MM-dd HH24:mi:ss')
+      PCENDTIME = to_date(#{pcendtime},'yyyy-MM-dd HH24:mi:ss'),
+      PCDESCRIBE = #{pcdescribe,jdbcType=VARCHAR}
     where PCID = #{pcid,jdbcType=DECIMAL}
   </update>
 </mapper>

@@ -57,10 +57,15 @@
                         <input type="hidden" name="pcid" value=""/>
                     </div>
                 </div>
+
+
                 <div class="layui-form-item" style="width: 500px;">
                     <label class="layui-form-label required">批次状态</label>
                     <div class="layui-input-block">
-                        <input type="text" name="pcstate" lay-verify="required" lay-reqtext="批次状态不能为空" placeholder="请输入批次状态" value="" class="layui-input">
+                        <select name="pcstate">
+                            <option value="申报中">申报中</option>
+                            <option value="停止申报">停止申报</option>
+                        </select>
                     </div>
                 </div>
 
@@ -72,9 +77,20 @@
                 </div>
 
                 <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label required">批次描述</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="pcdescribe" lay-verify="required" lay-reqtext="批次描述不能为空" placeholder="请输入批次描述" value="" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px;">
                     <label class="layui-form-label required">项目分类</label>
                     <div class="layui-input-block">
-                        <input type="text" name="pcclasify" lay-verify="required" lay-reqtext="项目分类不能为空" placeholder="请输入项目分类" value="" class="layui-input">
+                        <select name="pcclasify" readonly="readonly">
+                            <option value="小型项目">小型项目</option>
+                            <option value="重点项目">重点项目</option>
+                            <option value="学院项目">学院项目</option>
+                        </select>
                     </div>
                 </div>
 
@@ -222,6 +238,7 @@
                 {field: 'pcname', width: 100, title: '批次名称'},
                 {field: 'pcstate', width: 150, title: '批次状态'},
                 {field: 'pccome', width: 100, title: '项目来源'},
+                {field: 'pcdescribe', width: 100, title: '批次描述'},
                 {field: 'pcclasify', title: '项目分类',width:100},
                 {field: 'pcstarttime', width: 150, title: '开始时间', sort: true},
                 {field: 'pcendtime', width: 150, title: '结束时间', sort: true},

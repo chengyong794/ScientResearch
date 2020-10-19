@@ -49,6 +49,12 @@
      from K_KYUSER where KYNAME = #{username,jdbcType=VARCHAR}
   </select>
 
+  <select id="findUserRoleType" parameterType="java.lang.String" resultType="java.lang.Short">
+    SELECT r.R_TYPE FROM K_KYUSER U
+JOIN KYROLE_USER ru on u.KYID = ru.U_ID
+JOIN K_KYROLE r on ru.R_ID = r.R_ID where KYNAME = #{username,jdbcType=VARCHAR}
+  </select>
+
   <select id="findUserRole" parameterType="java.lang.Short" resultType="java.lang.String">
      select r.R_CODE as rCode from K_KYUSER u join KYROLE_USER ru
      on u.KYID = ru.R_ID join K_KYROLE r
@@ -59,7 +65,7 @@
   <select id="findRoleMenu" parameterType="java.lang.String" resultType="java.lang.String">
      select m.HREF as HREF from
      K_KYUSER u join KYROLE_USER ru
-     on u.KYID = ru.R_ID join K_KYROLE r
+     on u.KYID = ru.U_ID join K_KYROLE r
      on ru.R_ID = r.R_ID join KTREE_ROLE mr
      on r.R_ID = mr.R_ID join KTREENODE m
      on mr.TREEID = m.TREENODEID
