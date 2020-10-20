@@ -14,4 +14,6 @@ public interface KProjectMapper {
     int updateByPrimaryKeySelective(KProject record);
 
     int updateByPrimaryKey(KProject record);
+
+    KProject selectByPnameAndPPEOPLE(KProject kProject);
 }

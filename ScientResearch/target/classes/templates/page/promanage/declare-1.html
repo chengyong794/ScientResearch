@@ -76,7 +76,7 @@
                 <div class="layui-form-item" style="width: 500px;">
                     <label class="layui-form-label required">项目分类</label>
                     <div class="layui-input-block">
-                        <select name="pcclasify" readonly="readonly">
+                        <select name="pcclasify" >
                             <option value="小型项目">小型项目</option>
                             <option value="重点项目">重点项目</option>
                             <option value="学院项目">学院项目</option>
@@ -119,7 +119,7 @@
                 <div class="layui-form-item" style="width: 500px;">
                     <label class="layui-form-label required">成果形式</label>
                     <div class="layui-input-block">
-                        <select name="pdept" >
+                        <select name="presfrom" >
                             <option value="论文">论文</option>
                             <option value="文件">文件</option>
                         </select>
@@ -143,6 +143,51 @@
             </form>
         </div>
         <!--修改增加页面结束-->
+
+
+        <!--成员添加页面开始-->
+        <div style="display: none;margin: auto;" class="layui-form layuimini-form" id="Addperson">
+            <form class="layui-form" lay-filter="dataFrom1" id="dataFrm1">
+                <div class="layui-form-item" style="width: 500px;margin-top: 50px;">
+                    <label class="layui-form-label required">成员姓名</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="ppername"  lay-verify="required" lay-reqtext="成员姓名不能为空" placeholder="请输入成员姓名" value="" class="layui-input">
+                        <input type="hidden" id="pid" name="pid" value=""/>
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label required">成员类型</label>
+                    <div class="layui-input-block">
+                        <select name="ppertype">
+                            <option value="教授">教授</option>
+                            <option value="副教授">副教授</option>
+                            <option value="老师">老师</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label required">所在单位</label>
+                    <div class="layui-input-block">
+                        <select name="unitname">
+                            <option value="湖南工程职业技术学院">湖南工程职业技术学院</option>
+                            <option value="湖南信息职业技术学院">湖南信息职业技术学院</option>
+                            <option value="湖南机电职业技术学院">湖南机电职业技术学院</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px;margin-top: 50px;">
+                    <label class="layui-form-label required">贡献率</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="pperwork"  lay-verify="required" lay-reqtext="贡献率不能为空" placeholder="请输入贡献率" value="" class="layui-input">%
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <!--成员添加页面开始-->
 
 
         <!--申报批次表-->
@@ -245,12 +290,39 @@
                         var data1 = form.val("dataFrom");
                     $.ajax({
                         type:'POST',
-                        url:'/declare/editdeclare',
+                        url:'/declare/addProject',
                         data:data1,
                         success:function(msg){
-                            layer.msg(msg.info);
                             layer.close(add_edit_open);
                             tablereh.reload();
+                           var pid = msg.info;
+                            layer.open({
+                                title: '项目成员添加',
+                                type:1,
+                                content:$('#Addperson'),
+                                skin: 'layui-layer-lan',
+                                area: ['600px', '550px']
+                                ,btnAlign:'c'
+                                ,btn: ['添加'
+                                    , '关闭']
+                                ,yes: function(index, layero){
+                                    $("#pid").attr("value",pid);
+                                    var datafield = $("#dataFrm1").serialize();
+                                    $.ajax({
+                                        type:'POST',
+                                        url:'/declare/addProjecter',
+                                        data:datafield,
+                                        success:function(msg){
+                                        layer.msg(msg.info);
+                                    }
+                                });
+                                }
+                                ,btn2: function(index, layero){
+                                    tablereh.reload();
+                                },
+                            });
+
+
                         }
                     });
 
@@ -258,6 +330,7 @@
             ,btn2: function(index, layero){
                 },
                     success:function(index){
+                        $("#dataFrm")[0].reset();
                         form.val('dataFrom',data);
                     }
                 });

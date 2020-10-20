@@ -5,13 +5,12 @@
     <id column="PPERID" jdbcType="DECIMAL" property="pperid" />
     <result column="PPERNAME" jdbcType="VARCHAR" property="ppername" />
     <result column="PID" jdbcType="DECIMAL" property="pid" />
-    <result column="PPERNUM" jdbcType="DECIMAL" property="ppernum" />
     <result column="UNITNAME" jdbcType="VARCHAR" property="unitname" />
     <result column="PPERWORK" jdbcType="DECIMAL" property="pperwork" />
     <result column="PPERTYPE" jdbcType="VARCHAR" property="ppertype" />
   </resultMap>
   <sql id="Base_Column_List">
-    PPERID, PPERNAME, PID, PPERNUM, UNITNAME, PPERWORK, PPERTYPE
+    PPERID, PPERNAME, PID,  UNITNAME, PPERWORK, PPERTYPE
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
     select 
@@ -25,10 +24,10 @@
   </delete>
   <insert id="insert" parameterType="com.chengyong.entity.KProjectper">
     insert into K_PROJECTPER (PPERID, PPERNAME, PID, 
-      PPERNUM, UNITNAME, PPERWORK, 
+       UNITNAME, PPERWORK,
       PPERTYPE)
     values (#{pperid,jdbcType=DECIMAL}, #{ppername,jdbcType=VARCHAR}, #{pid,jdbcType=DECIMAL}, 
-      #{ppernum,jdbcType=DECIMAL}, #{unitname,jdbcType=VARCHAR}, #{pperwork,jdbcType=DECIMAL}, 
+       #{unitname,jdbcType=VARCHAR}, #{pperwork,jdbcType=DECIMAL},
       #{ppertype,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.chengyong.entity.KProjectper">
@@ -108,7 +107,6 @@
     update K_PROJECTPER
     set PPERNAME = #{ppername,jdbcType=VARCHAR},
       PID = #{pid,jdbcType=DECIMAL},
-      PPERNUM = #{ppernum,jdbcType=DECIMAL},
       UNITNAME = #{unitname,jdbcType=VARCHAR},
       PPERWORK = #{pperwork,jdbcType=DECIMAL},
       PPERTYPE = #{ppertype,jdbcType=VARCHAR}

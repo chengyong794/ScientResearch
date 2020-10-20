@@ -1,7 +1,11 @@
 package com.chengyong.Controller.promanage;
 
 import com.chengyong.entity.KPici;
+import com.chengyong.entity.KProject;
+import com.chengyong.entity.KProjectper;
 import com.chengyong.service.KPiciService;
+import com.chengyong.service.KProjectService;
+import com.chengyong.service.KProjectperService;
 import com.chengyong.util.DataJson;
 import com.chengyong.util.PUBLIC_ATTRIBUTE;
 import org.apache.ibatis.annotations.Param;
@@ -18,6 +22,12 @@ public class DeclareController {
 
     @Autowired
     private KPiciService kPiciService;
+
+    @Autowired
+    private KProjectService kProjectService;
+
+    @Autowired
+    private KProjectperService kProjectperService;
 
     @RequestMapping("/listdeclare")
     public DataJson listdeclare(KPici kPici){
@@ -73,6 +83,40 @@ public class DeclareController {
             }
         }
 
+        return map;
+    }
+
+
+    /**
+     * 科研人员添加的项目信息
+     * @param kProject
+     * @return
+     */
+    @RequestMapping("/addProject")
+    public Map<String,Object> addProject(KProject kProject){
+        Map<String,Object> map = new HashMap<>();
+        if(kProjectService.insert(kProject)>0){
+            KProject kProject1 = kProjectService.selectByPnameAndPPEOPLE(kProject);
+            map.put("info", kProject1.getPid());
+        }else{
+            map.put("info",PUBLIC_ATTRIBUTE.ADD_ERROR);
+        }
+        return map;
+    }
+
+    /**
+     * 添加科研项目所需成员人
+     * @param kProjectper
+     * @return
+     */
+    @RequestMapping("/addProjecter")
+    public Map<String,Object> addProjecter(KProjectper kProjectper){
+        Map<String,Object> map = new HashMap<>();
+        if(kProjectperService.insert(kProjectper)>0){
+            map.put("info", PUBLIC_ATTRIBUTE.ADD);
+        }else{
+            map.put("info",PUBLIC_ATTRIBUTE.ADD_ERROR);
+        }
         return map;
     }
 

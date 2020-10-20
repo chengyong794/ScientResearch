@@ -8,11 +8,11 @@ public class KProject implements Serializable {
 
     private String pname;
 
-    private String pcoms;
+    private String pccome;
 
     private String ppeople;
 
-    private String ptype;
+    private String pcclasify;
 
     private String pdept;
 
@@ -22,11 +22,9 @@ public class KProject implements Serializable {
 
      private String presfrom;
 
-    private Date pdate;
+    private String pdate;
 
-    private Date pstarttime;
-
-    private Date pendtime;
+    private String pendtime;
 
     public String getPresfrom() {
         return presfrom;
@@ -52,12 +50,12 @@ public class KProject implements Serializable {
         this.pname = pname;
     }
 
-    public String getPcoms() {
-        return pcoms;
+    public String getPccome() {
+        return pccome;
     }
 
-    public void setPcoms(String pcoms) {
-        this.pcoms = pcoms;
+    public void setPccome(String pccome) {
+        this.pccome = pccome;
     }
 
     public String getPpeople() {
@@ -68,12 +66,12 @@ public class KProject implements Serializable {
         this.ppeople = ppeople;
     }
 
-    public String getPtype() {
-        return ptype;
+    public String getPcclasify() {
+        return pcclasify;
     }
 
-    public void setPtype(String ptype) {
-        this.ptype = ptype;
+    public void setPcclasify(String pcclasify) {
+        this.pcclasify = pcclasify;
     }
 
     public String getPdept() {
@@ -100,27 +98,19 @@ public class KProject implements Serializable {
         this.pothers = pothers;
     }
 
-    public Date getPdate() {
+    public String getPdate() {
         return pdate;
     }
 
-    public void setPdate(Date pdate) {
+    public void setPdate(String pdate) {
         this.pdate = pdate;
     }
 
-    public Date getPstarttime() {
-        return pstarttime;
-    }
-
-    public void setPstarttime(Date pstarttime) {
-        this.pstarttime = pstarttime;
-    }
-
-    public Date getPendtime() {
+    public String getPendtime() {
         return pendtime;
     }
 
-    public void setPendtime(Date pendtime) {
+    public void setPendtime(String pendtime) {
         this.pendtime = pendtime;
     }
 }

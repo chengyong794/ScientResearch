@@ -1,7 +1,6 @@
 package com.chengyong.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class KPici implements Serializable {
     private Short pcid;

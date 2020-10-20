@@ -9,8 +9,6 @@ public class KProjectper implements Serializable {
 
     private Short pid;
 
-    private Short ppernum;
-
     private String unitname;
 
     private Short pperwork;
@@ -39,14 +37,6 @@ public class KProjectper implements Serializable {
 
     public void setPid(Short pid) {
         this.pid = pid;
-    }
-
-    public Short getPpernum() {
-        return ppernum;
-    }
-
-    public void setPpernum(Short ppernum) {
-        this.ppernum = ppernum;
     }
 
     public String getUnitname() {

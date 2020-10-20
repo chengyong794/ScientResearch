@@ -63,8 +63,8 @@
                     <label class="layui-form-label required">批次状态</label>
                     <div class="layui-input-block">
                         <select name="pcstate">
-                            <option value="申报中">申报中</option>
-                            <option value="停止申报">停止申报</option>
+                            <option value="1">申报中</option>
+                            <option value="0">已停止申报</option>
                         </select>
                     </div>
                 </div>
@@ -236,7 +236,13 @@
                 {type: "checkbox", width: 50},
                 {field: 'pcid', width: 60, title: 'ID', sort: true},
                 {field: 'pcname', width: 100, title: '批次名称'},
-                {field: 'pcstate', width: 150, title: '批次状态'},
+                {field: 'pcstate', width: 150, title: '批次状态',templet: function (d) {
+                        if (d.pcstate == 1) {
+                            return '<span class="layui-badge ">申报中</span>';
+                        } else {
+                            return '<span class="layui-badge-rim">已停止</span>';
+                        }
+                    }, title: '批次状态'},
                 {field: 'pccome', width: 100, title: '项目来源'},
                 {field: 'pcdescribe', width: 100, title: '批次描述'},
                 {field: 'pcclasify', title: '项目分类',width:100},

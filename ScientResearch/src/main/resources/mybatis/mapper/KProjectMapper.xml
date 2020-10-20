@@ -4,19 +4,18 @@
   <resultMap id="BaseResultMap" type="com.chengyong.entity.KProject">
     <id column="PID" jdbcType="DECIMAL" property="pid" />
     <result column="PNAME" jdbcType="VARCHAR" property="pname" />
-    <result column="PCOMS" jdbcType="VARCHAR" property="pcoms" />
+    <result column="PCOMS" jdbcType="VARCHAR" property="pccome" />
     <result column="PPEOPLE" jdbcType="VARCHAR" property="ppeople" />
-    <result column="PTYPE" jdbcType="VARCHAR" property="ptype" />
+    <result column="PTYPE" jdbcType="VARCHAR" property="pcclasify" />
     <result column="PDEPT" jdbcType="VARCHAR" property="pdept" />
     <result column="PRESFROM" jdbcType="VARCHAR" property="presfrom" />
     <result column="PSOURCE" jdbcType="VARCHAR" property="psource" />
     <result column="POTHERS" jdbcType="VARCHAR" property="pothers" />
     <result column="PDATE" jdbcType="TIMESTAMP" property="pdate" />
-    <result column="PSTARTTIME" jdbcType="TIMESTAMP" property="pstarttime" />
     <result column="PENDTIME" jdbcType="TIMESTAMP" property="pendtime" />
   </resultMap>
   <sql id="Base_Column_List">
-    PID, PNAME, PCOMS, PPEOPLE, PTYPE, PDEPT, PSOURCE, POTHERS, PDATE, PSTARTTIME, PENDTIME,PRESFROM
+    PID, PNAME, PCOMS, PPEOPLE, PTYPE, PDEPT, PSOURCE, POTHERS, PDATE,  PENDTIME,PRESFROM
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
     select 
@@ -24,6 +23,14 @@
     from K_PROJECT
     where PID = #{pid,jdbcType=DECIMAL}
   </select>
+
+  <select id="selectByPnameAndPPEOPLE" parameterType="com.chengyong.entity.KProject" resultType="com.chengyong.entity.KProject">
+    select
+    <include refid="Base_Column_List" />
+    from K_PROJECT
+    where PNAME = #{pname,jdbcType=VARCHAR} and PPEOPLE = #{ppeople,jdbcType=VARCHAR}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
     delete from K_PROJECT
     where PID = #{pid,jdbcType=DECIMAL}
@@ -32,11 +39,11 @@
     insert into K_PROJECT (PID, PNAME, PCOMS, 
       PPEOPLE, PTYPE, PDEPT, 
       PSOURCE, POTHERS, PDATE, 
-      PSTARTTIME, PENDTIME,PRESFROM )
-    values (#{pid,jdbcType=DECIMAL}, #{pname,jdbcType=VARCHAR}, #{pcoms,jdbcType=VARCHAR}, 
-      #{ppeople,jdbcType=VARCHAR}, #{ptype,jdbcType=VARCHAR}, #{pdept,jdbcType=VARCHAR}, 
-      #{psource,jdbcType=VARCHAR}, #{pothers,jdbcType=VARCHAR}, #{pdate,jdbcType=TIMESTAMP}, 
-      #{pstarttime,jdbcType=TIMESTAMP}, #{pendtime,jdbcType=TIMESTAMP},#{presfrom,jdbcType=VARCHAR})
+       PENDTIME,PRESFROM )
+    values (#{pid,jdbcType=DECIMAL}, #{pname,jdbcType=VARCHAR}, #{pccome,jdbcType=VARCHAR},
+      #{ppeople,jdbcType=VARCHAR}, #{pcclasify,jdbcType=VARCHAR}, #{pdept,jdbcType=VARCHAR},
+      #{psource,jdbcType=VARCHAR}, #{pothers,jdbcType=VARCHAR}, to_date(#{pdate,jdbcType=TIMESTAMP},'yyyy-MM-dd HH24:mi:ss'),
+       to_date(#{pendtime,jdbcType=TIMESTAMP},'yyyy-MM-dd HH24:mi:ss'),#{presfrom,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.chengyong.entity.KProject">
     insert into K_PROJECT
@@ -150,15 +157,14 @@
   <update id="updateByPrimaryKey" parameterType="com.chengyong.entity.KProject">
     update K_PROJECT
     set PNAME = #{pname,jdbcType=VARCHAR},
-      PCOMS = #{pcoms,jdbcType=VARCHAR},
+      PCOMS = #{pccome,jdbcType=VARCHAR},
       PPEOPLE = #{ppeople,jdbcType=VARCHAR},
-      PTYPE = #{ptype,jdbcType=VARCHAR},
+      PTYPE = #{pcclasify,jdbcType=VARCHAR},
       PDEPT = #{pdept,jdbcType=VARCHAR},
       PSOURCE = #{psource,jdbcType=VARCHAR},
       POTHERS = #{pothers,jdbcType=VARCHAR},
-      PDATE = #{pdate,jdbcType=TIMESTAMP},
-      PSTARTTIME = #{pstarttime,jdbcType=TIMESTAMP},
-      PENDTIME = #{pendtime,jdbcType=TIMESTAMP},
+      PDATE = to_date(#{pdate,jdbcType=TIMESTAMP},'yyyy-MM-dd HH24:mi:ss'),
+      PENDTIME = to_date(#{pendtime,jdbcType=TIMESTAMP},'yyyy-MM-dd HH24:mi:ss'),
       PRESFROM = #{presfrom,jdbcType=VARCHAR}
     where PID = #{pid,jdbcType=DECIMAL}
   </update>
