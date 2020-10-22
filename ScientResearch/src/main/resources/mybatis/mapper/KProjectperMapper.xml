@@ -12,6 +12,12 @@
   <sql id="Base_Column_List">
     PPERID, PPERNAME, PID,  UNITNAME, PPERWORK, PPERTYPE
   </sql>
+
+  <select id="selectName" parameterType="java.lang.Short" resultType="java.lang.String">
+    SELECT ppername FROM "K_PROJECTPER" where PID = #{pid,jdbcType=DECIMAL}
+  </select>
+
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

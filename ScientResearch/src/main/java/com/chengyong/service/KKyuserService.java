@@ -58,7 +58,6 @@ public class KKyuserService implements UserDetailsService {
 
         KKyuser kKyuser = (KKyuser) redisUtil.get("loadUserByUsername"+username);
 
-        request.getSession().setAttribute("user",kKyuser.getUsername());
 
         if(null == kKyuser){
             //获取用户信息
@@ -100,6 +99,7 @@ public class KKyuserService implements UserDetailsService {
         }catch (Exception e){
             e.printStackTrace();
         }
+        request.getSession().setAttribute("user",kKyuser.getUsername());
 
         return kKyuser;
     }

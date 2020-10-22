@@ -19,6 +19,75 @@ public class AopConfig {
     private String time = format.format(new Date());
 
     /**
+     * 校系科研人员修改项目
+     * @param proceedingJoinPoint
+     * @return
+     */
+    @Around("execution(* com.chengyong.service.impl.KProjectServiceImpl.updateByPrimaryKeySelective(..))")
+    public Object KProjectupdateByPrimaryKeySelective(ProceedingJoinPoint proceedingJoinPoint){
+        try{
+            logger.info(time+"########----------校系科研人员修改项目---------########");
+            Object object = proceedingJoinPoint.proceed();
+            logger.info(time+"########----------校系科研人员修改项目成功返回---------########"+object);
+            return object;
+        }catch (Exception e){
+            logger.info(time+"########----------校系科研人员修改项目发生异常---------########");
+            e.printStackTrace();
+            return null;
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+            return null;
+        }
+
+    }
+
+    /**
+     * 科研人员添加了项目
+     * @param proceedingJoinPoint
+     * @return
+     */
+    @Around("execution(* com.chengyong.service.impl.KProjectServiceImpl.insert(..))")
+    public Object KProjectinsert(ProceedingJoinPoint proceedingJoinPoint){
+        try{
+            logger.info(time+"########----------科研人员添加了项目---------########");
+            Object object = proceedingJoinPoint.proceed();
+            logger.info(time+"########----------科研人员添加了项目成功返回---------########"+object);
+            return object;
+        }catch (Exception e){
+            logger.info(time+"########----------科研人员添加了项目发生异常---------########");
+            e.printStackTrace();
+            return null;
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+            return null;
+        }
+
+    }
+
+    /**
+     * 校系科研秘书删除项目
+     * @param proceedingJoinPoint
+     * @return
+     */
+    @Around("execution(* com.chengyong.service.impl.KProjectServiceImpl.deleteByPrimaryKey(..))")
+    public Object KProjectdeleteByPrimaryKey(ProceedingJoinPoint proceedingJoinPoint){
+        try{
+            logger.info(time+"########----------进行了校系科研秘书删除项目操作---------########");
+            Object object = proceedingJoinPoint.proceed();
+            logger.info(time+"########----------校系科研秘书删除项目成功返回---------########"+object);
+            return object;
+        }catch (Exception e){
+            logger.info(time+"########----------校系科研秘书删除项目发生异常---------########");
+            e.printStackTrace();
+            return null;
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+            return null;
+        }
+
+    }
+
+    /**
      * 添加项目批次申报
      * @param proceedingJoinPoint
      * @return

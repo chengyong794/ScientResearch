@@ -13,10 +13,80 @@
     <result column="POTHERS" jdbcType="VARCHAR" property="pothers" />
     <result column="PDATE" jdbcType="TIMESTAMP" property="pdate" />
     <result column="PENDTIME" jdbcType="TIMESTAMP" property="pendtime" />
+
+    <result column="PSB1" jdbcType="VARCHAR" property="psb1" />
+    <result column="PSB2" jdbcType="VARCHAR" property="psb2" />
+    <result column="PLX1" jdbcType="VARCHAR" property="plx1" />
+    <result column="PLX2" jdbcType="VARCHAR" property="plx2" />
+    <result column="PJX1" jdbcType="VARCHAR" property="pjx1" />
+    <result column="PJX2" jdbcType="VARCHAR" property="pjx2" />
+
   </resultMap>
   <sql id="Base_Column_List">
-    PID, PNAME, PCOMS, PPEOPLE, PTYPE, PDEPT, PSOURCE, POTHERS, PDATE,  PENDTIME,PRESFROM
+    PID, PNAME, PCOMS, PPEOPLE,
+    PTYPE, PDEPT, PSOURCE, POTHERS,
+     PDATE,  PENDTIME,PRESFROM,PSB1,PSB2
+     ,PLX1,PLX2,PJX1,PJX2
   </sql>
+
+  <select id="listProject" parameterType="com.chengyong.entity.KProject" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_PROJECT
+    <where>
+      <if test="pname != null">
+        PNAME like concat(concat('%',#{pname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pdept != null">
+        and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
+      </if>
+    </where>
+  </select>
+
+  <select id="seachrProject" parameterType="com.chengyong.entity.KProject" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_PROJECT
+    <where>
+      <if test="pname != null">
+        PNAME like concat(concat('%',#{pname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pdept != null">
+        and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
+      </if>
+    </where>
+  </select>
+
+  <select id="listProjectSchool" parameterType="com.chengyong.entity.KProject" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_PROJECT
+    <where>
+      <if test="pname != null">
+        PNAME like concat(concat('%',#{pname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pdept != null">
+        and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
+      </if>
+      and PSB1 = 1
+    </where>
+  </select>
+
+  <select id="seachrProjectSch" parameterType="com.chengyong.entity.KProject" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_PROJECT
+    <where>
+      <if test="pname != null">
+        PNAME like concat(concat('%',#{pname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pdept != null">
+        and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
+      </if>
+      and PSB1 = 1
+    </where>
+  </select>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
@@ -35,6 +105,12 @@
     delete from K_PROJECT
     where PID = #{pid,jdbcType=DECIMAL}
   </delete>
+
+  <delete id="deleteByPPERNAME" parameterType="java.lang.Short">
+    delete from K_PROJECTPER
+    where PID = #{pid,jdbcType=DECIMAL}
+  </delete>
+
   <insert id="insert" parameterType="com.chengyong.entity.KProject">
     insert into K_PROJECT (PID, PNAME, PCOMS, 
       PPEOPLE, PTYPE, PDEPT, 
@@ -124,14 +200,14 @@
       <if test="pname != null">
         PNAME = #{pname,jdbcType=VARCHAR},
       </if>
-      <if test="pcoms != null">
-        PCOMS = #{pcoms,jdbcType=VARCHAR},
+      <if test="pccome != null">
+        PCOMS = #{pccome,jdbcType=VARCHAR},
       </if>
       <if test="ppeople != null">
         PPEOPLE = #{ppeople,jdbcType=VARCHAR},
       </if>
-      <if test="ptype != null">
-        PTYPE = #{ptype,jdbcType=VARCHAR},
+      <if test="pcclasify != null">
+        PTYPE = #{pcclasify,jdbcType=VARCHAR},
       </if>
       <if test="pdept != null">
         PDEPT = #{pdept,jdbcType=VARCHAR},
@@ -143,14 +219,38 @@
         POTHERS = #{pothers,jdbcType=VARCHAR},
       </if>
       <if test="pdate != null">
-        PDATE = #{pdate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="pstarttime != null">
-        PSTARTTIME = #{pstarttime,jdbcType=TIMESTAMP},
+        PDATE = to_date(#{pdate,jdbcType=TIMESTAMP},'yyyy-MM-dd HH24:mi:ss'),
       </if>
       <if test="pendtime != null">
-        PENDTIME = #{pendtime,jdbcType=TIMESTAMP},
+        PENDTIME = to_date(#{pendtime,jdbcType=TIMESTAMP},'yyyy-MM-dd HH24:mi:ss'),
       </if>
+      <if test="presfrom != null">
+        PRESFROM = #{presfrom,jdbcType=VARCHAR},
+      </if>
+
+      <if test="psb1 != null">
+        PSB1 = #{psb1,jdbcType=DECIMAL},
+      </if>
+
+      <if test="psb2 != null">
+        PSB2 = #{psb2,jdbcType=DECIMAL},
+      </if>
+
+      <if test="plx1 != null">
+        PLX1 = #{plx1,jdbcType=DECIMAL},
+      </if>
+
+      <if test="plx2 != null">
+        PLX2 = #{plx2,jdbcType=DECIMAL},
+      </if>
+
+      <if test="pjx1 != null">
+        PJX1 = #{pjx1,jdbcType=DECIMAL},
+      </if>
+      <if test="pjx2 != null">
+        PJX2 = #{pjx2,jdbcType=DECIMAL}
+      </if>
+
     </set>
     where PID = #{pid,jdbcType=DECIMAL}
   </update>
@@ -165,7 +265,20 @@
       POTHERS = #{pothers,jdbcType=VARCHAR},
       PDATE = to_date(#{pdate,jdbcType=TIMESTAMP},'yyyy-MM-dd HH24:mi:ss'),
       PENDTIME = to_date(#{pendtime,jdbcType=TIMESTAMP},'yyyy-MM-dd HH24:mi:ss'),
-      PRESFROM = #{presfrom,jdbcType=VARCHAR}
+      PRESFROM = #{presfrom,jdbcType=VARCHAR},
+
+    where PID = #{pid,jdbcType=DECIMAL}
+  </update>
+
+  <update id="updateByPSB1" parameterType="java.lang.Short">
+    update K_PROJECT
+    set PSB1 = #{psb1,jdbcType=DECIMAL}
+    where PID = #{pid,jdbcType=DECIMAL}
+  </update>
+
+  <update id="updateByPSB2" parameterType="java.lang.Short">
+    update K_PROJECT
+    set PSB2 = #{psb2,jdbcType=DECIMAL}
     where PID = #{pid,jdbcType=DECIMAL}
   </update>
 </mapper>

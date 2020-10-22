@@ -26,6 +26,93 @@ public class KProject implements Serializable {
 
     private String pendtime;
 
+    private Short psb1 ;
+    private Short psb2 ;
+
+    private Short plx1 ;
+    private Short plx2 ;
+
+    private Short pjx1 ;
+    private Short pjx2 ;
+
+    private String members;
+
+    private Integer page;
+
+    private Integer limit;
+
+    public Short getPsb1() {
+        return psb1;
+    }
+
+    public void setPsb1(Short psb1) {
+        this.psb1 = psb1;
+    }
+
+    public Short getPsb2() {
+        return psb2;
+    }
+
+    public void setPsb2(Short psb2) {
+        this.psb2 = psb2;
+    }
+
+    public Short getPlx1() {
+        return plx1;
+    }
+
+    public void setPlx1(Short plx1) {
+        this.plx1 = plx1;
+    }
+
+    public Short getPlx2() {
+        return plx2;
+    }
+
+    public void setPlx2(Short plx2) {
+        this.plx2 = plx2;
+    }
+
+    public Short getPjx1() {
+        return pjx1;
+    }
+
+    public void setPjx1(Short pjx1) {
+        this.pjx1 = pjx1;
+    }
+
+    public Short getPjx2() {
+        return pjx2;
+    }
+
+    public void setPjx2(Short pjx2) {
+        this.pjx2 = pjx2;
+    }
+
+    public String getMembers() {
+        return members;
+    }
+
+    public void setMembers(String members) {
+        this.members = members;
+    }
+
+    public Integer getPage() {
+        return page;
+    }
+
+    public void setPage(Integer page) {
+        this.page = page;
+    }
+
+    public Integer getLimit() {
+        return limit;
+    }
+
+    public void setLimit(Integer limit) {
+        this.limit = limit;
+    }
+
     public String getPresfrom() {
         return presfrom;
     }

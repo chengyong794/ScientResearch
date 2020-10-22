@@ -128,8 +128,10 @@
 
                 <div class="layui-form-item" style="width: 500px;">
                     <label class="layui-form-label required">文件上传(可以省略)</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="psource" lay-verify="required" lay-reqtext="文件上传不能为空" placeholder="请输入文件上传" value="" class="layui-input">
+                    <div class="layui-upload-drag" id="test10">
+                        <i class="layui-icon"></i>
+                        <p>点击上传，或将文件拖拽到此处</p>
+
                     </div>
                 </div>
 
@@ -203,11 +205,12 @@
 <div th:replace="~{public :: layui_lay-config_js}"></div>
 
 <script>
-    layui.use(['form', 'table','jquery','layer','laydate'], function () {
+    layui.use(['form', 'table','jquery','layer','laydate','upload'], function () {
         var $ = layui.jquery,
             form = layui.form,
             table = layui.table,
             layer = layui.layer,
+            upload = layui.upload,
         laydate = layui.laydate;
         var tablereh;
         tablereh = table.render({
@@ -253,6 +256,17 @@
         laydate.render({
             elem: '#pcendtime'
             ,type: 'datetime'
+        });
+
+        //拖拽上传
+        upload.render({
+            elem: '#test10'
+            ,url: '/upload/proFile'
+            ,accept: 'file' //普通文件
+            ,exts: 'zip|rar|7z|doc|docx|xls|xlsx' //允许上传类型
+            ,done: function(res){
+                layer.msg(res.info);
+            }
         });
 
         // 监听搜索操作
@@ -320,6 +334,10 @@
                                 ,btn2: function(index, layero){
                                     tablereh.reload();
                                 },
+                                success:function(index){
+                                    //清除表单数据
+                                    $("#dataFrm1")[0].reset();
+                                }
                             });
 
 

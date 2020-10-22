@@ -120,4 +120,127 @@ public class DeclareController {
         return map;
     }
 
+    /**
+     *  系科研秘书查看项目信息
+     * @param kProject
+     * @return
+     */
+    @RequestMapping("/listProject")
+    public DataJson listProject(KProject kProject){
+        return kProjectService.listProject(kProject);
+    }
+
+    /**
+     * 校 科研秘书查看项目信息
+     * @param kProject
+     * @return
+     */
+    @RequestMapping("/listProjectSchool")
+    public DataJson listProjectSchool(KProject kProject){
+        return kProjectService.listProjectSchool(kProject);
+    }
+
+    /**
+     * 系科研秘书 搜索项目信息
+     * @param kProject
+     * @return
+     */
+    @RequestMapping("/seachrProject")
+    public DataJson seachrProject(KProject kProject){
+        return kProjectService.seachrProject(kProject);
+    }
+
+
+    /**
+     * 校科研秘书 搜索项目信息
+     * @param kProject
+     * @return
+     */
+    @RequestMapping("/seachrProjectSch")
+    public DataJson seachrProjectSch(KProject kProject){
+        return kProjectService.seachrProjectSch(kProject);
+    }
+
+    /**
+     * 校系 科研秘书修改项目信息
+     * @param kProject
+     * @return
+     */
+    @RequestMapping("/editproject")
+    public Map<String,Object> editproject(KProject kProject){
+        Map<String,Object> map = new HashMap<>();
+        if(kProjectService.updateByPrimaryKeySelective(kProject)>0){
+            map.put("info", PUBLIC_ATTRIBUTE.UPDATE);
+        }else{
+            map.put("info",PUBLIC_ATTRIBUTE.UPDATE_ERROR);
+        }
+        return map;
+    }
+
+    /**
+     * 校系 科研秘书删除项目信息
+     * @param pid
+     * @return
+     */
+    @RequestMapping("/delproject")
+    public Map<String,Object> delproject(@Param("pid") Short pid){
+        Map<String,Object> map = new HashMap<>();
+        if(kProjectService.deleteByPrimaryKey(pid)>0){
+            map.put("info", PUBLIC_ATTRIBUTE.DELETE);
+        }else{
+            map.put("info",PUBLIC_ATTRIBUTE.DELETE_ERROR);
+        }
+        return map;
+    }
+
+    /**
+     * 校系科研秘书 删除多个项目信息
+     * @param pids
+     * @return
+     */
+    @RequestMapping("/delprojectlot")
+    public Map<String,Object> delprojectlot(@Param("pids") Short[] pids){
+        Map<String,Object> map = new HashMap<>();
+        for (int i = 0; i < pids.length; i++) {
+            if(kProjectService.deleteByPrimaryKey(pids[i])>0){
+                map.put("info", PUBLIC_ATTRIBUTE.DELETE);
+            }else{
+                map.put("info",PUBLIC_ATTRIBUTE.DELETE_ERROR);
+            }
+        }
+
+        return map;
+    }
+
+    /**
+     * 系科研秘书审核 项目信息
+     * @param psb1
+     * @return
+     */
+    @RequestMapping("/updateByPSB1")
+    public Map<String,Object> updateByPSB1(@Param("pid") Short pid,@Param("psb1") Short psb1){
+        Map<String,Object> map = new HashMap<>();
+        if(kProjectService.updateByPSB1(pid,psb1)>0){
+            map.put("info", PUBLIC_ATTRIBUTE.APPROVED_SUCCESS);
+        }else{
+            map.put("info",PUBLIC_ATTRIBUTE.APPROVED_ERROR);
+        }
+        return map;
+    }
+
+    /**
+     * 校科研秘书审核 项目信息
+     * @param psb2
+     * @return
+     */
+    @RequestMapping("/updateByPSB2")
+    public Map<String,Object> updateByPSB2(@Param("pid") Short pid,@Param("psb2") Short psb2){
+        Map<String,Object> map = new HashMap<>();
+        if(kProjectService.updateByPSB2(pid,psb2)>0){
+            map.put("info", PUBLIC_ATTRIBUTE.APPROVED_SUCCESS);
+        }else{
+            map.put("info",PUBLIC_ATTRIBUTE.APPROVED_ERROR);
+        }
+        return map;
+    }
 }
