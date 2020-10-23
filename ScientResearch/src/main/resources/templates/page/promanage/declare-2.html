@@ -17,6 +17,7 @@
         <script type="text/html" id="toolbarDemo2">
             <div class="layui-btn-container">
                 <button class="layui-btn layui-btn-sm layui-btn-danger data-delete-btn" lay-event="deletelow2"> 批量删除 </button>
+                <button class="layui-btn layui-btn-sm layui-btn-normal" lay-event="export"> 导出 </button>
             </div>
         </script>
 
@@ -31,6 +32,13 @@
                             <label class="layui-form-label">项目名</label>
                             <div class="layui-input-inline">
                                 <input type="text" name="pname" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-inline">
+                            <label class="layui-form-label">批次名称</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="pcname" autocomplete="off" class="layui-input">
                             </div>
                         </div>
 
@@ -197,6 +205,7 @@
                     {type: "checkbox", width: 50},
                     {field: 'pid', width: 60, title: 'ID', sort: true},
                     {field: 'pname', width: 100, title: '项目名称'},
+                    {field: 'pcname', width: 100, title: '批次名称'},
                     {field: 'pccome', width: 100, title: '项目来源'},
                     {field: 'members', width: 100, title: '参与成员'},
                     {field: 'ppeople', width: 100, title: '负责人'},
@@ -252,7 +261,15 @@
                     layer.close(index);
                 });
 
-            }
+            }else if(obj.event === 'export'){
+               var checkStatus = table.checkStatus('currentTableId2')
+                   , data = checkStatus.data;
+               var kyid = new Array();
+               for (let i = 0; i <data.length ; i++) {
+                   kyid[i] = data[i].pid;
+               }
+               window.location.href="/export/exportProject2?pids="+kyid;
+           }
         });
 
         table.on('tool(currentTableFilter2)', function (obj) {
@@ -319,6 +336,21 @@
                         tablereh1.reload();
                     }
                 });
+            }else if(obj.event === 'down'){
+                $.ajax({
+                    type:'GET',
+                    url:'/down/isTorF?pid='+data.pid,
+                    success:function(msg){
+                        if(msg.info == 0){
+                            layer.msg("下载失败");
+                        }else{
+                            layer.msg("下载成功");
+                            window.location.href='/down/downProjectSch?pid='+data.pid;
+                        }
+
+                    }
+                });
+
             }
         });
 

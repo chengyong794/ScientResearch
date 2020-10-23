@@ -34,4 +34,6 @@ public interface KProjectService {
 
     int updateByPSB2(Short pid,Short psb2);
 
+    String downProjectSch(Short pid);
+
 }

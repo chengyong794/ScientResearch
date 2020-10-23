@@ -33,4 +33,6 @@ public interface KProjectMapper {
     int updateByPSB1(Short pid,Short psb1);
 
     int updateByPSB2(Short pid,Short psb2);
+
+    String downProjectSch(Short pid);
 }

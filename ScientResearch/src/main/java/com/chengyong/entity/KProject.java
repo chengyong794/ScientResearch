@@ -37,9 +37,19 @@ public class KProject implements Serializable {
 
     private String members;
 
+    private String pcname;
+
     private Integer page;
 
     private Integer limit;
+
+    public String getPcname() {
+        return pcname;
+    }
+
+    public void setPcname(String pcname) {
+        this.pcname = pcname;
+    }
 
     public Short getPsb1() {
         return psb1;

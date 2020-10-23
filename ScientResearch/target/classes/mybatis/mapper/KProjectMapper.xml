@@ -13,6 +13,7 @@
     <result column="POTHERS" jdbcType="VARCHAR" property="pothers" />
     <result column="PDATE" jdbcType="TIMESTAMP" property="pdate" />
     <result column="PENDTIME" jdbcType="TIMESTAMP" property="pendtime" />
+    <result column="PCNAME" jdbcType="VARCHAR" property="pcname" />
 
     <result column="PSB1" jdbcType="VARCHAR" property="psb1" />
     <result column="PSB2" jdbcType="VARCHAR" property="psb2" />
@@ -26,8 +27,15 @@
     PID, PNAME, PCOMS, PPEOPLE,
     PTYPE, PDEPT, PSOURCE, POTHERS,
      PDATE,  PENDTIME,PRESFROM,PSB1,PSB2
-     ,PLX1,PLX2,PJX1,PJX2
+     ,PLX1,PLX2,PJX1,PJX2,PCNAME
   </sql>
+
+  <select id="downProjectSch" parameterType="java.lang.Short" resultType="java.lang.String">
+    select
+    psource
+    from K_PROJECT where PID = #{pid,jdbcType=DECIMAL}
+
+  </select>
 
   <select id="listProject" parameterType="com.chengyong.entity.KProject" resultMap="BaseResultMap">
     select
@@ -36,6 +44,9 @@
     <where>
       <if test="pname != null">
         PNAME like concat(concat('%',#{pname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pcname != null">
+        and PCNAME like concat(concat('%',#{pcname,jdbcType=VARCHAR}),'%')
       </if>
       <if test="pdept != null">
         and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
@@ -51,6 +62,9 @@
       <if test="pname != null">
         PNAME like concat(concat('%',#{pname,jdbcType=VARCHAR}),'%')
       </if>
+      <if test="pcname != null">
+        and PCNAME like concat(concat('%',#{pcname,jdbcType=VARCHAR}),'%')
+      </if>
       <if test="pdept != null">
         and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
       </if>
@@ -65,12 +79,16 @@
       <if test="pname != null">
         PNAME like concat(concat('%',#{pname,jdbcType=VARCHAR}),'%')
       </if>
+      <if test="pcname != null">
+        and PCNAME like concat(concat('%',#{pcname,jdbcType=VARCHAR}),'%')
+      </if>
       <if test="pdept != null">
         and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
       </if>
       and PSB1 = 1
     </where>
   </select>
+
 
   <select id="seachrProjectSch" parameterType="com.chengyong.entity.KProject" resultMap="BaseResultMap">
     select
@@ -79,6 +97,9 @@
     <where>
       <if test="pname != null">
         PNAME like concat(concat('%',#{pname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pcname != null">
+       and PCNAME like concat(concat('%',#{pcname,jdbcType=VARCHAR}),'%')
       </if>
       <if test="pdept != null">
         and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
@@ -115,11 +136,11 @@
     insert into K_PROJECT (PID, PNAME, PCOMS, 
       PPEOPLE, PTYPE, PDEPT, 
       PSOURCE, POTHERS, PDATE, 
-       PENDTIME,PRESFROM )
+       PENDTIME,PRESFROM,PCNAME )
     values (#{pid,jdbcType=DECIMAL}, #{pname,jdbcType=VARCHAR}, #{pccome,jdbcType=VARCHAR},
       #{ppeople,jdbcType=VARCHAR}, #{pcclasify,jdbcType=VARCHAR}, #{pdept,jdbcType=VARCHAR},
       #{psource,jdbcType=VARCHAR}, #{pothers,jdbcType=VARCHAR}, to_date(#{pdate,jdbcType=TIMESTAMP},'yyyy-MM-dd HH24:mi:ss'),
-       to_date(#{pendtime,jdbcType=TIMESTAMP},'yyyy-MM-dd HH24:mi:ss'),#{presfrom,jdbcType=VARCHAR})
+       to_date(#{pendtime,jdbcType=TIMESTAMP},'yyyy-MM-dd HH24:mi:ss'),#{presfrom,jdbcType=VARCHAR},#{pcname,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.chengyong.entity.KProject">
     insert into K_PROJECT

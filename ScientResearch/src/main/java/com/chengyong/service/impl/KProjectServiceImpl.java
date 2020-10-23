@@ -59,7 +59,7 @@ public class KProjectServiceImpl implements KProjectService {
 
     @Override
     public KProject selectByPrimaryKey(Short pid) {
-        return null;
+        return kProjectMapper.selectByPrimaryKey(pid);
     }
 
     @Override
@@ -93,12 +93,16 @@ public class KProjectServiceImpl implements KProjectService {
             for (KProject kp:list
             ) {
                 List<String> kpper = kProjectperMapper.selectName(kp.getPid());
-                name = "";
-                for (String kper:kpper
-                ) {
-                    name += kper+",";
+                if(kpper.size()==0||kpper==null){
+                    kp.setMembers("");
+                }else{
+                    name = "";
+                    for (String kper:kpper
+                    ) {
+                        name += kper+",";
+                    }
+                    kp.setMembers(name.substring(0,name.length()-1));
                 }
-                kp.setMembers(name.substring(0,name.length()-1));
             }
 
             PageInfo info = new PageInfo(list);
@@ -122,12 +126,17 @@ public class KProjectServiceImpl implements KProjectService {
             for (KProject kp:list
             ) {
                 List<String> kpper = kProjectperMapper.selectName(kp.getPid());
-                name = "";
-                for (String kper:kpper
-                ) {
-                    name += kper+",";
+                if(kpper.size()==0||kpper==null){
+                    kp.setMembers("");
+                }else{
+                    name = "";
+                    for (String kper:kpper
+                    ) {
+                        name += kper+",";
+                    }
+                    kp.setMembers(name.substring(0,name.length()-1));
                 }
-                kp.setMembers(name.substring(0,name.length()-1));
+
             }
 
             PageInfo info = new PageInfo(list);
@@ -172,6 +181,11 @@ public class KProjectServiceImpl implements KProjectService {
         Set<String> keys1 = redisUtil.keys("listProjectSch*");
         redisUtil.delkeys(keys1);
         return kProjectMapper.updateByPSB2(pid,  psb2);
+    }
+
+    @Override
+    public String downProjectSch(Short pid) {
+        return kProjectMapper.downProjectSch(pid);
     }
 
 }
