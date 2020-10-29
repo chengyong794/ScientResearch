@@ -34,6 +34,10 @@ public interface KProjectService {
 
     int updateByPSB2(Short pid,Short psb2);
 
+    int updateByPLX1(Short pid,Short plx1);
+
+    int updateByPLX2(Short pid,Short plx2);
+
     String downProjectSch(Short pid);
 
 }

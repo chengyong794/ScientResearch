@@ -302,4 +302,16 @@
     set PSB2 = #{psb2,jdbcType=DECIMAL}
     where PID = #{pid,jdbcType=DECIMAL}
   </update>
+
+  <update id="updateByPLX1" parameterType="java.lang.Short">
+    update K_PROJECT
+    set PLX1 = #{plx1,jdbcType=DECIMAL}
+    where PID = #{pid,jdbcType=DECIMAL}
+  </update>
+
+  <update id="updateByPLX2" parameterType="java.lang.Short">
+    update K_PROJECT
+    set PLX2 = #{plx2,jdbcType=DECIMAL}
+    where PID = #{pid,jdbcType=DECIMAL}
+  </update>
 </mapper>

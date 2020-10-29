@@ -184,6 +184,24 @@ public class KProjectServiceImpl implements KProjectService {
     }
 
     @Override
+    public int updateByPLX1(Short pid, Short plx1) {
+        Set<String> keys = redisUtil.keys("listProject*");
+        redisUtil.delkeys(keys);
+        Set<String> keys1 = redisUtil.keys("listProjectSch*");
+        redisUtil.delkeys(keys1);
+        return kProjectMapper.updateByPLX1(pid,plx1);
+    }
+
+    @Override
+    public int updateByPLX2(Short pid, Short plx2) {
+        Set<String> keys = redisUtil.keys("listProject*");
+        redisUtil.delkeys(keys);
+        Set<String> keys1 = redisUtil.keys("listProjectSch*");
+        redisUtil.delkeys(keys1);
+        return kProjectMapper.updateByPLX2(pid,plx2);
+    }
+
+    @Override
     public String downProjectSch(Short pid) {
         return kProjectMapper.downProjectSch(pid);
     }

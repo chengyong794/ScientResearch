@@ -252,4 +252,36 @@ public class DeclareController {
     }
 
 
+    /**
+     * 系科研秘书立项
+     * @param
+     * @return
+     */
+    @RequestMapping("/updateByPLX1")
+    public Map<String,Object> updateByPLX1(@Param("pid") Short pid,@Param("plx1") Short plx1){
+        Map<String,Object> map = new HashMap<>();
+        if(kProjectService.updateByPLX1(pid,plx1)>0){
+            map.put("info", PUBLIC_ATTRIBUTE.APPROVED_SUCCESS);
+        }else{
+            map.put("info",PUBLIC_ATTRIBUTE.APPROVED_ERROR);
+        }
+        return map;
+    }
+
+    /**
+     * 校科研秘书立项
+     * @param
+     * @return
+     */
+    @RequestMapping("/updateByPLX2")
+    public Map<String,Object> updateByPLX2(@Param("pid") Short pid,@Param("plx2") Short plx2){
+        Map<String,Object> map = new HashMap<>();
+        if(kProjectService.updateByPLX2(pid,plx2)>0){
+            map.put("info", PUBLIC_ATTRIBUTE.APPROVED_SUCCESS);
+        }else{
+            map.put("info",PUBLIC_ATTRIBUTE.APPROVED_ERROR);
+        }
+        return map;
+    }
+
 }
