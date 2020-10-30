@@ -185,4 +185,72 @@ public class IndexController {
 
         return url;
     }
+
+    /**
+     * 项目中检跳转
+     */
+    @RequestMapping("/checkproject")
+    public String checkproject(HttpServletRequest request){
+        String url = null;
+        String un = (String) request.getSession().getAttribute("user");
+        Integer KyType = (Integer) redisUtil.get(un);
+
+        if(KyType==null){
+            Short tp = kKyuserService.findUserRoleType(un);
+            if(tp==1||tp==0){
+                redisUtil.set("KyType",tp);
+                url = "page/promanage/check_project1";
+            }else if(tp==2){
+                redisUtil.set("KyType",tp);
+                url = "page/promanage/check_project2";
+            }else if(tp==3){
+                redisUtil.set("KyType",tp);
+                url = "page/promanage/check_project3";
+            }
+        }else{
+            if(KyType==1){
+                url = "page/promanage/check_project1";
+            }else if(KyType==2){
+                url = "page/promanage/check_project2";
+            }else if(KyType==3){
+                url = "page/promanage/check_project3";
+            }
+        }
+
+        return url;
+    }
+
+    /**
+     * 项目结项跳转
+     */
+    @RequestMapping("/endproject")
+    public String endproject(HttpServletRequest request){
+        String url = null;
+        String un = (String) request.getSession().getAttribute("user");
+        Integer KyType = (Integer) redisUtil.get(un);
+
+        if(KyType==null){
+            Short tp = kKyuserService.findUserRoleType(un);
+            if(tp==1||tp==0){
+                redisUtil.set("KyType",tp);
+                url = "page/promanage/end_project1";
+            }else if(tp==2){
+                redisUtil.set("KyType",tp);
+                url = "page/promanage/end_project2";
+            }else if(tp==3){
+                redisUtil.set("KyType",tp);
+                url = "page/promanage/end_project3";
+            }
+        }else{
+            if(KyType==1){
+                url = "page/promanage/end_project1";
+            }else if(KyType==2){
+                url = "page/promanage/end_project2";
+            }else if(KyType==3){
+                url = "page/promanage/end_project3";
+            }
+        }
+
+        return url;
+    }
 }

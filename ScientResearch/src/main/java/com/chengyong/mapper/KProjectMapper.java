@@ -30,6 +30,16 @@ public interface KProjectMapper {
 
     int deleteByPPERNAME(Short pid);
 
+    List<KProject> checklistProject(KProject kProject);
+
+    List<KProject> checklistProject2(KProject kProject);
+
+    List<KProject> checklistProject3(KProject kProject);
+
+    List<KProject> endlistProject1(KProject kProject);
+
+    List<KProject> endlistProject2(KProject kProject);
+
     int updateByPSB1(Short pid,Short psb1);
 
     int updateByPSB2(Short pid,Short psb2);
@@ -37,6 +47,14 @@ public interface KProjectMapper {
     int updateByPLX1(Short pid,Short plx1);
 
     int updateByPLX2(Short pid,Short plx2);
+
+    int updateByPZJ1(Short pid,Short pzj1);
+
+    int updateByPZJ2(Short pid,Short pzj2);
+
+    int updateByPJX1(Short pid,Short pjx1);
+
+    int updateByPJX2(Short pid,Short pjx2);
 
     String downProjectSch(Short pid);
 }

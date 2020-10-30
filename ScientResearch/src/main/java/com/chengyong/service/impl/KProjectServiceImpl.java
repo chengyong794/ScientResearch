@@ -166,6 +166,46 @@ public class KProjectServiceImpl implements KProjectService {
     }
 
     @Override
+    public DataJson checklistProject(KProject kProject) {
+        PageHelper.startPage(kProject.getPage(),kProject.getLimit());
+        List<KProject> list = kProjectMapper.checklistProject(kProject);
+        PageInfo info = new PageInfo(list);
+        return new DataJson(info.getTotal(),list);
+    }
+
+    @Override
+    public DataJson checklistProject2(KProject kProject) {
+        PageHelper.startPage(kProject.getPage(),kProject.getLimit());
+        List<KProject> list = kProjectMapper.checklistProject2(kProject);
+        PageInfo info = new PageInfo(list);
+        return new DataJson(info.getTotal(),list);
+    }
+
+    @Override
+    public DataJson checklistProject3(KProject kProject) {
+        PageHelper.startPage(kProject.getPage(),kProject.getLimit());
+        List<KProject> list = kProjectMapper.checklistProject3(kProject);
+        PageInfo info = new PageInfo(list);
+        return new DataJson(info.getTotal(),list);
+    }
+
+    @Override
+    public DataJson endlistProject1(KProject kProject) {
+        PageHelper.startPage(kProject.getPage(),kProject.getLimit());
+        List<KProject> list = kProjectMapper.endlistProject1(kProject);
+        PageInfo info = new PageInfo(list);
+        return new DataJson(info.getTotal(),list);
+    }
+
+    @Override
+    public DataJson endlistProject2(KProject kProject) {
+        PageHelper.startPage(kProject.getPage(),kProject.getLimit());
+        List<KProject> list = kProjectMapper.endlistProject2(kProject);
+        PageInfo info = new PageInfo(list);
+        return new DataJson(info.getTotal(),list);
+    }
+
+    @Override
     public int updateByPSB1(Short pid, Short psb1) {
         Set<String> keys = redisUtil.keys("listProject*");
         redisUtil.delkeys(keys);
@@ -199,6 +239,34 @@ public class KProjectServiceImpl implements KProjectService {
         Set<String> keys1 = redisUtil.keys("listProjectSch*");
         redisUtil.delkeys(keys1);
         return kProjectMapper.updateByPLX2(pid,plx2);
+    }
+
+    @Override
+    public int updateByPZJ1(Short pid, Short pzj1) {
+        Set<String> keys = redisUtil.keys("listProject*");
+        redisUtil.delkeys(keys);
+        Set<String> keys1 = redisUtil.keys("listProjectSch*");
+        redisUtil.delkeys(keys1);
+        return kProjectMapper.updateByPZJ1(pid,pzj1);
+    }
+
+    @Override
+    public int updateByPZJ2(Short pid, Short pzj2) {
+        Set<String> keys = redisUtil.keys("listProject*");
+        redisUtil.delkeys(keys);
+        Set<String> keys1 = redisUtil.keys("listProjectSch*");
+        redisUtil.delkeys(keys1);
+        return kProjectMapper.updateByPZJ2(pid, pzj2);
+    }
+
+    @Override
+    public int updateByPJX1(Short pid, Short pjx1) {
+        return kProjectMapper.updateByPJX1(pid, pjx1);
+    }
+
+    @Override
+    public int updateByPJX2(Short pid, Short pjx2) {
+        return kProjectMapper.updateByPJX2(pid, pjx2);
     }
 
     @Override

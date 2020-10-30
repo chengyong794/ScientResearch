@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <div th:replace="~{public :: layui_public_css}"></div>
+    <!--    <link rel="stylesheet" href="../lib/layui-v2.5.5/css/layui.css" media="all">-->
+    <!--    <link rel="stylesheet" href="../css/public.css" media="all">-->
+</head>
+<body>
+<div class="layuimini-container">
+    <div class="layuimini-main">
+
+<!--        <script type="text/html" id="toolbarDemo2">-->
+<!--            <div class="layui-btn-container">-->
+<!--                <button class="layui-btn layui-btn-sm layui-btn-danger data-delete-btn" lay-event="deletelow2"> 批量删除 </button>-->
+<!--                <button class="layui-btn layui-btn-sm layui-btn-normal" lay-event="export"> 导出 </button>-->
+<!--            </div>-->
+<!--        </script>-->
+
+
+
+        <fieldset class="table-search-fieldset">
+            <legend>搜索申报信息</legend>
+            <div style="margin: 10px 10px 10px 10px">
+                <form class="layui-form layui-form-pane" id="searchFrom2" action="">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">项目名</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="pname" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-inline">
+                            <label class="layui-form-label">批次名称</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="pcname" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-inline">
+                            <label class="layui-form-label">部门</label>
+                            <div class="layui-input-inline">
+                                <select name="pdept" placeholder="请输入部门" value="" class="layui-input">
+                                    <option value=""></option>
+                                    <option value="信息系">信息系</option>
+                                    <option value="管理系">管理系</option>
+                                    <option value="土木系">土木系</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="layui-inline">
+                            <button type="button" class="layui-btn layui-btn-primary"  lay-submit lay-filter="data-search-btn2" id="data-search1"><i class="layui-icon"></i> 搜 索</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </fieldset>
+
+
+
+        <!--申报信息表-->
+        <table class="layui-hide" id="currentTableId2" lay-filter="currentTableFilter2"></table>
+
+
+        <script type="text/html" id="currentTableBar3">
+            <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="on">结项</a>
+        </script>
+
+        <script type="text/html" id="currentTableBar2">
+            <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit2">提交结项</a>
+        </script>
+
+        <!--修改页面开始-->
+        <div style="display: none;margin: auto;" class="layui-form layuimini-form" id="endproject2">
+            <form class="layui-form" lay-filter="dataFrom2" id="dataFrm2">
+
+                <div class="layui-form-item" style="width: 500px;margin-top: 50px;">
+                    <label class="layui-form-label required">项目名称</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="pname" lay-verify="required" lay-reqtext="项目名称不能为空" placeholder="请输入项目名称" value="" class="layui-input">
+                        <input type="hidden" name="pid" value=""/>
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label required">项目批次</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="pccome" lay-verify="required" lay-reqtext="项目来源不能为空" placeholder="请输入项目来源" value="" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label required">项目来源</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="pccome" lay-verify="required" lay-reqtext="项目来源不能为空" placeholder="请输入项目来源" value="" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label required">参与成员</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="pccome" lay-verify="required" lay-reqtext="项目来源不能为空" placeholder="请输入项目来源" value="" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label required">项目负责人</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="ppeople" lay-verify="required" lay-reqtext="项目分类不能为空" placeholder="请输入项目分类" value="" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label required">校审</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="ppeople" lay-verify="required" lay-reqtext="项目分类不能为空" placeholder="请输入项目分类" value="" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label required">系审</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="ppeople" lay-verify="required" lay-reqtext="项目分类不能为空" placeholder="请输入项目分类" value="" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label required">立项标识</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="ppeople" lay-verify="required" lay-reqtext="项目分类不能为空" placeholder="请输入项目分类" value="" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label required">项目分类</label>
+                    <div class="layui-input-block">
+                        <select name="pcclasify" readonly="readonly">
+                            <option value="小型项目">小型项目</option>
+                            <option value="重点项目">重点项目</option>
+                            <option value="学院项目">学院项目</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label required">部门</label>
+                    <div class="layui-input-block">
+                        <select name="pdept" placeholder="请输入部门" value="" class="layui-input">
+                            <option value="信息系">信息系</option>
+                            <option value="管理系">管理系</option>
+                            <option value="土木系">土木系</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="layui-inline">
+                    <label class="layui-form-label">开始时间</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="pdate" class="layui-input" id="pdate" placeholder="请选择时间">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">结束日期</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="pendtime" class="layui-input" id="pendtime"  placeholder="请选择时间">
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label required">申请延期</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="ppeople" lay-verify="required" lay-reqtext="项目分类不能为空" placeholder="请输入项目分类" value="" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label required">结题形式</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="ppeople" lay-verify="required" lay-reqtext="项目分类不能为空" placeholder="请输入项目分类" value="" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label required">立项状态</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="ppeople" lay-verify="required" lay-reqtext="项目分类不能为空" placeholder="请输入项目分类" value="" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label required">备注</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="ppeople" lay-verify="required" lay-reqtext="项目分类不能为空" placeholder="请输入项目分类" value="" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-inline">
+                    <label class="layui-form-label">提交时间</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="pendtime" class="layui-input" id="test1"  placeholder="请选择时间">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <!--修改页面结束-->
+
+    </div>
+</div>
+<div th:replace="~{public :: layui_lay-config_js}"></div>
+
+<script>
+    layui.use(['form', 'table','jquery','layer','laydate'], function () {
+        var $ = layui.jquery,
+            form = layui.form,
+            table = layui.table,
+            layer = layui.layer,
+            laydate = layui.laydate;
+
+        laydate.render({
+            elem: '#test1',
+            type: 'datetime'
+
+        });
+
+        laydate.render({
+            elem: '#test2'
+            ,type: 'datetime'
+        });
+
+        laydate.render({
+            elem: '#pdate',
+            type: 'datetime'
+
+        });
+
+        laydate.render({
+            elem: '#pendtime'
+            ,type: 'datetime'
+        });
+
+        var tablereh1;
+        tablereh1 = table.render({
+            elem: '#currentTableId2',
+            url: '/declare/endlistProject1',
+            toolbar: '#toolbarDemo2',
+            limits: [5,10, 15, 20, 25, 50, 100],
+            limit: 5,
+            page: true,
+            skin: 'line',
+            cols: [
+                [
+                    {type: "checkbox", width: 50},
+                    {field: 'pid', width: 60, title: 'ID', sort: true},
+                    {field: 'pname', width: 100, title: '项目名称'},
+                    {field: 'pcname', width: 100, title: '批次名称'},
+                    {field: 'pccome', width: 100, title: '项目来源'},
+                    {field: 'members', width: 100, title: '参与成员'},
+                    {field: 'ppeople', width: 100, title: '负责人'},
+                    {field: 'pdept', width: 100, title: '所在部门', sort: true},
+                    {field: 'pjx2', width: 100, title: '审核状态', templet: function (d) {
+                            if (d.pjx2 == 0) {
+                                return '<span class="layui-badge ">未结项</span>';
+                            } else {
+                                return '<span class="layui-badge layui-bg-blue">成功结项</span>';
+                            }
+                        }},
+                    {title: '审核', minWidth: 150, toolbar: '#currentTableBar3', align: "center"},
+                    {title: '操作', minWidth: 200, toolbar: '#currentTableBar2', align: "center"}
+                ]
+            ]
+        });
+
+        // 监听搜索操作
+        form.on('submit(data-search-btn2)', function (data) {
+            var datas = $("#searchFrom2").serialize();
+            //执行搜索重载
+            tablereh1.reload({
+                url:'/declare/endlistProject1?'+datas,
+
+            });
+        });
+
+
+//===============<!-------------------------------------->==============
+        var edit_open;
+
+
+        table.on('tool(currentTableFilter2)', function (obj) {
+            var data = obj.data;
+            if (obj.event === 'edit2') {
+
+                edit_open = layer.open({
+                    title: '结项信息',
+                    type:1,
+                    content:$('#endproject2'),
+                    skin: 'layui-layer-lan',
+                    area: ['600px', '500px']
+                    ,btnAlign:'c'
+                    ,btn: ['提交结项'
+                        , '取消']
+                    ,yes: function(index, layero){
+                        var data1 = form.val("dataFrom2");
+                        $.ajax({
+                            type:'POST',
+                            url:'/declare/',
+                            data:data1,
+                            success:function(msg){
+                                layer.msg(msg.info);
+                                layer.close(edit_open);
+                                tablereh1.reload();
+                            }
+                        });
+
+                    }
+                    ,btn2: function(index, layero){
+                    },
+                    success:function(index){
+                        form.val('dataFrom2',data);
+                    }
+                });
+                return false;
+            }else if(obj.event === 'on'){
+                $.ajax({
+                    type:'GET',
+                    url:'/declare/updateByPJX2?pid='+data.pid+'&pjx2='+1,
+                    success:function(msg){
+                        layer.msg(msg.info);
+                        tablereh1.reload();
+                    }
+                });
+            }
+
+        });
+
+    });
+</script>
+
+</body>
+</html>

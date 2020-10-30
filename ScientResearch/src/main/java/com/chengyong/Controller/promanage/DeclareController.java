@@ -284,4 +284,120 @@ public class DeclareController {
         return map;
     }
 
+
+    /**
+     *  校科研秘书进行查看中检项目
+     * @param kProject
+     * @return
+     */
+    @RequestMapping("/checklistProject")
+    public DataJson checklistProject(KProject kProject){
+        return kProjectService.checklistProject(kProject);
+    }
+
+    /**
+     *  系秘书进行查看中检项目
+     * @param kProject
+     * @return
+     */
+    @RequestMapping("/checklistProject2")
+    public DataJson checklistProject2(KProject kProject){
+        return kProjectService.checklistProject2(kProject);
+    }
+
+    /**
+     *  科研人员进行查看中检项目
+     * @param kProject
+     * @return
+     */
+    @RequestMapping("/checklistProject3")
+    public DataJson checklistProject3(KProject kProject){
+        return kProjectService.checklistProject3(kProject);
+    }
+
+    /**
+     *  校科研秘书进行查看结项
+     * @param kProject
+     * @return
+     */
+    @RequestMapping("/endlistProject1")
+    public DataJson endlistProject1(KProject kProject){
+        return kProjectService.endlistProject1(kProject);
+    }
+
+    /**
+     *  系科研秘书进行查看结项
+     * @param kProject
+     * @return
+     */
+    @RequestMapping("/endlistProject2")
+    public DataJson endlistProject2(KProject kProject){
+        return kProjectService.endlistProject2(kProject);
+    }
+
+    /**
+     * 系科研秘书完成中检
+     * @param
+     * @return
+     */
+    @RequestMapping("/updateByPZJ1")
+    public Map<String,Object> updateByPZJ1(@Param("pid") Short pid,@Param("pzj1") Short pzj1){
+        Map<String,Object> map = new HashMap<>();
+        if(kProjectService.updateByPZJ1(pid,pzj1)>0){
+            map.put("info", PUBLIC_ATTRIBUTE.APPROVED_SUCCESS);
+        }else{
+            map.put("info",PUBLIC_ATTRIBUTE.APPROVED_ERROR);
+        }
+        return map;
+    }
+
+    /**
+     * 校科研秘书完成中检
+     * @param
+     * @return
+     */
+    @RequestMapping("/updateByPZJ2")
+    public Map<String,Object> updateByPZJ2(@Param("pid") Short pid,@Param("pzj2") Short pzj2){
+        Map<String,Object> map = new HashMap<>();
+        if(kProjectService.updateByPZJ2(pid,pzj2)>0){
+            map.put("info", PUBLIC_ATTRIBUTE.APPROVED_SUCCESS);
+        }else{
+            map.put("info",PUBLIC_ATTRIBUTE.APPROVED_ERROR);
+        }
+        return map;
+    }
+
+
+    /**
+     * 系科研秘书完成结项
+     * @param
+     * @return
+     */
+    @RequestMapping("/updateByPJX1")
+    public Map<String,Object> updateByPJX1(@Param("pid") Short pid,@Param("pjx1") Short pjx1){
+        Map<String,Object> map = new HashMap<>();
+        if(kProjectService.updateByPJX1(pid,pjx1)>0){
+            map.put("info", PUBLIC_ATTRIBUTE.APPROVED_SUCCESS);
+        }else{
+            map.put("info",PUBLIC_ATTRIBUTE.APPROVED_ERROR);
+        }
+        return map;
+    }
+
+    /**
+     * 校科研秘书完成结项
+     * @param
+     * @return
+     */
+    @RequestMapping("/updateByPJX2")
+    public Map<String,Object> updateByPJX2(@Param("pid") Short pid,@Param("pjx2") Short pjx2){
+        Map<String,Object> map = new HashMap<>();
+        if(kProjectService.updateByPJX2(pid,pjx2)>0){
+            map.put("info", PUBLIC_ATTRIBUTE.APPROVED_SUCCESS);
+        }else{
+            map.put("info",PUBLIC_ATTRIBUTE.APPROVED_ERROR);
+        }
+        return map;
+    }
+
 }

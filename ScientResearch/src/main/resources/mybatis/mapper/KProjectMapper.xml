@@ -21,13 +21,14 @@
     <result column="PLX2" jdbcType="VARCHAR" property="plx2" />
     <result column="PJX1" jdbcType="VARCHAR" property="pjx1" />
     <result column="PJX2" jdbcType="VARCHAR" property="pjx2" />
-
+    <result column="PZJ1" jdbcType="VARCHAR" property="pzj1" />
+    <result column="PZJ2" jdbcType="VARCHAR" property="pzj2" />
   </resultMap>
   <sql id="Base_Column_List">
     PID, PNAME, PCOMS, PPEOPLE,
     PTYPE, PDEPT, PSOURCE, POTHERS,
      PDATE,  PENDTIME,PRESFROM,PSB1,PSB2
-     ,PLX1,PLX2,PJX1,PJX2,PCNAME
+     ,PLX1,PLX2,PJX1,PJX2,PCNAME,PZJ1,PZJ2
   </sql>
 
   <select id="downProjectSch" parameterType="java.lang.Short" resultType="java.lang.String">
@@ -291,6 +292,96 @@
     where PID = #{pid,jdbcType=DECIMAL}
   </update>
 
+  <select id="checklistProject" parameterType="com.chengyong.entity.KProject" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_PROJECT
+    <where>
+      <if test="pname != null">
+        PNAME like concat(concat('%',#{pname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pcname != null">
+        and PCNAME like concat(concat('%',#{pcname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pdept != null">
+        and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
+      </if>
+      and PLX1 = 1 AND PLX2 = 1
+    </where>
+  </select>
+
+  <select id="checklistProject2" parameterType="com.chengyong.entity.KProject" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_PROJECT
+    <where>
+      <if test="pname != null">
+        PNAME like concat(concat('%',#{pname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pcname != null">
+        and PCNAME like concat(concat('%',#{pcname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pdept != null">
+        and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
+      </if>
+      and PLX1 = 1 AND PLX2 = 1 and PZJ2 = 1
+    </where>
+  </select>
+
+  <select id="checklistProject3" parameterType="com.chengyong.entity.KProject" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_PROJECT
+    <where>
+      <if test="pname != null">
+        PNAME like concat(concat('%',#{pname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pcname != null">
+        and PCNAME like concat(concat('%',#{pcname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pdept != null">
+        and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
+      </if>
+      and PLX1 = 1 AND PLX2 = 1 and PZJ2 = 1 and PZJ1 = 1
+    </where>
+  </select>
+
+  <select id="endlistProject1" parameterType="com.chengyong.entity.KProject" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_PROJECT
+    <where>
+      <if test="pname != null">
+        PNAME like concat(concat('%',#{pname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pcname != null">
+        and PCNAME like concat(concat('%',#{pcname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pdept != null">
+        and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
+      </if>
+      and PZJ2 = 1 AND PZJ1 = 1
+    </where>
+  </select>
+
+  <select id="endlistProject2" parameterType="com.chengyong.entity.KProject" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_PROJECT
+    <where>
+      <if test="pname != null">
+        PNAME like concat(concat('%',#{pname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pcname != null">
+        and PCNAME like concat(concat('%',#{pcname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pdept != null">
+        and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
+      </if>
+      and PZJ2 = 1 AND PZJ1 = 1 and PJX2 = 1
+    </where>
+  </select>
+
   <update id="updateByPSB1" parameterType="java.lang.Short">
     update K_PROJECT
     set PSB1 = #{psb1,jdbcType=DECIMAL}
@@ -312,6 +403,30 @@
   <update id="updateByPLX2" parameterType="java.lang.Short">
     update K_PROJECT
     set PLX2 = #{plx2,jdbcType=DECIMAL}
+    where PID = #{pid,jdbcType=DECIMAL}
+  </update>
+
+  <update id="updateByPZJ1" parameterType="java.lang.Short">
+    update K_PROJECT
+    set PZJ1 = #{pzj1,jdbcType=DECIMAL}
+    where PID = #{pid,jdbcType=DECIMAL}
+  </update>
+
+  <update id="updateByPZJ2" parameterType="java.lang.Short">
+    update K_PROJECT
+    set PZJ2 = #{pzj2,jdbcType=DECIMAL}
+    where PID = #{pid,jdbcType=DECIMAL}
+  </update>
+
+  <update id="updateByPJX1" parameterType="java.lang.Short">
+    update K_PROJECT
+    set PJX1 = #{pjx1,jdbcType=DECIMAL}
+    where PID = #{pid,jdbcType=DECIMAL}
+  </update>
+
+  <update id="updateByPJX2" parameterType="java.lang.Short">
+    update K_PROJECT
+    set PJX2 = #{pjx2,jdbcType=DECIMAL}
     where PID = #{pid,jdbcType=DECIMAL}
   </update>
 </mapper>
