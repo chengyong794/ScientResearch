@@ -18,7 +18,11 @@ public interface KProjectMapper {
 
     int updateByPrimaryKey(KProject record);
 
+    int updateByPZJSOURCE(KProject kProject);
+
     KProject selectByPnameAndPPEOPLE(KProject kProject);
+
+    String downcheck(Short pid);
 
     List<KProject> listProject(KProject kProject);
 

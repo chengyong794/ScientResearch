@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -393,6 +394,26 @@ public class DeclareController {
     public Map<String,Object> updateByPJX2(@Param("pid") Short pid,@Param("pjx2") Short pjx2){
         Map<String,Object> map = new HashMap<>();
         if(kProjectService.updateByPJX2(pid,pjx2)>0){
+            map.put("info", PUBLIC_ATTRIBUTE.APPROVED_SUCCESS);
+        }else{
+            map.put("info",PUBLIC_ATTRIBUTE.APPROVED_ERROR);
+        }
+        return map;
+    }
+
+    /**
+     * 科研人员提交中检报告
+     * @param
+     * @return
+     */
+    @RequestMapping("/checkUpdate")
+    public Map<String,Object> checkUpdate(@Param("pid") Short pid, HttpServletRequest request){
+        String path = (String) request.getSession().getAttribute("check_path");
+        KProject kProject = new KProject();
+        kProject.setPid(pid);
+        kProject.setPzjsource(path);
+        Map<String,Object> map = new HashMap<>();
+        if(kProjectService.updateByPZJSOURCE(kProject)>0){
             map.put("info", PUBLIC_ATTRIBUTE.APPROVED_SUCCESS);
         }else{
             map.put("info",PUBLIC_ATTRIBUTE.APPROVED_ERROR);

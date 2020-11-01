@@ -78,6 +78,16 @@ public class KProjectServiceImpl implements KProjectService {
     }
 
     @Override
+    public int updateByPZJSOURCE(KProject kProject) {
+        return kProjectMapper.updateByPZJSOURCE(kProject);
+    }
+
+    @Override
+    public String downcheck(Short pid) {
+        return kProjectMapper.downcheck(pid);
+    }
+
+    @Override
     public KProject selectByPnameAndPPEOPLE(KProject kProject) {
         return kProjectMapper.selectByPnameAndPPEOPLE(kProject);
     }

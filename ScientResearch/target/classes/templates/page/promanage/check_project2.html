@@ -63,8 +63,12 @@
 
         <script type="text/html" id="currentTableBar3">
             <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="on">完成中检</a>
-<!--            <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="off">不立项</a>-->
         </script>
+
+        <script type="text/html" id="currentTableBar2">
+            <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit2" >下载中检报告</a>
+        </script>
+
 
     </div>
 </div>
@@ -105,7 +109,8 @@
                             }
                         }},
                     {title: '审核', minWidth: 150, toolbar: '#currentTableBar3', align: "center"}
-                ]
+                    ,{title: '操作', minWidth: 100, toolbar: '#currentTableBar2', align: "center"}
+               ]
             ]
         });
 
@@ -139,16 +144,9 @@
                     }
                 });
              }
-             //else if(obj.event === 'off'){
-            //     $.ajax({
-            //         type:'GET',
-            //         url:'/declare/updateByPLX2?pid='+data.pid+'&plx2='+0,
-            //         success:function(msg){
-            //             layer.msg(msg.info);
-            //             tablereh1.reload();
-            //         }
-            //     });
-            //  }
+             else if(obj.event === 'edit2'){
+                 window.location.href='/down/downcheck?pid='+data.pid;
+             }
 
         });
 

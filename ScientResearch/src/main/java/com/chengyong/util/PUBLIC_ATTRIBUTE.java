@@ -17,6 +17,7 @@ public class PUBLIC_ATTRIBUTE {
     public static final String APPROVED_ERROR = "操作失败";
 
     public static final String UPLOAD_PATH_PRO = "D:\\Scient\\proUpload";
+    public static final String UPLOAD_PATH_CHECK = "D:\\Scient\\checkUpload";
 
 
 }

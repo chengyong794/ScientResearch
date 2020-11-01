@@ -59,4 +59,40 @@ public class DownController {
 
         return  map;
     }
+
+
+    @RequestMapping("/downusersc")
+    public void downusersc( HttpServletRequest request, HttpServletResponse response) throws IOException, IOException {
+        String path = "D:\\Scient\\usersc\\user_sc.docx";
+        //获取文件的名称
+        File f = new File(path);
+        FileInputStream inputStream = new FileInputStream(f);
+        //设置下载时响应头
+        response.setHeader("content-disposition","attachment;filename="+ URLEncoder.encode(f.getName(),"UTF-8"));
+        //拿到响应输出流
+        ServletOutputStream outputStream = response.getOutputStream();
+        //流的复制
+        IOUtils.copy(inputStream,outputStream);
+        IOUtils.closeQuietly(inputStream);
+        IOUtils.closeQuietly(outputStream);
+    }
+
+
+    @RequestMapping("/downcheck")
+    public void downcheck( HttpServletRequest request, HttpServletResponse response,@Param("pid") Short pid) throws IOException, IOException {
+
+        String path = kProjectService.downcheck(pid);
+        //获取文件的名称
+        File f = new File(path);
+        FileInputStream inputStream = new FileInputStream(f);
+        //设置下载时响应头
+        response.setHeader("content-disposition","attachment;filename="+ URLEncoder.encode(f.getName(),"UTF-8"));
+        //拿到响应输出流
+        ServletOutputStream outputStream = response.getOutputStream();
+        //流的复制
+        IOUtils.copy(inputStream,outputStream);
+        IOUtils.closeQuietly(inputStream);
+        IOUtils.closeQuietly(outputStream);
+    }
+
 }

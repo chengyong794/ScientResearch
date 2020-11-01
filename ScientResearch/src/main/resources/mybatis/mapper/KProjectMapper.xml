@@ -10,6 +10,7 @@
     <result column="PDEPT" jdbcType="VARCHAR" property="pdept" />
     <result column="PRESFROM" jdbcType="VARCHAR" property="presfrom" />
     <result column="PSOURCE" jdbcType="VARCHAR" property="psource" />
+    <result column="PZJSOURCE" jdbcType="VARCHAR" property="pzjsource" />
     <result column="POTHERS" jdbcType="VARCHAR" property="pothers" />
     <result column="PDATE" jdbcType="TIMESTAMP" property="pdate" />
     <result column="PENDTIME" jdbcType="TIMESTAMP" property="pendtime" />
@@ -28,7 +29,7 @@
     PID, PNAME, PCOMS, PPEOPLE,
     PTYPE, PDEPT, PSOURCE, POTHERS,
      PDATE,  PENDTIME,PRESFROM,PSB1,PSB2
-     ,PLX1,PLX2,PJX1,PJX2,PCNAME,PZJ1,PZJ2
+     ,PLX1,PLX2,PJX1,PJX2,PCNAME,PZJ1,PZJ2,PZJSOURCE
   </sql>
 
   <select id="downProjectSch" parameterType="java.lang.Short" resultType="java.lang.String">
@@ -287,8 +288,15 @@
       POTHERS = #{pothers,jdbcType=VARCHAR},
       PDATE = to_date(#{pdate,jdbcType=TIMESTAMP},'yyyy-MM-dd HH24:mi:ss'),
       PENDTIME = to_date(#{pendtime,jdbcType=TIMESTAMP},'yyyy-MM-dd HH24:mi:ss'),
-      PRESFROM = #{presfrom,jdbcType=VARCHAR},
+      PRESFROM = #{presfrom,jdbcType=VARCHAR}
 
+    where PID = #{pid,jdbcType=DECIMAL}
+  </update>
+
+  <update id="updateByPZJSOURCE" parameterType="com.chengyong.entity.KProject">
+    update K_PROJECT
+    set
+      PZJSOURCE = #{pzjsource,jdbcType=VARCHAR}
     where PID = #{pid,jdbcType=DECIMAL}
   </update>
 
@@ -344,6 +352,10 @@
       </if>
       and PLX1 = 1 AND PLX2 = 1 and PZJ2 = 1 and PZJ1 = 1
     </where>
+  </select>
+
+  <select id="downcheck" parameterType="java.lang.Short" resultType="java.lang.String">
+    select PZJSOURCE from K_PROJECT where PID = #{pid,jdbcType=DECIMAL}
   </select>
 
   <select id="endlistProject1" parameterType="com.chengyong.entity.KProject" resultMap="BaseResultMap">

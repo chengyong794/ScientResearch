@@ -20,6 +20,10 @@ public interface KProjectService {
 
     int updateByPrimaryKey(KProject record);
 
+    int updateByPZJSOURCE(KProject kProject);
+
+    String downcheck(Short pid);
+
     KProject selectByPnameAndPPEOPLE(KProject kProject);
 
     DataJson listProject(KProject kProject);

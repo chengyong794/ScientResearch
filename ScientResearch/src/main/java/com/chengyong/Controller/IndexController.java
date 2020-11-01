@@ -253,4 +253,20 @@ public class IndexController {
 
         return url;
     }
+
+    /**
+     * 规章制度跳转
+     */
+    @RequestMapping("/rules")
+    public String rules(){
+        return "page/systemhelp/rules";
+    }
+
+    /**
+     * 用户手册跳转
+     */
+    @RequestMapping("/syshelp")
+    public String syshelp(){
+        return "page/systemhelp/syshelp";
+    }
 }

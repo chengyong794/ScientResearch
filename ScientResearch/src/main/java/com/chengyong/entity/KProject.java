@@ -17,6 +17,7 @@ public class KProject implements Serializable {
     private String pdept;
 
     private String psource;
+    private String pzjsource;
 
     private String pothers;
 
@@ -45,6 +46,14 @@ public class KProject implements Serializable {
     private Integer page;
 
     private Integer limit;
+
+    public String getPzjsource() {
+        return pzjsource;
+    }
+
+    public void setPzjsource(String pzjsource) {
+        this.pzjsource = pzjsource;
+    }
 
     public Short getPzj1() {
         return pzj1;
