@@ -42,7 +42,7 @@ public interface KProjectService {
 
     DataJson endlistProject1(KProject kProject);
 
-    DataJson endlistProject2(KProject kProject);
+    DataJson endlistProject3(KProject kProject);
 
     int updateByPSB1(Short pid,Short psb1);
 

@@ -327,13 +327,13 @@ public class DeclareController {
     }
 
     /**
-     *  系科研秘书进行查看结项
+     *  科研人员结项
      * @param kProject
      * @return
      */
-    @RequestMapping("/endlistProject2")
-    public DataJson endlistProject2(KProject kProject){
-        return kProjectService.endlistProject2(kProject);
+    @RequestMapping("/endlistProject3")
+    public DataJson endlistProject3(KProject kProject){
+        return kProjectService.endlistProject3(kProject);
     }
 
     /**

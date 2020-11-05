@@ -3,8 +3,10 @@ package com.chengyong.entity;
 import java.io.Serializable;
 import java.util.Date;
 
-public class KPostproject implements Serializable {
+public class KPostproject extends KProject {
     private Short ppid;
+
+    private Short pid;
 
     private String ppname;
 
@@ -14,9 +16,9 @@ public class KPostproject implements Serializable {
 
     private String ppcontrol;
 
-    private String ppstate1;
+    private Short ppstate1;
 
-    private String ppstate2;
+    private Short ppstate2;
 
     private String ppstate3;
 
@@ -26,9 +28,9 @@ public class KPostproject implements Serializable {
 
     private String ppdept;
 
-    private Date ppstarttime;
+    private String ppstarttime;
 
-    private Date ppendtime;
+    private String ppendtime;
 
     private String ppadjuct;
 
@@ -38,7 +40,41 @@ public class KPostproject implements Serializable {
 
     private String ppremak;
 
-    private Date subtime;
+    private String subtime;
+
+    private Integer page;
+
+    private Integer limit;
+
+    @Override
+    public Short getPid() {
+        return pid;
+    }
+
+    @Override
+    public void setPid(Short pid) {
+        this.pid = pid;
+    }
+
+    @Override
+    public Integer getPage() {
+        return page;
+    }
+
+    @Override
+    public void setPage(Integer page) {
+        this.page = page;
+    }
+
+    @Override
+    public Integer getLimit() {
+        return limit;
+    }
+
+    @Override
+    public void setLimit(Integer limit) {
+        this.limit = limit;
+    }
 
     public Short getPpid() {
         return ppid;
@@ -80,19 +116,19 @@ public class KPostproject implements Serializable {
         this.ppcontrol = ppcontrol;
     }
 
-    public String getPpstate1() {
+    public Short getPpstate1() {
         return ppstate1;
     }
 
-    public void setPpstate1(String ppstate1) {
+    public void setPpstate1(Short ppstate1) {
         this.ppstate1 = ppstate1;
     }
 
-    public String getPpstate2() {
+    public Short getPpstate2() {
         return ppstate2;
     }
 
-    public void setPpstate2(String ppstate2) {
+    public void setPpstate2(Short ppstate2) {
         this.ppstate2 = ppstate2;
     }
 
@@ -128,20 +164,28 @@ public class KPostproject implements Serializable {
         this.ppdept = ppdept;
     }
 
-    public Date getPpstarttime() {
+    public String getPpstarttime() {
         return ppstarttime;
     }
 
-    public void setPpstarttime(Date ppstarttime) {
+    public void setPpstarttime(String ppstarttime) {
         this.ppstarttime = ppstarttime;
     }
 
-    public Date getPpendtime() {
+    public String getPpendtime() {
         return ppendtime;
     }
 
-    public void setPpendtime(Date ppendtime) {
+    public void setPpendtime(String ppendtime) {
         this.ppendtime = ppendtime;
+    }
+
+    public String getSubtime() {
+        return subtime;
+    }
+
+    public void setSubtime(String subtime) {
+        this.subtime = subtime;
     }
 
     public String getPpadjuct() {
@@ -174,13 +218,5 @@ public class KPostproject implements Serializable {
 
     public void setPpremak(String ppremak) {
         this.ppremak = ppremak;
-    }
-
-    public Date getSubtime() {
-        return subtime;
-    }
-
-    public void setSubtime(Date subtime) {
-        this.subtime = subtime;
     }
 }

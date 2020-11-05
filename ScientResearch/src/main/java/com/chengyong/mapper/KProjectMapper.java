@@ -42,7 +42,7 @@ public interface KProjectMapper {
 
     List<KProject> endlistProject1(KProject kProject);
 
-    List<KProject> endlistProject2(KProject kProject);
+    List<KProject> endlistProject3(KProject kProject);
 
     int updateByPSB1(Short pid,Short psb1);
 

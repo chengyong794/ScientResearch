@@ -3,6 +3,7 @@
 <mapper namespace="com.chengyong.mapper.KPostprojectMapper">
   <resultMap id="BaseResultMap" type="com.chengyong.entity.KPostproject">
     <id column="PPID" jdbcType="DECIMAL" property="ppid" />
+    <id column="PID" jdbcType="DECIMAL" property="pid" />
     <result column="PPNAME" jdbcType="VARCHAR" property="ppname" />
     <result column="PPNUM" jdbcType="VARCHAR" property="ppnum" />
     <result column="PPPEOPLE" jdbcType="VARCHAR" property="pppeople" />
@@ -22,9 +23,44 @@
     <result column="SUBTIME" jdbcType="TIMESTAMP" property="subtime" />
   </resultMap>
   <sql id="Base_Column_List">
-    PPID, PPNAME, PPNUM, PPPEOPLE, PPCONTROL, PPSTATE1, PPSTATE2, PPSTATE3, PPCOME, PPTYPE, 
+    PPID,PID, PPNAME, PPNUM, PPPEOPLE, PPCONTROL, PPSTATE1, PPSTATE2, PPSTATE3, PPCOME, PPTYPE,
     PPDEPT, PPSTARTTIME, PPENDTIME, PPADJUCT, PPFORM, PPSTATUS, PPREMAK, SUBTIME
   </sql>
+
+  <select id="K_POSTPROJECTlist1" parameterType="com.chengyong.entity.KPostproject" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_POSTPROJECT
+    <where>
+      <if test="ppname != null and ppname != ''">
+        PPNAME like concat(concat('%',#{ppname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="ppnum != null and ppnum != ''">
+        and PPNUM like concat(concat('%',#{ppnum,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="ppstarttime != null and ppstarttime != ''">
+        and PPSTARTTIME <![CDATA[<]]> to_date(#{ppstarttime,jdbcType=TIMESTAMP},'yyyy-MM-dd hh24:mi:ss')
+      </if>
+      <if test="ppendtime != null and ppendtime != ''">
+        and PPENDTIME <![CDATA[>]]> to_date(#{ppendtime,jdbcType=TIMESTAMP},'yyyy-MM-dd hh24:mi:ss')
+      </if>
+    </where>
+  </select>
+
+  <update id="updateByPPSTATE1" parameterType="java.lang.Short">
+    update K_POSTPROJECT
+    set
+      PPSTATE1 = #{ppstate1,jdbcType=VARCHAR}
+    where PPID = #{ppid,jdbcType=DECIMAL}
+  </update>
+
+  <update id="updateByPPSTATE2" parameterType="java.lang.Short">
+    update K_POSTPROJECT
+    set
+      PPSTATE2 = #{ppstate2,jdbcType=VARCHAR}
+    where PPID = #{ppid,jdbcType=DECIMAL}
+  </update>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
@@ -36,19 +72,19 @@
     where PPID = #{ppid,jdbcType=DECIMAL}
   </delete>
   <insert id="insert" parameterType="com.chengyong.entity.KPostproject">
-    insert into K_POSTPROJECT (PPID, PPNAME, PPNUM, 
-      PPPEOPLE, PPCONTROL, PPSTATE1, 
-      PPSTATE2, PPSTATE3, PPCOME, 
+    insert into K_POSTPROJECT ( PPNAME, PPNUM,
+      PPPEOPLE, PPCONTROL, PPSTATE3, PPCOME,
       PPTYPE, PPDEPT, PPSTARTTIME, 
       PPENDTIME, PPADJUCT, PPFORM, 
-      PPSTATUS, PPREMAK, SUBTIME
+      PPSTATUS, PPREMAK, SUBTIME,PID
       )
-    values (#{ppid,jdbcType=DECIMAL}, #{ppname,jdbcType=VARCHAR}, #{ppnum,jdbcType=VARCHAR}, 
-      #{pppeople,jdbcType=VARCHAR}, #{ppcontrol,jdbcType=VARCHAR}, #{ppstate1,jdbcType=VARCHAR}, 
-      #{ppstate2,jdbcType=VARCHAR}, #{ppstate3,jdbcType=VARCHAR}, #{ppcome,jdbcType=VARCHAR}, 
-      #{pptype,jdbcType=VARCHAR}, #{ppdept,jdbcType=VARCHAR}, #{ppstarttime,jdbcType=TIMESTAMP}, 
-      #{ppendtime,jdbcType=TIMESTAMP}, #{ppadjuct,jdbcType=VARCHAR}, #{ppform,jdbcType=VARCHAR}, 
-      #{ppstatus,jdbcType=VARCHAR}, #{ppremak,jdbcType=VARCHAR}, #{subtime,jdbcType=TIMESTAMP}
+    values ( #{ppname,jdbcType=VARCHAR}, #{ppnum,jdbcType=VARCHAR},
+      #{pppeople,jdbcType=VARCHAR}, #{ppcontrol,jdbcType=VARCHAR},
+       #{ppstate3,jdbcType=VARCHAR}, #{ppcome,jdbcType=VARCHAR},
+      #{pptype,jdbcType=VARCHAR}, #{ppdept,jdbcType=VARCHAR}, to_date(#{ppstarttime,jdbcType=TIMESTAMP},'yyyy-MM-dd HH24:mi:ss'),
+      to_date(#{ppendtime,jdbcType=TIMESTAMP},'yyyy-MM-dd HH24:mi:ss'), #{ppadjuct,jdbcType=VARCHAR}, #{ppform,jdbcType=VARCHAR},
+      #{ppstatus,jdbcType=VARCHAR}, #{ppremak,jdbcType=VARCHAR}, to_date(#{subtime,jdbcType=TIMESTAMP},'yyyy-MM-dd HH24:mi:ss'),
+      #{pid,jdbcType=DECIMAL}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.chengyong.entity.KPostproject">

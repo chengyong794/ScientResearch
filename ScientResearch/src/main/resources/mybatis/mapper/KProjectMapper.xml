@@ -358,7 +358,7 @@
     select PZJSOURCE from K_PROJECT where PID = #{pid,jdbcType=DECIMAL}
   </select>
 
-  <select id="endlistProject1" parameterType="com.chengyong.entity.KProject" resultMap="BaseResultMap">
+  <select id="endlistProject3" parameterType="com.chengyong.entity.KProject" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from K_PROJECT
@@ -373,24 +373,6 @@
         and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
       </if>
       and PZJ2 = 1 AND PZJ1 = 1
-    </where>
-  </select>
-
-  <select id="endlistProject2" parameterType="com.chengyong.entity.KProject" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List" />
-    from K_PROJECT
-    <where>
-      <if test="pname != null">
-        PNAME like concat(concat('%',#{pname,jdbcType=VARCHAR}),'%')
-      </if>
-      <if test="pcname != null">
-        and PCNAME like concat(concat('%',#{pcname,jdbcType=VARCHAR}),'%')
-      </if>
-      <if test="pdept != null">
-        and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
-      </if>
-      and PZJ2 = 1 AND PZJ1 = 1 and PJX2 = 1
     </where>
   </select>
 

@@ -208,9 +208,9 @@ public class KProjectServiceImpl implements KProjectService {
     }
 
     @Override
-    public DataJson endlistProject2(KProject kProject) {
+    public DataJson endlistProject3(KProject kProject) {
         PageHelper.startPage(kProject.getPage(),kProject.getLimit());
-        List<KProject> list = kProjectMapper.endlistProject2(kProject);
+        List<KProject> list = kProjectMapper.endlistProject3(kProject);
         PageInfo info = new PageInfo(list);
         return new DataJson(info.getTotal(),list);
     }
