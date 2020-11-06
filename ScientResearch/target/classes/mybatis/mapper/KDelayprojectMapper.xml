@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chengyong.mapper.KDelayprojectMapper">
+  <resultMap id="BaseResultMap" type="com.chengyong.entity.KDelayproject">
+    <id column="PDELAYID" jdbcType="DECIMAL" property="pdelayid" />
+    <result column="PNAME" jdbcType="VARCHAR" property="pname" />
+    <result column="PPEOPLE" jdbcType="VARCHAR" property="ppeople" />
+    <result column="PCCLASIFY" jdbcType="VARCHAR" property="pcclasify" />
+    <result column="PDEPT" jdbcType="VARCHAR" property="pdept" />
+    <result column="PSOURCE" jdbcType="VARCHAR" property="psource" />
+    <result column="POTHERS" jdbcType="VARCHAR" property="pmark" />
+    <result column="PDATE" jdbcType="TIMESTAMP" property="pdelaydate" />
+    <result column="PENDTIME" jdbcType="TIMESTAMP" property="pdelayendtime" />
+    <result column="PID" jdbcType="DECIMAL" property="pid" />
+    <result column="PYQ1" jdbcType="DECIMAL" property="pyq1" />
+    <result column="PYQ2" jdbcType="DECIMAL" property="pyq2" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    PDELAYID, PNAME, PPEOPLE, PCCLASIFY, PDEPT, PSOURCE, POTHERS, PDATE, PENDTIME, PID, 
+    PYQ1, PYQ2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from K_DELAYPROJECT
+    where PDELAYID = #{pdelayid,jdbcType=DECIMAL}
+  </select>
+
+  <select id="selectDelaypath" parameterType="java.lang.Short" resultType="java.lang.String">
+    select
+    PSOURCE
+    from K_DELAYPROJECT
+    where PDELAYID = #{pdelayid,jdbcType=DECIMAL}
+  </select>
+
+  <select id="delaylistProject1" parameterType="com.chengyong.entity.KDelayproject" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_DELAYPROJECT
+    <where>
+      <if test="pname != null and pname != ''">
+        PNAME like concat(concat('%',#{pname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pdept != null and pdept != ''">
+       and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
+      </if>
+    </where>
+  </select>
+
+  <select id="delaylistProject2" parameterType="com.chengyong.entity.KDelayproject" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_DELAYPROJECT
+    <where>
+      <if test="pname != null and pname != ''">
+        PNAME like concat(concat('%',#{pname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pdept != null and pdept != ''">
+        and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
+      </if>
+    </where>
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from K_DELAYPROJECT
+    where PDELAYID = #{pdelayid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.chengyong.entity.KDelayproject">
+    insert into K_DELAYPROJECT (PNAME, PPEOPLE,
+      PCCLASIFY, PDEPT, PSOURCE, 
+      POTHERS, PDATE, PENDTIME, 
+      PID)
+    values ( #{pname,jdbcType=VARCHAR}, #{ppeople,jdbcType=VARCHAR},
+      #{pcclasify,jdbcType=VARCHAR}, #{pdept,jdbcType=VARCHAR}, #{psource,jdbcType=VARCHAR}, 
+      #{pmark,jdbcType=VARCHAR}, to_date(#{pdelaydate,jdbcType=TIMESTAMP},'yyyy-MM-dd HH24:mi:ss'), to_date(#{pdelayendtime,jdbcType=TIMESTAMP},'yyyy-MM-dd HH24:mi:ss'),
+      #{pid,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chengyong.entity.KDelayproject">
+    insert into K_DELAYPROJECT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pdelayid != null">
+        PDELAYID,
+      </if>
+      <if test="pname != null">
+        PNAME,
+      </if>
+      <if test="ppeople != null">
+        PPEOPLE,
+      </if>
+      <if test="pcclasify != null">
+        PCCLASIFY,
+      </if>
+      <if test="pdept != null">
+        PDEPT,
+      </if>
+      <if test="psource != null">
+        PSOURCE,
+      </if>
+      <if test="pothers != null">
+        POTHERS,
+      </if>
+      <if test="pdate != null">
+        PDATE,
+      </if>
+      <if test="pendtime != null">
+        PENDTIME,
+      </if>
+      <if test="pid != null">
+        PID,
+      </if>
+      <if test="pyq1 != null">
+        PYQ1,
+      </if>
+      <if test="pyq2 != null">
+        PYQ2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pdelayid != null">
+        #{pdelayid,jdbcType=DECIMAL},
+      </if>
+      <if test="pname != null">
+        #{pname,jdbcType=VARCHAR},
+      </if>
+      <if test="ppeople != null">
+        #{ppeople,jdbcType=VARCHAR},
+      </if>
+      <if test="pcclasify != null">
+        #{pcclasify,jdbcType=VARCHAR},
+      </if>
+      <if test="pdept != null">
+        #{pdept,jdbcType=VARCHAR},
+      </if>
+      <if test="psource != null">
+        #{psource,jdbcType=VARCHAR},
+      </if>
+      <if test="pothers != null">
+        #{pothers,jdbcType=VARCHAR},
+      </if>
+      <if test="pdate != null">
+        #{pdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pendtime != null">
+        #{pendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pid != null">
+        #{pid,jdbcType=DECIMAL},
+      </if>
+      <if test="pyq1 != null">
+        #{pyq1,jdbcType=DECIMAL},
+      </if>
+      <if test="pyq2 != null">
+        #{pyq2,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chengyong.entity.KDelayproject">
+    update K_DELAYPROJECT
+    <set>
+      <if test="pname != null">
+        PNAME = #{pname,jdbcType=VARCHAR},
+      </if>
+      <if test="ppeople != null">
+        PPEOPLE = #{ppeople,jdbcType=VARCHAR},
+      </if>
+      <if test="pcclasify != null">
+        PCCLASIFY = #{pcclasify,jdbcType=VARCHAR},
+      </if>
+      <if test="pdept != null">
+        PDEPT = #{pdept,jdbcType=VARCHAR},
+      </if>
+      <if test="psource != null">
+        PSOURCE = #{psource,jdbcType=VARCHAR},
+      </if>
+      <if test="pothers != null">
+        POTHERS = #{pothers,jdbcType=VARCHAR},
+      </if>
+      <if test="pdate != null">
+        PDATE = #{pdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pendtime != null">
+        PENDTIME = #{pendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pid != null">
+        PID = #{pid,jdbcType=DECIMAL},
+      </if>
+      <if test="pyq1 != null">
+        PYQ1 = #{pyq1,jdbcType=DECIMAL},
+      </if>
+      <if test="pyq2 != null">
+        PYQ2 = #{pyq2,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where PDELAYID = #{pdelayid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chengyong.entity.KDelayproject">
+    update K_DELAYPROJECT
+    set PNAME = #{pname,jdbcType=VARCHAR},
+      PPEOPLE = #{ppeople,jdbcType=VARCHAR},
+      PCCLASIFY = #{pcclasify,jdbcType=VARCHAR},
+      PDEPT = #{pdept,jdbcType=VARCHAR},
+      PSOURCE = #{psource,jdbcType=VARCHAR},
+      POTHERS = #{pothers,jdbcType=VARCHAR},
+      PDATE = #{pdate,jdbcType=TIMESTAMP},
+      PENDTIME = #{pendtime,jdbcType=TIMESTAMP},
+      PID = #{pid,jdbcType=DECIMAL},
+      PYQ1 = #{pyq1,jdbcType=DECIMAL},
+      PYQ2 = #{pyq2,jdbcType=DECIMAL}
+    where PDELAYID = #{pdelayid,jdbcType=DECIMAL}
+  </update>
+
+  <update id="updateByPYQ1" parameterType="java.lang.Short">
+    update K_DELAYPROJECT
+    set
+      PYQ1 = #{pyq1,jdbcType=DECIMAL}
+    where PDELAYID = #{pdelayid,jdbcType=DECIMAL}
+  </update>
+
+  <update id="updateByPYQ2" parameterType="java.lang.Short">
+    update K_DELAYPROJECT
+    set
+      PYQ2 = #{pyq2,jdbcType=DECIMAL}
+    where PDELAYID = #{pdelayid,jdbcType=DECIMAL}
+  </update>
+
+</mapper>

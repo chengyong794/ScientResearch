@@ -17,7 +17,7 @@
 
 
         <fieldset class="table-search-fieldset">
-            <legend>搜索申报信息</legend>
+            <legend>搜索延期信息</legend>
             <div style="margin: 10px 10px 10px 10px">
                 <form class="layui-form layui-form-pane" id="searchFrom2" action="">
                     <div class="layui-form-item">
@@ -25,13 +25,6 @@
                             <label class="layui-form-label">项目名</label>
                             <div class="layui-input-inline">
                                 <input type="text" name="pname" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-
-                        <div class="layui-inline">
-                            <label class="layui-form-label">批次名称</label>
-                            <div class="layui-input-inline">
-                                <input type="text" name="pcname" autocomplete="off" class="layui-input">
                             </div>
                         </div>
 
@@ -60,41 +53,31 @@
         <!--申报信息表-->
         <table class="layui-hide" id="currentTableId2" lay-filter="currentTableFilter2"></table>
 
-        <div style="display: none;margin: auto;" class="layui-form layuimini-form" id="EditandAdd">
-            <form class="layui-form" lay-filter="dataFrom" id="dataFrm">
-            <div class="layui-form-item" style="width: 500px;">
-                <label class="layui-form-label required">文件上传</label>
-                <div class="layui-upload-drag" id="test3">
-                    <i class="layui-icon"></i>
-                    <p>点击上传，或将文件拖拽到此处</p>
 
-                </div>
-            </div>
-            </form>
-        </div>
-    </div>
+        <script type="text/html" id="currentTableBar3">
+            <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="on">审核延期</a>
+        </script>
+        <script type="text/html" id="currentTableBar2">
+            <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit2" >下载延期报告</a>
+        </script>
 
-      <script type="text/html" id="currentTableBar2">
-            <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit2" >上传中检报告</a>
-      </script>
 
     </div>
 </div>
 <div th:replace="~{public :: layui_lay-config_js}"></div>
 
 <script>
-    layui.use(['form', 'table','jquery','layer','laydate','upload'], function () {
+    layui.use(['form', 'table','jquery','layer','laydate'], function () {
         var $ = layui.jquery,
             form = layui.form,
             table = layui.table,
             layer = layui.layer,
-            upload = layui.upload,
             laydate = layui.laydate;
 
         var tablereh1;
         tablereh1 = table.render({
             elem: '#currentTableId2',
-            url: '/declare/checklistProject3',
+            url: '/delay/delaylistProject2',
             toolbar: '#toolbarDemo2',
             limits: [5,10, 15, 20, 25, 50, 100],
             limit: 5,
@@ -103,21 +86,23 @@
             cols: [
                 [
                     {type: "checkbox", width: 50},
-                    {field: 'pid', width: 20, title: 'ID', sort: true},
-                    {field: 'pname', width: 80, title: '项目名称'},
-                    {field: 'pcname', width: 150, title: '批次名称'},
-                    {field: 'pccome', width: 150, title: '项目来源'},
-                    {field: 'members', width: 150, title: '参与成员'},
-                    {field: 'ppeople', width: 150, title: '负责人'},
-                    {field: 'pdept', width: 150, title: '所在部门', sort: true},
-                    {field: 'pzj1', width: 150, title: '审核状态', templet: function (d) {
-                            if (d.pzj1 == 0) {
-                                return '<span class="layui-badge ">正在中检</span>';
+                    {field: 'pdelayid', width: 60, title: 'ID', sort: true},
+                    {field: 'pname', width: 100, title: '项目名称'},
+                    {field: 'ppeople', width: 100, title: '负责人'},
+                    {field: 'pcclasify', width: 100, title: '项目分类'},
+                    {field: 'pdept', width: 100, title: '所在部门'},
+                    {field: 'pmark', width: 100, title: '延期原因'},
+                    {field: 'pdelaydate', width: 100, title: '延期时间'},
+                    {field: 'pdelayendtime', width: 100, title: '结束时间'},
+                    {field: 'pyq2', width: 100, title: '审核状态', templet: function (d) {
+                            if (d.pyq2 == 1) {
+                                return '<span class="layui-badge ">延期</span>';
                             } else {
-                                return '<span class="layui-badge layui-bg-blue">中检完毕</span>';
+                                return '<span class="layui-badge layui-bg-blue">未延期</span>';
                             }
                         }},
-                    {title: '操作', minWidth: 100, toolbar: '#currentTableBar2', align: "center"}
+                    {title: '审核', minWidth: 150, toolbar: '#currentTableBar3', align: "center"}
+                    ,{title: '操作', minWidth: 100, toolbar: '#currentTableBar2', align: "center"}
                 ]
             ]
         });
@@ -127,52 +112,36 @@
             var datas = $("#searchFrom2").serialize();
             //执行搜索重载
             tablereh1.reload({
-                url:'/declare/checklistProject3?'+datas,
+                url:'/delay/delaylistProject2?'+datas,
 
             });
         });
 
-        var add_edit_open;
+
+//===============<!-------------------------------------->==============
+        var edit_open;
+        /**
+         * toolbar监听事件
+         */
 
         table.on('tool(currentTableFilter2)', function (obj) {
             var data = obj.data;
-            if (obj.event === 'edit2') {
-                add_edit_open = layer.open({
-                    title: '中检报告提交',
-                    type:1,
-                    content:$('#EditandAdd'),
-                    skin: 'layui-layer-lan',
-                    area: ['500px', '400px']
-                    ,btnAlign:'c'
-                    ,btn: ['提交'
-                        , '取消']
-                    ,yes: function(index, layero){
-                        $.ajax({
-                            type:'GET',
-                            url:'/declare/checkUpdate?pid='+data.pid,
-                            success:function(msg){
-                                layer.close(add_edit_open);
-                                tablereh1.reload();
-                            }
-                        });
 
-                    }
-                    ,btn2: function(index, layero){
+             if(obj.event === 'on'){
+                $.ajax({
+                    type:'GET',
+                    url:'/delay/updateByPYQ2?pdelayid='+data.pdelayid+'&pyq2='+1+'&pid='+data.pid,
+                    success:function(msg){
+                        layer.msg(msg.info);
+                        tablereh1.reload();
                     }
                 });
-            }
-        });
+             }
+             else if(obj.event === 'edit2'){
+                 window.location.href='/down/downdelay?pdelayid='+data.pdelayid;
+             }
 
-    upload.render({
-        elem: '#test3'
-        ,url: '/upload/checkFile'
-        ,auto: true
-        ,accept: 'file'
-        ,exts: 'zip|rar|7z|doc|docx|xls|xlsx'
-        ,done: function(res){
-            layer.msg(res.info);
-        }
-    });
+        });
 
     });
 </script>

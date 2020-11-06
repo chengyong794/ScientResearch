@@ -40,6 +40,8 @@ public interface KProjectMapper {
 
     List<KProject> checklistProject3(KProject kProject);
 
+    List<KProject> delaylistProject3(KProject kProject);
+
     List<KProject> endlistProject1(KProject kProject);
 
     List<KProject> endlistProject3(KProject kProject);
@@ -59,6 +61,10 @@ public interface KProjectMapper {
     int updateByPJX1(Short pid,Short pjx1);
 
     int updateByPJX2(Short pid,Short pjx2);
+
+    int updateByPYQ1(Short pid,Short pyq1);
+
+    int updateByPYQ2(Short pid,Short pyq2);
 
     String downProjectSch(Short pid);
 }

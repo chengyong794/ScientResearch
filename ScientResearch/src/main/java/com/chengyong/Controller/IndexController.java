@@ -255,6 +255,40 @@ public class IndexController {
     }
 
     /**
+     * 项目延期跳转
+     */
+    @RequestMapping("/delayproject")
+    public String delayproject(HttpServletRequest request){
+        String url = null;
+        String un = (String) request.getSession().getAttribute("user");
+        Integer KyType = (Integer) redisUtil.get(un);
+
+        if(KyType==null){
+            Short tp = kKyuserService.findUserRoleType(un);
+            if(tp==1||tp==0){
+                redisUtil.set("KyType",tp);
+                url = "page/promanage/delay_project1";
+            }else if(tp==2){
+                redisUtil.set("KyType",tp);
+                url = "page/promanage/delay_project2";
+            }else if(tp==3){
+                redisUtil.set("KyType",tp);
+                url = "page/promanage/delay_project3";
+            }
+        }else{
+            if(KyType==1){
+                url = "page/promanage/delay_project1";
+            }else if(KyType==2){
+                url = "page/promanage/delay_project2";
+            }else if(KyType==3){
+                url = "page/promanage/delay_project3";
+            }
+        }
+
+        return url;
+    }
+
+    /**
      * 规章制度跳转
      */
     @RequestMapping("/rules")

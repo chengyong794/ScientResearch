@@ -39,6 +39,9 @@ public class KProject implements Serializable {
     private Short pzj1 ;
     private Short pzj2 ;
 
+    private Short pyq1 ;
+    private Short pyq2 ;
+
     private String members;
 
     private String pcname;
@@ -46,6 +49,22 @@ public class KProject implements Serializable {
     private Integer page;
 
     private Integer limit;
+
+    public Short getPyq1() {
+        return pyq1;
+    }
+
+    public void setPyq1(Short pyq1) {
+        this.pyq1 = pyq1;
+    }
+
+    public Short getPyq2() {
+        return pyq2;
+    }
+
+    public void setPyq2(Short pyq2) {
+        this.pyq2 = pyq2;
+    }
 
     public String getPzjsource() {
         return pzjsource;

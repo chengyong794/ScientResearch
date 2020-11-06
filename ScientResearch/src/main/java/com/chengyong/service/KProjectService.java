@@ -40,6 +40,8 @@ public interface KProjectService {
 
     DataJson checklistProject3(KProject kProject);
 
+    DataJson delaylistProject3(KProject kProject);
+
     DataJson endlistProject1(KProject kProject);
 
     DataJson endlistProject3(KProject kProject);

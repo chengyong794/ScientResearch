@@ -35,6 +35,7 @@ public class MyRbacService {
                 urlList.add(str);
             }
             urlList.add("/leftmenu");
+            urlList.add("/welcome");
             //判断我们拥有的url 是否和 用户访问的url一样
             for (String url:urlList){
                 if(url != null){

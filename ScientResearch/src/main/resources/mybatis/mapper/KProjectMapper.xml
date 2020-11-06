@@ -24,12 +24,14 @@
     <result column="PJX2" jdbcType="VARCHAR" property="pjx2" />
     <result column="PZJ1" jdbcType="VARCHAR" property="pzj1" />
     <result column="PZJ2" jdbcType="VARCHAR" property="pzj2" />
+    <result column="PYQ1" jdbcType="VARCHAR" property="pyq1" />
+    <result column="PYQ2" jdbcType="VARCHAR" property="pyq2" />
   </resultMap>
   <sql id="Base_Column_List">
     PID, PNAME, PCOMS, PPEOPLE,
     PTYPE, PDEPT, PSOURCE, POTHERS,
      PDATE,  PENDTIME,PRESFROM,PSB1,PSB2
-     ,PLX1,PLX2,PJX1,PJX2,PCNAME,PZJ1,PZJ2,PZJSOURCE
+     ,PLX1,PLX2,PJX1,PJX2,PCNAME,PZJ1,PZJ2,PZJSOURCE,PYQ1,PYQ2
   </sql>
 
   <select id="downProjectSch" parameterType="java.lang.Short" resultType="java.lang.String">
@@ -354,6 +356,24 @@
     </where>
   </select>
 
+  <select id="delaylistProject3" parameterType="com.chengyong.entity.KProject" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_PROJECT
+    <where>
+      <if test="pname != null">
+        PNAME like concat(concat('%',#{pname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pcname != null">
+        and PCNAME like concat(concat('%',#{pcname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pdept != null">
+        and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
+      </if>
+      and PLX1 = 1 AND PLX2 = 1 and PZJ2 = 1 and PZJ1 = 1
+    </where>
+  </select>
+
   <select id="downcheck" parameterType="java.lang.Short" resultType="java.lang.String">
     select PZJSOURCE from K_PROJECT where PID = #{pid,jdbcType=DECIMAL}
   </select>
@@ -421,6 +441,18 @@
   <update id="updateByPJX2" parameterType="java.lang.Short">
     update K_PROJECT
     set PJX2 = #{pjx2,jdbcType=DECIMAL}
+    where PID = #{pid,jdbcType=DECIMAL}
+  </update>
+
+  <update id="updateByPYQ1" parameterType="java.lang.Short">
+    update K_PROJECT
+    set PYQ1 = #{pyq1,jdbcType=DECIMAL}
+    where PID = #{pid,jdbcType=DECIMAL}
+  </update>
+
+  <update id="updateByPYQ2" parameterType="java.lang.Short">
+    update K_PROJECT
+    set PYQ2 = #{pyq2,jdbcType=DECIMAL}
     where PID = #{pid,jdbcType=DECIMAL}
   </update>
 </mapper>

@@ -200,6 +200,14 @@ public class KProjectServiceImpl implements KProjectService {
     }
 
     @Override
+    public DataJson delaylistProject3(KProject kProject) {
+        PageHelper.startPage(kProject.getPage(),kProject.getLimit());
+        List<KProject> list = kProjectMapper.delaylistProject3(kProject);
+        PageInfo info = new PageInfo(list);
+        return new DataJson(info.getTotal(),list);
+    }
+
+    @Override
     public DataJson endlistProject1(KProject kProject) {
         PageHelper.startPage(kProject.getPage(),kProject.getLimit());
         List<KProject> list = kProjectMapper.endlistProject1(kProject);
