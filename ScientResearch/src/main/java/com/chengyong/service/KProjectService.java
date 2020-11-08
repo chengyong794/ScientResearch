@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
 @Service
 public interface KProjectService {
     int deleteByPrimaryKey(Short pid);
@@ -26,11 +27,15 @@ public interface KProjectService {
 
     KProject selectByPnameAndPPEOPLE(KProject kProject);
 
-    DataJson listProject(KProject kProject);
+    DataJson sucProject1(KProject kProject);
+
+    DataJson sucProject2(KProject kProject);
+
+    DataJson sucProject3(KProject kProject);
+
+    DataJson declareProject2(KProject kProject);
 
     DataJson listProjectSchool(KProject kProject);
-
-    DataJson seachrProject(KProject kProject);
 
     DataJson seachrProjectSch(KProject kProject);
 
@@ -45,6 +50,12 @@ public interface KProjectService {
     DataJson endlistProject1(KProject kProject);
 
     DataJson endlistProject3(KProject kProject);
+
+    DataJson terminlistProject1(KProject kProject);
+
+    DataJson terminlistProject2(KProject kProject);
+
+    DataJson terminlistProject3(KProject kProject);
 
     int updateByPSB1(Short pid,Short psb1);
 

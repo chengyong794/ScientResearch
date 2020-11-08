@@ -14,13 +14,6 @@
 <div class="layuimini-container">
     <div class="layuimini-main">
 
-<!--        <script type="text/html" id="toolbarDemo2">-->
-<!--            <div class="layui-btn-container">-->
-<!--                <button class="layui-btn layui-btn-sm layui-btn-danger data-delete-btn" lay-event="deletelow2"> 批量删除 </button>-->
-<!--                <button class="layui-btn layui-btn-sm layui-btn-normal" lay-event="export"> 导出 </button>-->
-<!--            </div>-->
-<!--        </script>-->
-
 
 
         <fieldset class="table-search-fieldset">
@@ -67,95 +60,10 @@
         <!--申报信息表-->
         <table class="layui-hide" id="currentTableId2" lay-filter="currentTableFilter2"></table>
 
-<!--        <script type="text/html" id="currentTableBar2">-->
-<!--            <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit2">编辑</a>-->
-<!--            <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete2">删除</a>-->
-<!--            <a class="layui-btn layui-btn-xs layui-btn-danger data-count-blue" lay-event="down">下载</a>-->
-<!--        </script>-->
-
         <script type="text/html" id="currentTableBar3">
             <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="on">立项</a>
             <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="off">不立项</a>
         </script>
-
-        <!--修改页面开始
-        <div style="display: none;margin: auto;" class="layui-form layuimini-form" id="Edit2">
-            <form class="layui-form" lay-filter="dataFrom2" id="dataFrm2">
-
-                <div class="layui-form-item" style="width: 500px;margin-top: 50px;">
-                    <label class="layui-form-label required">项目名称</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="pname" lay-verify="required" lay-reqtext="项目名称不能为空" placeholder="请输入项目名称" value="" class="layui-input">
-                        <input type="hidden" name="pid" value=""/>
-                    </div>
-                </div>
-
-                <div class="layui-form-item" style="width: 500px;">
-                    <label class="layui-form-label required">项目来源</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="pccome" lay-verify="required" lay-reqtext="项目来源不能为空" placeholder="请输入项目来源" value="" class="layui-input">
-                    </div>
-                </div>
-
-                <div class="layui-form-item" style="width: 500px;">
-                    <label class="layui-form-label required">项目负责人</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="ppeople" lay-verify="required" lay-reqtext="项目分类不能为空" placeholder="请输入项目分类" value="" class="layui-input">
-                    </div>
-                </div>
-
-                <div class="layui-form-item" style="width: 500px;">
-                    <label class="layui-form-label required">项目分类</label>
-                    <div class="layui-input-block">
-                        <select name="pcclasify" readonly="readonly">
-                            <option value="小型项目">小型项目</option>
-                            <option value="重点项目">重点项目</option>
-                            <option value="学院项目">学院项目</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="layui-form-item" style="width: 500px;">
-                    <label class="layui-form-label required">项目分类</label>
-                    <div class="layui-input-block">
-                        <select name="pdept" placeholder="请输入部门" value="" class="layui-input">
-                            <option value="信息系">信息系</option>
-                            <option value="管理系">管理系</option>
-                            <option value="土木系">土木系</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="layui-form-item" style="width: 500px;">
-                    <label class="layui-form-label required">成果形式</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="presfrom" lay-verify="required" lay-reqtext="成果形式不能为空" placeholder="请输入成果形式" value="" class="layui-input">
-                    </div>
-                </div>
-
-                <div class="layui-form-item" style="width: 500px;">
-                    <label class="layui-form-label required">其他说明</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="pothers" lay-verify="required" lay-reqtext="其他说明不能为空" placeholder="请输入其他说明" value="" class="layui-input">
-                    </div>
-                </div>
-
-                <div class="layui-inline">
-                    <label class="layui-form-label">申报时间</label>
-                    <div class="layui-input-inline">
-                        <input type="text" name="pdate" class="layui-input" id="pdate" placeholder="请选择时间">
-                    </div>
-                </div>
-                <div class="layui-inline">
-                    <label class="layui-form-label">结束日期</label>
-                    <div class="layui-input-inline">
-                        <input type="text" name="pendtime" class="layui-input" id="pendtime"  placeholder="请选择时间">
-                    </div>
-                </div>
-
-            </form>
-        </div>
-        修改页面结束-->
 
     </div>
 </div>
@@ -169,32 +77,11 @@
             layer = layui.layer,
             laydate = layui.laydate;
 
-        // laydate.render({
-        //     elem: '#test1',
-        //     type: 'datetime'
-        //
-        // });
-        //
-        // laydate.render({
-        //     elem: '#test2'
-        //     ,type: 'datetime'
-        // });
-        //
-        // laydate.render({
-        //     elem: '#pdate',
-        //     type: 'datetime'
-        //
-        // });
-        //
-        // laydate.render({
-        //     elem: '#pendtime'
-        //     ,type: 'datetime'
-        // });
 
         var tablereh1;
         tablereh1 = table.render({
             elem: '#currentTableId2',
-            url: '/declare/listProject',
+            url: '/declare/sucProject1',
             toolbar: '#toolbarDemo2',
             limits: [5,10, 15, 20, 25, 50, 100],
             limit: 5,
@@ -228,7 +115,7 @@
             var datas = $("#searchFrom2").serialize();
             //执行搜索重载
             tablereh1.reload({
-                url:'/declare/seachrProject?'+datas,
+                url:'/declare/seachrProjectSch?'+datas,
 
             });
         });
@@ -239,86 +126,10 @@
         /**
          * toolbar监听事件
          */
-        // table.on('toolbar(currentTableFilter2)', function (obj) {
-        //
-        //     if (obj.event === 'deletelow2') {  // 监听删除操作
-        //         var checkStatus = table.checkStatus('currentTableId2')
-        //             , data = checkStatus.data;
-        //         var kyid = new Array();
-        //         for (let i = 0; i <data.length ; i++) {
-        //             kyid[i] = data[i].pid;
-        //         }
-        //
-        //         layer.confirm('真的删除选中的么', function (index) {
-        //             $.ajax({
-        //                 type:'GET',
-        //                 url:'/declare/delprojectlot?pids='+kyid,
-        //                 success:function(msg){
-        //                     layer.msg(msg.info);
-        //                     tablereh1.reload();
-        //                 }
-        //             });
-        //             layer.close(index);
-        //         });
-        //
-        //     }else if(obj.event === 'export'){
-        //         var checkStatus = table.checkStatus('currentTableId2')
-        //             , data = checkStatus.data;
-        //         var kyid = new Array();
-        //         for (let i = 0; i <data.length ; i++) {
-        //             kyid[i] = data[i].pid;
-        //         }
-        //         window.location.href="/export/exportProject2?pids="+kyid;
-        //     }
-        // });
 
         table.on('tool(currentTableFilter2)', function (obj) {
             var data = obj.data;
-            // if (obj.event === 'edit2') {
-            //
-            //     edit_open = layer.open({
-            //         title: '编辑项目',
-            //         type:1,
-            //         content:$('#Edit2'),
-            //         skin: 'layui-layer-lan',
-            //         area: ['600px', '500px']
-            //         ,btnAlign:'c'
-            //         ,btn: ['修改'
-            //             , '取消修改']
-            //         ,yes: function(index, layero){
-            //             var data1 = form.val("dataFrom2");
-            //             $.ajax({
-            //                 type:'POST',
-            //                 url:'/declare/editproject',
-            //                 data:data1,
-            //                 success:function(msg){
-            //                     layer.msg(msg.info);
-            //                     layer.close(edit_open);
-            //                     tablereh1.reload();
-            //                 }
-            //             });
-            //
-            //         }
-            //         ,btn2: function(index, layero){
-            //         },
-            //         success:function(index){
-            //             form.val('dataFrom2',data);
-            //         }
-            //     });
-            //     return false;
-            // } else if (obj.event === 'delete2') {
-            //     layer.confirm('真的删除行么', function (index) {
-            //         $.ajax({
-            //             type:'GET',
-            //             url:'/declare/delproject?pid='+data.pid,
-            //             success:function(msg){
-            //                 layer.msg(msg.info);
-            //                 tablereh1.reload();
-            //             }
-            //         });
-            //         layer.close(index);
-            //     });
-            // }else
+
              if(obj.event === 'on'){
                 $.ajax({
                     type:'GET',
@@ -338,22 +149,7 @@
                     }
                 });
              }
-             //else if(obj.event === 'down'){
-            //     $.ajax({
-            //         type:'GET',
-            //         url:'/down/isTorF?pid='+data.pid,
-            //         success:function(msg){
-            //             if(msg.info == 0){
-            //                 layer.msg("下载失败");
-            //             }else{
-            //                 layer.msg("下载成功");
-            //                 window.location.href='/down/downProjectSch?pid='+data.pid;
-            //             }
-            //
-            //         }
-            //     });
-            //
-            // }
+
         });
 
     });

@@ -55,7 +55,7 @@ public class KKyuserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-
+        request.getSession().setAttribute("user",username);
         KKyuser kKyuser = (KKyuser) redisUtil.get("loadUserByUsername"+username);
 
 
@@ -99,7 +99,6 @@ public class KKyuserService implements UserDetailsService {
         }catch (Exception e){
             e.printStackTrace();
         }
-        request.getSession().setAttribute("user",kKyuser.getUsername());
 
         return kKyuser;
     }

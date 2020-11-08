@@ -26,6 +26,8 @@ public interface KDelayprojectService {
 
     int updateByPYQ2(Short pyq2,Short pdelayid,Short pid);
 
+    int PYQEND(Short pyq,Short pid);
+
     int updateByPrimaryKeySelective(KDelayproject record);
 
     int updateByPrimaryKey(KDelayproject record);

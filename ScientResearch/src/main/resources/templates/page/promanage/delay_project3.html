@@ -134,6 +134,7 @@
 
       <script type="text/html" id="currentTableBar2">
             <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit2" >申请延期</a>
+            <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="enddelay" >结束延期</a>
       </script>
 
     </div>
@@ -186,7 +187,7 @@
                                 return '<span class="layui-badge layui-bg-blue">未延期</span>';
                             }
                         }},
-                    {title: '操作', minWidth: 100, toolbar: '#currentTableBar2', align: "center"}
+                    {title: '操作', minWidth: 200, toolbar: '#currentTableBar2', align: "center"}
                 ]
             ]
         });
@@ -233,6 +234,15 @@
                     },
                     success:function(index){
                         form.val('dataFrom',data);
+                    }
+                });
+            }else if(obj.event === 'enddelay'){
+                $.ajax({
+                    type:'GET',
+                    url:'/delay/PYQEND?pid='+data.pid+'&pyq='+0,
+                    success:function(msg){
+                        layer.msg(msg.info);
+                        tablereh1.reload();
                     }
                 });
             }

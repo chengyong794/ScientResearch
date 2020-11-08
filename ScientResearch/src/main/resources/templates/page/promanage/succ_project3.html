@@ -12,13 +12,6 @@
 <div class="layuimini-container">
     <div class="layuimini-main">
 
-<!--        <script type="text/html" id="toolbarDemo2">-->
-<!--            <div class="layui-btn-container">-->
-<!--                <button class="layui-btn layui-btn-sm layui-btn-danger data-delete-btn" lay-event="deletelow2"> 批量删除 </button>-->
-<!--                <button class="layui-btn layui-btn-sm layui-btn-normal" lay-event="export"> 导出 </button>-->
-<!--            </div>-->
-<!--        </script>-->
-
 
 
         <fieldset class="table-search-fieldset">
@@ -82,7 +75,7 @@
         var tablereh1;
         tablereh1 = table.render({
             elem: '#currentTableId2',
-            url: '/declare/listProject',
+            url: '/declare/sucProject3',
             toolbar: '#toolbarDemo2',
             limits: [5,10, 15, 20, 25, 50, 100],
             limit: 5,
@@ -115,7 +108,7 @@
             var datas = $("#searchFrom2").serialize();
             //执行搜索重载
             tablereh1.reload({
-                url:'/declare/seachrProject?'+datas,
+                url:'/declare/sucProject3?'+datas,
 
             });
         });

@@ -46,9 +46,19 @@ public class KProject implements Serializable {
 
     private String pcname;
 
+    private Short kyid;
+
     private Integer page;
 
     private Integer limit;
+
+    public Short getKyid() {
+        return kyid;
+    }
+
+    public void setKyid(Short kyid) {
+        this.kyid = kyid;
+    }
 
     public Short getPyq1() {
         return pyq1;

@@ -42,6 +42,7 @@ public class DeclareController {
         return kPiciService.listdeclare(kPici);
     }
 
+
     @RequestMapping("/searchdeclare")
     public DataJson searchdeclare(KPici kPici){
         return kPiciService.searchdeclare(kPici);
@@ -95,6 +96,12 @@ public class DeclareController {
     }
 
 
+    @RequestMapping("/listProjectSchool")
+    public DataJson listProjectSchool(KProject kProject){
+
+        return kProjectService.listProjectSchool(kProject);
+    }
+
     /**
      * 科研人员添加的项目信息
      * @param kProject
@@ -128,14 +135,30 @@ public class DeclareController {
         return map;
     }
 
+    @RequestMapping("/declareProject2")
+    public DataJson declareProject2(KProject kProject){
+        return kProjectService.declareProject2(kProject);
+    }
+
+    /**
+     *  科研人员查看项目信息
+     * @param kProject
+     * @return
+     */
+    @RequestMapping("/sucProject3")
+    public DataJson sucProject3(KProject kProject){
+
+        return kProjectService.sucProject3(kProject);
+    }
+
     /**
      *  系科研秘书查看项目信息
      * @param kProject
      * @return
      */
-    @RequestMapping("/listProject")
-    public DataJson listProject(KProject kProject){
-        return kProjectService.listProject(kProject);
+    @RequestMapping("/sucProject2")
+    public DataJson sucProject2(KProject kProject){
+        return kProjectService.sucProject2(kProject);
     }
 
     /**
@@ -143,19 +166,10 @@ public class DeclareController {
      * @param kProject
      * @return
      */
-    @RequestMapping("/listProjectSchool")
-    public DataJson listProjectSchool(KProject kProject){
-        return kProjectService.listProjectSchool(kProject);
-    }
+    @RequestMapping("/sucProject1")
+    public DataJson sucProject1(KProject kProject){
 
-    /**
-     * 系科研秘书 搜索项目信息
-     * @param kProject
-     * @return
-     */
-    @RequestMapping("/seachrProject")
-    public DataJson seachrProject(KProject kProject){
-        return kProjectService.seachrProject(kProject);
+        return kProjectService.sucProject1(kProject);
     }
 
 

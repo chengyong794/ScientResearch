@@ -15,6 +15,7 @@
     <result column="PDATE" jdbcType="TIMESTAMP" property="pdate" />
     <result column="PENDTIME" jdbcType="TIMESTAMP" property="pendtime" />
     <result column="PCNAME" jdbcType="VARCHAR" property="pcname" />
+    <result column="KYID" jdbcType="DECIMAL" property="kyid" />
 
     <result column="PSB1" jdbcType="VARCHAR" property="psb1" />
     <result column="PSB2" jdbcType="VARCHAR" property="psb2" />
@@ -31,7 +32,7 @@
     PID, PNAME, PCOMS, PPEOPLE,
     PTYPE, PDEPT, PSOURCE, POTHERS,
      PDATE,  PENDTIME,PRESFROM,PSB1,PSB2
-     ,PLX1,PLX2,PJX1,PJX2,PCNAME,PZJ1,PZJ2,PZJSOURCE,PYQ1,PYQ2
+     ,PLX1,PLX2,PJX1,PJX2,PCNAME,PZJ1,PZJ2,PZJSOURCE,PYQ1,PYQ2,KYID
   </sql>
 
   <select id="downProjectSch" parameterType="java.lang.Short" resultType="java.lang.String">
@@ -42,6 +43,77 @@
   </select>
 
   <select id="listProject" parameterType="com.chengyong.entity.KProject" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_PROJECT
+    <where>
+      <if test="pname != null">
+        PNAME like concat(concat('%',#{pname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pcname != null">
+        and PCNAME like concat(concat('%',#{pcname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pdept != null">
+        and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
+      </if>
+      and KYID = #{kyid,jdbcType=DECIMAL}
+    </where>
+  </select>
+
+  <select id="sucProject1" parameterType="com.chengyong.entity.KProject" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_PROJECT
+    <where>
+      <if test="pname != null">
+        PNAME like concat(concat('%',#{pname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pcname != null">
+        and PCNAME like concat(concat('%',#{pcname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pdept != null">
+        and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
+      </if>
+      and PSB1 = 1 and PSB2 = 1
+    </where>
+  </select>
+
+  <select id="sucProject2" parameterType="com.chengyong.entity.KProject" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_PROJECT
+    <where>
+      <if test="pname != null">
+        PNAME like concat(concat('%',#{pname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pcname != null">
+        and PCNAME like concat(concat('%',#{pcname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pdept != null">
+        and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
+      </if>
+    </where>
+  </select>
+
+  <select id="sucProject3" parameterType="com.chengyong.entity.KProject" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_PROJECT
+    <where>
+      <if test="pname != null">
+        PNAME like concat(concat('%',#{pname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pcname != null">
+        and PCNAME like concat(concat('%',#{pcname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pdept != null">
+        and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
+      </if>
+      and KYID = #{kyid,jdbcType=DECIMAL}
+    </where>
+  </select>
+
+  <select id="declareProject2" parameterType="com.chengyong.entity.KProject" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from K_PROJECT
@@ -108,7 +180,7 @@
       <if test="pdept != null">
         and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
       </if>
-      and PSB1 = 1
+      and PSB1 = 1 and PSB2 = 1
     </where>
   </select>
 
@@ -140,11 +212,11 @@
     insert into K_PROJECT (PID, PNAME, PCOMS, 
       PPEOPLE, PTYPE, PDEPT, 
       PSOURCE, POTHERS, PDATE, 
-       PENDTIME,PRESFROM,PCNAME )
+       PENDTIME,PRESFROM,PCNAME,KYID )
     values (#{pid,jdbcType=DECIMAL}, #{pname,jdbcType=VARCHAR}, #{pccome,jdbcType=VARCHAR},
       #{ppeople,jdbcType=VARCHAR}, #{pcclasify,jdbcType=VARCHAR}, #{pdept,jdbcType=VARCHAR},
       #{psource,jdbcType=VARCHAR}, #{pothers,jdbcType=VARCHAR}, to_date(#{pdate,jdbcType=TIMESTAMP},'yyyy-MM-dd HH24:mi:ss'),
-       to_date(#{pendtime,jdbcType=TIMESTAMP},'yyyy-MM-dd HH24:mi:ss'),#{presfrom,jdbcType=VARCHAR},#{pcname,jdbcType=VARCHAR})
+       to_date(#{pendtime,jdbcType=TIMESTAMP},'yyyy-MM-dd HH24:mi:ss'),#{presfrom,jdbcType=VARCHAR},#{pcname,jdbcType=VARCHAR},#{kyid,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.chengyong.entity.KProject">
     insert into K_PROJECT
@@ -352,7 +424,7 @@
       <if test="pdept != null">
         and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
       </if>
-      and PLX1 = 1 AND PLX2 = 1 and PZJ2 = 1 and PZJ1 = 1
+      and PLX1 = 1 AND PLX2 = 1  and KYID = #{kyid,jdbcType=DECIMAL}
     </where>
   </select>
 
@@ -370,7 +442,7 @@
       <if test="pdept != null">
         and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
       </if>
-      and PLX1 = 1 AND PLX2 = 1 and PZJ2 = 1 and PZJ1 = 1
+      and PLX1 = 1 AND PLX2 = 1 and PZJ2 = 1 and PZJ1 = 1 and KYID = #{kyid,jdbcType=DECIMAL}
     </where>
   </select>
 
@@ -392,7 +464,61 @@
       <if test="pdept != null">
         and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
       </if>
-      and PZJ2 = 1 AND PZJ1 = 1
+      and PZJ2 = 1 AND PZJ1 = 1 and KYID = #{kyid,jdbcType=DECIMAL}
+    </where>
+  </select>
+
+  <select id="terminlistProject1" parameterType="com.chengyong.entity.KProject" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_PROJECT
+    <where>
+      <if test="pname != null">
+        PNAME like concat(concat('%',#{pname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pcname != null">
+        and PCNAME like concat(concat('%',#{pcname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pdept != null">
+        and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
+      </if>
+      and pyq1 = 0 and pyq2 = 0
+    </where>
+  </select>
+
+  <select id="terminlistProject2" parameterType="com.chengyong.entity.KProject" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_PROJECT
+    <where>
+      <if test="pname != null">
+        PNAME like concat(concat('%',#{pname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pcname != null">
+        and PCNAME like concat(concat('%',#{pcname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pdept != null">
+        and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
+      </if>
+      and pyq1 = 0 and pyq2 = 0
+    </where>
+  </select>
+
+  <select id="terminlistProject3" parameterType="com.chengyong.entity.KProject" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_PROJECT
+    <where>
+      <if test="pname != null">
+        PNAME like concat(concat('%',#{pname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pcname != null">
+        and PCNAME like concat(concat('%',#{pcname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pdept != null">
+        and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
+      </if>
+      and pyq1 = 0 and pyq2 = 0 and KYID = #{kyid,jdbcType=DECIMAL}
     </where>
   </select>
 

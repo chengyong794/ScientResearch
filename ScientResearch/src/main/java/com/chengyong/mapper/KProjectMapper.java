@@ -26,6 +26,14 @@ public interface KProjectMapper {
 
     List<KProject> listProject(KProject kProject);
 
+    List<KProject> sucProject1(KProject kProject);
+
+    List<KProject> sucProject2(KProject kProject);
+
+    List<KProject> sucProject3(KProject kProject);
+
+    List<KProject> declareProject2(KProject kProject);
+
     List<KProject> listProjectSchool(KProject kProject);
 
     List<KProject> seachrProject(KProject kProject);
@@ -45,6 +53,12 @@ public interface KProjectMapper {
     List<KProject> endlistProject1(KProject kProject);
 
     List<KProject> endlistProject3(KProject kProject);
+
+    List<KProject> terminlistProject1(KProject kProject);
+
+    List<KProject> terminlistProject2(KProject kProject);
+
+    List<KProject> terminlistProject3(KProject kProject);
 
     int updateByPSB1(Short pid,Short psb1);
 

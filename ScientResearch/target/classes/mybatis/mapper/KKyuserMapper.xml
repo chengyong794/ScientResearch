@@ -44,6 +44,13 @@
     where KYID = #{kyid,jdbcType=DECIMAL}
   </select>
 
+  <select id="selectByuname" parameterType="java.lang.String" resultType="java.lang.Short">
+    select
+    KYID
+    from K_KYUSER
+    where KYNAME = #{kyname,jdbcType=VARCHAR}
+  </select>
+
   <select id="loginUsername" parameterType="java.lang.String" resultType="com.chengyong.entity.KKyuser">
      select KYNAME as username,KYPWD as password,KYID
      from K_KYUSER where KYNAME = #{username,jdbcType=VARCHAR}

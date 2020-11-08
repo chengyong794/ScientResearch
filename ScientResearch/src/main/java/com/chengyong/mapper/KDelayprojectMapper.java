@@ -7,11 +7,15 @@ import java.util.List;
 public interface KDelayprojectMapper {
     int deleteByPrimaryKey(Short pdelayid);
 
+    int deleteBypid(Short pid);
+
     int insert(KDelayproject record);
 
     int insertSelective(KDelayproject record);
 
     KDelayproject selectByPrimaryKey(Short pdelayid);
+
+    Short selectByPDELAYID(Short pid);
 
     String selectDelaypath(Short pdelayid);
 

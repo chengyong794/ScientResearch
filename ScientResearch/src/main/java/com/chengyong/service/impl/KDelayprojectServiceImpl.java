@@ -76,6 +76,13 @@ public class KDelayprojectServiceImpl implements KDelayprojectService {
     }
 
     @Override
+    public int PYQEND(Short pyq, Short pid) {
+        kProjectMapper.updateByPYQ2(pid,pyq);
+        kProjectMapper.updateByPYQ1(pid,pyq);
+        return kDelayprojectMapper.deleteBypid(pid);
+    }
+
+    @Override
     public int updateByPrimaryKeySelective(KDelayproject record) {
         return 0;
     }

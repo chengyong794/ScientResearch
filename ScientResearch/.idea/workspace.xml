@@ -1,7 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="82602a60-2070-4f2f-af9b-f9a97fc674ca" name="Default Changelist" comment="" />
+    <list default="true" id="82602a60-2070-4f2f-af9b-f9a97fc674ca" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/Controller/promanage/TerminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/page/promanage/Termination_project1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/page/promanage/Termination_project2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/page/promanage/Termination_project3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/chengyong/Controller/promanage/TerminController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/page/promanage/Termination_project1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/page/promanage/Termination_project2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/page/promanage/Termination_project3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/Controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/Controller/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/Controller/promanage/DeclareController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/Controller/promanage/DeclareController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/Controller/promanage/DelayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/Controller/promanage/DelayController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/entity/KProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/entity/KProject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KDelayprojectMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KDelayprojectMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KKyuserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KKyuserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KProjectMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KProjectMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KDelayprojectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KDelayprojectService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KKyuserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KKyuserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KProjectService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/service/impl/KDelayprojectServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/impl/KDelayprojectServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/service/impl/KProjectServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/impl/KProjectServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/KDelayprojectMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/KDelayprojectMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/KKyuserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/KKyuserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/KProjectMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/KProjectMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/promanage/declare-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/promanage/declare-1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/promanage/declare-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/promanage/declare-2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/promanage/delay_project3.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/promanage/delay_project3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/promanage/succ_project1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/promanage/succ_project1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/promanage/succ_project2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/promanage/succ_project2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/promanage/succ_project3.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/promanage/succ_project3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/Controller/IndexController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chengyong/Controller/IndexController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/Controller/promanage/DeclareController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chengyong/Controller/promanage/DeclareController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/Controller/promanage/DelayController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chengyong/Controller/promanage/DelayController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/entity/KProject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chengyong/entity/KProject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KDelayprojectMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KDelayprojectMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KKyuserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KKyuserMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KProjectMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KProjectMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/service/KDelayprojectService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/KDelayprojectService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/service/KKyuserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/KKyuserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/service/KProjectService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/KProjectService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/service/impl/KDelayprojectServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/impl/KDelayprojectServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/service/impl/KProjectServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/impl/KProjectServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/KDelayprojectMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/KDelayprojectMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/KKyuserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/KKyuserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/KProjectMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/KProjectMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/page/promanage/declare-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/page/promanage/declare-1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/page/promanage/declare-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/page/promanage/declare-2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/page/promanage/delay_project3.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/page/promanage/delay_project3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/page/promanage/succ_project1.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/page/promanage/succ_project1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/page/promanage/succ_project2.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/page/promanage/succ_project2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/page/promanage/succ_project3.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/page/promanage/succ_project3.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,8 +66,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -65,7 +117,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/mybatis/mapper" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/templates/page/promanage" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -83,9 +135,9 @@
       <recent name="com.chengyong.service" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\PC\Desktop\毕业设计\ScientResearch\src\main\resources\templates\page\promanage" />
       <recent name="C:\Users\PC\Desktop\毕业设计\ScientResearch\src\main\resources\mybatis\mapper" />
       <recent name="C:\Users\PC\Desktop\毕业设计\ScientResearch\src\main\java\com\chengyong\mapper" />
-      <recent name="C:\Users\PC\Desktop\毕业设计\ScientResearch\src\main\resources\templates\page\promanage" />
       <recent name="C:\Users\PC\Desktop\毕业设计\ScientResearch\src\main\resources\templates\page\systemhelp" />
       <recent name="C:\Users\PC\Desktop\毕业设计\ScientResearch\src\main\java\com\chengyong\util" />
     </key>
@@ -247,6 +299,14 @@
       <workItem from="1604645868432" duration="1883000" />
       <workItem from="1604648130724" duration="2589000" />
       <workItem from="1604651119319" duration="433000" />
+      <workItem from="1604651712215" duration="295000" />
+      <workItem from="1604659158109" duration="687000" />
+      <workItem from="1604819061297" duration="5962000" />
+      <workItem from="1604825884218" duration="1000000" />
+      <workItem from="1604827248969" duration="1634000" />
+      <workItem from="1604829130834" duration="2466000" />
+      <workItem from="1604831895234" duration="1504000" />
+      <workItem from="1604833762886" duration="995000" />
     </task>
     <task id="LOCAL-00001" summary="2020-9-20 22:57 第一次提交">
       <created>1600613874401</created>
@@ -423,7 +483,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604651526551</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="2020 11 6 16:31 修改">
+      <created>1604651907759</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1604651907759</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -467,7 +534,8 @@
     <MESSAGE value="2020 10 30 17:12 完成项目中检" />
     <MESSAGE value="2020 11 5 17:18 完成项目结项" />
     <MESSAGE value="2020 11 6 16:31 完成项目延期" />
-    <option name="LAST_COMMIT_MESSAGE" value="2020 11 6 16:31 完成项目延期" />
+    <MESSAGE value="2020 11 6 16:31 修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="2020 11 6 16:31 修改" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Notifications" timestamp="1600765310048">
@@ -482,14 +550,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="218" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1600604295628" />
-    <state x="488" y="73" key="#com.intellij.ide.util.MemberChooser" timestamp="1604650263473">
+    <state x="488" y="73" key="#com.intellij.ide.util.MemberChooser" timestamp="1604833287635">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="73" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1604650263473" />
-    <state x="268" y="289" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1604649360424">
+    <state x="488" y="73" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1604833287635" />
+    <state x="268" y="289" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1604833244398">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="268" y="289" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.728@0.0.1366.728" timestamp="1604649360424" />
+    <state x="268" y="289" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.728@0.0.1366.728" timestamp="1604833244398" />
     <state x="462" y="222" width="441" height="293" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1602055110720">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -498,10 +566,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1601209061085" />
-    <state x="31" y="0" key="CommitChangelistDialog2" timestamp="1604651521256">
+    <state x="31" y="0" key="CommitChangelistDialog2" timestamp="1604651905885">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="31" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1604651521256" />
+    <state x="31" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1604651905885" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1601899479194">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -510,74 +578,74 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1600765460889" />
-    <state x="504" y="277" width="382" height="185" key="Github.CreateGistDialog" timestamp="1603442835908">
+    <state x="504" y="277" width="382" height="185" key="Github.CreateGistDialog" timestamp="1604829239953">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="504" y="277" width="382" height="185" key="Github.CreateGistDialog/0.0.1366.728@0.0.1366.728" timestamp="1603442835908" />
+    <state x="504" y="277" width="382" height="185" key="Github.CreateGistDialog/0.0.1366.728@0.0.1366.728" timestamp="1604829239953" />
     <state x="537" y="254" key="Github.ShareDialog" timestamp="1600613437871">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="537" y="254" key="Github.ShareDialog/0.0.1366.728@0.0.1366.728" timestamp="1600613437871" />
-    <state width="1323" height="56" key="GridCell.Tab.0.bottom" timestamp="1604651554626">
+    <state width="1323" height="60" key="GridCell.Tab.0.bottom" timestamp="1604834528334">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="56" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604651554626" />
-    <state width="1323" height="56" key="GridCell.Tab.0.center" timestamp="1604651554626">
+    <state width="1323" height="60" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604834528334" />
+    <state width="1323" height="60" key="GridCell.Tab.0.center" timestamp="1604834528334">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="56" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1604651554626" />
-    <state width="1323" height="56" key="GridCell.Tab.0.left" timestamp="1604651554626">
+    <state width="1323" height="60" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1604834528334" />
+    <state width="1323" height="60" key="GridCell.Tab.0.left" timestamp="1604834528333">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="56" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1604651554626" />
-    <state width="1323" height="56" key="GridCell.Tab.0.right" timestamp="1604651554626">
+    <state width="1323" height="60" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1604834528333" />
+    <state width="1323" height="60" key="GridCell.Tab.0.right" timestamp="1604834528334">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="56" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1604651554626" />
-    <state width="1323" height="56" key="GridCell.Tab.1.bottom" timestamp="1604651554627">
+    <state width="1323" height="60" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1604834528334" />
+    <state width="1323" height="60" key="GridCell.Tab.1.bottom" timestamp="1604834528334">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="56" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604651554627" />
-    <state width="1323" height="56" key="GridCell.Tab.1.center" timestamp="1604651554627">
+    <state width="1323" height="60" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604834528334" />
+    <state width="1323" height="60" key="GridCell.Tab.1.center" timestamp="1604834528334">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="56" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1604651554627" />
-    <state width="1323" height="56" key="GridCell.Tab.1.left" timestamp="1604651554627">
+    <state width="1323" height="60" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1604834528334" />
+    <state width="1323" height="60" key="GridCell.Tab.1.left" timestamp="1604834528334">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="56" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1604651554627" />
-    <state width="1323" height="56" key="GridCell.Tab.1.right" timestamp="1604651554627">
+    <state width="1323" height="60" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1604834528334" />
+    <state width="1323" height="60" key="GridCell.Tab.1.right" timestamp="1604834528334">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="56" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1604651554627" />
-    <state width="1323" height="138" key="GridCell.Tab.2.bottom" timestamp="1604648596101">
+    <state width="1323" height="60" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1604834528334" />
+    <state width="1323" height="2" key="GridCell.Tab.2.bottom" timestamp="1604830957037">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="138" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604648596101" />
-    <state width="1323" height="138" key="GridCell.Tab.2.center" timestamp="1604648596101">
+    <state width="1323" height="2" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604830957037" />
+    <state width="1323" height="2" key="GridCell.Tab.2.center" timestamp="1604830957037">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="138" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1604648596101" />
-    <state width="1323" height="138" key="GridCell.Tab.2.left" timestamp="1604648596101">
+    <state width="1323" height="2" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1604830957037" />
+    <state width="1323" height="2" key="GridCell.Tab.2.left" timestamp="1604830957037">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="138" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1604648596101" />
-    <state width="1323" height="138" key="GridCell.Tab.2.right" timestamp="1604648596101">
+    <state width="1323" height="2" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1604830957037" />
+    <state width="1323" height="2" key="GridCell.Tab.2.right" timestamp="1604830957037">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="138" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1604648596101" />
+    <state width="1323" height="2" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1604830957037" />
     <state x="184" y="6" key="SettingsEditor" timestamp="1602754499646">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1602754499646" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604651530260">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604651913795">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604651530260" />
-    <state x="363" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1604651725631">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604651913795" />
+    <state x="363" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1604833762361">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="363" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1604651725631" />
+    <state x="363" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1604833762361" />
     <state x="357" y="155" key="git4idea.merge.GitPullDialog" timestamp="1601374263496">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

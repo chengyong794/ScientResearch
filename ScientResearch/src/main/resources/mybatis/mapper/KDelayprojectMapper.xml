@@ -27,7 +27,14 @@
     where PDELAYID = #{pdelayid,jdbcType=DECIMAL}
   </select>
 
-  <select id="selectDelaypath" parameterType="java.lang.Short" resultType="java.lang.String">
+  <select id="selectByPDELAYID" parameterType="java.lang.Short" resultType="java.lang.String">
+    select
+    PDELAYID
+    from K_DELAYPROJECT
+    where PID = #{pid,jdbcType=DECIMAL}
+  </select>
+
+  <select id="selectDelaypath" parameterType="java.lang.Short" resultType="java.lang.Short">
     select
     PSOURCE
     from K_DELAYPROJECT
@@ -66,6 +73,13 @@
     delete from K_DELAYPROJECT
     where PDELAYID = #{pdelayid,jdbcType=DECIMAL}
   </delete>
+
+  <delete id="deleteBypid" parameterType="java.lang.Short">
+    delete from K_DELAYPROJECT
+    where PID = #{pid,jdbcType=DECIMAL}
+  </delete>
+
+
   <insert id="insert" parameterType="com.chengyong.entity.KDelayproject">
     insert into K_DELAYPROJECT (PNAME, PPEOPLE,
       PCCLASIFY, PDEPT, PSOURCE, 

@@ -102,4 +102,19 @@ public class DelayController {
         }
         return map;
     }
+
+    /**
+     * 项目延期结束
+     * @return
+     */
+    @RequestMapping("/PYQEND")
+    public Map<String,Object> PYQEND(Short pid,Short pyq){
+        Map<String,Object> map = new HashMap<>();
+        if(kDelayprojectService.PYQEND(pyq, pid)>0){
+            map.put("info", PUBLIC_ATTRIBUTE.APPROVED_SUCCESS);
+        }else{
+            map.put("info", PUBLIC_ATTRIBUTE.APPROVED_ERROR);
+        }
+        return map;
+    }
 }
