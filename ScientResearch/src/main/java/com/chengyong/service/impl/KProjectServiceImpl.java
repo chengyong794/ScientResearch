@@ -124,6 +124,8 @@ public class KProjectServiceImpl implements KProjectService {
 
     @Override
     public DataJson sucProject2(KProject kProject) {
+        String kyname = (String) request.getSession().getAttribute("user");
+        kProject.setPdept(kKyuserMapper.selectByDept(kyname));
         String name="";
         PageHelper.startPage(kProject.getPage(),kProject.getLimit());
         List<KProject> list  = kProjectMapper.sucProject2(kProject);
@@ -176,9 +178,11 @@ public class KProjectServiceImpl implements KProjectService {
 
     @Override
     public DataJson declareProject2(KProject kProject) {
+        String kyname = (String) request.getSession().getAttribute("user");
+        kProject.setPdept(kKyuserMapper.selectByDept(kyname));
         String name="";
         PageHelper.startPage(kProject.getPage(),kProject.getLimit());
-        List<KProject> list  = kProjectMapper.sucProject2(kProject);
+        List<KProject> list  = kProjectMapper.declareProject2(kProject);
         for (KProject kp:list
         ) {
             List<String> kpper = kProjectperMapper.selectName(kp.getPid());
@@ -274,6 +278,8 @@ public class KProjectServiceImpl implements KProjectService {
 
     @Override
     public DataJson checklistProject2(KProject kProject) {
+        String kyname = (String) request.getSession().getAttribute("user");
+        kProject.setPdept(kKyuserMapper.selectByDept(kyname));
         PageHelper.startPage(kProject.getPage(),kProject.getLimit());
         List<KProject> list = kProjectMapper.checklistProject2(kProject);
         String name="";
@@ -424,6 +430,8 @@ public class KProjectServiceImpl implements KProjectService {
 
     @Override
     public DataJson terminlistProject2(KProject kProject) {
+        String kyname = (String) request.getSession().getAttribute("user");
+        kProject.setPdept(kKyuserMapper.selectByDept(kyname));
         PageHelper.startPage(kProject.getPage(),kProject.getLimit());
         List<KProject> list = kProjectMapper.terminlistProject2(kProject);
         String name="";

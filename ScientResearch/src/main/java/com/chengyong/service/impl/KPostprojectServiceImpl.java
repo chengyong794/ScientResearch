@@ -1,6 +1,7 @@
 package com.chengyong.service.impl;
 
 import com.chengyong.entity.KPostproject;
+import com.chengyong.mapper.KKyuserMapper;
 import com.chengyong.mapper.KPostprojectMapper;
 import com.chengyong.mapper.KProjectMapper;
 import com.chengyong.service.KPostprojectService;
@@ -10,6 +11,7 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Service
@@ -21,10 +23,26 @@ public class KPostprojectServiceImpl implements KPostprojectService {
     @Autowired
     private KProjectMapper kProjectMapper;
 
+    @Autowired
+    private KKyuserMapper kKyuserMapper;
+
+    @Autowired
+    private HttpServletRequest request;
+
     @Override
     public DataJson K_POSTPROJECTlist1(KPostproject kPostproject) {
         PageHelper.startPage(kPostproject.getPage(),kPostproject.getLimit());
         List<KPostproject> list = kPostprojectMapper.K_POSTPROJECTlist1(kPostproject);
+        PageInfo info = new PageInfo(list);
+        return new DataJson(info.getTotal(),list);
+    }
+
+    @Override
+    public DataJson K_POSTPROJECTlist2(KPostproject kPostproject) {
+        String kyname = (String) request.getSession().getAttribute("user");
+        kPostproject.setPpdept(kKyuserMapper.selectByDept(kyname));
+        PageHelper.startPage(kPostproject.getPage(),kPostproject.getLimit());
+        List<KPostproject> list = kPostprojectMapper.K_POSTPROJECTlist2(kPostproject);
         PageInfo info = new PageInfo(list);
         return new DataJson(info.getTotal(),list);
     }

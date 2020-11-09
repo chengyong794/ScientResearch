@@ -47,6 +47,27 @@
     </where>
   </select>
 
+  <select id="K_POSTPROJECTlist2" parameterType="com.chengyong.entity.KPostproject" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_POSTPROJECT
+    <where>
+      <if test="ppname != null and ppname != ''">
+        PPNAME like concat(concat('%',#{ppname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="ppnum != null and ppnum != ''">
+        and PPNUM like concat(concat('%',#{ppnum,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="ppstarttime != null and ppstarttime != ''">
+        and PPSTARTTIME <![CDATA[<]]> to_date(#{ppstarttime,jdbcType=TIMESTAMP},'yyyy-MM-dd hh24:mi:ss')
+      </if>
+      <if test="ppendtime != null and ppendtime != ''">
+        and PPENDTIME <![CDATA[>]]> to_date(#{ppendtime,jdbcType=TIMESTAMP},'yyyy-MM-dd hh24:mi:ss')
+      </if>
+      and PPDEPT = #{ppdept,jdbcType=VARCHAR}
+    </where>
+  </select>
+
   <update id="updateByPPSTATE1" parameterType="java.lang.Short">
     update K_POSTPROJECT
     set

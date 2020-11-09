@@ -17,6 +17,8 @@ public interface KKyuserMapper {
 
     Short selectByuname(String kyname);
 
+    String selectByDept(String kyname);
+
     int updateByPrimaryKeySelective(KKyuser record);
 
     int updateByPrimaryKey(KKyuser record);

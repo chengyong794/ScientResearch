@@ -10,7 +10,7 @@ public class KThesis implements Serializable {
 
     private String tjob;
 
-    private String tunit;
+    private String tdept;
 
     private String ttitle;
 
@@ -20,7 +20,7 @@ public class KThesis implements Serializable {
 
     private String tissnid;
 
-    private Date tstarttime;
+    private String tstarttime;
 
     private String tothers;
 
@@ -35,6 +35,26 @@ public class KThesis implements Serializable {
     private String tachnum;
 
     private String tmembers;
+
+    private Integer page;
+
+    private Integer limit;
+
+    public Integer getPage() {
+        return page;
+    }
+
+    public void setPage(Integer page) {
+        this.page = page;
+    }
+
+    public Integer getLimit() {
+        return limit;
+    }
+
+    public void setLimit(Integer limit) {
+        this.limit = limit;
+    }
 
     public Short getTid() {
         return tid;
@@ -60,12 +80,12 @@ public class KThesis implements Serializable {
         this.tjob = tjob;
     }
 
-    public String getTunit() {
-        return tunit;
+    public String getTdept() {
+        return tdept;
     }
 
-    public void setTunit(String tunit) {
-        this.tunit = tunit;
+    public void setTdept(String tdept) {
+        this.tdept = tdept;
     }
 
     public String getTtitle() {
@@ -100,11 +120,11 @@ public class KThesis implements Serializable {
         this.tissnid = tissnid;
     }
 
-    public Date getTstarttime() {
+    public String getTstarttime() {
         return tstarttime;
     }
 
-    public void setTstarttime(Date tstarttime) {
+    public void setTstarttime(String tstarttime) {
         this.tstarttime = tstarttime;
     }
 

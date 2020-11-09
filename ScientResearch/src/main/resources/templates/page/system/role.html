@@ -7,49 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <div th:replace="~{public :: layui_public_css}"></div>
-    <!--    <link rel="stylesheet" href="../lib/layui-v2.5.5/css/layui.css" media="all">-->
-<!--    <link rel="stylesheet" href="../css/public.css" media="all">-->
+
 </head>
 <body>
 <div class="layuimini-container">
     <div class="layuimini-main">
 
-<!--        <fieldset class="table-search-fieldset">-->
-<!--            <legend>搜索信息</legend>-->
-<!--            <div style="margin: 10px 10px 10px 10px">-->
-<!--                <form class="layui-form layui-form-pane" id="searchFrom" action="">-->
-<!--                    <div class="layui-form-item">-->
-<!--                        <div class="layui-inline">-->
-<!--                            <label class="layui-form-label">用户名</label>-->
-<!--                            <div class="layui-input-inline">-->
-<!--                                <input type="text" name="username" autocomplete="off" class="layui-input">-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="layui-inline">-->
-<!--                            <label class="layui-form-label">用户部门</label>-->
-<!--                            <div class="layui-input-inline">-->
-<!--                                <input type="text" name="userdept" autocomplete="off" class="layui-input">-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="layui-inline">-->
-<!--                            <label class="layui-form-label">用户地址</label>-->
-<!--                            <div class="layui-input-inline">-->
-<!--                                <input type="text" name="addr" autocomplete="off" class="layui-input">-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="layui-inline">-->
-<!--                            <label class="layui-form-label">用户工作</label>-->
-<!--                            <div class="layui-input-inline">-->
-<!--                                <input type="text" name="kjob" autocomplete="off" class="layui-input">-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="layui-inline">-->
-<!--                            <button type="button" class="layui-btn layui-btn-primary"  lay-submit lay-filter="data-search-btn" id="data-search"><i class="layui-icon"></i> 搜 索</button>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </form>-->
-<!--            </div>-->
-<!--        </fieldset>-->
 
         <!--修改增加页面开始-->
         <div style="display: none;margin: auto;" class="layui-form layuimini-form" id="EditandAdd">
@@ -102,11 +65,11 @@
 
 
         <script type="text/html" id="toolbarDemo">
-            <div class="layui-btn-container">
-                <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="add"> 添加 </button>
-<!--                <button class="layui-btn layui-btn-sm layui-btn-danger data-delete-btn" lay-event="deletelow"> 批量删除 </button>-->
-            </div>
-        </script>
+        <div class="layui-btn-container">
+            <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="add"> 添加 </button>
+            <!--                <button class="layui-btn layui-btn-sm layui-btn-danger data-delete-btn" lay-event="deletelow"> 批量删除 </button>-->
+        </div>
+    </script>
 
         <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
 

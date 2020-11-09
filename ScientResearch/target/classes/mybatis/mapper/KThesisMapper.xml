@@ -5,7 +5,7 @@
     <id column="TID" jdbcType="DECIMAL" property="tid" />
     <result column="TNAME" jdbcType="VARCHAR" property="tname" />
     <result column="TJOB" jdbcType="VARCHAR" property="tjob" />
-    <result column="TUNIT" jdbcType="VARCHAR" property="tunit" />
+    <result column="TDEPT" jdbcType="VARCHAR" property="tdept" />
     <result column="TTITLE" jdbcType="VARCHAR" property="ttitle" />
     <result column="TPERIODICAL" jdbcType="VARCHAR" property="tperiodical" />
     <result column="TCNID" jdbcType="VARCHAR" property="tcnid" />
@@ -20,7 +20,7 @@
     <result column="TMEMBERS" jdbcType="VARCHAR" property="tmembers" />
   </resultMap>
   <sql id="Base_Column_List">
-    TID, TNAME, TJOB, TUNIT, TTITLE, TPERIODICAL, TCNID, TISSNID, TSTARTTIME, TOTHERS, 
+    TID, TNAME, TJOB, TDEPT, TTITLE, TPERIODICAL, TCNID, TISSNID, TSTARTTIME, TOTHERS,
     TSCORE, TREMAKS, TSECOND, TTHIRD, TACHNUM, TMEMBERS
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
@@ -29,19 +29,34 @@
     from K_THESIS
     where TID = #{tid,jdbcType=DECIMAL}
   </select>
+
+  <select id="thesislistResult3" parameterType="com.chengyong.entity.KThesis" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_THESIS
+    <where>
+      <if test="tname != null">
+        TNAME like concat(concat('%',#{tname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="ttitle != null">
+       and TTITLE like concat(concat('%',#{ttitle,jdbcType=VARCHAR}),'%')
+      </if>
+    </where>
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
     delete from K_THESIS
     where TID = #{tid,jdbcType=DECIMAL}
   </delete>
   <insert id="insert" parameterType="com.chengyong.entity.KThesis">
     insert into K_THESIS (TID, TNAME, TJOB, 
-      TUNIT, TTITLE, TPERIODICAL, 
+      TDEPT, TTITLE, TPERIODICAL,
       TCNID, TISSNID, TSTARTTIME, 
       TOTHERS, TSCORE, TREMAKS, 
       TSECOND, TTHIRD, TACHNUM, 
       TMEMBERS)
     values (#{tid,jdbcType=DECIMAL}, #{tname,jdbcType=VARCHAR}, #{tjob,jdbcType=VARCHAR}, 
-      #{tunit,jdbcType=VARCHAR}, #{ttitle,jdbcType=VARCHAR}, #{tperiodical,jdbcType=VARCHAR}, 
+      #{tdept,jdbcType=VARCHAR}, #{ttitle,jdbcType=VARCHAR}, #{tperiodical,jdbcType=VARCHAR},
       #{tcnid,jdbcType=VARCHAR}, #{tissnid,jdbcType=VARCHAR}, #{tstarttime,jdbcType=TIMESTAMP}, 
       #{tothers,jdbcType=VARCHAR}, #{tscore,jdbcType=VARCHAR}, #{tremaks,jdbcType=VARCHAR}, 
       #{tsecond,jdbcType=VARCHAR}, #{tthird,jdbcType=VARCHAR}, #{tachnum,jdbcType=VARCHAR}, 
@@ -59,8 +74,8 @@
       <if test="tjob != null">
         TJOB,
       </if>
-      <if test="tunit != null">
-        TUNIT,
+      <if test="tdept != null">
+        TDEPT,
       </if>
       <if test="ttitle != null">
         TTITLE,
@@ -109,8 +124,8 @@
       <if test="tjob != null">
         #{tjob,jdbcType=VARCHAR},
       </if>
-      <if test="tunit != null">
-        #{tunit,jdbcType=VARCHAR},
+      <if test="tdept != null">
+        #{tdept,jdbcType=VARCHAR},
       </if>
       <if test="ttitle != null">
         #{ttitle,jdbcType=VARCHAR},
@@ -159,8 +174,8 @@
       <if test="tjob != null">
         TJOB = #{tjob,jdbcType=VARCHAR},
       </if>
-      <if test="tunit != null">
-        TUNIT = #{tunit,jdbcType=VARCHAR},
+      <if test="tdept != null">
+        TDEPT = #{tdept,jdbcType=VARCHAR},
       </if>
       <if test="ttitle != null">
         TTITLE = #{ttitle,jdbcType=VARCHAR},
@@ -205,7 +220,7 @@
     update K_THESIS
     set TNAME = #{tname,jdbcType=VARCHAR},
       TJOB = #{tjob,jdbcType=VARCHAR},
-      TUNIT = #{tunit,jdbcType=VARCHAR},
+      TDEPT = #{tdept,jdbcType=VARCHAR},
       TTITLE = #{ttitle,jdbcType=VARCHAR},
       TPERIODICAL = #{tperiodical,jdbcType=VARCHAR},
       TCNID = #{tcnid,jdbcType=VARCHAR},

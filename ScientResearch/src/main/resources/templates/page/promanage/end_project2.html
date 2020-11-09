@@ -103,7 +103,7 @@
         var tablereh1;
         tablereh1 = table.render({
             elem: '#currentTableId2',
-            url: '/KPostproject/K_POSTPROJECTlist1',
+            url: '/KPostproject/K_POSTPROJECTlist2',
             toolbar: '#toolbarDemo2',
             limits: [5,10, 15, 20, 25, 50, 100],
             limit: 5,
@@ -153,7 +153,7 @@
             var datas = $("#searchFrom2").serialize();
             //执行搜索重载
             tablereh1.reload({
-                url:'/KPostproject/K_POSTPROJECTlist1??'+datas,
+                url:'/KPostproject/K_POSTPROJECTlist2?'+datas,
 
             });
         });

@@ -89,9 +89,7 @@
       <if test="pcname != null">
         and PCNAME like concat(concat('%',#{pcname,jdbcType=VARCHAR}),'%')
       </if>
-      <if test="pdept != null">
-        and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
-      </if>
+      and PDEPT = #{pdept,jdbcType=VARCHAR}
     </where>
   </select>
 
@@ -124,9 +122,7 @@
       <if test="pcname != null">
         and PCNAME like concat(concat('%',#{pcname,jdbcType=VARCHAR}),'%')
       </if>
-      <if test="pdept != null">
-        and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
-      </if>
+      and PDEPT = #{pdept,jdbcType=VARCHAR}
     </where>
   </select>
 
@@ -403,10 +399,7 @@
       <if test="pcname != null">
         and PCNAME like concat(concat('%',#{pcname,jdbcType=VARCHAR}),'%')
       </if>
-      <if test="pdept != null">
-        and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
-      </if>
-      and PLX1 = 1 AND PLX2 = 1 and PZJ2 = 1
+      and PLX1 = 1 AND PLX2 = 1 and PZJ2 = 1 and PDEPT = #{pdept,jdbcType=VARCHAR}
     </where>
   </select>
 
@@ -497,10 +490,7 @@
       <if test="pcname != null">
         and PCNAME like concat(concat('%',#{pcname,jdbcType=VARCHAR}),'%')
       </if>
-      <if test="pdept != null">
-        and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
-      </if>
-      and pyq1 = 0 and pyq2 = 0
+      and pyq1 = 0 and pyq2 = 0 and PDEPT = #{pdept,jdbcType=VARCHAR}
     </where>
   </select>
 

@@ -63,9 +63,7 @@
       <if test="pname != null and pname != ''">
         PNAME like concat(concat('%',#{pname,jdbcType=VARCHAR}),'%')
       </if>
-      <if test="pdept != null and pdept != ''">
-        and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
-      </if>
+      and PDEPT = #{pdept,jdbcType=VARCHAR}
     </where>
   </select>
 

@@ -2,6 +2,8 @@ package com.chengyong.mapper;
 
 import com.chengyong.entity.KThesis;
 
+import java.util.List;
+
 public interface KThesisMapper {
     int deleteByPrimaryKey(Short tid);
 
@@ -10,6 +12,8 @@ public interface KThesisMapper {
     int insertSelective(KThesis record);
 
     KThesis selectByPrimaryKey(Short tid);
+
+    List<KThesis> thesislistResult3(KThesis record);
 
     int updateByPrimaryKeySelective(KThesis record);
 

@@ -28,6 +28,14 @@ public class KPostprojectController {
     }
 
     /**
+     * 系科研管理查看结项信息
+     */
+    @RequestMapping("/K_POSTPROJECTlist2")
+    public DataJson K_POSTPROJECTlist2(KPostproject kPostproject){
+        return  kPostprojectService.K_POSTPROJECTlist2(kPostproject);
+    }
+
+    /**
      * 系科研管理审核通过
      * @return
      */

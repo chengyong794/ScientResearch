@@ -3,6 +3,7 @@ package com.chengyong.service.impl;
 import com.chengyong.entity.KDelayproject;
 import com.chengyong.entity.KProject;
 import com.chengyong.mapper.KDelayprojectMapper;
+import com.chengyong.mapper.KKyuserMapper;
 import com.chengyong.mapper.KProjectMapper;
 import com.chengyong.service.KDelayprojectService;
 import com.chengyong.util.DataJson;
@@ -11,6 +12,7 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Service
@@ -21,6 +23,12 @@ public class KDelayprojectServiceImpl implements KDelayprojectService {
 
     @Autowired
     private KProjectMapper kProjectMapper;
+
+    @Autowired
+    private HttpServletRequest request;
+
+    @Autowired
+    private KKyuserMapper kKyuserMapper;
 
     @Override
     public int deleteByPrimaryKey(Short pdelayid) {
@@ -57,6 +65,8 @@ public class KDelayprojectServiceImpl implements KDelayprojectService {
 
     @Override
     public DataJson delaylistProject2(KDelayproject record) {
+        String kyname = (String) request.getSession().getAttribute("user");
+        record.setPdept(kKyuserMapper.selectByDept(kyname));
         PageHelper.startPage(record.getPage(),record.getLimit());
         List<KDelayproject> list = kDelayprojectMapper.delaylistProject2(record);
         PageInfo info = new PageInfo(list);
