@@ -32,13 +32,33 @@ public class KThesis implements Serializable {
 
     private String tthird;
 
-    private String tachnum;
+    private Short tachnum;
 
     private String tmembers;
+
+    private Short kyid;
+
+    private String tresource;
 
     private Integer page;
 
     private Integer limit;
+
+    public String getTresource() {
+        return tresource;
+    }
+
+    public void setTresource(String tresource) {
+        this.tresource = tresource;
+    }
+
+    public Short getKyid() {
+        return kyid;
+    }
+
+    public void setKyid(Short kyid) {
+        this.kyid = kyid;
+    }
 
     public Integer getPage() {
         return page;
@@ -168,11 +188,11 @@ public class KThesis implements Serializable {
         this.tthird = tthird;
     }
 
-    public String getTachnum() {
+    public Short getTachnum() {
         return tachnum;
     }
 
-    public void setTachnum(String tachnum) {
+    public void setTachnum(Short tachnum) {
         this.tachnum = tachnum;
     }
 

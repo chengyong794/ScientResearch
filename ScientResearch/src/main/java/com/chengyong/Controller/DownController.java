@@ -2,6 +2,7 @@ package com.chengyong.Controller;
 
 import com.chengyong.service.KDelayprojectService;
 import com.chengyong.service.KProjectService;
+import com.chengyong.service.KThesisService;
 import com.chengyong.util.PUBLIC_ATTRIBUTE;
 import org.apache.ibatis.annotations.Param;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
@@ -31,6 +32,9 @@ public class DownController {
 
     @Autowired
     private KDelayprojectService kDelayprojectService;
+
+    @Autowired
+    private KThesisService kThesisService;
 
     @RequestMapping("/downProjectSch")
     public void down(@Param("pid") Short pid, HttpServletRequest request, HttpServletResponse response) throws IOException, IOException {
@@ -117,4 +121,21 @@ public class DownController {
         IOUtils.closeQuietly(outputStream);
     }
 
+
+    @RequestMapping("/downpaper")
+    public void downpaper( HttpServletRequest request, HttpServletResponse response,@Param("tid") Short tid) throws IOException, IOException {
+
+        String path = kThesisService.selectBypath(tid);
+        //获取文件的名称
+        File f = new File(path);
+        FileInputStream inputStream = new FileInputStream(f);
+        //设置下载时响应头
+        response.setHeader("content-disposition","attachment;filename="+ URLEncoder.encode(f.getName(),"UTF-8"));
+        //拿到响应输出流
+        ServletOutputStream outputStream = response.getOutputStream();
+        //流的复制
+        IOUtils.copy(inputStream,outputStream);
+        IOUtils.closeQuietly(inputStream);
+        IOUtils.closeQuietly(outputStream);
+    }
 }

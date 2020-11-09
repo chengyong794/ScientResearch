@@ -15,7 +15,17 @@ public interface KThesisMapper {
 
     List<KThesis> thesislistResult3(KThesis record);
 
+    List<KThesis> thesislistResult2(KThesis record);
+
+    List<KThesis> thesislistResult1(KThesis record);
+
     int updateByPrimaryKeySelective(KThesis record);
 
     int updateByPrimaryKey(KThesis record);
+
+    int updateBytachnum2(Short tid,Short tachnum);
+
+    int updateBytachnum1(Short tid,Short tachnum);
+
+    String selectBypath(Short tid);
 }

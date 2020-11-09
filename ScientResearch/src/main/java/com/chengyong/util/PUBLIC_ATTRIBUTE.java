@@ -19,6 +19,7 @@ public class PUBLIC_ATTRIBUTE {
     public static final String UPLOAD_PATH_PRO = "D:\\Scient\\proUpload";
     public static final String UPLOAD_PATH_CHECK = "D:\\Scient\\checkUpload";
     public static final String UPLOAD_PATH_DELAY = "D:\\Scient\\delayUpload";
+    public static final String UPLOAD_PATH_PAPER = "D:\\Scient\\paperUpload";
 
 
 }

@@ -5,8 +5,10 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
+import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -17,6 +19,117 @@ public class AopConfig {
     private Logger logger = LoggerFactory.getLogger(AopConfig.class);
     private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private String time = format.format(new Date());
+
+    @Autowired
+    private HttpServletRequest request;
+
+    /**
+     * 科研人员批量删除了论文
+     * @param proceedingJoinPoint
+     * @return
+     */
+    @Around("execution(* com.chengyong.service.impl.KThesisServiceImpl.deleteByPrimaryKeylow(..))")
+    public Object KThesisServiceImpldeleteByPrimaryKeylow(ProceedingJoinPoint proceedingJoinPoint){
+        try{
+            logger.info(time+"########----------科研人员批量删除了论文---------########");
+            Object object = proceedingJoinPoint.proceed();
+            logger.info(time+"########----------科研人员批量删除论文成功返回---------########"+object);
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
+            return object;
+        }catch (Exception e){
+            logger.info(time+"########----------科研人员批量删除论文发生异常---------########");
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
+            e.printStackTrace();
+            return null;
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+            return null;
+        }
+
+    }
+
+    /**
+     * 科研人员删除了论文
+     * @param proceedingJoinPoint
+     * @return
+     */
+    @Around("execution(* com.chengyong.service.impl.KThesisServiceImpl.deleteByPrimaryKey(..))")
+    public Object KThesisServiceImpldeleteByPrimaryKey(ProceedingJoinPoint proceedingJoinPoint){
+        try{
+            logger.info(time+"########----------科研人员删除了论文---------########");
+            Object object = proceedingJoinPoint.proceed();
+            logger.info(time+"########----------科研人员删除论文成功返回---------########"+object);
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
+            return object;
+        }catch (Exception e){
+            logger.info(time+"########----------科研人员删除论文发生异常---------########");
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
+            e.printStackTrace();
+            return null;
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+            return null;
+        }
+
+    }
+
+    /**
+     * 科研人员修改了论文
+     * @param proceedingJoinPoint
+     * @return
+     */
+    @Around("execution(* com.chengyong.service.impl.KThesisServiceImpl.updateByPrimaryKey(..))")
+    public Object KThesisServiceImplupdateByPrimaryKey(ProceedingJoinPoint proceedingJoinPoint){
+        try{
+            logger.info(time+"########----------科研人员修改了论文---------########");
+            Object object = proceedingJoinPoint.proceed();
+            logger.info(time+"########----------科研人员修改论文成功返回---------########"+object);
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
+            return object;
+        }catch (Exception e){
+            logger.info(time+"########----------科研人员修改论文发生异常---------########");
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
+            e.printStackTrace();
+            return null;
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+            return null;
+        }
+
+    }
+
+    /**
+     * 科研人员添加了论文
+     * @param proceedingJoinPoint
+     * @return
+     */
+    @Around("execution(* com.chengyong.service.impl.KThesisServiceImpl.insert(..))")
+    public Object KThesisServiceImplinsert(ProceedingJoinPoint proceedingJoinPoint){
+        try{
+            logger.info(time+"########----------科研人员添加了论文---------########");
+            Object object = proceedingJoinPoint.proceed();
+            logger.info(time+"########----------科研人员添加论文成功返回---------########"+object);
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
+            return object;
+        }catch (Exception e){
+            logger.info(time+"########----------科研人员添加论文发生异常---------########");
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
+            e.printStackTrace();
+            return null;
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+            return null;
+        }
+
+    }
 
     /**
      * 校系科研人员修改项目
@@ -29,9 +142,13 @@ public class AopConfig {
             logger.info(time+"########----------校系科研人员修改项目---------########");
             Object object = proceedingJoinPoint.proceed();
             logger.info(time+"########----------校系科研人员修改项目成功返回---------########"+object);
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
             return object;
         }catch (Exception e){
             logger.info(time+"########----------校系科研人员修改项目发生异常---------########");
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
             e.printStackTrace();
             return null;
         } catch (Throwable throwable) {
@@ -52,9 +169,13 @@ public class AopConfig {
             logger.info(time+"########----------科研人员添加了项目---------########");
             Object object = proceedingJoinPoint.proceed();
             logger.info(time+"########----------科研人员添加了项目成功返回---------########"+object);
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
             return object;
         }catch (Exception e){
             logger.info(time+"########----------科研人员添加了项目发生异常---------########");
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
             e.printStackTrace();
             return null;
         } catch (Throwable throwable) {
@@ -75,9 +196,13 @@ public class AopConfig {
             logger.info(time+"########----------进行了校系科研秘书删除项目操作---------########");
             Object object = proceedingJoinPoint.proceed();
             logger.info(time+"########----------校系科研秘书删除项目成功返回---------########"+object);
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
             return object;
         }catch (Exception e){
             logger.info(time+"########----------校系科研秘书删除项目发生异常---------########");
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
             e.printStackTrace();
             return null;
         } catch (Throwable throwable) {
@@ -98,9 +223,13 @@ public class AopConfig {
             logger.info(time+"########----------进行了修改项目批次申报的操作---------########");
             Object object = proceedingJoinPoint.proceed();
             logger.info(time+"########----------修改项目批次申报成功返回---------########"+object);
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
             return object;
         }catch (Exception e){
             logger.info(time+"########----------修改项目批次申报发生异常---------########");
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
             e.printStackTrace();
             return null;
         } catch (Throwable throwable) {
@@ -121,9 +250,13 @@ public class AopConfig {
             logger.info(time+"########----------进行了添加项目批次申报的操作---------########");
             Object object = proceedingJoinPoint.proceed();
             logger.info(time+"########----------添加项目批次申报成功返回---------########"+object);
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
             return object;
         }catch (Exception e){
             logger.info(time+"########----------添加项目批次申报发生异常---------########");
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
             e.printStackTrace();
             return null;
         } catch (Throwable throwable) {
@@ -144,9 +277,13 @@ public class AopConfig {
             logger.info(time+"########----------进行了删除项目批次申报的操作---------########");
             Object object = proceedingJoinPoint.proceed();
             logger.info(time+"########----------删除项目批次申报成功返回---------########"+object);
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
             return object;
         }catch (Exception e){
             logger.info(time+"########----------删除项目批次申报发生异常---------########");
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
             e.printStackTrace();
             return null;
         } catch (Throwable throwable) {
@@ -167,9 +304,13 @@ public class AopConfig {
             logger.info(time+"########----------进行了删除菜单节点的操作---------########");
             Object object = proceedingJoinPoint.proceed();
             logger.info(time+"########----------删除菜单节点成功返回---------########"+object);
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
             return object;
         }catch (Exception e){
             logger.info(time+"########----------删除菜单节点发生异常---------########");
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
             e.printStackTrace();
             return null;
         } catch (Throwable throwable) {
@@ -190,9 +331,13 @@ public class AopConfig {
             logger.info(time+"########----------进行了修改菜单节点的操作---------########");
             Object object = proceedingJoinPoint.proceed();
             logger.info(time+"########----------修改菜单节点成功返回---------########"+object);
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
             return object;
         }catch (Exception e){
             logger.info(time+"########----------修改菜单节点发生异常---------########");
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
             e.printStackTrace();
             return null;
         } catch (Throwable throwable) {
@@ -213,9 +358,13 @@ public class AopConfig {
             logger.info(time+"########----------进行了添加菜单节点的操作---------########");
             Object object = proceedingJoinPoint.proceed();
             logger.info(time+"########----------添加菜单节点成功返回---------########"+object);
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
             return object;
         }catch (Exception e){
             logger.info(time+"########----------添加菜单节点发生异常---------########");
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
             e.printStackTrace();
             return null;
         } catch (Throwable throwable) {
@@ -236,9 +385,13 @@ public class AopConfig {
             logger.info(time+"########----------进行了删除角色的操作---------########");
             Object object = proceedingJoinPoint.proceed();
             logger.info(time+"########----------删除角色成功返回---------########"+object);
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
             return object;
         }catch (Exception e){
             logger.info(time+"########----------删除角色发生异常---------########");
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
             e.printStackTrace();
             return null;
         } catch (Throwable throwable) {
@@ -259,9 +412,13 @@ public class AopConfig {
             logger.info(time+"########----------进行了修改角色的操作---------########");
             Object object = proceedingJoinPoint.proceed();
             logger.info(time+"########----------修改角色成功返回---------########"+object);
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
             return object;
         }catch (Exception e){
             logger.info(time+"########----------修改角色发生异常---------########");
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
             e.printStackTrace();
             return null;
         } catch (Throwable throwable) {
@@ -282,9 +439,13 @@ public class AopConfig {
             logger.info(time+"########----------进行了添加角色的操作---------########");
             Object object = proceedingJoinPoint.proceed();
             logger.info(time+"########----------添加角色成功返回---------########"+object);
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
             return object;
         }catch (Exception e){
             logger.info(time+"########----------添加角色发生异常---------########");
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
             e.printStackTrace();
             return null;
         } catch (Throwable throwable) {
@@ -305,9 +466,13 @@ public class AopConfig {
             logger.info(time+"########----------进行了修改用户的操作---------########");
             Object object = proceedingJoinPoint.proceed();
             logger.info(time+"########----------修改用户成功返回---------########"+object);
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
             return object;
         }catch (Exception e){
             logger.info(time+"########----------修改用户发生异常---------########");
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
             e.printStackTrace();
             return null;
         } catch (Throwable throwable) {
@@ -328,9 +493,13 @@ public class AopConfig {
             logger.info(time+"########----------进行了删除用户的操作---------########");
             Object object = proceedingJoinPoint.proceed();
             logger.info(time+"########----------删除用户成功返回---------########"+object);
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
             return object;
         }catch (Exception e){
             logger.info(time+"########----------删除用户发生异常---------########");
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
             e.printStackTrace();
             return null;
         } catch (Throwable throwable) {
@@ -351,9 +520,13 @@ public class AopConfig {
             logger.info(time+"########----------进行了添加用户的操作---------########");
             Object object = proceedingJoinPoint.proceed();
             logger.info(time+"########----------添加用户成功返回---------########"+object);
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
             return object;
         }catch (Exception e){
             logger.info(time+"########----------添加用户发生异常---------########");
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
             e.printStackTrace();
             return null;
         } catch (Throwable throwable) {

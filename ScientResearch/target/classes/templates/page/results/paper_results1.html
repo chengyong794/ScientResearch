@@ -19,29 +19,16 @@
                 <form class="layui-form layui-form-pane" id="searchFrom2" action="">
                     <div class="layui-form-item">
                         <div class="layui-inline">
-                            <label class="layui-form-label">项目名称</label>
+                            <label class="layui-form-label">作者名称</label>
                             <div class="layui-input-inline">
-                                <input type="text" name="ppname" autocomplete="off" class="layui-input">
+                                <input type="text" name="tname" autocomplete="off" class="layui-input">
                             </div>
                         </div>
 
                         <div class="layui-inline">
-                            <label class="layui-form-label">批次名称</label>
+                            <label class="layui-form-label">论文标题</label>
                             <div class="layui-input-inline">
-                                <input type="text" name="ppnum" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-
-                        <div class="layui-inline">
-                            <label class="layui-form-label">开始时间</label>
-                            <div class="layui-input-inline">
-                                <input type="text" name="ppstarttime" class="layui-input" id="pdate" placeholder="请选择时间">
-                            </div>
-                        </div>
-                        <div class="layui-inline">
-                            <label class="layui-form-label">结束日期</label>
-                            <div class="layui-input-inline">
-                                <input type="text" name="ppendtime" class="layui-input" id="pendtime"  placeholder="请选择时间">
+                                <input type="text" name="ttitle" autocomplete="off" class="layui-input">
                             </div>
                         </div>
 
@@ -54,14 +41,122 @@
             </div>
         </fieldset>
 
+        <!--修改增加页面开始-->
+        <div style="display: none;margin: auto;" class="layui-form layuimini-form" id="EditandAdd">
+            <form class="layui-form" lay-filter="dataFrom" id="dataFrm">
+                <div class="layui-form-item" style="width: 500px;margin-top: 50px;">
+                    <label class="layui-form-label required">作者</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="tname" lay-verify="required" lay-reqtext="作者不能为空" placeholder="请输入作者" value="" class="layui-input">
+                        <input type="hidden" name="tid" value=""/>
+                    </div>
+                </div>
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label required">职称</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="tjob" lay-verify="required" lay-reqtext="职称不能为空" placeholder="请输入职称" value="" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label">所在部门</label>
+                    <div class="layui-input-block">
+                        <select name="tdept" placeholder="请输入部门" value="" class="layui-input">
+                            <option value="信息系">信息系</option>
+                            <option value="管理系">管理系</option>
+                            <option value="土木系">土木系</option>
+                        </select>
+                    </div>
+                </div>
 
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label">论文标题</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="ttitle" placeholder="请输入论文标题" value="" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label">发布期刊</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="tperiodical" placeholder="请输入发布期刊" value="" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label">期刊CN刊号</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="tcnid" placeholder="请输入期刊CN刊号" value="" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label">期刊ISSN号</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="tissnid" placeholder="请输入期刊ISSN号" value="" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-inline">
+                    <label class="layui-form-label">发表时间</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="tstarttime" class="layui-input" id="tstarttime" placeholder="请选择时间">
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px; margin-top: 10px;">
+                    <label class="layui-form-label">其他说明</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="tothers" placeholder="请输入其他说明" value="" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label">奖励</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="tscore" placeholder="请输入奖励" value="" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label">备注(是否核心)</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="tremaks" placeholder="请输入备注" value="" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label">第二作者</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="tsecond" placeholder="请输入第二作者" value="" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label">第三作者</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="tthird" placeholder="请输入第三作者" value="" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label">成员说明</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="tmembers" placeholder="请输入成员说明" value="" class="layui-input">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <!--修改增加页面结束-->
 
         <!--论文信息表-->
         <table class="layui-hide" id="currentTableId2" lay-filter="currentTableFilter2"></table>
 
 
-        <script type="text/html" id="currentTableBar3">
-            <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="on">结项</a>
+        <script type="text/html" id="currentTableBar">
+            <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit">编辑</a>
+            <a class="layui-btn layui-btn-normal layui-btn-xs " lay-event="on">通过审核</a>
+            <a class="layui-btn layui-btn-normal layui-btn-xs " lay-event="down">下载论文</a>
         </script>
 
     </div>
@@ -77,18 +172,7 @@
             laydate = layui.laydate;
 
         laydate.render({
-            elem: '#test1',
-            type: 'datetime'
-
-        });
-
-        laydate.render({
-            elem: '#test2'
-            ,type: 'datetime'
-        });
-
-        laydate.render({
-            elem: '#pdate',
+            elem: '#tstarttime',
             type: 'datetime'
 
         });
@@ -98,11 +182,11 @@
             ,type: 'datetime'
         });
 
-        var tablereh1;
-        tablereh1 = table.render({
+        var tablereh;
+        tablereh = table.render({
             elem: '#currentTableId2',
-            url: '',
-            toolbar: '#toolbarDemo2',
+            url: '/results/thesislistResult1',
+            toolbar: '#toolbarDemo',
             limits: [5,10, 15, 20, 25, 50, 100],
             limit: 5,
             page: true,
@@ -110,38 +194,29 @@
             cols: [
                 [
                     {type: "checkbox", width: 50},
-                    {field: 'ppid', width: 60, title: 'ID', sort: true},
-                    {field: 'pid',hide:true, width: 60, title: 'PID'},
-                    {field: 'ppname', width: 100, title: '项目名称'},
-                    {field: 'ppnum', width: 100, title: '批次名称'},
-                    {field: 'pppeople', width: 100, title: '项目成员'},
-                    {field: 'ppcontrol', width: 100, title: '负责人'},
-                    {field: 'ppstate3', width: 100, title: '立项2标识'},
-                    {field: 'ppcome', width: 100, title: '项目来源'},
-                    {field: 'pptype', width: 100, title: '项目分类', sort: true},
-                    {field: 'ppdept', width: 100, title: '所在部门'},
-                    {field: 'ppstarttime', width: 100, title: '开始时间'},
-                    {field: 'ppendtime', width: 100, title: '完成时间'},
-                    {field: 'ppadjuct', width: 100, title: '申请延期'},
-                    {field: 'ppform', width: 100, title: '结题形式'},
-                    {field: 'ppstatus', width: 100, title: '立项状态'},
-                    {field: 'ppremak', width: 100, title: '备注'},
-                    {field: 'subtime', width: 100, title: '提交时间'},
-                    {field: 'ppstate1', width: 100, title: '系审', templet: function (d) {
-                            if (d.ppstate1 == 1) {
-                                return '<span class="layui-badge ">通过</span>';
+                    {field: 'tid', width: 60, title: 'ID', sort: true},
+                    {field: 'tname', width: 60, title: '作者'},
+                    {field: 'tjob', width: 100, title: '职称'},
+                    {field: 'tdept', width: 100, title: '所在部门'},
+                    {field: 'ttitle', width: 100, title: '论文标题'},
+                    {field: 'tperiodical', width: 100, title: '发布期刊'},
+                    {field: 'tcnid', width: 100, title: '期刊CN刊号'},
+                    {field: 'tissnid', width: 100, title: '期刊ISSN号'},
+                    {field: 'tstarttime', width: 100, title: '发表时间', sort: true},
+                    {field: 'tothers', width: 100, title: '其他说明'},
+                    {field: 'tscore', width: 100, title: '奖励'},
+                    {field: 'tremaks', width: 100, title: '备注(是否核心)'},
+                    {field: 'tsecond', width: 100, title: '第二作者'},
+                    {field: 'tthird', width: 100, title: '第三作者'},
+                    {field: 'tachnum', width: 100, title: '审核状态', templet: function (d) {
+                            if (d.tachnum == 2) {
+                                return '<span class="layui-badge ">审核通过</span>';
                             } else {
-                                return '<span class="layui-badge layui-bg-blue">未通过</span>';
+                                return '<span class="layui-badge layui-bg-blue">未审核</span>';
                             }
                         }},
-                    {field: 'ppstate2', width: 100, title: '校审', templet: function (d) {
-                            if (d.ppstate2 == 1) {
-                                return '<span class="layui-badge ">通过</span>';
-                            } else {
-                                return '<span class="layui-badge layui-bg-blue">未通过</span>';
-                            }
-                        }},
-                    {title: '审核', minWidth: 150, toolbar: '#currentTableBar3', align: "center"}
+                    {field: 'tmembers', width: 100, title: '成员说明'},
+                    {title: '操作', minWidth: 250, toolbar: '#currentTableBar', align: "center"}
                 ]
             ]
         });
@@ -150,28 +225,60 @@
         form.on('submit(data-search-btn2)', function (data) {
             var datas = $("#searchFrom2").serialize();
             //执行搜索重载
-            tablereh1.reload({
-                url:'?'+datas,
+            tablereh.reload({
+                url:'/results/thesislistResult1?'+datas,
             });
         });
 
 
 //===============<!-------------------------------------->==============
-        var edit_open;
+        var add_edit_open;
 
         table.on('tool(currentTableFilter2)', function (obj) {
             var data = obj.data;
-            if (obj.event === 'on') {
-                $.ajax({
-                    type:'GET',
-                    url:'/KPostproject/updateByPPSTATE2?ppid='+data.ppid+'&ppstate2='+1+'&pid='+data.pid,
-                    success:function(msg){
-                        layer.msg(msg.info);
-                        tablereh1.reload();
+            if (obj.event === 'edit') {
+
+                add_edit_open = layer.open({
+                    title: '编辑论文',
+                    type:1,
+                    content:$('#EditandAdd'),
+                    skin: 'layui-layer-lan',
+                    area: ['600px', '500px']
+                    ,btnAlign:'c'
+                    ,btn: ['修改论文'
+                        , '取消修改']
+                    ,yes: function(index, layero){
+                        var data1 = form.val("dataFrom");
+                        $.ajax({
+                            type:'POST',
+                            url:'/results/thesisResultedit',
+                            data:data1,
+                            success:function(msg){
+                                layer.msg(msg.info);
+                                layer.close(add_edit_open);
+                                tablereh.reload();
+                            }
+                        });
+                    }
+                    ,btn2: function(index, layero){
+                    },
+                    success:function(index){
+                        form.val('dataFrom',data);
                     }
                 });
+                return false;
+            }else if(obj.event === 'on'){
+                $.ajax({
+                    type:'GET',
+                    url:'/results/updateBytachnum1?tid='+data.tid+'&tachnum='+2,
+                    success:function(msg){
+                        layer.msg(msg.info);
+                        tablereh.reload();
+                    }
+                });
+            }else if(obj.event === 'down'){
+                window.location.href='/down/downpaper?tid='+data.tid;
             }
-
         });
 
     });

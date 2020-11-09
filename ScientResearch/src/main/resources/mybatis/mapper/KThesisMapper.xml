@@ -3,6 +3,7 @@
 <mapper namespace="com.chengyong.mapper.KThesisMapper">
   <resultMap id="BaseResultMap" type="com.chengyong.entity.KThesis">
     <id column="TID" jdbcType="DECIMAL" property="tid" />
+    <result column="KYID" jdbcType="DECIMAL" property="kyid" />
     <result column="TNAME" jdbcType="VARCHAR" property="tname" />
     <result column="TJOB" jdbcType="VARCHAR" property="tjob" />
     <result column="TDEPT" jdbcType="VARCHAR" property="tdept" />
@@ -16,16 +17,24 @@
     <result column="TREMAKS" jdbcType="VARCHAR" property="tremaks" />
     <result column="TSECOND" jdbcType="VARCHAR" property="tsecond" />
     <result column="TTHIRD" jdbcType="VARCHAR" property="tthird" />
-    <result column="TACHNUM" jdbcType="VARCHAR" property="tachnum" />
+    <result column="TACHNUM" jdbcType="DECIMAL" property="tachnum" />
     <result column="TMEMBERS" jdbcType="VARCHAR" property="tmembers" />
+    <result column="TRESOURCE" jdbcType="VARCHAR" property="tresource" />
   </resultMap>
   <sql id="Base_Column_List">
     TID, TNAME, TJOB, TDEPT, TTITLE, TPERIODICAL, TCNID, TISSNID, TSTARTTIME, TOTHERS,
-    TSCORE, TREMAKS, TSECOND, TTHIRD, TACHNUM, TMEMBERS
+    TSCORE, TREMAKS, TSECOND, TTHIRD, TACHNUM, TMEMBERS,KYID,TRESOURCE
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
+    from K_THESIS
+    where TID = #{tid,jdbcType=DECIMAL}
+  </select>
+
+  <select id="selectBypath" parameterType="java.lang.Short" resultType="java.lang.String">
+    select
+    TRESOURCE
     from K_THESIS
     where TID = #{tid,jdbcType=DECIMAL}
   </select>
@@ -41,6 +50,36 @@
       <if test="ttitle != null">
        and TTITLE like concat(concat('%',#{ttitle,jdbcType=VARCHAR}),'%')
       </if>
+      and KYID = #{kyid,jdbcType=DECIMAL}
+    </where>
+  </select>
+
+  <select id="thesislistResult2" parameterType="com.chengyong.entity.KThesis" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_THESIS
+    <where>
+      <if test="tname != null">
+        TNAME like concat(concat('%',#{tname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="ttitle != null">
+        and TTITLE like concat(concat('%',#{ttitle,jdbcType=VARCHAR}),'%')
+      </if>
+      and TDEPT = #{tdept,jdbcType=DECIMAL}
+    </where>
+  </select>
+
+  <select id="thesislistResult1" parameterType="com.chengyong.entity.KThesis" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_THESIS
+    <where>
+      <if test="tname != null">
+        TNAME like concat(concat('%',#{tname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="ttitle != null">
+        and TTITLE like concat(concat('%',#{ttitle,jdbcType=VARCHAR}),'%')
+      </if>
     </where>
   </select>
 
@@ -49,18 +88,18 @@
     where TID = #{tid,jdbcType=DECIMAL}
   </delete>
   <insert id="insert" parameterType="com.chengyong.entity.KThesis">
-    insert into K_THESIS (TID, TNAME, TJOB, 
+    insert into K_THESIS (TNAME, TJOB,
       TDEPT, TTITLE, TPERIODICAL,
       TCNID, TISSNID, TSTARTTIME, 
       TOTHERS, TSCORE, TREMAKS, 
       TSECOND, TTHIRD, TACHNUM, 
-      TMEMBERS)
-    values (#{tid,jdbcType=DECIMAL}, #{tname,jdbcType=VARCHAR}, #{tjob,jdbcType=VARCHAR}, 
+      TMEMBERS,KYID,TRESOURCE)
+    values (#{tname,jdbcType=VARCHAR}, #{tjob,jdbcType=VARCHAR},
       #{tdept,jdbcType=VARCHAR}, #{ttitle,jdbcType=VARCHAR}, #{tperiodical,jdbcType=VARCHAR},
-      #{tcnid,jdbcType=VARCHAR}, #{tissnid,jdbcType=VARCHAR}, #{tstarttime,jdbcType=TIMESTAMP}, 
+      #{tcnid,jdbcType=VARCHAR}, #{tissnid,jdbcType=VARCHAR}, to_date(#{tstarttime,jdbcType=TIMESTAMP},'yyyy-MM-dd hh24:mi:ss'),
       #{tothers,jdbcType=VARCHAR}, #{tscore,jdbcType=VARCHAR}, #{tremaks,jdbcType=VARCHAR}, 
-      #{tsecond,jdbcType=VARCHAR}, #{tthird,jdbcType=VARCHAR}, #{tachnum,jdbcType=VARCHAR}, 
-      #{tmembers,jdbcType=VARCHAR})
+      #{tsecond,jdbcType=VARCHAR}, #{tthird,jdbcType=VARCHAR}, #{tachnum,jdbcType=DECIMAL},
+      #{tmembers,jdbcType=VARCHAR},#{kyid,jdbcType=DECIMAL},#{tresource,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.chengyong.entity.KThesis">
     insert into K_THESIS
@@ -225,14 +264,29 @@
       TPERIODICAL = #{tperiodical,jdbcType=VARCHAR},
       TCNID = #{tcnid,jdbcType=VARCHAR},
       TISSNID = #{tissnid,jdbcType=VARCHAR},
-      TSTARTTIME = #{tstarttime,jdbcType=TIMESTAMP},
+      TSTARTTIME = to_date(#{tstarttime,jdbcType=TIMESTAMP},'yyyy-MM-dd hh24:mi:ss'),
       TOTHERS = #{tothers,jdbcType=VARCHAR},
       TSCORE = #{tscore,jdbcType=VARCHAR},
       TREMAKS = #{tremaks,jdbcType=VARCHAR},
       TSECOND = #{tsecond,jdbcType=VARCHAR},
       TTHIRD = #{tthird,jdbcType=VARCHAR},
-      TACHNUM = #{tachnum,jdbcType=VARCHAR},
-      TMEMBERS = #{tmembers,jdbcType=VARCHAR}
+      TMEMBERS = #{tmembers,jdbcType=VARCHAR},
+      TRESOURCE = #{tresource,jdbcType=VARCHAR}
     where TID = #{tid,jdbcType=DECIMAL}
   </update>
+
+  <update id="updateBytachnum2" parameterType="java.lang.Short">
+    update K_THESIS
+    set
+      TACHNUM = #{tachnum,jdbcType=DECIMAL}
+    where TID = #{tid,jdbcType=DECIMAL}
+  </update>
+
+  <update id="updateBytachnum1" parameterType="java.lang.Short">
+    update K_THESIS
+    set
+      TACHNUM = #{tachnum,jdbcType=DECIMAL}
+    where TID = #{tid,jdbcType=DECIMAL}
+  </update>
+
 </mapper>

@@ -28,12 +28,31 @@ public class KThesisServiceImpl implements KThesisService {
 
     @Override
     public int deleteByPrimaryKey(Short tid) {
-        return 0;
+
+        return kThesisMapper.deleteByPrimaryKey(tid);
+    }
+
+    @Override
+    public int deleteByPrimaryKeylow(Short[] tids) {
+        try{
+            for (Short tid:tids
+            ) {
+                kThesisMapper.deleteByPrimaryKey(tid);
+            }
+            return 1;
+        }catch (Exception e){
+            e.printStackTrace();
+            return -1;
+        }
     }
 
     @Override
     public int insert(KThesis record) {
-        return 0;
+        String kyname = (String) request.getSession().getAttribute("user");
+        String path = (String) request.getSession().getAttribute("paper_path");
+        record.setKyid(kKyuserMapper.selectByuname(kyname));
+        record.setTresource(path);
+        return kThesisMapper.insert(record);
     }
 
     @Override
@@ -49,9 +68,27 @@ public class KThesisServiceImpl implements KThesisService {
     @Override
     public DataJson thesislistResult3(KThesis record) {
         String kyname = (String) request.getSession().getAttribute("user");
-        record.setTdept(kKyuserMapper.selectByDept(kyname));
+        record.setKyid(kKyuserMapper.selectByuname(kyname));
         PageHelper.startPage(record.getPage(),record.getLimit());
         List<KThesis> list  = kThesisMapper.thesislistResult3(record);
+        PageInfo info = new PageInfo(list);
+        return new DataJson(info.getTotal(),list);
+    }
+
+    @Override
+    public DataJson thesislistResult2(KThesis record) {
+        String kyname = (String) request.getSession().getAttribute("user");
+        record.setTdept(kKyuserMapper.selectByDept(kyname));
+        PageHelper.startPage(record.getPage(),record.getLimit());
+        List<KThesis> list  = kThesisMapper.thesislistResult2(record);
+        PageInfo info = new PageInfo(list);
+        return new DataJson(info.getTotal(),list);
+    }
+
+    @Override
+    public DataJson thesislistResult1(KThesis record) {
+        PageHelper.startPage(record.getPage(),record.getLimit());
+        List<KThesis> list  = kThesisMapper.thesislistResult1(record);
         PageInfo info = new PageInfo(list);
         return new DataJson(info.getTotal(),list);
     }
@@ -63,6 +100,23 @@ public class KThesisServiceImpl implements KThesisService {
 
     @Override
     public int updateByPrimaryKey(KThesis record) {
-        return 0;
+        String path = (String) request.getSession().getAttribute("paper_path");
+        record.setTresource(path);
+        return kThesisMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public int updateBytachnum2(Short tid, Short tachnum) {
+        return kThesisMapper.updateBytachnum2(tid,tachnum);
+    }
+
+    @Override
+    public int updateBytachnum1(Short tid, Short tachnum) {
+        return kThesisMapper.updateBytachnum1(tid,tachnum);
+    }
+
+    @Override
+    public String selectBypath(Short tid) {
+        return kThesisMapper.selectBypath(tid);
     }
 }
