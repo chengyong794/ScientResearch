@@ -23,9 +23,13 @@ public interface KThesisMapper {
 
     int updateByPrimaryKey(KThesis record);
 
+    int updateByPrimaryKey1(KThesis record);
+
     int updateBytachnum2(Short tid,Short tachnum);
 
     int updateBytachnum1(Short tid,Short tachnum);
 
     String selectBypath(Short tid);
+
+    Short selectBytachnum(Short tid);
 }

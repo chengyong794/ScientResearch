@@ -101,12 +101,20 @@ public class KThesisServiceImpl implements KThesisService {
     @Override
     public int updateByPrimaryKey(KThesis record) {
         String path = (String) request.getSession().getAttribute("paper_path");
-        record.setTresource(path);
-        return kThesisMapper.updateByPrimaryKey(record);
+        if(path == null){
+            return kThesisMapper.updateByPrimaryKey1(record);
+        }else{
+            record.setTresource(path);
+            return kThesisMapper.updateByPrimaryKey(record);
+        }
+
     }
 
     @Override
     public int updateBytachnum2(Short tid, Short tachnum) {
+        if(kThesisMapper.selectBytachnum(tid)==2){
+            return 1;
+        }
         return kThesisMapper.updateBytachnum2(tid,tachnum);
     }
 

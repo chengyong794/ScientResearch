@@ -3,9 +3,10 @@
 <mapper namespace="com.chengyong.mapper.KWorkMapper">
   <resultMap id="BaseResultMap" type="com.chengyong.entity.KWork">
     <id column="WID" jdbcType="DECIMAL" property="wid" />
+    <result column="KYID" jdbcType="DECIMAL" property="kyid" />
     <result column="WNAME" jdbcType="VARCHAR" property="wname" />
     <result column="WJOB" jdbcType="VARCHAR" property="wjob" />
-    <result column="WUNIT" jdbcType="VARCHAR" property="wunit" />
+    <result column="WDEPT" jdbcType="VARCHAR" property="wdept" />
     <result column="WTITLE" jdbcType="VARCHAR" property="wtitle" />
     <result column="WPUBLISH" jdbcType="VARCHAR" property="wpublish" />
     <result column="WISBNID" jdbcType="VARCHAR" property="wisbnid" />
@@ -17,10 +18,11 @@
     <result column="WTHIRD" jdbcType="VARCHAR" property="wthird" />
     <result column="WACHNUM" jdbcType="VARCHAR" property="wachnum" />
     <result column="WMEMBERS" jdbcType="VARCHAR" property="wmembers" />
+    <result column="WRESOURCE" jdbcType="VARCHAR" property="wresource" />
   </resultMap>
   <sql id="Base_Column_List">
-    WID, WNAME, WJOB, WUNIT, WTITLE, WPUBLISH, WISBNID, WSTARTTIME, WOTHERS, WSCORE, 
-    WREMARKS, WSECOND, WTHIRD, WACHNUM, WMEMBERS
+    WID, WNAME, WJOB, WDEPT, WTITLE, WPUBLISH, WISBNID, WSTARTTIME, WOTHERS, WSCORE,
+    WREMARKS, WSECOND, WTHIRD, WACHNUM, WMEMBERS,KYID,WRESOURCE
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
     select 
@@ -28,22 +30,82 @@
     from K_WORK
     where WID = #{wid,jdbcType=DECIMAL}
   </select>
+
+  <select id="selectByPath" parameterType="java.lang.Short" resultType="java.lang.String">
+    select
+    WRESOURCE
+    from K_WORK
+    where WID = #{wid,jdbcType=DECIMAL}
+  </select>
+
+  <select id="selectBywachnum" parameterType="java.lang.Short" resultType="java.lang.Short">
+    select
+    WACHNUM
+    from K_WORK
+    where WID = #{wid,jdbcType=DECIMAL}
+  </select>
+
+  <select id="booklistResult3" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_WORK
+    <where>
+      <if test="wname != null">
+        WNAME like concat(concat('%',#{wname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="wtitle != null">
+       and WTITLE like concat(concat('%',#{wtitle,jdbcType=VARCHAR}),'%')
+      </if>
+      and KYID = #{kyid,jdbcType=DECIMAL}
+    </where>
+  </select>
+
+  <select id="booklistResult2" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_WORK
+    <where>
+      <if test="wname != null">
+        WNAME like concat(concat('%',#{wname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="wtitle != null">
+        and WTITLE like concat(concat('%',#{wtitle,jdbcType=VARCHAR}),'%')
+      </if>
+      and WDEPT = #{wdept,jdbcType=VARCHAR}
+    </where>
+  </select>
+
+  <select id="booklistResult1" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_WORK
+    <where>
+      <if test="wname != null">
+        WNAME like concat(concat('%',#{wname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="wtitle != null">
+        and WTITLE like concat(concat('%',#{wtitle,jdbcType=VARCHAR}),'%')
+      </if>
+    </where>
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
     delete from K_WORK
     where WID = #{wid,jdbcType=DECIMAL}
   </delete>
   <insert id="insert" parameterType="com.chengyong.entity.KWork">
-    insert into K_WORK (WID, WNAME, WJOB, 
-      WUNIT, WTITLE, WPUBLISH, 
+    insert into K_WORK (WNAME, WJOB,
+      WDEPT, WTITLE, WPUBLISH,
       WISBNID, WSTARTTIME, WOTHERS, 
       WSCORE, WREMARKS, WSECOND, 
-      WTHIRD, WACHNUM, WMEMBERS
+      WTHIRD, WACHNUM, WMEMBERS,KYID,WRESOURCE
       )
-    values (#{wid,jdbcType=DECIMAL}, #{wname,jdbcType=VARCHAR}, #{wjob,jdbcType=VARCHAR}, 
-      #{wunit,jdbcType=VARCHAR}, #{wtitle,jdbcType=VARCHAR}, #{wpublish,jdbcType=VARCHAR}, 
-      #{wisbnid,jdbcType=VARCHAR}, #{wstarttime,jdbcType=TIMESTAMP}, #{wothers,jdbcType=VARCHAR}, 
+    values ( #{wname,jdbcType=VARCHAR}, #{wjob,jdbcType=VARCHAR},
+      #{wdept,jdbcType=VARCHAR}, #{wtitle,jdbcType=VARCHAR}, #{wpublish,jdbcType=VARCHAR},
+      #{wisbnid,jdbcType=VARCHAR}, to_date(#{wstarttime,jdbcType=TIMESTAMP},'yyyy-MM-dd hh24:mi:ss'), #{wothers,jdbcType=VARCHAR},
       #{wscore,jdbcType=VARCHAR}, #{wremarks,jdbcType=VARCHAR}, #{wsecond,jdbcType=VARCHAR}, 
-      #{wthird,jdbcType=VARCHAR}, #{wachnum,jdbcType=VARCHAR}, #{wmembers,jdbcType=VARCHAR}
+      #{wthird,jdbcType=VARCHAR}, #{wachnum,jdbcType=VARCHAR}, #{wmembers,jdbcType=VARCHAR},
+      #{kyid,jdbcType=DECIMAL},#{wresource,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.chengyong.entity.KWork">
@@ -58,8 +120,8 @@
       <if test="wjob != null">
         WJOB,
       </if>
-      <if test="wunit != null">
-        WUNIT,
+      <if test="wdept != null">
+        WDEPT,
       </if>
       <if test="wtitle != null">
         WTITLE,
@@ -105,8 +167,8 @@
       <if test="wjob != null">
         #{wjob,jdbcType=VARCHAR},
       </if>
-      <if test="wunit != null">
-        #{wunit,jdbcType=VARCHAR},
+      <if test="wdept != null">
+        #{wdept,jdbcType=VARCHAR},
       </if>
       <if test="wtitle != null">
         #{wtitle,jdbcType=VARCHAR},
@@ -143,6 +205,7 @@
       </if>
     </trim>
   </insert>
+
   <update id="updateByPrimaryKeySelective" parameterType="com.chengyong.entity.KWork">
     update K_WORK
     <set>
@@ -182,31 +245,59 @@
       <if test="wthird != null">
         WTHIRD = #{wthird,jdbcType=VARCHAR},
       </if>
-      <if test="wachnum != null">
-        WACHNUM = #{wachnum,jdbcType=VARCHAR},
-      </if>
       <if test="wmembers != null">
         WMEMBERS = #{wmembers,jdbcType=VARCHAR},
       </if>
     </set>
     where WID = #{wid,jdbcType=DECIMAL}
   </update>
+
   <update id="updateByPrimaryKey" parameterType="com.chengyong.entity.KWork">
     update K_WORK
     set WNAME = #{wname,jdbcType=VARCHAR},
       WJOB = #{wjob,jdbcType=VARCHAR},
-      WUNIT = #{wunit,jdbcType=VARCHAR},
+      WDEPT = #{wdept,jdbcType=VARCHAR},
       WTITLE = #{wtitle,jdbcType=VARCHAR},
       WPUBLISH = #{wpublish,jdbcType=VARCHAR},
       WISBNID = #{wisbnid,jdbcType=VARCHAR},
-      WSTARTTIME = #{wstarttime,jdbcType=TIMESTAMP},
+      WSTARTTIME = to_date(#{wstarttime,jdbcType=TIMESTAMP},'yyyy-MM-dd hh24:mi:ss'),
       WOTHERS = #{wothers,jdbcType=VARCHAR},
       WSCORE = #{wscore,jdbcType=VARCHAR},
       WREMARKS = #{wremarks,jdbcType=VARCHAR},
       WSECOND = #{wsecond,jdbcType=VARCHAR},
       WTHIRD = #{wthird,jdbcType=VARCHAR},
-      WACHNUM = #{wachnum,jdbcType=VARCHAR},
+      WMEMBERS = #{wmembers,jdbcType=VARCHAR},
+      WRESOURCE = #{wresource,jdbcType=VARCHAR}
+    where WID = #{wid,jdbcType=DECIMAL}
+  </update>
+
+  <update id="updateByPrimaryKey1" parameterType="com.chengyong.entity.KWork">
+    update K_WORK
+    set WNAME = #{wname,jdbcType=VARCHAR},
+      WJOB = #{wjob,jdbcType=VARCHAR},
+      WDEPT = #{wdept,jdbcType=VARCHAR},
+      WTITLE = #{wtitle,jdbcType=VARCHAR},
+      WPUBLISH = #{wpublish,jdbcType=VARCHAR},
+      WISBNID = #{wisbnid,jdbcType=VARCHAR},
+      WSTARTTIME = to_date(#{wstarttime,jdbcType=TIMESTAMP},'yyyy-MM-dd hh24:mi:ss'),
+      WOTHERS = #{wothers,jdbcType=VARCHAR},
+      WSCORE = #{wscore,jdbcType=VARCHAR},
+      WREMARKS = #{wremarks,jdbcType=VARCHAR},
+      WSECOND = #{wsecond,jdbcType=VARCHAR},
+      WTHIRD = #{wthird,jdbcType=VARCHAR},
       WMEMBERS = #{wmembers,jdbcType=VARCHAR}
+    where WID = #{wid,jdbcType=DECIMAL}
+  </update>
+
+  <update id="updateByWACHNUM1" parameterType="java.lang.Short">
+    update K_WORK
+    set WACHNUM = #{wachnum,jdbcType=DECIMAL}
+    where WID = #{wid,jdbcType=DECIMAL}
+  </update>
+
+  <update id="updateByWACHNUM2" parameterType="java.lang.Short">
+    update K_WORK
+    set WACHNUM = #{wachnum,jdbcType=DECIMAL}
     where WID = #{wid,jdbcType=DECIMAL}
   </update>
 </mapper>

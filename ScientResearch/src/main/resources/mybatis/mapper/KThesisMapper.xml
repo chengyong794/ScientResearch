@@ -39,6 +39,13 @@
     where TID = #{tid,jdbcType=DECIMAL}
   </select>
 
+  <select id="selectBytachnum" parameterType="java.lang.Short" resultType="java.lang.Short">
+    select
+    TACHNUM
+    from K_THESIS
+    where TID = #{tid,jdbcType=DECIMAL}
+  </select>
+
   <select id="thesislistResult3" parameterType="com.chengyong.entity.KThesis" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
@@ -272,6 +279,25 @@
       TTHIRD = #{tthird,jdbcType=VARCHAR},
       TMEMBERS = #{tmembers,jdbcType=VARCHAR},
       TRESOURCE = #{tresource,jdbcType=VARCHAR}
+    where TID = #{tid,jdbcType=DECIMAL}
+  </update>
+
+  <update id="updateByPrimaryKey1" parameterType="com.chengyong.entity.KThesis">
+    update K_THESIS
+    set TNAME = #{tname,jdbcType=VARCHAR},
+      TJOB = #{tjob,jdbcType=VARCHAR},
+      TDEPT = #{tdept,jdbcType=VARCHAR},
+      TTITLE = #{ttitle,jdbcType=VARCHAR},
+      TPERIODICAL = #{tperiodical,jdbcType=VARCHAR},
+      TCNID = #{tcnid,jdbcType=VARCHAR},
+      TISSNID = #{tissnid,jdbcType=VARCHAR},
+      TSTARTTIME = to_date(#{tstarttime,jdbcType=TIMESTAMP},'yyyy-MM-dd hh24:mi:ss'),
+      TOTHERS = #{tothers,jdbcType=VARCHAR},
+      TSCORE = #{tscore,jdbcType=VARCHAR},
+      TREMAKS = #{tremaks,jdbcType=VARCHAR},
+      TSECOND = #{tsecond,jdbcType=VARCHAR},
+      TTHIRD = #{tthird,jdbcType=VARCHAR},
+      TMEMBERS = #{tmembers,jdbcType=VARCHAR}
     where TID = #{tid,jdbcType=DECIMAL}
   </update>
 

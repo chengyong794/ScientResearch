@@ -10,7 +10,7 @@ public class KWork implements Serializable {
 
     private String wjob;
 
-    private String wunit;
+    private String wdept;
 
     private String wtitle;
 
@@ -18,7 +18,7 @@ public class KWork implements Serializable {
 
     private String wisbnid;
 
-    private Date wstarttime;
+    private String wstarttime;
 
     private String wothers;
 
@@ -30,9 +30,53 @@ public class KWork implements Serializable {
 
     private String wthird;
 
-    private String wachnum;
+    private Short wachnum;
 
     private String wmembers;
+
+    private Short kyid;
+
+    private String wresource;
+
+    private Integer page;
+
+    private Integer limit;
+
+    public void setWachnum(Short wachnum) {
+        this.wachnum = wachnum;
+    }
+
+    public Short getKyid() {
+        return kyid;
+    }
+
+    public void setKyid(Short kyid) {
+        this.kyid = kyid;
+    }
+
+    public String getWresource() {
+        return wresource;
+    }
+
+    public void setWresource(String wresource) {
+        this.wresource = wresource;
+    }
+
+    public Integer getPage() {
+        return page;
+    }
+
+    public void setPage(Integer page) {
+        this.page = page;
+    }
+
+    public Integer getLimit() {
+        return limit;
+    }
+
+    public void setLimit(Integer limit) {
+        this.limit = limit;
+    }
 
     public Short getWid() {
         return wid;
@@ -58,12 +102,12 @@ public class KWork implements Serializable {
         this.wjob = wjob;
     }
 
-    public String getWunit() {
-        return wunit;
+    public String getWdept() {
+        return wdept;
     }
 
-    public void setWunit(String wunit) {
-        this.wunit = wunit;
+    public void setWdept(String wdept) {
+        this.wdept = wdept;
     }
 
     public String getWtitle() {
@@ -90,12 +134,16 @@ public class KWork implements Serializable {
         this.wisbnid = wisbnid;
     }
 
-    public Date getWstarttime() {
+    public String getWstarttime() {
         return wstarttime;
     }
 
-    public void setWstarttime(Date wstarttime) {
+    public void setWstarttime(String wstarttime) {
         this.wstarttime = wstarttime;
+    }
+
+    public Short getWachnum() {
+        return wachnum;
     }
 
     public String getWothers() {
@@ -136,14 +184,6 @@ public class KWork implements Serializable {
 
     public void setWthird(String wthird) {
         this.wthird = wthird;
-    }
-
-    public String getWachnum() {
-        return wachnum;
-    }
-
-    public void setWachnum(String wachnum) {
-        this.wachnum = wachnum;
     }
 
     public String getWmembers() {

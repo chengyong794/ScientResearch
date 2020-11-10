@@ -372,4 +372,38 @@ public class IndexController {
 
         return url;
     }
+
+    /**
+     * 著作页面跳转
+     */
+    @RequestMapping("/kbook_results")
+    public String kbook_results(HttpServletRequest request){
+        String url = null;
+        String un = (String) request.getSession().getAttribute("user");
+        Integer KyType = (Integer) redisUtil.get(un);
+
+        if(KyType==null){
+            Short tp = kKyuserService.findUserRoleType(un);
+            if(tp==1||tp==0){
+                redisUtil.set("KyType",tp);
+                url = "page/results/book_results1";
+            }else if(tp==2){
+                redisUtil.set("KyType",tp);
+                url = "page/results/book_results2";
+            }else if(tp==3){
+                redisUtil.set("KyType",tp);
+                url = "page/results/book_results3";
+            }
+        }else{
+            if(KyType==1){
+                url = "page/results/book_results1";
+            }else if(KyType==2){
+                url = "page/results/book_results2";
+            }else if(KyType==3){
+                url = "page/results/book_results3";
+            }
+        }
+
+        return url;
+    }
 }

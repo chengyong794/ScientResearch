@@ -23,6 +23,116 @@ public class AopConfig {
     @Autowired
     private HttpServletRequest request;
 
+
+    /**
+     * 科研人员修改了著作
+     * @param proceedingJoinPoint
+     * @return
+     */
+    @Around("execution(* com.chengyong.service.impl.KWorkServiceImpl.updateByPrimaryKey(..))")
+    public Object KWorkServiceImplupdateByPrimaryKey(ProceedingJoinPoint proceedingJoinPoint){
+        try{
+            logger.info(time+"########----------科研人员修改了著作---------########");
+            Object object = proceedingJoinPoint.proceed();
+            logger.info(time+"########----------科研人员修改著作成功返回---------########"+object);
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
+            return object;
+        }catch (Exception e){
+            logger.info(time+"########----------科研人员修改著作发生异常---------########");
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
+            e.printStackTrace();
+            return null;
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+            return null;
+        }
+
+    }
+
+    /**
+     * 科研人员添加了著作
+     * @param proceedingJoinPoint
+     * @return
+     */
+    @Around("execution(* com.chengyong.service.impl.KWorkServiceImpl.insert(..))")
+    public Object KWorkServiceImplinsert(ProceedingJoinPoint proceedingJoinPoint){
+        try{
+            logger.info(time+"########----------科研人员添加了著作---------########");
+            Object object = proceedingJoinPoint.proceed();
+            logger.info(time+"########----------科研人员添加著作成功返回---------########"+object);
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
+            return object;
+        }catch (Exception e){
+            logger.info(time+"########----------科研人员添加著作发生异常---------########");
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
+            e.printStackTrace();
+            return null;
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+            return null;
+        }
+
+    }
+
+    /**
+     * 科研人员删除了著作
+     * @param proceedingJoinPoint
+     * @return
+     */
+    @Around("execution(* com.chengyong.service.impl.KWorkServiceImpl.deleteByPrimaryKey(..))")
+    public Object KWorkServiceImpldeleteByPrimaryKey(ProceedingJoinPoint proceedingJoinPoint){
+        try{
+            logger.info(time+"########----------科研人员删除了著作---------########");
+            Object object = proceedingJoinPoint.proceed();
+            logger.info(time+"########----------科研人员删除著作成功返回---------########"+object);
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
+            return object;
+        }catch (Exception e){
+            logger.info(time+"########----------科研人员删除著作发生异常---------########");
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
+            e.printStackTrace();
+            return null;
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+            return null;
+        }
+
+    }
+
+    /**
+     * 科研人员批量删除了著作
+     * @param proceedingJoinPoint
+     * @return
+     */
+    @Around("execution(* com.chengyong.service.impl.KWorkServiceImpl.deleteByPrimaryKeylow(..))")
+    public Object KWorkServiceImpldeleteByPrimaryKeylow(ProceedingJoinPoint proceedingJoinPoint){
+        try{
+            logger.info(time+"########----------科研人员批量删除了著作---------########");
+            Object object = proceedingJoinPoint.proceed();
+            logger.info(time+"########----------科研人员批量删除著作成功返回---------########"+object);
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
+            return object;
+        }catch (Exception e){
+            logger.info(time+"########----------科研人员批量删除著作发生异常---------########");
+            logger.info(time+"########----------IP=="+request.getRemoteAddr()+"---------########");
+            logger.info(time+"########----------URL=="+request.getRequestURL()+"---------########");
+            e.printStackTrace();
+            return null;
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+            return null;
+        }
+
+    }
+
+
     /**
      * 科研人员批量删除了论文
      * @param proceedingJoinPoint
