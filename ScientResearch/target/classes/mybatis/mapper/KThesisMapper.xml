@@ -99,13 +99,13 @@
       TDEPT, TTITLE, TPERIODICAL,
       TCNID, TISSNID, TSTARTTIME, 
       TOTHERS, TSCORE, TREMAKS, 
-      TSECOND, TTHIRD, TACHNUM, 
+      TSECOND, TTHIRD,
       TMEMBERS,KYID,TRESOURCE)
     values (#{tname,jdbcType=VARCHAR}, #{tjob,jdbcType=VARCHAR},
       #{tdept,jdbcType=VARCHAR}, #{ttitle,jdbcType=VARCHAR}, #{tperiodical,jdbcType=VARCHAR},
       #{tcnid,jdbcType=VARCHAR}, #{tissnid,jdbcType=VARCHAR}, to_date(#{tstarttime,jdbcType=TIMESTAMP},'yyyy-MM-dd hh24:mi:ss'),
       #{tothers,jdbcType=VARCHAR}, #{tscore,jdbcType=VARCHAR}, #{tremaks,jdbcType=VARCHAR}, 
-      #{tsecond,jdbcType=VARCHAR}, #{tthird,jdbcType=VARCHAR}, #{tachnum,jdbcType=DECIMAL},
+      #{tsecond,jdbcType=VARCHAR}, #{tthird,jdbcType=VARCHAR},
       #{tmembers,jdbcType=VARCHAR},#{kyid,jdbcType=DECIMAL},#{tresource,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.chengyong.entity.KThesis">

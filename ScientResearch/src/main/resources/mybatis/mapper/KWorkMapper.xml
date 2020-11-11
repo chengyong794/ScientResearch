@@ -98,13 +98,13 @@
       WDEPT, WTITLE, WPUBLISH,
       WISBNID, WSTARTTIME, WOTHERS, 
       WSCORE, WREMARKS, WSECOND, 
-      WTHIRD, WACHNUM, WMEMBERS,KYID,WRESOURCE
+      WTHIRD,  WMEMBERS,KYID,WRESOURCE
       )
     values ( #{wname,jdbcType=VARCHAR}, #{wjob,jdbcType=VARCHAR},
       #{wdept,jdbcType=VARCHAR}, #{wtitle,jdbcType=VARCHAR}, #{wpublish,jdbcType=VARCHAR},
       #{wisbnid,jdbcType=VARCHAR}, to_date(#{wstarttime,jdbcType=TIMESTAMP},'yyyy-MM-dd hh24:mi:ss'), #{wothers,jdbcType=VARCHAR},
       #{wscore,jdbcType=VARCHAR}, #{wremarks,jdbcType=VARCHAR}, #{wsecond,jdbcType=VARCHAR}, 
-      #{wthird,jdbcType=VARCHAR}, #{wachnum,jdbcType=VARCHAR}, #{wmembers,jdbcType=VARCHAR},
+      #{wthird,jdbcType=VARCHAR},  #{wmembers,jdbcType=VARCHAR},
       #{kyid,jdbcType=DECIMAL},#{wresource,jdbcType=VARCHAR}
       )
   </insert>

@@ -406,4 +406,38 @@ public class IndexController {
 
         return url;
     }
+
+    /**
+     * 项目成果页面跳转
+     */
+    @RequestMapping("/project_results")
+    public String project_results(HttpServletRequest request){
+        String url = null;
+        String un = (String) request.getSession().getAttribute("user");
+        Integer KyType = (Integer) redisUtil.get(un);
+
+        if(KyType==null){
+            Short tp = kKyuserService.findUserRoleType(un);
+            if(tp==1||tp==0){
+                redisUtil.set("KyType",tp);
+                url = "page/results/project_results1";
+            }else if(tp==2){
+                redisUtil.set("KyType",tp);
+                url = "page/results/project_results2";
+            }else if(tp==3){
+                redisUtil.set("KyType",tp);
+                url = "page/results/project_results3";
+            }
+        }else{
+            if(KyType==1){
+                url = "page/results/project_results1";
+            }else if(KyType==2){
+                url = "page/results/project_results2";
+            }else if(KyType==3){
+                url = "page/results/project_results3";
+            }
+        }
+
+        return url;
+    }
 }
