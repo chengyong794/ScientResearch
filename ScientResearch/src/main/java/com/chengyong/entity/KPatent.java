@@ -22,7 +22,7 @@ public class KPatent implements Serializable {
 
     private String znum;
 
-    private Date zdate;
+    private String zdate;
 
     private String zaward;
 
@@ -36,9 +36,65 @@ public class KPatent implements Serializable {
 
     private String zthird;
 
-    private String zachnum;
+    private Short zachnum;
 
     private String zmembers;
+
+    private Short kyid;
+
+    private String zresource;
+
+    private Integer page;
+
+    private Integer limit;
+
+    public String getZdate() {
+        return zdate;
+    }
+
+    public void setZdate(String zdate) {
+        this.zdate = zdate;
+    }
+
+    public Short getZachnum() {
+        return zachnum;
+    }
+
+    public void setZachnum(Short zachnum) {
+        this.zachnum = zachnum;
+    }
+
+    public Short getKyid() {
+        return kyid;
+    }
+
+    public void setKyid(Short kyid) {
+        this.kyid = kyid;
+    }
+
+    public String getZresource() {
+        return zresource;
+    }
+
+    public void setZresource(String zresource) {
+        this.zresource = zresource;
+    }
+
+    public Integer getPage() {
+        return page;
+    }
+
+    public void setPage(Integer page) {
+        this.page = page;
+    }
+
+    public Integer getLimit() {
+        return limit;
+    }
+
+    public void setLimit(Integer limit) {
+        this.limit = limit;
+    }
 
     public Short getZid() {
         return zid;
@@ -112,14 +168,6 @@ public class KPatent implements Serializable {
         this.znum = znum;
     }
 
-    public Date getZdate() {
-        return zdate;
-    }
-
-    public void setZdate(Date zdate) {
-        this.zdate = zdate;
-    }
-
     public String getZaward() {
         return zaward;
     }
@@ -166,14 +214,6 @@ public class KPatent implements Serializable {
 
     public void setZthird(String zthird) {
         this.zthird = zthird;
-    }
-
-    public String getZachnum() {
-        return zachnum;
-    }
-
-    public void setZachnum(String zachnum) {
-        this.zachnum = zachnum;
     }
 
     public String getZmembers() {

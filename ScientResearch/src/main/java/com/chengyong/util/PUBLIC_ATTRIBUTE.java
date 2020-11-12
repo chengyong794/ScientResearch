@@ -22,5 +22,5 @@ public class PUBLIC_ATTRIBUTE {
     public static final String UPLOAD_PATH_PAPER = "D:\\Scient\\paperUpload";
     public static final String UPLOAD_PATH_BOOK = "D:\\Scient\\bookUpload";
     public static final String UPLOAD_PATH_PRORESULT = "D:\\Scient\\proResultUpload";
-
+    public static final String UPLOAD_PATH_PATENT = "D:\\Scient\\patentUpload";
 }

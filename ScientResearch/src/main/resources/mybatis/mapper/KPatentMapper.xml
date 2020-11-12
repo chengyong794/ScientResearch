@@ -18,37 +18,99 @@
     <result column="ZREMARKS" jdbcType="VARCHAR" property="zremarks" />
     <result column="ZSECOND" jdbcType="VARCHAR" property="zsecond" />
     <result column="ZTHIRD" jdbcType="VARCHAR" property="zthird" />
-    <result column="ZACHNUM" jdbcType="VARCHAR" property="zachnum" />
+    <result column="ZACHNUM" jdbcType="DECIMAL" property="zachnum" />
     <result column="ZMEMBERS" jdbcType="VARCHAR" property="zmembers" />
+    <result column="KYID" jdbcType="DECIMAL" property="kyid" />
+    <result column="ZRESOURCE" jdbcType="VARCHAR" property="zresource" />
   </resultMap>
   <sql id="Base_Column_List">
     ZID, ZNAME, PJOB, ZDEPT, PATENTNAME, ZTYPE, ZRANID, ZSTATE, ZNUM, ZDATE, ZAWARD, 
-    ZOTHERS, ZSCORE, ZREMARKS, ZSECOND, ZTHIRD, ZACHNUM, ZMEMBERS
+    ZOTHERS, ZSCORE, ZREMARKS, ZSECOND, ZTHIRD, ZACHNUM, ZMEMBERS,KYID,ZRESOURCE
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from K_PATENT
     where ZID = #{zid,jdbcType=DECIMAL}
   </select>
+
+  <select id="selectByzachnum" parameterType="java.lang.Short" resultType="java.lang.Short">
+    select
+    ZACHNUM
+    from K_PATENT
+    where ZID = #{zid,jdbcType=DECIMAL}
+  </select>
+
+  <select id="selectByPATH" parameterType="java.lang.Short" resultType="java.lang.String">
+    select
+    ZRESOURCE
+    from K_PATENT
+    where ZID = #{zid,jdbcType=DECIMAL}
+  </select>
+
+  <select id="patentlist3" parameterType="com.chengyong.entity.KPatent" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_PATENT
+    <where>
+      <if test="patentname != null">
+        PATENTNAME like concat(concat('%',#{patentname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="ztype != null">
+       and ZTYPE like concat(concat('%',#{ztype,jdbcType=VARCHAR}),'%')
+      </if>
+     and KYID = #{kyid,jdbcType=DECIMAL}
+    </where>
+  </select>
+
+  <select id="patentlist2" parameterType="com.chengyong.entity.KPatent" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_PATENT
+    <where>
+      <if test="patentname != null">
+        PATENTNAME like concat(concat('%',#{patentname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="ztype != null">
+        and ZTYPE like concat(concat('%',#{ztype,jdbcType=VARCHAR}),'%')
+      </if>
+      and ZDEPT = #{zdept,jdbcType=VARCHAR}
+    </where>
+  </select>
+
+  <select id="patentlist1" parameterType="com.chengyong.entity.KPatent" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_PATENT
+    <where>
+      <if test="patentname != null">
+        PATENTNAME like concat(concat('%',#{patentname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="ztype != null">
+        and ZTYPE like concat(concat('%',#{ztype,jdbcType=VARCHAR}),'%')
+      </if>
+    </where>
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
     delete from K_PATENT
     where ZID = #{zid,jdbcType=DECIMAL}
   </delete>
   <insert id="insert" parameterType="com.chengyong.entity.KPatent">
-    insert into K_PATENT (ZID, ZNAME, PJOB, 
+    insert into K_PATENT (ZNAME, PJOB,
       ZDEPT, PATENTNAME, ZTYPE, 
       ZRANID, ZSTATE, ZNUM, 
       ZDATE, ZAWARD, ZOTHERS, 
       ZSCORE, ZREMARKS, ZSECOND, 
-      ZTHIRD, ZACHNUM, ZMEMBERS
+      ZTHIRD, ZMEMBERS,KYID,ZRESOURCE
       )
-    values (#{zid,jdbcType=DECIMAL}, #{zname,jdbcType=VARCHAR}, #{pjob,jdbcType=VARCHAR}, 
+    values ( #{zname,jdbcType=VARCHAR}, #{pjob,jdbcType=VARCHAR},
       #{zdept,jdbcType=VARCHAR}, #{patentname,jdbcType=VARCHAR}, #{ztype,jdbcType=VARCHAR}, 
       #{zranid,jdbcType=VARCHAR}, #{zstate,jdbcType=VARCHAR}, #{znum,jdbcType=VARCHAR}, 
-      #{zdate,jdbcType=TIMESTAMP}, #{zaward,jdbcType=VARCHAR}, #{zothers,jdbcType=VARCHAR}, 
+      to_date(#{zdate,jdbcType=TIMESTAMP},'yyyy-MM-dd hh24:mi:ss'), #{zaward,jdbcType=VARCHAR}, #{zothers,jdbcType=VARCHAR},
       #{zscore,jdbcType=VARCHAR}, #{zremarks,jdbcType=VARCHAR}, #{zsecond,jdbcType=VARCHAR}, 
-      #{zthird,jdbcType=VARCHAR}, #{zachnum,jdbcType=VARCHAR}, #{zmembers,jdbcType=VARCHAR}
+      #{zthird,jdbcType=VARCHAR},  #{zmembers,jdbcType=VARCHAR},
+      #{kyid,jdbcType=DECIMAL},#{zresource,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.chengyong.entity.KPatent">
@@ -233,15 +295,48 @@
       ZRANID = #{zranid,jdbcType=VARCHAR},
       ZSTATE = #{zstate,jdbcType=VARCHAR},
       ZNUM = #{znum,jdbcType=VARCHAR},
-      ZDATE = #{zdate,jdbcType=TIMESTAMP},
+      ZDATE = to_date(#{zdate,jdbcType=TIMESTAMP},'yyyy-MM-dd hh24:mi:ss'),
       ZAWARD = #{zaward,jdbcType=VARCHAR},
       ZOTHERS = #{zothers,jdbcType=VARCHAR},
       ZSCORE = #{zscore,jdbcType=VARCHAR},
       ZREMARKS = #{zremarks,jdbcType=VARCHAR},
       ZSECOND = #{zsecond,jdbcType=VARCHAR},
       ZTHIRD = #{zthird,jdbcType=VARCHAR},
-      ZACHNUM = #{zachnum,jdbcType=VARCHAR},
+      ZMEMBERS = #{zmembers,jdbcType=VARCHAR},
+      ZRESOURCE = #{zresource,jdbcType=VARCHAR}
+    where ZID = #{zid,jdbcType=DECIMAL}
+  </update>
+
+  <update id="updateByPrimaryKey1" parameterType="com.chengyong.entity.KPatent">
+    update K_PATENT
+    set ZNAME = #{zname,jdbcType=VARCHAR},
+      PJOB = #{pjob,jdbcType=VARCHAR},
+      ZDEPT = #{zdept,jdbcType=VARCHAR},
+      PATENTNAME = #{patentname,jdbcType=VARCHAR},
+      ZTYPE = #{ztype,jdbcType=VARCHAR},
+      ZRANID = #{zranid,jdbcType=VARCHAR},
+      ZSTATE = #{zstate,jdbcType=VARCHAR},
+      ZNUM = #{znum,jdbcType=VARCHAR},
+      ZDATE = to_date(#{zdate,jdbcType=TIMESTAMP},'yyyy-MM-dd hh24:mi:ss'),
+      ZAWARD = #{zaward,jdbcType=VARCHAR},
+      ZOTHERS = #{zothers,jdbcType=VARCHAR},
+      ZSCORE = #{zscore,jdbcType=VARCHAR},
+      ZREMARKS = #{zremarks,jdbcType=VARCHAR},
+      ZSECOND = #{zsecond,jdbcType=VARCHAR},
+      ZTHIRD = #{zthird,jdbcType=VARCHAR},
       ZMEMBERS = #{zmembers,jdbcType=VARCHAR}
+    where ZID = #{zid,jdbcType=DECIMAL}
+  </update>
+
+  <update id="updateByZACHNUM1" parameterType="java.lang.Short">
+    update K_PATENT
+    set ZACHNUM = #{zachnum,jdbcType=DECIMAL}
+    where ZID = #{zid,jdbcType=DECIMAL}
+  </update>
+
+  <update id="updateByZACHNUM2" parameterType="java.lang.Short">
+    update K_PATENT
+    set ZACHNUM = #{zachnum,jdbcType=DECIMAL}
     where ZID = #{zid,jdbcType=DECIMAL}
   </update>
 </mapper>

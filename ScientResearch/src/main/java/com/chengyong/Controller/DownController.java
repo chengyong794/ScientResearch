@@ -40,6 +40,9 @@ public class DownController {
     @Autowired
     private KProresultsService kProresultsService;
 
+    @Autowired
+    private KPatentService kPatentService;
+
     @RequestMapping("/downProjectSch")
     public void down(@Param("pid") Short pid, HttpServletRequest request, HttpServletResponse response) throws IOException, IOException {
         String path = kProjectService.downProjectSch(pid);
@@ -165,6 +168,23 @@ public class DownController {
     public void downprojectRes( HttpServletRequest request, HttpServletResponse response,@Param("prid") Short prid) throws IOException, IOException {
 
         String path = kProresultsService.selectByPATH(prid);
+        //获取文件的名称
+        File f = new File(path);
+        FileInputStream inputStream = new FileInputStream(f);
+        //设置下载时响应头
+        response.setHeader("content-disposition","attachment;filename="+ URLEncoder.encode(f.getName(),"UTF-8"));
+        //拿到响应输出流
+        ServletOutputStream outputStream = response.getOutputStream();
+        //流的复制
+        IOUtils.copy(inputStream,outputStream);
+        IOUtils.closeQuietly(inputStream);
+        IOUtils.closeQuietly(outputStream);
+    }
+
+    @RequestMapping("/downpatent")
+    public void downpatent( HttpServletRequest request, HttpServletResponse response,@Param("zid") Short zid) throws IOException, IOException {
+
+        String path = kPatentService.selectByPATH(zid);
         //获取文件的名称
         File f = new File(path);
         FileInputStream inputStream = new FileInputStream(f);

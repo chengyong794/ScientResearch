@@ -285,7 +285,16 @@
             }
         });
 
-
+        upload.render({
+            elem: '#test3'
+            ,url: '/upload/projectresFile'
+            ,auto: true
+            ,accept: 'file'
+            ,exts: 'zip|rar|7z|doc|docx|xls|xlsx'
+            ,done: function(res){
+                layer.msg(res.info);
+            }
+        });
     });
 </script>
 

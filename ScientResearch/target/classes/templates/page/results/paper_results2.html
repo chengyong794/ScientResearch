@@ -164,11 +164,12 @@
 <div th:replace="~{public :: layui_lay-config_js}"></div>
 
 <script>
-    layui.use(['form', 'table','jquery','layer','laydate'], function () {
+    layui.use(['form', 'table','jquery','layer','laydate','upload'], function () {
         var $ = layui.jquery,
             form = layui.form,
             table = layui.table,
             layer = layui.layer,
+            upload = layui.upload,
             laydate = layui.laydate;
 
         laydate.render({
@@ -280,7 +281,16 @@
                 window.location.href='/down/downpaper?tid='+data.tid;
             }
         });
-
+        upload.render({
+            elem: '#test3'
+            ,url: '/upload/paperFile'
+            ,auto: true
+            ,accept: 'file'
+            ,exts: 'zip|rar|7z|doc|docx|xls|xlsx'
+            ,done: function(res){
+                layer.msg(res.info);
+            }
+        });
     });
 </script>
 

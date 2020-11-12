@@ -14,21 +14,21 @@
     <div class="layuimini-main">
 
         <fieldset class="table-search-fieldset">
-            <legend>搜索著作信息</legend>
+            <legend>搜索专利信息</legend>
             <div style="margin: 10px 10px 10px 10px">
                 <form class="layui-form layui-form-pane" id="searchFrom2" action="">
                     <div class="layui-form-item">
                         <div class="layui-inline">
-                            <label class="layui-form-label">作者名称</label>
+                            <label class="layui-form-label">专利名称</label>
                             <div class="layui-input-inline">
-                                <input type="text" name="wname" autocomplete="off" class="layui-input">
+                                <input type="text" name="patentname" autocomplete="off" class="layui-input">
                             </div>
                         </div>
 
                         <div class="layui-inline">
-                            <label class="layui-form-label">著作名称</label>
+                            <label class="layui-form-label">专利类型</label>
                             <div class="layui-input-inline">
-                                <input type="text" name="wtitle" autocomplete="off" class="layui-input">
+                                <input type="text" name="ztype" autocomplete="off" class="layui-input">
                             </div>
                         </div>
 
@@ -45,22 +45,23 @@
         <div style="display: none;margin: auto;" class="layui-form layuimini-form" id="EditandAdd">
             <form class="layui-form" lay-filter="dataFrom" id="dataFrm">
                 <div class="layui-form-item" style="width: 500px;margin-top: 50px;">
-                    <label class="layui-form-label required">作者</label>
+                    <label class="layui-form-label required">发明人</label>
                     <div class="layui-input-block">
-                        <input type="text" name="wname" lay-verify="required" lay-reqtext="作者不能为空" placeholder="请输入作者" value="" class="layui-input">
-                        <input type="hidden" name="wid" value=""/>
+                        <input type="text" name="zname" lay-verify="required" lay-reqtext="发明人不能为空" placeholder="请输入发明人" value="" class="layui-input">
+                        <input type="hidden" name="zid" value=""/>
                     </div>
                 </div>
                 <div class="layui-form-item" style="width: 500px;">
                     <label class="layui-form-label required">职称</label>
                     <div class="layui-input-block">
-                        <input type="text" name="wjob" lay-verify="required" lay-reqtext="职称不能为空" placeholder="请输入职称" value="" class="layui-input">
+                        <input type="text" name="pjob" lay-verify="required" lay-reqtext="职称不能为空" placeholder="请输入职称" value="" class="layui-input">
                     </div>
                 </div>
+
                 <div class="layui-form-item" style="width: 500px;">
                     <label class="layui-form-label">所在部门</label>
                     <div class="layui-input-block">
-                        <select name="wdept" placeholder="请输入部门" value="" class="layui-input">
+                        <select name="zdept" placeholder="请输入部门" value="" class="layui-input">
                             <option value="信息系">信息系</option>
                             <option value="管理系">管理系</option>
                             <option value="土木系">土木系</option>
@@ -69,72 +70,94 @@
                 </div>
 
                 <div class="layui-form-item" style="width: 500px;">
-                    <label class="layui-form-label">著作名称</label>
+                    <label class="layui-form-label required">专利名称</label>
                     <div class="layui-input-block">
-                        <input type="text" name="wtitle" placeholder="请输入著作名称" value="" class="layui-input">
+                        <input type="text" name="patentname" lay-verify="required" lay-reqtext="专利名称不能为空" placeholder="请输入专利名称" value="" class="layui-input">
                     </div>
                 </div>
 
                 <div class="layui-form-item" style="width: 500px;">
-                    <label class="layui-form-label">出版社</label>
+                    <label class="layui-form-label required">专利类型</label>
                     <div class="layui-input-block">
-                        <input type="text" name="wpublish" placeholder="请输入出版社" value="" class="layui-input">
+                        <input type="text" name="ztype" lay-verify="required" lay-reqtext="专利类型不能为空" placeholder="请输入专利类型" value="" class="layui-input">
                     </div>
                 </div>
 
                 <div class="layui-form-item" style="width: 500px;">
-                    <label class="layui-form-label">ISBN编号</label>
+                    <label class="layui-form-label">专利编号</label>
                     <div class="layui-input-block">
-                        <input type="text" name="wisbnid" placeholder="请输入ISBN编号" value="" class="layui-input">
+                        <input type="text" name="zranid" placeholder="请输入专利编号" value="" class="layui-input">
                     </div>
                 </div>
 
                 <div class="layui-inline">
-                    <label class="layui-form-label">出版时间</label>
+                    <label class="layui-form-label">授权日</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="wstarttime" class="layui-input" id="tstarttime" placeholder="请选择时间">
+                        <input type="text" name="zdate" class="layui-input" id="tstarttime" placeholder="请选择时间">
                     </div>
                 </div>
 
+                <div class="layui-form-item" style="width: 500px;margin-top: 15px;">
+                    <label class="layui-form-label">状态</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="zstate" placeholder="请输入状态" value="" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label">授权号</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="znum" placeholder="请输入授权号" value="" class="layui-input">
+                    </div>
+                </div>
+
+
                 <div class="layui-form-item" style="width: 500px; margin-top: 10px;">
+                    <label class="layui-form-label">奖励</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="zaward" placeholder="请输入奖励" value="" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="width: 500px;">
                     <label class="layui-form-label">其他说明</label>
                     <div class="layui-input-block">
-                        <input type="text" name="wothers" placeholder="请输入其他说明" value="" class="layui-input">
+                        <input type="text" name="zothers" placeholder="请输入其他说明" value="" class="layui-input">
                     </div>
                 </div>
 
                 <div class="layui-form-item" style="width: 500px;">
                     <label class="layui-form-label">奖励</label>
                     <div class="layui-input-block">
-                        <input type="text" name="wscore" placeholder="请输入奖励" value="" class="layui-input">
+                        <input type="text" name="zscore" placeholder="请输入奖励" value="" class="layui-input">
                     </div>
                 </div>
 
                 <div class="layui-form-item" style="width: 500px;">
-                    <label class="layui-form-label">备注(是否核心)</label>
+                    <label class="layui-form-label">备注</label>
                     <div class="layui-input-block">
-                        <input type="text" name="wremarks" placeholder="请输入备注" value="" class="layui-input">
+                        <input type="text" name="zremarks" placeholder="请输入备注" value="" class="layui-input">
                     </div>
                 </div>
 
                 <div class="layui-form-item" style="width: 500px;">
-                    <label class="layui-form-label">第二作者</label>
+                    <label class="layui-form-label">第二授权人</label>
                     <div class="layui-input-block">
-                        <input type="text" name="wsecond" placeholder="请输入第二作者" value="" class="layui-input">
+                        <input type="text" name="zsecond" placeholder="请输入第二授权人" value="" class="layui-input">
                     </div>
                 </div>
 
                 <div class="layui-form-item" style="width: 500px;">
-                    <label class="layui-form-label">第三作者</label>
+                    <label class="layui-form-label">第三授权人</label>
                     <div class="layui-input-block">
-                        <input type="text" name="wthird" placeholder="请输入第三作者" value="" class="layui-input">
+                        <input type="text" name="zthird" placeholder="请输入第三授权人" value="" class="layui-input">
                     </div>
                 </div>
 
                 <div class="layui-form-item" style="width: 500px;">
-                    <label class="layui-form-label">成员说明</label>
+                    <label class="layui-form-label">其他参与人员</label>
                     <div class="layui-input-block">
-                        <input type="text" name="wmembers" placeholder="请输入成员说明" value="" class="layui-input">
+                        <input type="text" name="zmembers" placeholder="请输入其他参与人员" value="" class="layui-input">
                     </div>
                 </div>
 
@@ -157,7 +180,7 @@
         <script type="text/html" id="currentTableBar">
             <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit">编辑</a>
             <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="on">通过审核</a>
-            <a class="layui-btn layui-btn-normal layui-btn-xs " lay-event="down">下载著作</a>
+            <a class="layui-btn layui-btn-normal layui-btn-xs " lay-event="down">下载专利文件</a>
         </script>
 
     </div>
@@ -187,36 +210,39 @@
         var tablereh;
         tablereh = table.render({
             elem: '#currentTableId2',
-            url: '/book/booklistResult1',
+            url: '/patent/patentlist1',
             toolbar: '#toolbarDemo',
             limits: [10, 15, 20, 25, 50, 100],
             limit: 10,
             page: true,
             skin: 'line',
-            cols: [
+            cols:[
                 [
                     {type: "checkbox", width: 50},
-                    {field: 'wid', width: 60, title: 'ID', sort: true},
-                    {field: 'wname', width: 60, title: '作者'},
-                    {field: 'wjob', width: 100, title: '职称'},
-                    {field: 'wdept', width: 100, title: '所在部门'},
-                    {field: 'wtitle', width: 100, title: '著作名称'},
-                    {field: 'wpublish', width: 100, title: '出版社'},
-                    {field: 'wisbnid', width: 100, title: 'ISBN编号'},
-                    {field: 'wstarttime', width: 100, title: '出版时间'},
-                    {field: 'wothers', width: 100, title: '其他说明', sort: true},
-                    {field: 'wscore', width: 100, title: '奖励'},
-                    {field: 'wremarks', width: 100, title: '备注(是否核心)'},
-                    {field: 'wsecond', width: 100, title: '第二作者'},
-                    {field: 'wthird', width: 100, title: '第三作者'},
-                    {field: 'wachnum', width: 100, title: '审核状态', templet: function (d) {
-                            if (d.wachnum == 2) {
+                    {field: 'zid', width: 60, title: 'ID', sort: true},
+                    {field: 'zname', width: 60, title: '发明人'},
+                    {field: 'pjob', width: 100, title: '职称'},
+                    {field: 'zdept', width: 100, title: '所在部门'},
+                    {field: 'patentname', width: 100, title: '专利名称'},
+                    {field: 'ztype', width: 100, title: '专利类型'},
+                    {field: 'zranid', width: 100, title: '专利编号'},
+                    {field: 'zstate', width: 100, title: '状态'},
+                    {field: 'znum', width: 100, title: '授权号'},
+                    {field: 'zdate', width: 100, title: '授权日'},
+                    {field: 'zaward', width: 100, title: '奖励'},
+                    {field: 'zothers', width: 100, title: '其他说明'},
+                    {field: 'zscore', width: 100, title: '奖励'},
+                    {field: 'zremarks', width: 100, title: '备注'},
+                    {field: 'zsecond', width: 100, title: '第二授权人'},
+                    {field: 'zthird', width: 100, title: '第三授权人'},
+                    {field: 'zachnum', width: 100, title: '审核状态', templet: function (d) {
+                            if (d.zachnum == 2) {
                                 return '<span class="layui-badge ">审核通过</span>';
                             } else {
                                 return '<span class="layui-badge layui-bg-blue">未审核</span>';
                             }
                         }},
-                    {field: 'wmembers', width: 100, title: '参与人员'},
+                    {field: 'zmembers', width: 100, title: '参与人员'},
                     {title: '操作', minWidth: 250, toolbar: '#currentTableBar', align: "center"}
                 ]
             ]
@@ -227,7 +253,7 @@
             var datas = $("#searchFrom2").serialize();
             //执行搜索重载
             tablereh.reload({
-                url:'/book/booklistResult1?'+datas,
+                url:'/patent/patentlist1?'+datas,
             });
         });
 
@@ -253,7 +279,7 @@
                         var data1 = form.val("dataFrom");
                         $.ajax({
                             type:'POST',
-                            url:'/book/bookResultedit',
+                            url:'/patent/patentResultedit',
                             data:data1,
                             success:function(msg){
                                 layer.msg(msg.info);
@@ -269,23 +295,23 @@
                     }
                 });
                 return false;
-            }else if(obj.event === 'on'){
+            } else if(obj.event === 'on'){
                 $.ajax({
                     type:'GET',
-                    url:'/book/updateByWACHNUM1?wid='+data.wid+'&wachnum='+2,
+                    url:'/patent/updateByZACHNUM1?zid='+data.zid+'&zachnum='+2,
                     success:function(msg){
                         layer.msg(msg.info);
                         tablereh.reload();
                     }
                 });
             }else if(obj.event === 'down'){
-                window.location.href='/down/downbook?wid='+data.wid;
+                window.location.href='/down/downpatent?zid='+data.zid;
             }
         });
 
         upload.render({
             elem: '#test3'
-            ,url: '/upload/bookFile'
+            ,url: '/upload/patentFile'
             ,auto: true
             ,accept: 'file'
             ,exts: 'zip|rar|7z|doc|docx|xls|xlsx'
