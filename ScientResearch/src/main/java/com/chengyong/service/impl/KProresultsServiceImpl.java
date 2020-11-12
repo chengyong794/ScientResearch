@@ -125,4 +125,32 @@ public class KProresultsServiceImpl implements KProresultsService {
     public String selectByPATH(Short prid) {
         return kProresultsMapper.selectByPATH(prid);
     }
+
+    @Override
+    public Integer countKPRORESULTS(String statyear, String endyear) {
+        String kyname = (String) request.getSession().getAttribute("user");
+        KProresults record = new KProresults();
+        record.setKyid(kKyuserMapper.selectByuname(kyname));
+        record.setStatyear(statyear);
+        record.setEndyear(endyear);
+        return kProresultsMapper.countKPRORESULTS(record);
+    }
+
+    @Override
+    public Integer countKPRORESULTSdept(String statyear, String endyear) {
+        String kyname = (String) request.getSession().getAttribute("user");
+        KProresults record = new KProresults();
+        record.setDept(kKyuserMapper.selectByDept(kyname));
+        record.setStatyear(statyear);
+        record.setEndyear(endyear);
+        return kProresultsMapper.countKPRORESULTSdept(record);
+    }
+
+    @Override
+    public Integer countKPRORESULTSsch(String statyear, String endyear) {
+        KProresults record = new KProresults();
+        record.setStatyear(statyear);
+        record.setEndyear(endyear);
+        return kProresultsMapper.countKPRORESULTSsch(record);
+    }
 }

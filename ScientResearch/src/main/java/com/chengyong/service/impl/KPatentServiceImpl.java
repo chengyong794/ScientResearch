@@ -1,6 +1,7 @@
 package com.chengyong.service.impl;
 
 import com.chengyong.entity.KPatent;
+import com.chengyong.entity.KProresults;
 import com.chengyong.entity.KWork;
 import com.chengyong.mapper.KKyuserMapper;
 import com.chengyong.mapper.KPatentMapper;
@@ -128,5 +129,33 @@ public class KPatentServiceImpl implements KPatentService {
     @Override
     public int updateByZACHNUM1(Short zid, Short zachnum) {
         return kPatentMapper.updateByZACHNUM1(zid, zachnum);
+    }
+
+    @Override
+    public Integer countKPATENT(String statyear, String endyear) {
+        String kyname = (String) request.getSession().getAttribute("user");
+        KPatent record = new KPatent();
+        record.setKyid(kKyuserMapper.selectByuname(kyname));
+        record.setStatyear(statyear);
+        record.setEndyear(endyear);
+        return kPatentMapper.countKPATENT(record);
+    }
+
+    @Override
+    public Integer countKPATENTdept(String statyear, String endyear) {
+        String kyname = (String) request.getSession().getAttribute("user");
+        KPatent record = new KPatent();
+        record.setZdept(kKyuserMapper.selectByDept(kyname));
+        record.setStatyear(statyear);
+        record.setEndyear(endyear);
+        return kPatentMapper.countKPATENTdept(record);
+    }
+
+    @Override
+    public Integer countKPATENTsch(String statyear, String endyear) {
+        KPatent record = new KPatent();
+        record.setStatyear(statyear);
+        record.setEndyear(endyear);
+        return kPatentMapper.countKPATENTsch(record);
     }
 }

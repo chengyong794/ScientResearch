@@ -35,4 +35,10 @@ public interface KThesisService {
 
     String selectBypath(Short tid);
 
+    Integer countKTHESIS(String statyear,String endyear);
+
+    Integer countKTHESISdept(String statyear,String endyear);
+
+    Integer countKTHESISsch(String statyear,String endyear);
+
 }

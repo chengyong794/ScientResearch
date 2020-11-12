@@ -72,7 +72,7 @@
       <if test="ttitle != null">
         and TTITLE like concat(concat('%',#{ttitle,jdbcType=VARCHAR}),'%')
       </if>
-      and TDEPT = #{tdept,jdbcType=DECIMAL}
+      and TDEPT = #{tdept,jdbcType=VARCHAR}
     </where>
   </select>
 
@@ -315,4 +315,41 @@
     where TID = #{tid,jdbcType=DECIMAL}
   </update>
 
+  <select id="countKTHESIS" parameterType="com.chengyong.entity.KThesis" resultType="java.lang.Integer">
+    select count(*) from K_THESIS
+    <where>
+    <if test="statyear != null and statyear != ''">
+      TSTARTTIME <![CDATA[<]]> to_date(#{statyear,jdbcType=TIMESTAMP},'yyyy-mm-dd hh24:mi:ss')
+    </if>
+    <if test="endyear != null and endyear != ''">
+      and TSTARTTIME <![CDATA[>]]> to_date(#{endyear,jdbcType=TIMESTAMP},'yyyy-mm-dd hh24:mi:ss')
+    </if>
+      and KYID = #{kyid,jdbcType=DECIMAL}
+    </where>
+  </select>
+
+  <select id="countKTHESISdept" parameterType="com.chengyong.entity.KThesis" resultType="java.lang.Integer">
+    select count(*) from K_THESIS
+    <where>
+      <if test="statyear != null and statyear != ''">
+        TSTARTTIME <![CDATA[<]]> to_date(#{statyear,jdbcType=TIMESTAMP},'yyyy-mm-dd hh24:mi:ss')
+      </if>
+      <if test="endyear != null and endyear != ''">
+        and TSTARTTIME <![CDATA[>]]> to_date(#{endyear,jdbcType=TIMESTAMP},'yyyy-mm-dd hh24:mi:ss')
+      </if>
+      and TDEPT = #{tdept,jdbcType=VARCHAR}
+    </where>
+  </select>
+
+  <select id="countKTHESISsch" parameterType="com.chengyong.entity.KThesis" resultType="java.lang.Integer">
+    select count(*) from K_THESIS
+    <where>
+      <if test="statyear != null and statyear != ''">
+        TSTARTTIME <![CDATA[<]]> to_date(#{statyear,jdbcType=TIMESTAMP},'yyyy-mm-dd hh24:mi:ss')
+      </if>
+      <if test="endyear != null and endyear != ''">
+        and TSTARTTIME <![CDATA[>]]> to_date(#{endyear,jdbcType=TIMESTAMP},'yyyy-mm-dd hh24:mi:ss')
+      </if>
+    </where>
+  </select>
 </mapper>

@@ -1,9 +1,11 @@
 package com.chengyong.entity;
 
+import com.chengyong.util.personYear;
+
 import java.io.Serializable;
 import java.util.Date;
 
-public class KWork implements Serializable {
+public class KWork extends personYear implements Serializable {
     private Short wid;
 
     private String wname;

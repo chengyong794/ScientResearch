@@ -35,4 +35,9 @@ public interface KProresultsService {
 
     String selectByPATH(Short prid);
 
+    Integer countKPRORESULTS(String statyear,String endyear);
+
+    Integer countKPRORESULTSdept(String statyear,String endyear);
+
+    Integer countKPRORESULTSsch(String statyear,String endyear);
 }

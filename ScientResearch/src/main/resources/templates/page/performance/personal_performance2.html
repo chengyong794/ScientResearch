@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <div th:replace="~{public :: layui_public_css}"></div>
+
+</head>
+<body>
+<div class="layuimini-container">
+    <div class="layuimini-main">
+
+        <fieldset class="table-search-fieldset">
+            <legend>搜索部门科研信息</legend>
+            <div style="margin: 10px 10px 10px 10px">
+                <form class="layui-form layui-form-pane" id="searchFrom2" action="">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">开始日期</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="startyear" class="layui-input" id="test1" placeholder="请选择时间">
+                            </div>
+                        </div>
+
+                        <div class="layui-inline">
+                            <label class="layui-form-label">结束日期</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="endyear" class="layui-input" id="test2" placeholder="请选择时间">
+                            </div>
+                        </div>
+
+                        <div class="layui-inline">
+                            <button type="button" class="layui-btn layui-btn-primary"  lay-submit lay-filter="data-search-btn2" id="data-search"><i class="layui-icon"></i> 搜 索</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </fieldset>
+
+        <div id="container" style="height: 500px;width: 100%;"></div>
+
+    </div>
+</div>
+<div th:replace="~{public :: layui_lay-config_js}"></div>
+<script th:src="@{/js/echarts.min.js}"></script>
+<script>
+    layui.use(['jquery','layer','laydate', 'form', 'table'], function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            form = layui.form,
+            table = layui.table,
+            laydate = layui.laydate;
+
+        layer.ready(function(){
+            var startyear = $("#test1").val();
+            var endyear = $("#test2").val();
+            getDate(startyear,endyear);
+        });
+
+
+        laydate.render({
+            elem: '#test1',
+            type: 'datetime'
+        });
+
+        laydate.render({
+            elem: '#test2',
+            type: 'datetime'
+        });
+
+        $("#data-search").click(function(){
+            var startyear = $("#test1").val();
+            var endyear = $("#test2").val();
+            getDate(startyear,endyear);
+        });
+
+        function getDate(startyear,endyear){
+            $.ajax({
+                type:'GET',
+                url:'/echart/echartPersonal2?startyear='+startyear+"&endyear="+endyear,
+                success:function(data){
+                    var dom = document.getElementById("container");
+                    var myChart = echarts.init(dom);
+                    option=null;
+                    option = {
+                        title: {
+                            text: '部门科研业绩统计',
+                            subtext: '真实有效',
+                            left: 'center'
+                        },
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {
+                                type: 'shadow'
+                            }
+                        },
+                        xAxis: {
+                            type: 'category',
+                            data: ['论文', '著作', '项目', '专利']
+                        },
+                        yAxis: {
+                            type: 'value'
+                        },
+                        series: [{
+                            data:data,
+                            type: 'bar'
+                        }]
+                    };
+
+                        myChart.setOption(option);
+                }
+            });
+        }
+
+    });
+</script>
+
+</body>
+</html>

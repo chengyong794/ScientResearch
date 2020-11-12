@@ -32,4 +32,10 @@ public interface KProresultsMapper {
     Short selectByPRACHNUM(Short prid);
 
     String selectByPATH(Short prid);
+
+    Integer countKPRORESULTS(KProresults record);
+
+    Integer countKPRORESULTSdept(KProresults record);
+
+    Integer countKPRORESULTSsch(KProresults record);
 }

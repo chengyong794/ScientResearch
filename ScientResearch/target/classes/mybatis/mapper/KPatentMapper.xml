@@ -339,4 +339,42 @@
     set ZACHNUM = #{zachnum,jdbcType=DECIMAL}
     where ZID = #{zid,jdbcType=DECIMAL}
   </update>
+
+  <select id="countKPATENT" parameterType="com.chengyong.entity.KPatent" resultType="java.lang.Integer">
+    select count(*) from K_PATENT
+    <where>
+      <if test="statyear != null and statyear != ''">
+        ZDATE <![CDATA[<]]> to_date(#{statyear,jdbcType=TIMESTAMP},'yyyy-mm-dd hh24:mi:ss')
+      </if>
+      <if test="endyear != null and endyear != ''">
+        and ZDATE <![CDATA[>]]> to_date(#{endyear,jdbcType=TIMESTAMP},'yyyy-mm-dd hh24:mi:ss')
+      </if>
+      and KYID = #{kyid,jdbcType=DECIMAL}
+    </where>
+  </select>
+
+  <select id="countKPATENTdept" parameterType="com.chengyong.entity.KPatent" resultType="java.lang.Integer">
+    select count(*) from K_PATENT
+    <where>
+      <if test="statyear != null and statyear != ''">
+        ZDATE <![CDATA[<]]> to_date(#{statyear,jdbcType=TIMESTAMP},'yyyy-mm-dd hh24:mi:ss')
+      </if>
+      <if test="endyear != null and endyear != ''">
+        and ZDATE <![CDATA[>]]> to_date(#{endyear,jdbcType=TIMESTAMP},'yyyy-mm-dd hh24:mi:ss')
+      </if>
+      and ZDEPT = #{zdept,jdbcType=VARCHAR}
+    </where>
+  </select>
+
+  <select id="countKPATENTsch" parameterType="com.chengyong.entity.KPatent" resultType="java.lang.Integer">
+    select count(*) from K_PATENT
+    <where>
+      <if test="statyear != null and statyear != ''">
+        ZDATE <![CDATA[<]]> to_date(#{statyear,jdbcType=TIMESTAMP},'yyyy-mm-dd hh24:mi:ss')
+      </if>
+      <if test="endyear != null and endyear != ''">
+        and ZDATE <![CDATA[>]]> to_date(#{endyear,jdbcType=TIMESTAMP},'yyyy-mm-dd hh24:mi:ss')
+      </if>
+    </where>
+  </select>
 </mapper>

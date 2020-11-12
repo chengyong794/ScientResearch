@@ -300,4 +300,42 @@
     set WACHNUM = #{wachnum,jdbcType=DECIMAL}
     where WID = #{wid,jdbcType=DECIMAL}
   </update>
+
+  <select id="countKWork" parameterType="com.chengyong.entity.KWork" resultType="java.lang.Integer">
+    select count(*) from K_WORK
+    <where>
+      <if test="statyear != null and statyear != ''">
+        WSTARTTIME <![CDATA[<]]> to_date(#{statyear,jdbcType=TIMESTAMP},'yyyy-mm-dd hh24:mi:ss')
+      </if>
+      <if test="endyear != null and endyear != ''">
+        and WSTARTTIME <![CDATA[>]]> to_date(#{endyear,jdbcType=TIMESTAMP},'yyyy-mm-dd hh24:mi:ss')
+      </if>
+      and KYID = #{kyid,jdbcType=DECIMAL}
+    </where>
+  </select>
+
+  <select id="countKWorkdept" parameterType="com.chengyong.entity.KWork" resultType="java.lang.Integer">
+    select count(*) from K_WORK
+    <where>
+      <if test="statyear != null and statyear != ''">
+        WSTARTTIME <![CDATA[<]]> to_date(#{statyear,jdbcType=TIMESTAMP},'yyyy-mm-dd hh24:mi:ss')
+      </if>
+      <if test="endyear != null and endyear != ''">
+        and WSTARTTIME <![CDATA[>]]> to_date(#{endyear,jdbcType=TIMESTAMP},'yyyy-mm-dd hh24:mi:ss')
+      </if>
+      and WDEPT = #{wdept,jdbcType=VARCHAR}
+    </where>
+  </select>
+
+  <select id="countKWorksch" parameterType="com.chengyong.entity.KWork" resultType="java.lang.Integer">
+    select count(*) from K_WORK
+    <where>
+      <if test="statyear != null and statyear != ''">
+        WSTARTTIME <![CDATA[<]]> to_date(#{statyear,jdbcType=TIMESTAMP},'yyyy-mm-dd hh24:mi:ss')
+      </if>
+      <if test="endyear != null and endyear != ''">
+        and WSTARTTIME <![CDATA[>]]> to_date(#{endyear,jdbcType=TIMESTAMP},'yyyy-mm-dd hh24:mi:ss')
+      </if>
+    </where>
+  </select>
 </mapper>

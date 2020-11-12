@@ -2,6 +2,7 @@ package com.chengyong.service.impl;
 
 import com.chengyong.entity.KProject;
 import com.chengyong.entity.KThesis;
+import com.chengyong.entity.KWork;
 import com.chengyong.mapper.KKyuserMapper;
 import com.chengyong.mapper.KThesisMapper;
 import com.chengyong.service.KThesisService;
@@ -126,5 +127,33 @@ public class KThesisServiceImpl implements KThesisService {
     @Override
     public String selectBypath(Short tid) {
         return kThesisMapper.selectBypath(tid);
+    }
+
+    @Override
+    public Integer countKTHESIS(String statyear, String endyear) {
+        String kyname = (String) request.getSession().getAttribute("user");
+        KThesis record = new KThesis();
+        record.setKyid(kKyuserMapper.selectByuname(kyname));
+        record.setStatyear(statyear);
+        record.setEndyear(endyear);
+        return kThesisMapper.countKTHESIS(record);
+    }
+
+    @Override
+    public Integer countKTHESISdept(String statyear, String endyear) {
+        String kyname = (String) request.getSession().getAttribute("user");
+        KThesis record = new KThesis();
+        record.setTdept(kKyuserMapper.selectByDept(kyname));
+        record.setStatyear(statyear);
+        record.setEndyear(endyear);
+        return kThesisMapper.countKTHESISdept(record);
+    }
+
+    @Override
+    public Integer countKTHESISsch(String statyear, String endyear) {
+        KThesis record = new KThesis();
+        record.setStatyear(statyear);
+        record.setEndyear(endyear);
+        return kThesisMapper.countKTHESISsch(record);
     }
 }

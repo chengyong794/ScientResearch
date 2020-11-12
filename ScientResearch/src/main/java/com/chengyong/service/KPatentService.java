@@ -36,4 +36,10 @@ public interface KPatentService {
     int updateByZACHNUM2(Short zid,Short zachnum);
 
     int updateByZACHNUM1(Short zid,Short zachnum);
+
+    Integer countKPATENT(String statyear,String endyear);
+
+    Integer countKPATENTdept(String statyear,String endyear);
+
+    Integer countKPATENTsch(String statyear,String endyear);
 }

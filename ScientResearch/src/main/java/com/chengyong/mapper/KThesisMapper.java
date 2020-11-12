@@ -32,4 +32,10 @@ public interface KThesisMapper {
     String selectBypath(Short tid);
 
     Short selectBytachnum(Short tid);
+
+    Integer countKTHESIS(KThesis record);
+
+    Integer countKTHESISdept(KThesis record);
+
+    Integer countKTHESISsch(KThesis record);
 }

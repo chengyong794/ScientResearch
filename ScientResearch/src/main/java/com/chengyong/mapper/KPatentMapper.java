@@ -32,4 +32,10 @@ public interface KPatentMapper {
     int updateByZACHNUM2(Short zid,Short zachnum);
 
     int updateByZACHNUM1(Short zid,Short zachnum);
+
+    Integer countKPATENT(KPatent record);
+
+    Integer countKPATENTdept(KPatent record);
+
+    Integer countKPATENTsch(KPatent record);
 }

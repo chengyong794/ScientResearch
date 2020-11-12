@@ -474,4 +474,38 @@ public class IndexController {
 
         return url;
     }
+
+    /**
+     * 科研业绩页面跳转
+     */
+    @RequestMapping("/personal_performance")
+    public String personal_performance(HttpServletRequest request){
+        String url = null;
+        String un = (String) request.getSession().getAttribute("user");
+        Integer KyType = (Integer) redisUtil.get(un);
+
+        if(KyType==null){
+            Short tp = kKyuserService.findUserRoleType(un);
+            if(tp==1||tp==0){
+                redisUtil.set("KyType",tp);
+                url = "page/performance/personal_performance1";
+            }else if(tp==2){
+                redisUtil.set("KyType",tp);
+                url = "page/performance/personal_performance2";
+            }else if(tp==3){
+                redisUtil.set("KyType",tp);
+                url = "page/performance/personal_performance3";
+            }
+        }else{
+            if(KyType==1){
+                url = "page/performance/personal_performance1";
+            }else if(KyType==2){
+                url = "page/performance/personal_performance2";
+            }else if(KyType==3){
+                url = "page/performance/personal_performance3";
+            }
+        }
+
+        return url;
+    }
 }

@@ -35,4 +35,10 @@ public interface KWorkService {
 
     String selectByPath(Short wid);
 
+    Integer countKWork(String statyear,String endyear);
+
+    Integer countKWorkdept(String statyear, String endyear);
+
+    Integer countKWorksch(String statyear, String endyear);
+
 }

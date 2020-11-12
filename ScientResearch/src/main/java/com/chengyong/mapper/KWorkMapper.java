@@ -32,4 +32,10 @@ public interface KWorkMapper {
     String selectByPath(Short wid);
 
     Short selectBywachnum(Short wid);
+
+    Integer countKWork(KWork record);
+
+    Integer countKWorkdept(KWork record);
+
+    Integer countKWorksch(KWork record);
 }

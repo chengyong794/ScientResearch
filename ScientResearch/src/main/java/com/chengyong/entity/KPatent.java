@@ -1,9 +1,11 @@
 package com.chengyong.entity;
 
+import com.chengyong.util.personYear;
+
 import java.io.Serializable;
 import java.util.Date;
 
-public class KPatent implements Serializable {
+public class KPatent extends personYear implements Serializable {
     private Short zid;
 
     private String zname;

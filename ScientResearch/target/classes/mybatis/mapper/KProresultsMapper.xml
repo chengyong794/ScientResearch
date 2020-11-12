@@ -303,4 +303,43 @@
     set PRACHNUM = #{prachnum,jdbcType=DECIMAL}
     where PRID = #{prid,jdbcType=DECIMAL}
   </update>
+
+
+  <select id="countKPRORESULTS" parameterType="com.chengyong.entity.KProresults" resultType="java.lang.Integer">
+    select count(*) from K_PRORESULTS
+    <where>
+      <if test="statyear != null and statyear != ''">
+        PRSTARTTIME <![CDATA[<]]> to_date(#{statyear,jdbcType=TIMESTAMP},'yyyy-mm-dd hh24:mi:ss')
+      </if>
+      <if test="endyear != null and endyear != ''">
+        and PRSTARTTIME <![CDATA[>]]> to_date(#{endyear,jdbcType=TIMESTAMP},'yyyy-mm-dd hh24:mi:ss')
+      </if>
+      and KYID = #{kyid,jdbcType=DECIMAL}
+    </where>
+  </select>
+
+  <select id="countKPRORESULTSdept" parameterType="com.chengyong.entity.KProresults" resultType="java.lang.Integer">
+    select count(*) from K_PRORESULTS
+    <where>
+      <if test="statyear != null and statyear != ''">
+        PRSTARTTIME <![CDATA[<]]> to_date(#{statyear,jdbcType=TIMESTAMP},'yyyy-mm-dd hh24:mi:ss')
+      </if>
+      <if test="endyear != null and endyear != ''">
+        and PRSTARTTIME <![CDATA[>]]> to_date(#{endyear,jdbcType=TIMESTAMP},'yyyy-mm-dd hh24:mi:ss')
+      </if>
+      and DEPT = #{dept,jdbcType=VARCHAR}
+    </where>
+  </select>
+
+  <select id="countKPRORESULTSsch" parameterType="com.chengyong.entity.KProresults" resultType="java.lang.Integer">
+    select count(*) from K_PRORESULTS
+    <where>
+      <if test="statyear != null and statyear != ''">
+        PRSTARTTIME <![CDATA[<]]> to_date(#{statyear,jdbcType=TIMESTAMP},'yyyy-mm-dd hh24:mi:ss')
+      </if>
+      <if test="endyear != null and endyear != ''">
+        and PRSTARTTIME <![CDATA[>]]> to_date(#{endyear,jdbcType=TIMESTAMP},'yyyy-mm-dd hh24:mi:ss')
+      </if>
+    </where>
+  </select>
 </mapper>
