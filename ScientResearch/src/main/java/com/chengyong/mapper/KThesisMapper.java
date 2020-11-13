@@ -38,4 +38,12 @@ public interface KThesisMapper {
     Integer countKTHESISdept(KThesis record);
 
     Integer countKTHESISsch(KThesis record);
+
+    Integer therecountKthesis(KThesis record);
+
+    Integer therecountKthesis2(KThesis record);
+
+    Integer therecountKthesis1(KThesis record);
+
+    Integer deptcountKthesis(KThesis record);
 }

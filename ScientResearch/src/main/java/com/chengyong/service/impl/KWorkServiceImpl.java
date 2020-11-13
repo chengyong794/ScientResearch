@@ -154,4 +154,37 @@ public class KWorkServiceImpl implements KWorkService {
         record.setEndyear(endyear);
         return kWorkMapper.countKWorksch(record);
     }
+
+    @Override
+    public Integer therecountKWork(String statyear) {
+        String kyname = (String) request.getSession().getAttribute("user");
+        KWork record = new KWork();
+        record.setKyid(kKyuserMapper.selectByuname(kyname));
+        record.setStatyear(statyear);
+        return kWorkMapper.therecountKWork(record);
+    }
+
+    @Override
+    public Integer therecountKWork2(String statyear) {
+        String kyname = (String) request.getSession().getAttribute("user");
+        KWork record = new KWork();
+        record.setWdept(kKyuserMapper.selectByDept(kyname));
+        record.setStatyear(statyear);
+        return kWorkMapper.therecountKWork2(record);
+    }
+
+    @Override
+    public Integer therecountKWork1(String statyear) {
+        KWork record = new KWork();
+        record.setStatyear(statyear);
+        return kWorkMapper.therecountKWork1(record);
+    }
+
+    @Override
+    public Integer deptcountKWork(String statyear,String dept) {
+        KWork record = new KWork();
+        record.setWdept(dept);
+        record.setStatyear(statyear);
+        return kWorkMapper.deptcountKWork(record);
+    }
 }

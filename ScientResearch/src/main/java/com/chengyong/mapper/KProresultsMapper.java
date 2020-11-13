@@ -38,4 +38,12 @@ public interface KProresultsMapper {
     Integer countKPRORESULTSdept(KProresults record);
 
     Integer countKPRORESULTSsch(KProresults record);
+
+    Integer therecountKprojectresult(KProresults record);
+
+    Integer therecountKprojectresult2(KProresults record);
+
+    Integer therecountKprojectresult1(KProresults record);
+
+    Integer deptcountKprojectresult(KProresults record);
 }

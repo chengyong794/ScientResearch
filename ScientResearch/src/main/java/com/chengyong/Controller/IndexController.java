@@ -508,4 +508,72 @@ public class IndexController {
 
         return url;
     }
+
+    /**
+     * 三年科研业绩页面跳转
+     */
+    @RequestMapping("/Three__performance")
+    public String Three__performance(HttpServletRequest request){
+        String url = null;
+        String un = (String) request.getSession().getAttribute("user");
+        Integer KyType = (Integer) redisUtil.get(un);
+
+        if(KyType==null){
+            Short tp = kKyuserService.findUserRoleType(un);
+            if(tp==1||tp==0){
+                redisUtil.set("KyType",tp);
+                url = "page/performance/three_performance1";
+            }else if(tp==2){
+                redisUtil.set("KyType",tp);
+                url = "page/performance/three_performance2";
+            }else if(tp==3){
+                redisUtil.set("KyType",tp);
+                url = "page/performance/three_performance3";
+            }
+        }else{
+            if(KyType==1){
+                url = "page/performance/three_performance1";
+            }else if(KyType==2){
+                url = "page/performance/three_performance2";
+            }else if(KyType==3){
+                url = "page/performance/three_performance3";
+            }
+        }
+
+        return url;
+    }
+
+    /**
+     * 院系科研业绩页面跳转
+     */
+    @RequestMapping("/dept__performance")
+    public String dept__performance(HttpServletRequest request){
+        String url = null;
+        String un = (String) request.getSession().getAttribute("user");
+        Integer KyType = (Integer) redisUtil.get(un);
+
+        if(KyType==null){
+            Short tp = kKyuserService.findUserRoleType(un);
+            if(tp==1||tp==0){
+                redisUtil.set("KyType",tp);
+                url = "page/performance/dept_performance1";
+            }else if(tp==2){
+                redisUtil.set("KyType",tp);
+                url = "page/performance/dept_performance2";
+            }else if(tp==3){
+                redisUtil.set("KyType",tp);
+                url = "page/performance/dept_performance3";
+            }
+        }else{
+            if(KyType==1){
+                url = "page/performance/dept_performance1";
+            }else if(KyType==2){
+                url = "page/performance/dept_performance2";
+            }else if(KyType==3){
+                url = "page/performance/dept_performance3";
+            }
+        }
+
+        return url;
+    }
 }

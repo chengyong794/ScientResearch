@@ -38,4 +38,12 @@ public interface KWorkMapper {
     Integer countKWorkdept(KWork record);
 
     Integer countKWorksch(KWork record);
+
+    Integer therecountKWork(KWork record);
+
+    Integer therecountKWork2(KWork record);
+
+    Integer therecountKWork1(KWork record);
+
+    Integer deptcountKWork(KWork record);
 }

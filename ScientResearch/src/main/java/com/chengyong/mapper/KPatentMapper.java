@@ -38,4 +38,12 @@ public interface KPatentMapper {
     Integer countKPATENTdept(KPatent record);
 
     Integer countKPATENTsch(KPatent record);
+
+    Integer therecountKPatent(KPatent record);
+
+    Integer therecountKPatent2(KPatent record);
+
+    Integer therecountKPatent1(KPatent record);
+
+    Integer deptcountKPatent(KPatent record);
 }

@@ -158,4 +158,37 @@ public class KPatentServiceImpl implements KPatentService {
         record.setEndyear(endyear);
         return kPatentMapper.countKPATENTsch(record);
     }
+
+    @Override
+    public Integer therecountKPatent(String statyear) {
+        String kyname = (String) request.getSession().getAttribute("user");
+        KPatent record = new KPatent();
+        record.setKyid(kKyuserMapper.selectByuname(kyname));
+        record.setStatyear(statyear);
+        return kPatentMapper.therecountKPatent(record);
+    }
+
+    @Override
+    public Integer therecountKPatent2(String statyear) {
+        String kyname = (String) request.getSession().getAttribute("user");
+        KPatent record = new KPatent();
+        record.setZdept(kKyuserMapper.selectByDept(kyname));
+        record.setStatyear(statyear);
+        return kPatentMapper.therecountKPatent2(record);
+    }
+
+    @Override
+    public Integer therecountKPatent1(String statyear) {
+        KPatent record = new KPatent();
+        record.setStatyear(statyear);
+        return kPatentMapper.therecountKPatent1(record);
+    }
+
+    @Override
+    public Integer deptcountKPatent(String statyear,String dept) {
+        KPatent record = new KPatent();
+        record.setZdept(dept);
+        record.setStatyear(statyear);
+        return kPatentMapper.deptcountKPatent(record);
+    }
 }

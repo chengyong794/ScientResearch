@@ -315,6 +315,7 @@
         and PRSTARTTIME <![CDATA[>]]> to_date(#{endyear,jdbcType=TIMESTAMP},'yyyy-mm-dd hh24:mi:ss')
       </if>
       and KYID = #{kyid,jdbcType=DECIMAL}
+      and PRACHNUM = 2
     </where>
   </select>
 
@@ -328,6 +329,7 @@
         and PRSTARTTIME <![CDATA[>]]> to_date(#{endyear,jdbcType=TIMESTAMP},'yyyy-mm-dd hh24:mi:ss')
       </if>
       and DEPT = #{dept,jdbcType=VARCHAR}
+      and PRACHNUM = 2
     </where>
   </select>
 
@@ -340,6 +342,38 @@
       <if test="endyear != null and endyear != ''">
         and PRSTARTTIME <![CDATA[>]]> to_date(#{endyear,jdbcType=TIMESTAMP},'yyyy-mm-dd hh24:mi:ss')
       </if>
+      and PRACHNUM = 2
+    </where>
+  </select>
+
+  <select id="therecountKprojectresult" parameterType="com.chengyong.entity.KProresults" resultType="java.lang.Integer">
+    select  count(*) from K_PRORESULTS where
+    to_char(PRSTARTTIME,'yyyy')=#{statyear,jdbcType=VARCHAR}
+    and KYID = #{kyid,jdbcType=DECIMAL}
+    and PRACHNUM = 2
+  </select>
+
+  <select id="therecountKprojectresult2" parameterType="com.chengyong.entity.KProresults" resultType="java.lang.Integer">
+    select  count(*) from K_PRORESULTS where
+    to_char(PRSTARTTIME,'yyyy')=#{statyear,jdbcType=VARCHAR}
+    and DEPT = #{dept,jdbcType=VARCHAR}
+    and PRACHNUM = 2
+  </select>
+
+  <select id="therecountKprojectresult1" parameterType="com.chengyong.entity.KProresults" resultType="java.lang.Integer">
+    select  count(*) from K_PRORESULTS where
+    to_char(PRSTARTTIME,'yyyy')=#{statyear,jdbcType=VARCHAR}
+    and PRACHNUM = 2
+  </select>
+
+  <select id="deptcountKprojectresult" parameterType="com.chengyong.entity.KProresults" resultType="java.lang.Integer">
+    select  count(*) from K_PRORESULTS
+    <where>
+      <if test="statyear != null and statyear != ''">
+        to_char(PRSTARTTIME,'yyyy')=#{statyear,jdbcType=VARCHAR}
+      </if>
+      and DEPT = #{dept,jdbcType=VARCHAR}
+      and PRACHNUM = 2
     </where>
   </select>
 </mapper>

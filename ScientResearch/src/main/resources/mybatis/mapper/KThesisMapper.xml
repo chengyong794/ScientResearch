@@ -325,6 +325,7 @@
       and TSTARTTIME <![CDATA[>]]> to_date(#{endyear,jdbcType=TIMESTAMP},'yyyy-mm-dd hh24:mi:ss')
     </if>
       and KYID = #{kyid,jdbcType=DECIMAL}
+      and TACHNUM = 2
     </where>
   </select>
 
@@ -338,6 +339,7 @@
         and TSTARTTIME <![CDATA[>]]> to_date(#{endyear,jdbcType=TIMESTAMP},'yyyy-mm-dd hh24:mi:ss')
       </if>
       and TDEPT = #{tdept,jdbcType=VARCHAR}
+      and TACHNUM = 2
     </where>
   </select>
 
@@ -350,6 +352,39 @@
       <if test="endyear != null and endyear != ''">
         and TSTARTTIME <![CDATA[>]]> to_date(#{endyear,jdbcType=TIMESTAMP},'yyyy-mm-dd hh24:mi:ss')
       </if>
+      and TACHNUM = 2
+    </where>
+  </select>
+
+  <select id="therecountKthesis" parameterType="com.chengyong.entity.KThesis" resultType="java.lang.Integer">
+    select  count(*) from K_THESIS where
+    to_char(TSTARTTIME,'yyyy')=#{statyear,jdbcType=VARCHAR}
+    and KYID = #{kyid,jdbcType=DECIMAL}
+    and TACHNUM = 2
+  </select>
+
+  <select id="therecountKthesis2" parameterType="com.chengyong.entity.KThesis" resultType="java.lang.Integer">
+    select  count(*) from K_THESIS where
+    to_char(TSTARTTIME,'yyyy')=#{statyear,jdbcType=VARCHAR}
+    and TDEPT = #{tdept,jdbcType=VARCHAR}
+    and TACHNUM = 2
+  </select>
+
+  <select id="therecountKthesis1" parameterType="com.chengyong.entity.KThesis" resultType="java.lang.Integer">
+    select  count(*) from K_THESIS where
+    to_char(TSTARTTIME,'yyyy')=#{statyear,jdbcType=VARCHAR}
+    and TACHNUM = 2
+  </select>
+
+
+  <select id="deptcountKthesis" parameterType="com.chengyong.entity.KThesis" resultType="java.lang.Integer">
+    select  count(*) from K_THESIS
+    <where>
+      <if test="statyear != null and statyear != ''">
+        to_char(TSTARTTIME,'yyyy')=#{statyear,jdbcType=VARCHAR}
+      </if>
+      and TDEPT = #{tdept,jdbcType=VARCHAR}
+      and TACHNUM = 2
     </where>
   </select>
 </mapper>

@@ -40,4 +40,12 @@ public interface KProresultsService {
     Integer countKPRORESULTSdept(String statyear,String endyear);
 
     Integer countKPRORESULTSsch(String statyear,String endyear);
+
+    Integer therecountKprojectresult(String statyear);
+
+    Integer therecountKprojectresult2(String statyear);
+
+    Integer therecountKprojectresult1(String statyear);
+
+    Integer deptcountKprojectresult(String statyear,String dept);
 }

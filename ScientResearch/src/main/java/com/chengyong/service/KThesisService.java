@@ -41,4 +41,11 @@ public interface KThesisService {
 
     Integer countKTHESISsch(String statyear,String endyear);
 
+    Integer therecountKthesis(String statyear);
+
+    Integer therecountKthesis2(String statyear);
+
+    Integer therecountKthesis1(String statyear);
+
+    Integer deptcountKthesis(String statyear,String dept);
 }

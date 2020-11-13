@@ -42,4 +42,12 @@ public interface KPatentService {
     Integer countKPATENTdept(String statyear,String endyear);
 
     Integer countKPATENTsch(String statyear,String endyear);
+
+    Integer therecountKPatent(String statyear);
+
+    Integer therecountKPatent2(String statyear);
+
+    Integer therecountKPatent1(String statyear);
+
+    Integer deptcountKPatent(String statyear,String dept);
 }

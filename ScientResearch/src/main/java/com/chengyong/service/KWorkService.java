@@ -41,4 +41,12 @@ public interface KWorkService {
 
     Integer countKWorksch(String statyear, String endyear);
 
+    Integer therecountKWork(String statyear);
+
+    Integer therecountKWork2(String statyear);
+
+    Integer therecountKWork1(String statyear);
+
+    Integer deptcountKWork(String statyear,String dept);
+
 }

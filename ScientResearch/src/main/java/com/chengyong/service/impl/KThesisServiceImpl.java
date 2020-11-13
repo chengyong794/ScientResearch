@@ -156,4 +156,37 @@ public class KThesisServiceImpl implements KThesisService {
         record.setEndyear(endyear);
         return kThesisMapper.countKTHESISsch(record);
     }
+
+    @Override
+    public Integer therecountKthesis(String statyear) {
+        String kyname = (String) request.getSession().getAttribute("user");
+        KThesis record = new KThesis();
+        record.setKyid(kKyuserMapper.selectByuname(kyname));
+        record.setStatyear(statyear);
+        return kThesisMapper.therecountKthesis(record);
+    }
+
+    @Override
+    public Integer therecountKthesis2(String statyear) {
+        String kyname = (String) request.getSession().getAttribute("user");
+        KThesis record = new KThesis();
+        record.setTdept(kKyuserMapper.selectByDept(kyname));
+        record.setStatyear(statyear);
+        return kThesisMapper.therecountKthesis2(record);
+    }
+
+    @Override
+    public Integer therecountKthesis1(String statyear) {
+        KThesis record = new KThesis();
+        record.setStatyear(statyear);
+        return kThesisMapper.therecountKthesis1(record);
+    }
+
+    @Override
+    public Integer deptcountKthesis(String statyear,String dept) {
+        KThesis record = new KThesis();
+        record.setTdept(dept);
+        record.setStatyear(statyear);
+        return kThesisMapper.deptcountKthesis(record);
+    }
 }

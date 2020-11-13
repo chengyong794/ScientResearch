@@ -153,4 +153,37 @@ public class KProresultsServiceImpl implements KProresultsService {
         record.setEndyear(endyear);
         return kProresultsMapper.countKPRORESULTSsch(record);
     }
+
+    @Override
+    public Integer therecountKprojectresult(String statyear) {
+        String kyname = (String) request.getSession().getAttribute("user");
+        KProresults record = new KProresults();
+        record.setKyid(kKyuserMapper.selectByuname(kyname));
+        record.setStatyear(statyear);
+        return kProresultsMapper.therecountKprojectresult(record);
+    }
+
+    @Override
+    public Integer therecountKprojectresult2(String statyear) {
+        String kyname = (String) request.getSession().getAttribute("user");
+        KProresults record = new KProresults();
+        record.setDept(kKyuserMapper.selectByDept(kyname));
+        record.setStatyear(statyear);
+        return kProresultsMapper.therecountKprojectresult2(record);
+    }
+
+    @Override
+    public Integer therecountKprojectresult1(String statyear) {
+        KProresults record = new KProresults();
+        record.setStatyear(statyear);
+        return kProresultsMapper.therecountKprojectresult1(record);
+    }
+
+    @Override
+    public Integer deptcountKprojectresult(String statyear,String dept) {
+        KProresults record = new KProresults();
+        record.setDept(dept);
+        record.setStatyear(statyear);
+        return kProresultsMapper.deptcountKprojectresult(record);
+    }
 }
