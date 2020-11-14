@@ -128,6 +128,19 @@ public class KKyuserService implements UserDetailsService {
 
     }
 
+
+    /**
+     * 校科研管理消息处理
+     * @param kKyuser
+     * @return
+     */
+    public DataJson messagelistUser(KKyuser kKyuser){
+            PageHelper.startPage(kKyuser.getPage(),kKyuser.getLimit());
+            List<KKyuser> list = kkyuserMapper.messagelistUser(kKyuser);
+            PageInfo info = new PageInfo(list);
+            return new DataJson(info.getTotal(),list);
+    }
+
     /**
      * 查询单个
      * @param kKyuser

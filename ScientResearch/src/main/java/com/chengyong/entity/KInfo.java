@@ -14,7 +14,31 @@ public class KInfo implements Serializable {
 
     private String iatta;
 
-    private Date infotime;
+    private String infotime;
+
+    private Integer page;
+
+    private Integer limit;
+
+    public Integer getPage() {
+        return page;
+    }
+
+    public void setPage(Integer page) {
+        this.page = page;
+    }
+
+    public Integer getLimit() {
+        return limit;
+    }
+
+    public void setLimit(Integer limit) {
+        this.limit = limit;
+    }
+
+    public void setInfotime(String infotime) {
+        this.infotime = infotime;
+    }
 
     public Short getIid() {
         return iid;
@@ -56,11 +80,7 @@ public class KInfo implements Serializable {
         this.iatta = iatta;
     }
 
-    public Date getInfotime() {
+    public String getInfotime() {
         return infotime;
-    }
-
-    public void setInfotime(Date infotime) {
-        this.infotime = infotime;
     }
 }

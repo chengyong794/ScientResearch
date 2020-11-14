@@ -18,16 +18,37 @@
     from K_INFO
     where IID = #{iid,jdbcType=DECIMAL}
   </select>
+
+  <select id="selectByPath" parameterType="java.lang.Short" resultType="java.lang.String">
+    select
+    IATTA
+    from K_INFO
+    where IID = #{iid,jdbcType=DECIMAL}
+  </select>
+
+  <select id="MessageList" parameterType="com.chengyong.entity.KInfo" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_INFO
+    <where>
+      <if test="outperson != null">
+        OUTPERSON like concat(concat('%',#{outperson,jdbcType=VARCHAR}),'%')
+      </if>
+      and INFOPERSON = #{infoperson,jdbcType=VARCHAR}
+    </where>
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
     delete from K_INFO
     where IID = #{iid,jdbcType=DECIMAL}
   </delete>
   <insert id="insert" parameterType="com.chengyong.entity.KInfo">
-    insert into K_INFO (IID, OUTPERSON, INFOPERSON, 
+    insert into K_INFO ( OUTPERSON, INFOPERSON,
       ICONTEXT, IATTA, INFOTIME
       )
-    values (#{iid,jdbcType=DECIMAL}, #{outperson,jdbcType=VARCHAR}, #{infoperson,jdbcType=VARCHAR}, 
-      #{icontext,jdbcType=VARCHAR}, #{iatta,jdbcType=VARCHAR}, #{infotime,jdbcType=TIMESTAMP}
+    values ( #{outperson,jdbcType=VARCHAR}, #{infoperson,jdbcType=VARCHAR},
+      #{icontext,jdbcType=VARCHAR}, #{iatta,jdbcType=VARCHAR}
+      , to_date(#{infotime,jdbcType=TIMESTAMP},'yyyy-MM-dd HH24:mi:ss')
       )
   </insert>
   <insert id="insertSelective" parameterType="com.chengyong.entity.KInfo">

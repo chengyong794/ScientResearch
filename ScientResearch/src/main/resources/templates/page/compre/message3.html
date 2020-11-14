@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <div th:replace="~{public :: layui_public_css}"></div>
+
+</head>
+<body>
+<div class="layuimini-container">
+    <div class="layuimini-main">
+
+        <fieldset class="table-search-fieldset">
+            <legend>搜索信息</legend>
+            <div style="margin: 10px 10px 10px 10px">
+                <form class="layui-form layui-form-pane" id="searchFrom" action="">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">发件人</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="outperson" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-inline">
+                            <button type="button" class="layui-btn layui-btn-primary"  lay-submit lay-filter="data-search-btn" id="data-search"><i class="layui-icon"></i> 搜 索</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </fieldset>
+
+        <!--查看消息页面开始-->
+        <div style="display: none;margin: auto;text-align: center;" class="layui-form layuimini-form" id="EditandAdd">
+            <span>发件人：</span><span id="fj"></span>
+            <br/>
+            <span>------------------------------------------------</span>
+            <br/>
+            <br/>
+            <br/>
+            <span>内容：</span><span id="nr"></span>
+            <br/>
+            <br/>
+            <br/>
+            <span>------------------------------------------------</span>
+            <br/>
+            <span>发送时间：</span><span id="sj"></span>
+        </div>
+        <!--查看消息页面结束-->
+
+        <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
+
+        <script type="text/html" id="currentTableBar">
+            <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit">删除</a>
+            <a class="layui-btn layui-btn-normal layui-btn-xs " lay-event="down">下载附件</a>
+            <a class="layui-btn layui-btn-normal layui-btn-xs " lay-event="context">查看内容</a>
+        </script>
+
+    </div>
+</div>
+<div th:replace="~{public :: layui_lay-config_js}"></div>
+
+<script>
+    layui.use(['form', 'table','jquery','layer'], function () {
+        var $ = layui.jquery,
+            form = layui.form,
+            table = layui.table,
+            layer = layui.layer;
+        var tablereh;
+        tablereh = table.render({
+            elem: '#currentTableId',
+            url: '/message/messagelist3',
+            toolbar: '#toolbarDemo',
+            limits: [10, 15, 20, 25, 50, 100],
+            limit: 10,
+            page: true,
+            skin: 'line',
+            cols: [
+                [
+                {type: "checkbox", width: 50},
+                {field: 'iid', width: 60, title: 'ID', sort: true},
+                {field: 'outperson', width: 100, title: '发件人'},
+                {field: 'infoperson', width: 100, title: '收件人'},
+                {field: 'icontext', title: '内容',width:100},
+                {field: 'iatta', width: 150, title: '附件',templet: function (d) {
+            if (d.iatta == null) {
+                return '<span class="layui-badge ">无</span>';
+            } else {
+                return '<span class="layui-badge layui-bg-blue">有</span>';
+            }
+        }},
+                {field: 'infotime', width: 150, title: '发送时间', sort: true},
+                {title: '操作', minWidth: 150, toolbar: '#currentTableBar', align: "center"}
+            ]
+            ]
+        });
+
+        // 监听搜索操作
+        form.on('submit(data-search-btn)', function (data) {
+            var datas = $("#searchFrom").serialize();
+                    //执行搜索重载
+                    tablereh.reload({
+                        url:'/message/messagelist3?'+datas,
+                    });
+        });
+
+        var add_edit_open;
+
+
+        table.on('tool(currentTableFilter)', function (obj) {
+            var data = obj.data;
+            if (obj.event === 'edit') {
+                layer.confirm('真的删除么', function (index) {
+                        $.ajax({
+                            type:'GET',
+                            url:"/message/messagedel?iid="+data.iid,
+                            success:function(msg){
+                                layer.msg(msg.info);
+                                layer.close(add_edit_open);
+                                tablereh.reload();
+                            }
+                        });
+                return false;
+                });
+            }else if(obj.event === 'down'){
+                $.ajax({
+                    type:'GET',
+                    url:"/down/message?iid="+data.iid,
+                    success:function(msg){
+                        if(msg.info==1){
+                            layer.msg("无附件下载");
+                        }else if(msg.info==0){
+                            layer.msg("下载成功");
+                            window.location.href='/down/downmessage?iid='+data.iid;
+                        }
+                    }
+                });
+            }else if(obj.event === 'context'){
+                add_edit_open = layer.open({
+                    title: '消息查看',
+                    type:1,
+                    content:$('#EditandAdd'),
+                    skin: 'layui-layer-lan',
+                    area: ['400px', '400px']
+                    ,btnAlign:'c'
+                    ,btn: ['关闭'
+                        , '取消']
+                    ,yes: function(index, layero){
+                        layer.close(add_edit_open);
+                    }
+                    ,btn2: function(index, layero){
+                    }
+                    ,success:function(index){
+                        $("#fj").html(data.outperson);
+                        $("#nr").html(data.icontext);
+                        $("#sj").html(data.infotime);
+                    }
+                });
+            }
+        });
+
+    });
+</script>
+
+</body>
+</html>

@@ -33,5 +33,9 @@ public interface KKyuserMapper {
 
     List<KKyuser> listUser(KKyuser kKyuser);
 
+    List<KKyuser> messagelistUser(KKyuser kKyuser);
+
     Short findUserRoleType(String username);
+
+    String selectKYNAME(Short kyid);
 }

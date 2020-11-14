@@ -8,6 +8,7 @@ public class PUBLIC_ATTRIBUTE {
     public static final String UPLOAD_SUCCESS = "上传成功";
     public static final String DOWN_SUCCESS = "下载成功";
     public static final String APPROVED_SUCCESS = "操作成功";
+    public static final String SEND_SUCCESS = "发送成功";
 
     public static final String ADD_ERROR =  "添加失败";
     public static final String UPDATE_ERROR =  "修改失败";
@@ -17,6 +18,8 @@ public class PUBLIC_ATTRIBUTE {
     public static final String DELETE_PARENTID =  "删除失败,该目录下还有子节点";
     public static final String DOWN_ERROR = "下载失败";
     public static final String APPROVED_ERROR = "操作失败";
+    public static final String SEND_ERROR = "发送失败";
+    public static final String SEND_PERSON = "请勾选发送人";
 
     public static final String UPLOAD_PATH_PRO = "D:\\Scient\\proUpload";
     public static final String UPLOAD_PATH_CHECK = "D:\\Scient\\checkUpload";
@@ -25,4 +28,5 @@ public class PUBLIC_ATTRIBUTE {
     public static final String UPLOAD_PATH_BOOK = "D:\\Scient\\bookUpload";
     public static final String UPLOAD_PATH_PRORESULT = "D:\\Scient\\proResultUpload";
     public static final String UPLOAD_PATH_PATENT = "D:\\Scient\\patentUpload";
+    public static final String UPLOAD_PATH_MESSAGE = "D:\\Scient\\messageUpload";
 }

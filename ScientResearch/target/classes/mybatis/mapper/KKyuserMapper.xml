@@ -37,6 +37,26 @@
     </where>
   </select>
 
+  <select id="messagelistUser" parameterType="com.chengyong.entity.KKyuser" resultMap="BaseResultMap">
+    select
+    *
+    from K_KYUSER
+    <where>
+      <if test="username != null">
+        and kyname like concat(concat('%',#{username,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="userdept != null">
+        and userdept like concat(concat('%',#{userdept,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="addr != null">
+        and addr like concat(concat('%',#{addr,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="kjob != null">
+        and kjob like concat(concat('%',#{kjob,jdbcType=VARCHAR}),'%')
+      </if>
+    </where>
+  </select>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
@@ -49,6 +69,13 @@
     KYID
     from K_KYUSER
     where KYNAME = #{kyname,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectKYNAME" parameterType="java.lang.Short" resultType="java.lang.String">
+    select
+    KYNAME
+    from K_KYUSER
+    where KYID = #{kyid,jdbcType=DECIMAL}
   </select>
 
   <select id="selectByDept" parameterType="java.lang.String" resultType="java.lang.String">

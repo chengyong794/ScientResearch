@@ -605,4 +605,38 @@ public class IndexController {
 
         return url;
     }
+
+    /**
+     * 消息页面跳转
+     */
+    @RequestMapping("/message__compre")
+    public String message__compre(HttpServletRequest request){
+        String url = null;
+        String un = (String) request.getSession().getAttribute("user");
+        Integer KyType = (Integer) redisUtil.get(un);
+
+        if(KyType==null){
+            Short tp = kKyuserService.findUserRoleType(un);
+            if(tp==1||tp==0){
+                redisUtil.set("KyType",tp);
+                url = "page/compre/message1";
+            }else if(tp==2){
+                redisUtil.set("KyType",tp);
+                url = "page/compre/message2";
+            }else if(tp==3){
+                redisUtil.set("KyType",tp);
+                url = "page/compre/message3";
+            }
+        }else{
+            if(KyType==1){
+                url = "page/compre/message1";
+            }else if(KyType==2){
+                url = "page/compre/message2";
+            }else if(KyType==3){
+                url = "page/compre/message3";
+            }
+        }
+
+        return url;
+    }
 }
