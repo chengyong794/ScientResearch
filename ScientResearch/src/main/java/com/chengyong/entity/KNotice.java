@@ -10,7 +10,27 @@ public class KNotice implements Serializable {
 
     private String nperson;
 
-    private Date nstarttime;
+    private String nstarttime;
+
+    private Integer page;
+
+    private Integer limit;
+
+    public Integer getPage() {
+        return page;
+    }
+
+    public void setPage(Integer page) {
+        this.page = page;
+    }
+
+    public Integer getLimit() {
+        return limit;
+    }
+
+    public void setLimit(Integer limit) {
+        this.limit = limit;
+    }
 
     public Short getNid() {
         return nid;
@@ -36,11 +56,11 @@ public class KNotice implements Serializable {
         this.nperson = nperson;
     }
 
-    public Date getNstarttime() {
+    public String getNstarttime() {
         return nstarttime;
     }
 
-    public void setNstarttime(Date nstarttime) {
+    public void setNstarttime(String nstarttime) {
         this.nstarttime = nstarttime;
     }
 }

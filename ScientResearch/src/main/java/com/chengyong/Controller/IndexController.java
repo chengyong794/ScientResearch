@@ -1,13 +1,17 @@
 package com.chengyong.Controller;
 
+import com.chengyong.entity.KNotice;
 import com.chengyong.entity.KView;
+import com.chengyong.mapper.KNoticeMapper;
 import com.chengyong.service.KKyuserService;
+import com.chengyong.service.KNoticeService;
 import com.chengyong.service.KviewService;
 import com.chengyong.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -25,6 +29,9 @@ public class IndexController {
 
     @Autowired
     private KKyuserService kKyuserService;
+
+    @Autowired
+    private KNoticeMapper kNoticeMapper;
 
     @Autowired
     private RedisUtil redisUtil;
@@ -80,9 +87,11 @@ public class IndexController {
      * @return
      */
     @RequestMapping("/welcome")
-    public String welcome(){
-        //templates 默认前缀就是templates
-        return "page/welcome-1";
+    public ModelAndView welcome(){
+        ModelAndView mod = new ModelAndView("page/welcome-1");
+        List<KNotice> list = kNoticeMapper.ListNotice(new KNotice());
+        mod.addObject("list",list);
+        return mod;
     }
 
     /**
@@ -634,6 +643,40 @@ public class IndexController {
                 url = "page/compre/message2";
             }else if(KyType==3){
                 url = "page/compre/message3";
+            }
+        }
+
+        return url;
+    }
+
+    /**
+     * 公告管理页面跳转
+     */
+    @RequestMapping("/notice__compre")
+    public String notice__compre(HttpServletRequest request){
+        String url = null;
+        String un = (String) request.getSession().getAttribute("user");
+        Integer KyType = (Integer) redisUtil.get(un);
+
+        if(KyType==null){
+            Short tp = kKyuserService.findUserRoleType(un);
+            if(tp==1||tp==0){
+                redisUtil.set("KyType",tp);
+                url = "page/compre/welcome1";
+            }else if(tp==2){
+                redisUtil.set("KyType",tp);
+                url = "page/compre/null";
+            }else if(tp==3){
+                redisUtil.set("KyType",tp);
+                url = "page/compre/null";
+            }
+        }else{
+            if(KyType==1){
+                url = "page/compre/welcome1";
+            }else if(KyType==2){
+                url = "page/compre/null";
+            }else if(KyType==3){
+                url = "page/compre/null";
             }
         }
 

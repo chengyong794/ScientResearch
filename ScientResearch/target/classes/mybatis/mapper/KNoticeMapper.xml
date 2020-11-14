@@ -16,15 +16,28 @@
     from K_NOTICE
     where NID = #{nid,jdbcType=DECIMAL}
   </select>
+
+  <select id="ListNotice" parameterType="com.chengyong.entity.KNotice" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_NOTICE
+    <where>
+      <if test="nperson != null">
+        NPERSON like concat(concat('%',#{nperson,jdbcType=VARCHAR}),'%')
+      </if>
+    </where>
+    order by NID desc
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
     delete from K_NOTICE
     where NID = #{nid,jdbcType=DECIMAL}
   </delete>
   <insert id="insert" parameterType="com.chengyong.entity.KNotice">
-    insert into K_NOTICE (NID, NCONTEXT, NPERSON, 
+    insert into K_NOTICE (NCONTEXT, NPERSON,
       NSTARTTIME)
-    values (#{nid,jdbcType=DECIMAL}, #{ncontext,jdbcType=VARCHAR}, #{nperson,jdbcType=VARCHAR}, 
-      #{nstarttime,jdbcType=TIMESTAMP})
+    values (#{ncontext,jdbcType=VARCHAR}, #{nperson,jdbcType=VARCHAR},
+      to_date(#{nstarttime,jdbcType=TIMESTAMP},'yyyy-MM-dd hh24:mi:ss'))
   </insert>
   <insert id="insertSelective" parameterType="com.chengyong.entity.KNotice">
     insert into K_NOTICE
@@ -76,7 +89,7 @@
     update K_NOTICE
     set NCONTEXT = #{ncontext,jdbcType=VARCHAR},
       NPERSON = #{nperson,jdbcType=VARCHAR},
-      NSTARTTIME = #{nstarttime,jdbcType=TIMESTAMP}
+      NSTARTTIME = to_date(#{nstarttime,jdbcType=TIMESTAMP},'yyyy-MM-dd hh24:mi:ss')
     where NID = #{nid,jdbcType=DECIMAL}
   </update>
 </mapper>
