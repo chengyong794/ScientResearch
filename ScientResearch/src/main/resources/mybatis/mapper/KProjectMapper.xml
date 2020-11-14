@@ -111,6 +111,25 @@
     </where>
   </select>
 
+  <select id="sucProject3Funding" parameterType="com.chengyong.entity.KProject" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from K_PROJECT
+    <where>
+      <if test="pname != null">
+        PNAME like concat(concat('%',#{pname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pcname != null">
+        and PCNAME like concat(concat('%',#{pcname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pdept != null">
+        and PDEPT like concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
+      </if>
+      and PLX1 = 1 and PLX2 = 1
+      and KYID = #{kyid,jdbcType=DECIMAL}
+    </where>
+  </select>
+
   <select id="declareProject2" parameterType="com.chengyong.entity.KProject" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />

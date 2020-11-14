@@ -576,4 +576,33 @@ public class IndexController {
 
         return url;
     }
+
+    /**
+     * 科研经费页面跳转
+     */
+    @RequestMapping("/fund__compre")
+    public String fund__compre(HttpServletRequest request){
+        String url = null;
+        String un = (String) request.getSession().getAttribute("user");
+        Integer KyType = (Integer) redisUtil.get(un);
+
+        if(KyType==null){
+            Short tp = kKyuserService.findUserRoleType(un);
+            if(tp==1||tp==0){
+                redisUtil.set("KyType",tp);
+                url = "page/compre/fund_project1";
+            }else if(tp==3){
+                redisUtil.set("KyType",tp);
+                url = "page/compre/fund_project3";
+            }
+        }else{
+            if(KyType==1){
+                url = "page/compre/fund_project1";
+            }else if(KyType==3){
+                url = "page/compre/fund_project3";
+            }
+        }
+
+        return url;
+    }
 }

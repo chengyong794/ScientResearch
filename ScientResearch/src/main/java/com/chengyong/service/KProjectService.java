@@ -33,6 +33,8 @@ public interface KProjectService {
 
     DataJson sucProject3(KProject kProject);
 
+    DataJson sucProject3Funding(KProject kProject);
+
     DataJson declareProject2(KProject kProject);
 
     DataJson listProjectSchool(KProject kProject);

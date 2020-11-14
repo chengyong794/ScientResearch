@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chengyong.mapper.KfundingMapper">
+  <resultMap id="BaseResultMap" type="com.chengyong.entity.Kfunding">
+    <id column="JID" jdbcType="DECIMAL" property="jid" />
+    <result column="PNAME" jdbcType="VARCHAR" property="pname" />
+    <result column="PCNAME" jdbcType="VARCHAR" property="pcname" />
+    <result column="MEMBERS" jdbcType="VARCHAR" property="members" />
+    <result column="PCCOME" jdbcType="VARCHAR" property="pccome" />
+    <result column="PCCLASIFY" jdbcType="VARCHAR" property="pcclasify" />
+    <result column="PDEPT" jdbcType="VARCHAR" property="pdept" />
+    <result column="JSUBDATE" jdbcType="TIMESTAMP" property="jsubdate" />
+    <result column="JAMOUNT" jdbcType="FLOAT" property="jamount" />
+    <result column="TOTALFUND" jdbcType="FLOAT" property="totalfund" />
+    <result column="DISTRI" jdbcType="FLOAT" property="distri" />
+    <result column="KYID" jdbcType="DECIMAL" property="kyid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    JID, PNAME, PCNAME, MEMBERS, PCCOME, PCCLASIFY, PDEPT,
+    JSUBDATE, JAMOUNT,TOTALFUND,DISTRI,KYID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from KFUNDING
+    where JID = #{jid,jdbcType=DECIMAL}
+  </select>
+
+  <select id="FundingList" parameterType="com.chengyong.entity.Kfunding" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from KFUNDING
+    <where>
+      <if test="pname != null">
+        PNAME like  concat(concat('%',#{pname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pcname != null">
+        and PCNAME like  concat(concat('%',#{pcname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pdept != null">
+      and PDEPT like  concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
+      </if>
+    </where>
+  </select>
+
+  <select id="FundingListBykyID" parameterType="com.chengyong.entity.Kfunding" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from KFUNDING
+    <where>
+      <if test="pname != null">
+        PNAME like  concat(concat('%',#{pname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pcname != null">
+        and PCNAME like  concat(concat('%',#{pcname,jdbcType=VARCHAR}),'%')
+      </if>
+      <if test="pdept != null">
+        and PDEPT like  concat(concat('%',#{pdept,jdbcType=VARCHAR}),'%')
+      </if>
+      and KYID = #{kyid,jdbcType=DECIMAL}
+    </where>
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from KFUNDING
+    where JID = #{jid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.chengyong.entity.Kfunding">
+    insert into KFUNDING (PNAME, PCNAME,
+      MEMBERS, PCCOME, PCCLASIFY, 
+      PDEPT, JSUBDATE, JAMOUNT,KYID
+      )
+    values ( #{pname,jdbcType=VARCHAR}, #{pcname,jdbcType=VARCHAR},
+      #{members,jdbcType=VARCHAR}, #{pccome,jdbcType=VARCHAR}, #{pcclasify,jdbcType=VARCHAR}, 
+      #{pdept,jdbcType=VARCHAR}, to_date(#{jsubdate,jdbcType=TIMESTAMP},'yyyy-MM-dd HH24:mi:ss')
+      , #{jamount,jdbcType=FLOAT},#{kyid,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.chengyong.entity.Kfunding">
+    insert into KFUNDING
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="jid != null">
+        JID,
+      </if>
+      <if test="pname != null">
+        PNAME,
+      </if>
+      <if test="pcname != null">
+        PCNAME,
+      </if>
+      <if test="members != null">
+        MEMBERS,
+      </if>
+      <if test="pccome != null">
+        PCCOME,
+      </if>
+      <if test="pcclasify != null">
+        PCCLASIFY,
+      </if>
+      <if test="pdept != null">
+        PDEPT,
+      </if>
+      <if test="jsubdate != null">
+        JSUBDATE,
+      </if>
+      <if test="jamount != null">
+        JAMOUNT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="jid != null">
+        #{jid,jdbcType=DECIMAL},
+      </if>
+      <if test="pname != null">
+        #{pname,jdbcType=VARCHAR},
+      </if>
+      <if test="pcname != null">
+        #{pcname,jdbcType=VARCHAR},
+      </if>
+      <if test="members != null">
+        #{members,jdbcType=VARCHAR},
+      </if>
+      <if test="pccome != null">
+        #{pccome,jdbcType=VARCHAR},
+      </if>
+      <if test="pcclasify != null">
+        #{pcclasify,jdbcType=VARCHAR},
+      </if>
+      <if test="pdept != null">
+        #{pdept,jdbcType=VARCHAR},
+      </if>
+      <if test="jsubdate != null">
+        #{jsubdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jamount != null">
+        #{jamount,jdbcType=FLOAT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chengyong.entity.Kfunding">
+    update KFUNDING
+    <set>
+      <if test="pname != null">
+        PNAME = #{pname,jdbcType=VARCHAR},
+      </if>
+      <if test="pcname != null">
+        PCNAME = #{pcname,jdbcType=VARCHAR},
+      </if>
+      <if test="members != null">
+        MEMBERS = #{members,jdbcType=VARCHAR},
+      </if>
+      <if test="pccome != null">
+        PCCOME = #{pccome,jdbcType=VARCHAR},
+      </if>
+      <if test="pcclasify != null">
+        PCCLASIFY = #{pcclasify,jdbcType=VARCHAR},
+      </if>
+      <if test="pdept != null">
+        PDEPT = #{pdept,jdbcType=VARCHAR},
+      </if>
+      <if test="jsubdate != null">
+        JSUBDATE = #{jsubdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jamount != null">
+        JAMOUNT = #{jamount,jdbcType=FLOAT},
+      </if>
+    </set>
+    where JID = #{jid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chengyong.entity.Kfunding">
+    update KFUNDING
+    set PNAME = #{pname,jdbcType=VARCHAR},
+      PCNAME = #{pcname,jdbcType=VARCHAR},
+      MEMBERS = #{members,jdbcType=VARCHAR},
+      PCCOME = #{pccome,jdbcType=VARCHAR},
+      PCCLASIFY = #{pcclasify,jdbcType=VARCHAR},
+      PDEPT = #{pdept,jdbcType=VARCHAR},
+      JSUBDATE = to_date(#{jsubdate,jdbcType=TIMESTAMP},'yyyy-MM-dd HH24:mi:ss'),
+      JAMOUNT = #{jamount,jdbcType=FLOAT},
+      TOTALFUND = #{totalfund,jdbcType=FLOAT},
+      DISTRI = #{distri,jdbcType=FLOAT}
+    where JID = #{jid,jdbcType=DECIMAL}
+  </update>
+</mapper>

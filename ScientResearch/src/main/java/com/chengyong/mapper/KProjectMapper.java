@@ -32,6 +32,8 @@ public interface KProjectMapper {
 
     List<KProject> sucProject3(KProject kProject);
 
+    List<KProject> sucProject3Funding(KProject kProject);
+
     List<KProject> declareProject2(KProject kProject);
 
     List<KProject> listProjectSchool(KProject kProject);

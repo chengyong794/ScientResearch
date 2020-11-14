@@ -177,6 +177,33 @@ public class KProjectServiceImpl implements KProjectService {
     }
 
     @Override
+    public DataJson sucProject3Funding(KProject kProject) {
+        String kyname = (String) request.getSession().getAttribute("user");
+        kProject.setKyid(kKyuserMapper.selectByuname(kyname));
+        String name="";
+        PageHelper.startPage(kProject.getPage(),kProject.getLimit());
+        List<KProject> list  = kProjectMapper.sucProject3Funding(kProject);
+        for (KProject kp:list
+        ) {
+            List<String> kpper = kProjectperMapper.selectName(kp.getPid());
+            if (kpper.size() == 0 || kpper == null) {
+                kp.setMembers("");
+            } else {
+                name = "";
+                for (String kper : kpper
+                ) {
+                    name += kper + ",";
+                }
+                kp.setMembers(name.substring(0, name.length() - 1));
+            }
+
+        }
+        PageInfo info = new PageInfo(list);
+
+        return new DataJson(info.getTotal(),list);
+    }
+
+    @Override
     public DataJson declareProject2(KProject kProject) {
         String kyname = (String) request.getSession().getAttribute("user");
         kProject.setPdept(kKyuserMapper.selectByDept(kyname));

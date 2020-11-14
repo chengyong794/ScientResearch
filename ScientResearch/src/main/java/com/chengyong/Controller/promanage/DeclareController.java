@@ -151,6 +151,18 @@ public class DeclareController {
         return kProjectService.sucProject3(kProject);
     }
 
+
+    /**
+     *  科研人员查看立项信息预算经费
+     * @param kProject
+     * @return
+     */
+    @RequestMapping("/sucProject3Funding")
+    public DataJson sucProject3Funding(KProject kProject){
+
+        return kProjectService.sucProject3Funding(kProject);
+    }
+
     /**
      *  系科研秘书查看项目信息
      * @param kProject
