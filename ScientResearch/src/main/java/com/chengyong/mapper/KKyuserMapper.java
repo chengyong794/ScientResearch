@@ -23,6 +23,10 @@ public interface KKyuserMapper {
 
     int updateByPrimaryKey(KKyuser record);
 
+    int updatePersonl(KKyuser record);
+
+    int updatePwd(KKyuser record);
+
     KKyuser loginUsername(String username);
 
     List<String> findUserRole(Short kyUserid);
@@ -38,4 +42,8 @@ public interface KKyuserMapper {
     Short findUserRoleType(String username);
 
     String selectKYNAME(Short kyid);
+
+    KKyuser selectByPrimaryName(String kyname);
+
+    String selectByPassword(Short kyid);
 }

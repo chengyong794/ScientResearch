@@ -16,8 +16,10 @@ class ChengyongApplicationTests {
 
     @Test
     void contextLoads() {
-        System.out.println(passwordEncoder.encode("123456"));
-        System.out.println(bCryptPasswordEncoder.encode("123456"));
+        String pwd1 = passwordEncoder.encode("123456");
+        String pwd2 = bCryptPasswordEncoder.encode("123456");
+        System.out.println(passwordEncoder.matches("123456",pwd1));
+        System.out.println(bCryptPasswordEncoder.matches("123456",pwd2));
     }
 
 }

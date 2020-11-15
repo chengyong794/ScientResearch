@@ -42,7 +42,7 @@
                     <div class="layui-card-header"><i class="fa fa-bullhorn icon icon-tip"></i>系统公告</div>
                     <div class="layui-card-body layui-text" th:each="notice:${list}">
                         <div class="layuimini-notice">
-                            <div class="layuimini-notice-title" th:text="${notice.nperson}">修改选项卡样式</div>
+                            <div class="layuimini-notice-title" th:text="${notice.nperson}+'-发布'">修改选项卡样式</div>
                             <div class="layuimini-notice-extra" th:text="${notice.nstarttime}">2019-07-11 23:06</div>
                             <div class="layuimini-notice-content layui-hide" th:utext="${notice.ncontext}">
                                 界面足够简洁清爽。<br>

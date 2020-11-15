@@ -1,5 +1,6 @@
 package com.chengyong.Controller;
 
+import com.chengyong.entity.KKyuser;
 import com.chengyong.entity.KNotice;
 import com.chengyong.entity.KView;
 import com.chengyong.mapper.KNoticeMapper;
@@ -681,5 +682,26 @@ public class IndexController {
         }
 
         return url;
+    }
+
+    /**
+     * 用户个人信息页面跳转
+     */
+    @RequestMapping("/user_set")
+    public ModelAndView user_set(HttpServletRequest request){
+        ModelAndView mod = new ModelAndView("page/user/user-setting");
+        String un = (String) request.getSession().getAttribute("user");
+        KKyuser kKyuser = kKyuserService.selectByPrimaryName(un);
+        mod.addObject("user",kKyuser);
+        return mod;
+    }
+
+    /**
+     * 用户修改密码页面跳转
+     */
+    @RequestMapping("/password_set")
+    public String password_set(HttpServletRequest request){
+
+        return "page/user/user-password";
     }
 }

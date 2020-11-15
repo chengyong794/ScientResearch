@@ -57,9 +57,16 @@
     </where>
   </select>
 
-  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
+  <select id="selectByPrimaryName" parameterType="java.lang.String" resultType="com.chengyong.entity.KKyuser">
+    select
+    KYID,KYNAME as username,USERDEPT, "RENAME", TEL, ADDR,KJOB
+    from K_KYUSER
+    where KYNAME = #{kyname,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectByPassword" parameterType="java.lang.Short" resultType="java.lang.String">
+    select
+    KYPWD as PASSWORD
     from K_KYUSER
     where KYID = #{kyid,jdbcType=DECIMAL}
   </select>
@@ -239,6 +246,23 @@ where u.KYNAME = #{username,jdbcType=VARCHAR}
       ADDR = #{addr,jdbcType=VARCHAR},
       NUITNAME = #{nuitname,jdbcType=VARCHAR},
       KJOB = #{kjob,jdbcType=VARCHAR}
+    where KYID = #{kyid,jdbcType=DECIMAL}
+  </update>
+
+  <update id="updatePersonl" parameterType="com.chengyong.entity.KKyuser">
+    update K_KYUSER
+    set KYNAME = #{username,jdbcType=VARCHAR},
+      USERDEPT = #{userdept,jdbcType=VARCHAR},
+      "RENAME" = #{rename,jdbcType=VARCHAR},
+      TEL = #{tel,jdbcType=VARCHAR},
+      ADDR = #{addr,jdbcType=VARCHAR},
+      KJOB = #{kjob,jdbcType=VARCHAR}
+    where KYID = #{kyid,jdbcType=DECIMAL}
+  </update>
+
+  <update id="updatePwd" parameterType="com.chengyong.entity.KKyuser">
+    update K_KYUSER
+    set KYPWD = #{password,jdbcType=VARCHAR}
     where KYID = #{kyid,jdbcType=DECIMAL}
   </update>
 </mapper>

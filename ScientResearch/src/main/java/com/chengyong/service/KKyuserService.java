@@ -1,5 +1,6 @@
 package com.chengyong.service;
 
+import com.chengyong.Controller.echart.EchartController;
 import com.chengyong.entity.KKyuser;
 import com.chengyong.entity.Klog;
 import com.chengyong.mapper.KKyroleMapper;
@@ -199,5 +200,40 @@ public class KKyuserService implements UserDetailsService {
 
     public Short findUserRoleType(String username){
         return  kkyuserMapper.findUserRoleType(username);
+    }
+
+    public KKyuser selectByPrimaryName(String kyname){
+        return kkyuserMapper.selectByPrimaryName(kyname);
+    }
+
+    /**
+     * 修改个人信息
+     * @param record
+     * @return
+     */
+    public int updatePersonl(KKyuser record){
+        try{
+            return kkyuserMapper.updatePersonl(record);
+        }catch (Exception e){
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
+    public Short selectByuname(String kyname){
+        return kkyuserMapper.selectByuname(kyname);
+    }
+
+    public String selectByPassword(Short kyid){
+        return kkyuserMapper.selectByPassword(kyid);
+    }
+
+    /**
+     * 修改密码
+     * @param record
+     * @return
+     */
+    public int updatePwd(KKyuser record){
+        return kkyuserMapper.updatePwd(record);
     }
 }
