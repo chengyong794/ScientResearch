@@ -2,54 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82602a60-2070-4f2f-af9b-f9a97fc674ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/util/FileDel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/error/403.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/error/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/error/500.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KProjectMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KProjectMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/service/impl/KPatentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/impl/KPatentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/service/impl/KProjectServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/impl/KProjectServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/service/impl/KProresultsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/impl/KProresultsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/service/impl/KThesisServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/impl/KThesisServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/service/impl/KWorkServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chengyong/service/impl/KWorkServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/KProjectMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/KProjectMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/compre/welcome1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/compre/welcome1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/promanage/check_project1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/promanage/check_project1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/promanage/check_project2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/promanage/check_project2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/promanage/end_project1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/promanage/end_project1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/promanage/end_project2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/promanage/end_project2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/results/book_results1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/results/book_results1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/results/book_results2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/results/book_results2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/results/paper_results1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/results/paper_results1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/results/paper_results2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/results/paper_results2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/results/patent_results1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/results/patent_results1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/results/patent_results2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/results/patent_results2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/results/project_results1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/results/project_results1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/results/project_results2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/results/project_results2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/system/log.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/system/log.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/system/permiss.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/system/permiss.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/user/user-password.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/user/user-password.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KProjectMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KProjectMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/service/impl/KProjectServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/impl/KProjectServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/service/impl/KThesisServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chengyong/service/impl/KThesisServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/KProjectMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/KProjectMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/page/compre/welcome1.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/page/compre/welcome1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/page/promanage/check_project1.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/page/promanage/check_project1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/page/promanage/check_project2.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/page/promanage/check_project2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/page/promanage/end_project1.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/page/promanage/end_project1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/page/promanage/end_project2.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/page/promanage/end_project2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/page/results/book_results1.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/page/results/book_results1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/page/results/book_results2.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/page/results/book_results2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/page/results/paper_results1.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/page/results/paper_results1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/page/results/paper_results2.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/page/results/paper_results2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/page/results/patent_results1.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/page/results/patent_results1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/page/results/patent_results2.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/page/results/patent_results2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/page/results/project_results1.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/page/results/project_results1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/page/results/project_results2.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/page/results/project_results2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/page/system/log.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/page/system/log.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/page/system/permiss.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/page/system/permiss.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/page/user/user-password.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/page/user/user-password.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/entity/KAuthor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/entity/KDept.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/entity/KMeeting.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/entity/KSetask.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/entity/KTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/entity/KUnit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KAuthorMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KDeptMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KMeetingMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KSetaskMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KTestMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/mapper/KUnitMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KAuthorService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KDeptService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KMeetingService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KSetaskService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KTestService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chengyong/service/KUnitService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/entity/KAuthor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/entity/KDept.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/entity/KMeeting.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/entity/KSetask.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/entity/KTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/entity/KUnit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KAuthorMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KDeptMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KMeetingMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KSetaskMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KTestMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/mapper/KUnitMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/service/KAuthorService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/service/KDeptService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/service/KMeetingService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/service/KSetaskService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/service/KTestService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chengyong/service/KUnitService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/page/promanage/succ_project1.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/page/promanage/succ_project1.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -352,7 +342,9 @@
       <workItem from="1605490740058" duration="367000" />
       <workItem from="1605491305356" duration="506000" />
       <workItem from="1605493632437" duration="3041000" />
-      <workItem from="1605497056552" duration="499000" />
+      <workItem from="1605497056552" duration="808000" />
+      <workItem from="1605497905864" duration="166000" />
+      <workItem from="1605498479337" duration="349000" />
     </task>
     <task id="LOCAL-00001" summary="2020-9-20 22:57 第一次提交">
       <created>1600613874401</created>
@@ -620,7 +612,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605428127391</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="2020 11 16 11:36 完成错误页面处理">
+      <created>1605497843087</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1605497843088</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -640,7 +639,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2020 10 11 19:50 完成日志 和 数据源监控" />
     <MESSAGE value="2020 10 13 17:43 完成AOP日志录入，springSecurity安全框架初步整合。" />
     <MESSAGE value="2020 10 15 17:34 做出一点点修改" />
     <MESSAGE value="2020 10 17 16:10 完成申报批次的 crud" />
@@ -665,7 +663,8 @@
     <MESSAGE value="2020 11 14 16:28 完成消息管理模块" />
     <MESSAGE value="2020 11 14 18:10 完成公告模块" />
     <MESSAGE value="2020 11 15 16:14 完成个人信息 密码修改  验证码的功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="2020 11 15 16:14 完成个人信息 密码修改  验证码的功能" />
+    <MESSAGE value="2020 11 16 11:36 完成错误页面处理" />
+    <option name="LAST_COMMIT_MESSAGE" value="2020 11 16 11:36 完成错误页面处理" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Notifications" timestamp="1600765310048">
@@ -692,14 +691,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="462" y="222" width="441" height="293" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1602055110720" />
-    <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605321255065">
+    <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605498627557">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1605321255065" />
-    <state x="31" y="0" key="CommitChangelistDialog2" timestamp="1605428120730">
+    <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1605498627557" />
+    <state x="31" y="0" key="CommitChangelistDialog2" timestamp="1605497836886">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="31" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1605428120730" />
+    <state x="31" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1605497836886" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1601899479194">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -716,66 +715,66 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="537" y="254" key="Github.ShareDialog/0.0.1366.728@0.0.1366.728" timestamp="1600613437871" />
-    <state width="1323" height="70" key="GridCell.Tab.0.bottom" timestamp="1605497564424">
+    <state width="1323" height="243" key="GridCell.Tab.0.bottom" timestamp="1605497871586">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="70" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605497564424" />
-    <state width="1323" height="70" key="GridCell.Tab.0.center" timestamp="1605497564424">
+    <state width="1323" height="243" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605497871586" />
+    <state width="1323" height="243" key="GridCell.Tab.0.center" timestamp="1605497871585">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="70" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1605497564424" />
-    <state width="1323" height="70" key="GridCell.Tab.0.left" timestamp="1605497564424">
+    <state width="1323" height="243" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1605497871585" />
+    <state width="1323" height="243" key="GridCell.Tab.0.left" timestamp="1605497871585">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="70" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1605497564424" />
-    <state width="1323" height="70" key="GridCell.Tab.0.right" timestamp="1605497564424">
+    <state width="1323" height="243" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1605497871585" />
+    <state width="1323" height="243" key="GridCell.Tab.0.right" timestamp="1605497871586">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="70" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1605497564424" />
-    <state width="1323" height="70" key="GridCell.Tab.1.bottom" timestamp="1605497564424">
+    <state width="1323" height="243" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1605497871586" />
+    <state width="1323" height="243" key="GridCell.Tab.1.bottom" timestamp="1605497871586">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="70" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605497564424" />
-    <state width="1323" height="70" key="GridCell.Tab.1.center" timestamp="1605497564424">
+    <state width="1323" height="243" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605497871586" />
+    <state width="1323" height="243" key="GridCell.Tab.1.center" timestamp="1605497871586">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="70" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1605497564424" />
-    <state width="1323" height="70" key="GridCell.Tab.1.left" timestamp="1605497564424">
+    <state width="1323" height="243" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1605497871586" />
+    <state width="1323" height="243" key="GridCell.Tab.1.left" timestamp="1605497871586">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="70" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1605497564424" />
-    <state width="1323" height="70" key="GridCell.Tab.1.right" timestamp="1605497564424">
+    <state width="1323" height="243" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1605497871586" />
+    <state width="1323" height="243" key="GridCell.Tab.1.right" timestamp="1605497871586">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="70" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1605497564424" />
-    <state width="1323" height="243" key="GridCell.Tab.2.bottom" timestamp="1605497299973">
+    <state width="1323" height="243" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1605497871586" />
+    <state width="1323" height="243" key="GridCell.Tab.2.bottom" timestamp="1605497871586">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="243" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605497299973" />
-    <state width="1323" height="243" key="GridCell.Tab.2.center" timestamp="1605497299973">
+    <state width="1323" height="243" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605497871586" />
+    <state width="1323" height="243" key="GridCell.Tab.2.center" timestamp="1605497871586">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="243" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1605497299973" />
-    <state width="1323" height="243" key="GridCell.Tab.2.left" timestamp="1605497299973">
+    <state width="1323" height="243" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1605497871586" />
+    <state width="1323" height="243" key="GridCell.Tab.2.left" timestamp="1605497871586">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="243" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1605497299973" />
-    <state width="1323" height="243" key="GridCell.Tab.2.right" timestamp="1605497299973">
+    <state width="1323" height="243" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1605497871586" />
+    <state width="1323" height="243" key="GridCell.Tab.2.right" timestamp="1605497871586">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="243" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1605497299973" />
+    <state width="1323" height="243" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1605497871586" />
     <state x="184" y="6" key="SettingsEditor" timestamp="1605342665169">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1605342665169" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1605428130719">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1605497987948">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1605428130719" />
-    <state x="363" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1605497055561">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1605497987948" />
+    <state x="363" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1605498478361">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="363" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1605497055561" />
+    <state x="363" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1605498478361" />
     <state x="357" y="155" key="git4idea.merge.GitPullDialog" timestamp="1601374263496">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
