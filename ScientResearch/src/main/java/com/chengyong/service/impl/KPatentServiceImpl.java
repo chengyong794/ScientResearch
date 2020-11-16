@@ -7,6 +7,7 @@ import com.chengyong.mapper.KKyuserMapper;
 import com.chengyong.mapper.KPatentMapper;
 import com.chengyong.service.KPatentService;
 import com.chengyong.util.DataJson;
+import com.chengyong.util.FileDel;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,9 @@ public class KPatentServiceImpl implements KPatentService {
 
     @Autowired
     private KKyuserMapper kKyuserMapper;
+
+    @Autowired
+    private FileDel fileDel;
 
     @Override
     public int deleteByPrimaryKey(Short zid) {
@@ -80,6 +84,7 @@ public class KPatentServiceImpl implements KPatentService {
         if(path==null){
             return kPatentMapper.updateByPrimaryKey1(record);
         }else{
+            fileDel.delF(kPatentMapper.selectByPATH(record.getZid()));
             record.setZresource(path);
             return kPatentMapper.updateByPrimaryKey(record);
         }

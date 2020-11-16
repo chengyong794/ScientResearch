@@ -6,6 +6,7 @@ import com.chengyong.mapper.KKyuserMapper;
 import com.chengyong.mapper.KWorkMapper;
 import com.chengyong.service.KWorkService;
 import com.chengyong.util.DataJson;
+import com.chengyong.util.FileDel;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,9 @@ public class KWorkServiceImpl implements KWorkService {
 
     @Autowired
     private KKyuserMapper kKyuserMapper;
+
+    @Autowired
+    private FileDel fileDel;
 
     @Override
     public int deleteByPrimaryKey(Short wid) {
@@ -75,6 +79,7 @@ public class KWorkServiceImpl implements KWorkService {
         if(path==null){
             return kWorkMapper.updateByPrimaryKey1(record);
         }else{
+            fileDel.delF(kWorkMapper.selectByPath(record.getWid()));
             record.setWresource(path);
             return kWorkMapper.updateByPrimaryKey(record);
         }

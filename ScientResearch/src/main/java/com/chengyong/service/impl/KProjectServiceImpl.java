@@ -7,6 +7,7 @@ import com.chengyong.mapper.KProjectMapper;
 import com.chengyong.mapper.KProjectperMapper;
 import com.chengyong.service.KProjectService;
 import com.chengyong.util.DataJson;
+import com.chengyong.util.FileDel;
 import com.chengyong.util.RedisUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -14,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.util.List;
 import java.util.Set;
 
@@ -33,6 +35,9 @@ public class KProjectServiceImpl implements KProjectService {
 
     @Autowired
     private RedisUtil redisUtil;
+
+    @Autowired
+    private FileDel fileDel;
 
     @Override
     public int deleteByPrimaryKey(Short pid) {
@@ -84,6 +89,9 @@ public class KProjectServiceImpl implements KProjectService {
 
     @Override
     public int updateByPZJSOURCE(KProject kProject) {
+        //删除旧的文件 加入新的文件
+        String zjpath = kProjectMapper.selectPZJSOURCE(kProject.getPid());
+        fileDel.delF(zjpath);
         return kProjectMapper.updateByPZJSOURCE(kProject);
     }
 

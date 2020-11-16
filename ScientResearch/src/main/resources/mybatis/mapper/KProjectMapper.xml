@@ -35,6 +35,12 @@
      ,PLX1,PLX2,PJX1,PJX2,PCNAME,PZJ1,PZJ2,PZJSOURCE,PYQ1,PYQ2,KYID
   </sql>
 
+  <select id="selectPZJSOURCE" parameterType="java.lang.Short" resultType="java.lang.String">
+    select
+    PZJSOURCE
+    from K_PROJECT where PID = #{pid,jdbcType=DECIMAL}
+  </select>
+
   <select id="downProjectSch" parameterType="java.lang.Short" resultType="java.lang.String">
     select
     psource

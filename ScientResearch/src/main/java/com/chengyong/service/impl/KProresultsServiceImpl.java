@@ -6,12 +6,14 @@ import com.chengyong.mapper.KKyuserMapper;
 import com.chengyong.mapper.KProresultsMapper;
 import com.chengyong.service.KProresultsService;
 import com.chengyong.util.DataJson;
+import com.chengyong.util.FileDel;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.util.List;
 
 @Service
@@ -25,6 +27,9 @@ public class KProresultsServiceImpl implements KProresultsService {
 
     @Autowired
     private KKyuserMapper kKyuserMapper;
+
+    @Autowired
+    private FileDel fileDel;
 
     @Override
     public int deleteByPrimaryKey(Short prid) {
@@ -74,6 +79,7 @@ public class KProresultsServiceImpl implements KProresultsService {
         if(path==null){
             return kProresultsMapper.updateByPrimaryKey1(record);
         }else{
+            fileDel.delF(kProresultsMapper.selectByPATH(record.getPrid()));
             record.setPresource(path);
             return kProresultsMapper.updateByPrimaryKey(record);
         }

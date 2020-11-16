@@ -2,6 +2,7 @@ package com.chengyong.mapper;
 
 import com.chengyong.entity.KProject;
 import com.chengyong.util.DataJson;
+import org.springframework.scheduling.support.SimpleTriggerContext;
 
 import java.util.List;
 
@@ -83,4 +84,6 @@ public interface KProjectMapper {
     int updateByPYQ2(Short pid,Short pyq2);
 
     String downProjectSch(Short pid);
+
+    String selectPZJSOURCE(Short pid);
 }

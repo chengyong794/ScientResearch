@@ -7,6 +7,7 @@ import com.chengyong.mapper.KKyuserMapper;
 import com.chengyong.mapper.KThesisMapper;
 import com.chengyong.service.KThesisService;
 import com.chengyong.util.DataJson;
+import com.chengyong.util.FileDel;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,9 @@ public class KThesisServiceImpl implements KThesisService {
 
     @Autowired
     private KKyuserMapper kKyuserMapper;
+
+    @Autowired
+    private FileDel fileDel;
 
     @Override
     public int deleteByPrimaryKey(Short tid) {
@@ -105,6 +109,7 @@ public class KThesisServiceImpl implements KThesisService {
         if(path == null){
             return kThesisMapper.updateByPrimaryKey1(record);
         }else{
+            fileDel.delF(kThesisMapper.selectBypath(record.getTid()));
             record.setTresource(path);
             return kThesisMapper.updateByPrimaryKey(record);
         }
